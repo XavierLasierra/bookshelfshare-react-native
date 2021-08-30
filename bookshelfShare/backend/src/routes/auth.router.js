@@ -2,6 +2,9 @@
 const { Router } = require('express');
 const passport = require('passport');
 const jwt = require('jsonwebtoken');
+const {
+  registerUser
+} = require('../controllers/auth.controller');
 
 const authRouter = new Router();
 
@@ -10,12 +13,7 @@ let refreshTokens = [];
 authRouter
   .post('/register',
     passport.authenticate('signup', { session: false }),
-    ({ user }, res) => {
-      res.json({
-        user,
-        message: 'User registered'
-      });
-    });
+    registerUser);
 
 authRouter.post(
   '/login',

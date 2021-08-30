@@ -14,8 +14,7 @@ passport.use(
         const userExists = await User.find({ email });
         if (userExists.length > 0) throw new Error('User already registered');
 
-        const user = await User.create({ email, password });
-        done(null, user);
+        done(null, { email, password });
       } catch (error) {
         done(error);
       }
