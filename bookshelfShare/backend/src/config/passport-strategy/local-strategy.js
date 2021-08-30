@@ -1,5 +1,6 @@
 const passport = require('passport');
 const { Strategy } = require('passport-local');
+const bcrypt = require('bcrypt');
 const User = require('../../models/user.model');
 
 passport.use(
@@ -9,15 +10,19 @@ passport.use(
       usernameField: 'email',
       passwordField: 'password'
     },
-    async (email, password, done) => {
-      try {
-        const userExists = await User.find({ email });
-        if (userExists.length > 0) throw new Error('User already registered');
+    (email, password, done) => {
+      bcrypt.hash(password, +process.env.BCRYPT_SALT, async (err, hash) => {
+        try {
+          if (err) throw new Error('Password encryption error');
 
-        done(null, { email, password });
-      } catch (error) {
-        done(error);
-      }
+          const userExists = await User.find({ email });
+          if (userExists.length > 0) throw new Error('User already registered');
+
+          done(null, { email, password: hash });
+        } catch (error) {
+          done(error);
+        }
+      });
     }
   )
 );
@@ -36,7 +41,7 @@ passport.use(
         if (!user) {
           throw new Error('User not registered');
         }
-
+        console.log(user.isValidPassword(password));
         if (!user.isValidPassword(password)) {
           throw new Error('Invalid password');
         }
