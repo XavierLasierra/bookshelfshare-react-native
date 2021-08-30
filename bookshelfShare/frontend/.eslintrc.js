@@ -1,24 +1,51 @@
 module.exports = {
   env: {
     es2021: true,
-    node: true,
+    node: true
   },
   extends: [
     'plugin:react/recommended',
-    'airbnb',
+    'airbnb'
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
-      jsx: true,
+      jsx: true
     },
     ecmaVersion: 12,
-    sourceType: 'module',
+    sourceType: 'module'
   },
   plugins: [
     'react',
-    '@typescript-eslint',
+    '@typescript-eslint'
   ],
-  rules: {
+  settings: {
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx', '.json']
+      }
+    }
   },
+  rules: {
+    'import/no-unresolved': 0,
+    'import/extensions': ['error', 'ignorePackages', {
+      js: 'never',
+      mjs: 'never',
+      jsx: 'never',
+      ts: 'never',
+      tsx: 'never'
+    }],
+    'react/jsx-filename-extension': [1, {
+      extensions: [
+        '.jsx',
+        '.tsx'
+      ]
+    }],
+    'no-use-before-define': 'off',
+    '@typescript-eslint/no-use-before-define': ['error'],
+    'comma-dangle': [2, 'never'],
+    'linebreak-style': 0,
+    'global-require': 0,
+    'eslint linebreak-style': [0, 'error', 'windows']
+  }
 };
