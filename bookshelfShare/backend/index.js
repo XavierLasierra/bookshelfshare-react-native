@@ -6,6 +6,7 @@ const morgan = require('morgan');
 const cors = require('cors');
 const authRouter = require('./src/routes/auth.router');
 const booksRouter = require('./src/routes/books.router');
+const userRouter = require('./src/routes/users.router');
 
 require('./src/config/ddbb.config');
 
@@ -20,6 +21,7 @@ server.use(express.json());
 
 server.use('/api/auth', authRouter);
 server.use('/api/books', booksRouter);
+server.use('/api/users', userRouter);
 
 server.listen(
   port,

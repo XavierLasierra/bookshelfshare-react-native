@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 const listSchema = mongoose.Schema({
   user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+  name: String,
   books: [
     {
       bookISBN: String,
