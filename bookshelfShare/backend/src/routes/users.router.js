@@ -1,14 +1,24 @@
 const { Router } = require('express');
 const passport = require('passport');
 const {
-  getUsers
+  getUsers,
+  getOneUserById,
+  deleteOneUserById,
+  updateOneUserById
 } = require('../controllers/users.controller');
 
-const booksRouter = new Router();
+const usersRouter = new Router();
 
-booksRouter
+usersRouter
   .route('/')
   .all(passport.authenticate('jwt', { session: false }))
   .get(getUsers);
 
-module.exports = booksRouter;
+usersRouter
+  .route('/:userId')
+  .all(passport.authenticate('jwt', { session: false }))
+  .get(getOneUserById)
+  .delete(deleteOneUserById)
+  .put(updateOneUserById);
+
+module.exports = usersRouter;
