@@ -1,4 +1,5 @@
 const axios = require('axios');
+const Book = require('../classes/book.class');
 
 function createGoogleSearchUrl(query) {
   const queryEntries = Object.entries(query);
@@ -12,7 +13,9 @@ async function getBooks({ query }, res) {
     const url = createGoogleSearchUrl(query);
     const { data: { items } } = await axios.get(url);
 
-    res.json(items);
+    const foundBooks = items.map((book) => new Book(book));
+
+    res.json(foundBooks);
   } catch (error) {
     res.status(500);
     res.send(error);
