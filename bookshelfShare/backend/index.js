@@ -5,6 +5,7 @@ const chalk = require('chalk');
 const morgan = require('morgan');
 const cors = require('cors');
 const authRouter = require('./src/routes/auth.router');
+const booksRouter = require('./src/routes/books.router');
 
 require('./src/config/ddbb.config');
 
@@ -18,6 +19,7 @@ server.use(morgan('dev'));
 server.use(express.json());
 
 server.use('/api/auth', authRouter);
+server.use('/api/books', booksRouter);
 
 server.listen(
   port,

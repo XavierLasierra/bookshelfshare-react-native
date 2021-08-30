@@ -1,0 +1,24 @@
+const axios = require('axios');
+
+function createGoogleSearchUrl(query) {
+  const queryEntries = Object.entries(query);
+  return `${queryEntries
+    .reduce((acc, queryElement, index) => `${acc}${queryElement[0]}:${queryElement[1]}${index < queryEntries.length - 1 ? '+' : ''}`, process.env.GOOGLE_API_URL)
+  }&key=${process.env.GOOGLE_API_KEY}`;
+}
+
+async function getBooks({ query }, res) {
+  try {
+    const url = createGoogleSearchUrl(query);
+    const { data: { items } } = await axios.get(url);
+
+    res.json(items);
+  } catch (error) {
+    res.status(500);
+    res.send(error);
+  }
+}
+
+module.exports = {
+  getBooks
+};

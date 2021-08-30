@@ -1,4 +1,3 @@
-/* eslint-disable no-underscore-dangle */
 const { Router } = require('express');
 const passport = require('passport');
 const {
