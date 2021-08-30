@@ -23,5 +23,6 @@ async function getBooks({ query }, res) {
 }
 
 module.exports = {
-  getBooks
+  getBooks,
+  createGoogleSearchUrl
 };
