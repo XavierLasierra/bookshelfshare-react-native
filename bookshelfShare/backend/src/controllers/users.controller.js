@@ -15,12 +15,12 @@ async function getOneUserById({ params: { userId } }, res) {
   try {
     const foundUser = await User.findById(userId);
 
-    if (!foundUser) res.sendStatus(404);
+    if (!foundUser) return res.sendStatus(404);
 
-    res.json(foundUser);
+    return res.json(foundUser);
   } catch (error) {
     res.status(500);
-    res.send(error);
+    return res.send(error);
   }
 }
 async function deleteOneUserById({ params: { userId } }, res) {
@@ -41,12 +41,12 @@ async function updateOneUserById({ params: { userId }, body }, res) {
       { new: true }
     );
 
-    if (!updatedUser) res.sendStatus(404);
+    if (!updatedUser) return res.sendStatus(404);
 
-    res.json(updatedUser);
+    return res.json(updatedUser);
   } catch (error) {
     res.status(500);
-    res.send(error);
+    return res.send(error);
   }
 }
 
