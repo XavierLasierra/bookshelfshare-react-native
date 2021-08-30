@@ -8,6 +8,7 @@ async function registerUser({ user, body: { username } }, res) {
   try {
     const createdUser = await User.create({ ...user, username });
 
+    res.status(201);
     res.json({
       createdUser,
       message: 'User registered'
@@ -18,35 +19,28 @@ async function registerUser({ user, body: { username } }, res) {
   }
 }
 
-async function loginUser({ user }, res) {
+function loginUser({ user }, res) {
   const data = { _id: user._id, email: user.email };
-  try {
-    const token = jwt.sign(
-      { user: data },
-      process.env.JWT_SECRET,
-      { expiresIn: '1m' }
-    );
-    const refreshToken = jwt.sign(
-      { user: data },
-      process.env.JWT_SECRET
-    );
+  const token = jwt.sign(
+    { user: data },
+    process.env.JWT_SECRET,
+    { expiresIn: '1m' }
+  );
+  const refreshToken = jwt.sign(
+    { user: data },
+    process.env.JWT_SECRET
+  );
 
-    refreshTokens.push(refreshToken);
+  refreshTokens.push(refreshToken);
 
-    res.json({
-      user,
-      token,
-      refreshToken
-    });
-  } catch (error) {
-    res.status(500);
-    res.send(error);
-  }
+  res.json({
+    user,
+    token,
+    refreshToken
+  });
 }
 
-function refreshUserToken(req, res) {
-  const { refreshToken } = req.body;
-
+function refreshUserToken({ body: { refreshToken } }, res) {
   if (!refreshToken) {
     return res.sendStatus(401);
   }
@@ -75,9 +69,13 @@ function refreshUserToken(req, res) {
 }
 
 function logoutUser({ body: { refreshToken } }, res) {
+  if (!refreshToken) {
+    return res.sendStatus(401);
+  }
+
   refreshTokens = refreshTokens.filter((current) => current !== refreshToken);
 
-  res.send('Logout successful');
+  return res.send('Logout successful');
 }
 
 module.exports = {

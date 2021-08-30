@@ -41,7 +41,6 @@ passport.use(
         if (!user) {
           throw new Error('User not registered');
         }
-        console.log(user.isValidPassword(password));
         if (!user.isValidPassword(password)) {
           throw new Error('Invalid password');
         }
