@@ -3,7 +3,8 @@ const {
   registerUser,
   loginUser,
   refreshUserToken,
-  logoutUser
+  logoutUser,
+  verifyToken
 } = require('./auth.controller');
 const User = require('../models/user.model');
 const userMock = require('../mocks/user.mock');
@@ -166,7 +167,7 @@ describe('Given a logoutUser function', () => {
         sendStatus: jest.fn()
       };
       test('Then res.sendStatus should have been called with 401', () => {
-        refreshUserToken(req, res);
+        logoutUser(req, res);
 
         expect(res.sendStatus).toHaveBeenCalledWith(401);
       });
@@ -185,6 +186,35 @@ describe('Given a logoutUser function', () => {
         logoutUser(req, res);
 
         expect(res.send).toHaveBeenCalledWith('Logout successful');
+      });
+    });
+  });
+});
+
+describe('Given a verify token function', () => {
+  describe('When it is triggered', () => {
+    const user = userMock;
+    const res = {
+      sendStatus: jest.fn(),
+      json: jest.fn()
+    };
+
+    describe('And there is an error', () => {
+      test('Then res.sendStatus should have been called with 403', () => {
+        verifyToken(true, user, res);
+
+        expect(res.sendStatus).toHaveBeenCalledWith(403);
+      });
+    });
+
+    describe('And there is no error', () => {
+      test('Then res.json should have been called', () => {
+        jwt.sign = jest.fn()
+          .mockReturnValue('token');
+
+        verifyToken(false, user, res);
+
+        expect(res.json).toHaveBeenCalled();
       });
     });
   });

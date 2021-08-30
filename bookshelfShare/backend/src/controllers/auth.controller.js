@@ -40,6 +40,24 @@ function loginUser({ user }, res) {
   });
 }
 
+function verifyToken(err, user, res) {
+  if (err) {
+    return res.sendStatus(403);
+  }
+
+  const data = { _id: user._id, email: user.email };
+
+  const token = jwt.sign(
+    { user: data },
+    process.env.JWT_SECRET,
+    { expiresIn: '1m' }
+  );
+
+  return res.json({
+    token
+  });
+}
+
 function refreshUserToken({ body: { refreshToken } }, res) {
   if (!refreshToken) {
     return res.sendStatus(401);
@@ -49,23 +67,11 @@ function refreshUserToken({ body: { refreshToken } }, res) {
     return res.sendStatus(403);
   }
 
-  return jwt.verify(refreshToken, process.env.JWT_SECRET, (err, { user }) => {
-    if (err) {
-      return res.sendStatus(403);
-    }
-
-    const data = { _id: user._id, email: user.email };
-
-    const token = jwt.sign(
-      { user: data },
-      process.env.JWT_SECRET,
-      { expiresIn: '1m' }
-    );
-
-    return res.json({
-      token
-    });
-  });
+  return jwt.verify(
+    refreshToken,
+    process.env.JWT_SECRET,
+    (err, { user }) => verifyToken(err, user, res)
+  );
 }
 
 function logoutUser({ body: { refreshToken } }, res) {
@@ -82,5 +88,6 @@ module.exports = {
   registerUser,
   loginUser,
   refreshUserToken,
-  logoutUser
+  logoutUser,
+  verifyToken
 };
