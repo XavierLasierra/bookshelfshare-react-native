@@ -4,7 +4,7 @@ const {
   getListById,
   deleteListById,
   updateListById,
-  updateUsersList,
+  updateListUsers,
   updateBooksFromList
 } = require('./lists.controller');
 const List = require('../models/list.model');
@@ -328,7 +328,7 @@ describe('Given an updateListById function', () => {
   });
 });
 
-describe('Given a updateUsersList function', () => {
+describe('Given a updateListUsers function', () => {
   describe('When it is triggered', () => {
     let req;
     let res;
@@ -357,7 +357,7 @@ describe('Given a updateUsersList function', () => {
               users: ['1']
             });
 
-            await updateUsersList(req, res);
+            await updateListUsers(req, res);
 
             expect(res.sendStatus).toHaveBeenCalledWith(409);
           });
@@ -371,7 +371,7 @@ describe('Given a updateUsersList function', () => {
             });
           });
           test('Then res.json should have been called', async () => {
-            await updateUsersList(req, res);
+            await updateListUsers(req, res);
 
             expect(res.json).toHaveBeenCalled();
           });
@@ -380,7 +380,7 @@ describe('Given a updateUsersList function', () => {
             const foundList = await List.findById();
             const initialLength = foundList.users.length;
 
-            await updateUsersList(req, res);
+            await updateListUsers(req, res);
 
             expect(foundList.users.length - initialLength).toBe(1);
           });
@@ -391,7 +391,7 @@ describe('Given a updateUsersList function', () => {
         test('Then should call res.sendStatus with 404', async () => {
           List.findById.mockResolvedValue(undefined);
 
-          await updateUsersList(req, res);
+          await updateListUsers(req, res);
 
           expect(res.sendStatus).toHaveBeenCalledWith(404);
         });
@@ -402,7 +402,7 @@ describe('Given a updateUsersList function', () => {
       beforeEach(async () => {
         List.findById.mockRejectedValue(new Error('Server error'));
 
-        await updateUsersList(req, res);
+        await updateListUsers(req, res);
       });
 
       test('Then should call res.status with 500', async () => {

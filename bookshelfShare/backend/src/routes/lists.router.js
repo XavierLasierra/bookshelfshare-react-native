@@ -6,7 +6,7 @@ const {
   getListById,
   deleteListById,
   updateListById,
-  updateUsersList,
+  updateListUsers,
   updateBooksFromList
 } = require('../controllers/lists.controller');
 
@@ -15,7 +15,7 @@ const listsRouter = new Router();
 listsRouter
   .route('/addUser/:listId')
   .all(passport.authenticate('jwt', { session: false }))
-  .put(updateUsersList);
+  .put(updateListUsers);
 
 listsRouter
   .route('/book/:listId')

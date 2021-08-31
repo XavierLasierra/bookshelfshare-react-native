@@ -74,7 +74,7 @@ async function updateListById({ params: { listId }, body }, res) {
   }
 }
 
-async function updateUsersList({ params: { listId }, body: { user } }, res) {
+async function updateListUsers({ params: { listId }, body: { user } }, res) {
   try {
     const foundList = await List.findById(listId);
 
@@ -126,6 +126,6 @@ module.exports = {
   getListById,
   deleteListById,
   updateListById,
-  updateUsersList,
+  updateListUsers,
   updateBooksFromList
 };
