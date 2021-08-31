@@ -10,15 +10,19 @@ const userMock = require('../mocks/user.mock');
 jest.mock('../models/user.model');
 
 describe('Given a getUsers function', () => {
-  describe('When it is invoked', () => {
-    const req = {
-      query: {}
-    };
-    const res = {
-      json: jest.fn(),
-      send: jest.fn(),
-      status: jest.fn()
-    };
+  describe('When it is triggered', () => {
+    let req;
+    let res;
+    beforeEach(() => {
+      req = {
+        query: {}
+      };
+      res = {
+        json: jest.fn(),
+        send: jest.fn(),
+        status: jest.fn()
+      };
+    });
 
     describe('And find is resolved', () => {
       test('Then should call res.json', async () => {
@@ -48,18 +52,23 @@ describe('Given a getUsers function', () => {
 });
 
 describe('Given a getOneUserById function', () => {
-  describe('When it is invoked', () => {
-    const req = {
-      params: {
-        userId: '1'
-      }
-    };
-    const res = {
-      json: jest.fn(),
-      send: jest.fn(),
-      status: jest.fn(),
-      sendStatus: jest.fn()
-    };
+  describe('When it is triggered', () => {
+    let req;
+    let res;
+    beforeEach(() => {
+      req = {
+        params: {
+          userId: '1'
+        }
+      };
+      res = {
+        json: jest.fn(),
+        send: jest.fn(),
+        status: jest.fn(),
+        sendStatus: jest.fn()
+      };
+    });
+
     describe('And findById is resolved', () => {
       describe('And the user exists', () => {
         test('Then should call res.send', async () => {
@@ -98,17 +107,22 @@ describe('Given a getOneUserById function', () => {
 });
 
 describe('Given a deleteOneUserById function', () => {
-  describe('When it is invoked', () => {
-    const req = {
-      params: {
-        userId: '1'
-      }
-    };
-    const res = {
-      send: jest.fn(),
-      status: jest.fn(),
-      sendStatus: jest.fn()
-    };
+  describe('When it is triggered', () => {
+    let req;
+    let res;
+    beforeEach(() => {
+      req = {
+        params: {
+          userId: '1'
+        }
+      };
+      res = {
+        send: jest.fn(),
+        status: jest.fn(),
+        sendStatus: jest.fn()
+      };
+    });
+
     describe('And findByIdAndDelete is resolved', () => {
       test('Then should call res.sendStatus with an argument 204', async () => {
         User.findByIdAndDelete.mockResolvedValue({});
@@ -138,19 +152,23 @@ describe('Given a deleteOneUserById function', () => {
 });
 
 describe('Given an updateOneUserById function', () => {
-  describe('When it is invoked', () => {
-    const req = {
-      params: {
-        userId: '1'
-      },
-      body: {}
-    };
-    const res = {
-      send: jest.fn(),
-      status: jest.fn(),
-      sendStatus: jest.fn(),
-      json: jest.fn()
-    };
+  describe('When it is triggered', () => {
+    let req;
+    let res;
+    beforeEach(() => {
+      req = {
+        params: {
+          userId: '1'
+        },
+        body: {}
+      };
+      res = {
+        send: jest.fn(),
+        status: jest.fn(),
+        sendStatus: jest.fn(),
+        json: jest.fn()
+      };
+    });
 
     describe('And findByIdAndUpdate is resolved', () => {
       describe('And updatedUser exists', () => {

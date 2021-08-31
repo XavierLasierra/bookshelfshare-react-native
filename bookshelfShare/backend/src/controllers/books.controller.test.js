@@ -9,17 +9,22 @@ jest.mock('axios');
 
 describe('Given a getBooks function', () => {
   describe('When it is triggered', () => {
-    const req = {
-      query: {
-        inauthor: 'orwell',
-        intitle: '1984'
-      }
-    };
-    const res = {
-      json: jest.fn(),
-      send: jest.fn(),
-      status: jest.fn()
-    };
+    let req;
+    let res;
+    beforeEach(() => {
+      req = {
+        query: {
+          inauthor: 'orwell',
+          intitle: '1984'
+        }
+      };
+      res = {
+        json: jest.fn(),
+        send: jest.fn(),
+        status: jest.fn()
+      };
+    });
+
     describe('And axios is resolved', () => {
       test('Then res.json should be called', async () => {
         axios.get.mockResolvedValue({ data: googleBooksMock });

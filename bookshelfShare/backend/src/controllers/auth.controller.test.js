@@ -14,18 +14,23 @@ jest.mock('jsonwebtoken');
 
 describe('Given a registerUser function', () => {
   describe('When it is triggered', () => {
-    const req = {
-      user: {
-        email: userMock.email,
-        password: userMock.password
-      },
-      body: { ...userMock }
-    };
-    const res = {
-      status: jest.fn(),
-      send: jest.fn(),
-      json: jest.fn()
-    };
+    let req;
+    let res;
+    beforeEach(() => {
+      req = {
+        user: {
+          email: userMock.email,
+          password: userMock.password
+        },
+        body: { ...userMock }
+      };
+      res = {
+        status: jest.fn(),
+        send: jest.fn(),
+        json: jest.fn()
+      };
+    });
+
     describe('And User.create is resolved', () => {
       beforeEach(async () => {
         User.create.mockResolvedValue({});
@@ -62,17 +67,21 @@ describe('Given a registerUser function', () => {
 
 describe('Given a loginUser function', () => {
   describe('When it is triggered', () => {
-    const req = {
-      user: {
-        email: userMock.email,
-        password: userMock.password
-      }
-    };
-    const res = {
-      status: jest.fn(),
-      send: jest.fn(),
-      json: jest.fn()
-    };
+    let req;
+    let res;
+    beforeEach(() => {
+      req = {
+        user: {
+          email: userMock.email,
+          password: userMock.password
+        }
+      };
+      res = {
+        status: jest.fn(),
+        send: jest.fn(),
+        json: jest.fn()
+      };
+    });
 
     test('Then res.json should have been called with an object containing user data, a token and a refreshToken', () => {
       jwt.sign = jest.fn()
@@ -96,13 +105,18 @@ describe('Given a loginUser function', () => {
 describe('Given a refreshUserToken function', () => {
   describe('When it is triggered', () => {
     describe('And refreshToken is undefined', () => {
-      const req = {
-        body: {
-        }
-      };
-      const res = {
-        sendStatus: jest.fn()
-      };
+      let req;
+      let res;
+      beforeEach(() => {
+        req = {
+          body: {
+          }
+        };
+        res = {
+          sendStatus: jest.fn()
+        };
+      });
+
       test('Then res.sendStatus should have been called with 401', () => {
         refreshUserToken(req, res);
 
@@ -111,14 +125,18 @@ describe('Given a refreshUserToken function', () => {
     });
 
     describe('And refreshTokens does not contain refreshToken', () => {
-      const req = {
-        body: {
-          refreshToken: 'myRefreshToken'
-        }
-      };
-      const res = {
-        sendStatus: jest.fn()
-      };
+      let req;
+      let res;
+      beforeEach(() => {
+        req = {
+          body: {
+            refreshToken: 'myRefreshToken'
+          }
+        };
+        res = {
+          sendStatus: jest.fn()
+        };
+      });
 
       test('Then res.sendStatus should have been called with 403', () => {
         refreshUserToken(req, res);
@@ -128,18 +146,22 @@ describe('Given a refreshUserToken function', () => {
     });
 
     describe('And refreshTokens contains refreshToken', () => {
-      const req = {
-        body: {
-          refreshToken: 'myRefreshToken'
-        },
-        user: {
-          email: userMock.email,
-          password: userMock.password
-        }
-      };
-      const res = {
-        json: jest.fn()
-      };
+      let req;
+      let res;
+      beforeEach(() => {
+        req = {
+          body: {
+            refreshToken: 'myRefreshToken'
+          },
+          user: {
+            email: userMock.email,
+            password: userMock.password
+          }
+        };
+        res = {
+          json: jest.fn()
+        };
+      });
 
       test('Then jwt.verify should have been called', () => {
         jwt.sign = jest.fn()
@@ -159,13 +181,18 @@ describe('Given a refreshUserToken function', () => {
 describe('Given a logoutUser function', () => {
   describe('When it is triggered', () => {
     describe('And refreshToken is undefined', () => {
-      const req = {
-        body: {
-        }
-      };
-      const res = {
-        sendStatus: jest.fn()
-      };
+      let req;
+      let res;
+      beforeEach(() => {
+        req = {
+          body: {
+          }
+        };
+        res = {
+          sendStatus: jest.fn()
+        };
+      });
+
       test('Then res.sendStatus should have been called with 401', () => {
         logoutUser(req, res);
 
@@ -174,14 +201,19 @@ describe('Given a logoutUser function', () => {
     });
 
     describe('And refreshToken is defined', () => {
-      const req = {
-        body: {
-          refreshToken: 'logoutThisRefreshToken'
-        }
-      };
-      const res = {
-        send: jest.fn()
-      };
+      let req;
+      let res;
+      beforeEach(() => {
+        req = {
+          body: {
+            refreshToken: 'logoutThisRefreshToken'
+          }
+        };
+        res = {
+          send: jest.fn()
+        };
+      });
+
       test('Then res.send should have been called with Logout successful', () => {
         logoutUser(req, res);
 
@@ -194,10 +226,13 @@ describe('Given a logoutUser function', () => {
 describe('Given a verify token function', () => {
   describe('When it is triggered', () => {
     const user = userMock;
-    const res = {
-      sendStatus: jest.fn(),
-      json: jest.fn()
-    };
+    let res;
+    beforeEach(() => {
+      res = {
+        sendStatus: jest.fn(),
+        json: jest.fn()
+      };
+    });
 
     describe('And there is an error', () => {
       test('Then res.sendStatus should have been called with 403', () => {
