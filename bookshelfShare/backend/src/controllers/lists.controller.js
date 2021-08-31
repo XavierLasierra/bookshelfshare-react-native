@@ -51,8 +51,7 @@ async function deleteListById({ params: { listId }, body: { user } }, res) {
       listToDelete.save();
     }
 
-    res.status(200);
-    return res.send();
+    return res.sendStatus(200);
   } catch (error) {
     res.status(500);
     return res.send(error);
@@ -66,10 +65,12 @@ async function updateListById({ params: { listId }, body }, res) {
       { new: true }
     );
 
-    res.json(updatedList);
+    if (!updatedList) return res.sendStatus(404);
+
+    return res.json(updatedList);
   } catch (error) {
     res.status(500);
-    res.send(error);
+    return res.send(error);
   }
 }
 
@@ -108,7 +109,7 @@ async function updateBooksFromList({ params: { listId }, body }, res) {
       }
     } else if (body.actionType === 'DELETE') {
       listToUpdate.books = listToUpdate.books.filter(({ bookISBN }) => bookISBN !== body.bookISBN);
-    }
+    } else return res.sendStatus(400);
 
     listToUpdate.save();
 
