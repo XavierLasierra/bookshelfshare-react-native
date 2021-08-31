@@ -8,7 +8,7 @@ const shelfSchema = mongoose.Schema({
   },
   books: [
     {
-      bookId: { type: mongoose.Schema.Types.ObjectId, ref: 'Book' },
+      bookISBN: String,
       customInformation: {
         notes: String,
         column: Number,
