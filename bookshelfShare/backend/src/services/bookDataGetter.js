@@ -3,10 +3,10 @@ const Book = require('../classes/book.class');
 const defaultBook = require('../constants/defaultBook');
 
 function cleanBookData({ value }) {
-  if (value.status !== 200 || value.data.totalItems === 0) {
+  if (value?.status !== 200 || value?.data?.totalItems === 0) {
     return defaultBook;
   }
-  const book = new Book(value.data.items[0]);
+  const book = new Book(value?.data?.items[0]);
   return book;
 }
 
