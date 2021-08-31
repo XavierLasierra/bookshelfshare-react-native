@@ -1,4 +1,5 @@
 const List = require('../models/list.model');
+const { getBooksDataFromList } = require('../services/bookDataGetter');
 
 async function getLists({ query }, res) {
   try {
@@ -32,7 +33,9 @@ async function getListById({ params: { listId } }, res) {
 
     if (!foundList) return res.sendStatus(404);
 
-    return res.json(foundList);
+    const bookData = await getBooksDataFromList(foundList.toObject());
+
+    return res.json(bookData);
   } catch (error) {
     res.status(500);
     return res.send(error);
