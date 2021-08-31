@@ -6,8 +6,7 @@ function cleanBookData({ value }) {
   if (value?.status !== 200 || value?.data?.totalItems === 0) {
     return defaultBook;
   }
-  const book = new Book(value?.data?.items[0]);
-  return book;
+  return new Book(value?.data?.items[0]);
 }
 
 async function getBooksDataFromList(bookList) {
