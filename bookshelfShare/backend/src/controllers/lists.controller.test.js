@@ -7,9 +7,11 @@ const {
   updateListUsers,
   updateBooksFromList
 } = require('./lists.controller');
+const { getBooksDataFromList } = require('../services/bookDataGetter');
 const List = require('../models/list.model');
 
 jest.mock('../models/list.model');
+jest.mock('../services/bookDataGetter');
 
 describe('Given a getLists function', () => {
   describe('When it is triggered', () => {
@@ -144,12 +146,16 @@ describe('Given a getListById function', () => {
         status: jest.fn(),
         sendStatus: jest.fn()
       };
+
+      getBooksDataFromList.mockResolvedValue({});
     });
 
     describe('And findById is resolved', () => {
       describe('And the list exists', () => {
         test('Then should call res.send', async () => {
-          List.findById.mockResolvedValue({});
+          List.findById.mockResolvedValue({
+            toObject: jest.fn()
+          });
 
           await getListById(req, res);
           expect(res.json).toHaveBeenCalled();
