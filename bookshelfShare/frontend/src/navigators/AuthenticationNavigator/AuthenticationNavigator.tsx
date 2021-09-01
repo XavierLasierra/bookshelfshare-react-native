@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { createStackNavigator, CardStyleInterpolators } from '@react-navigation/stack';
 
-import Login from '../Login/Login';
-import Register from '../Register/Register';
+import { useSelector } from 'react-redux';
+import Login from '../../components/Login/Login';
+import Register from '../../components/Register/Register';
 
-export default function Authenticate() {
+export default function Authenticate({ navigation }:any) {
   const NestedStack = createStackNavigator();
+  const { isAuthenticated } = useSelector((store: any) => store.loggedUser);
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigation.push('PagesNavigator');
+    }
+  });
   return (
     <NestedStack.Navigator
       initialRouteName="Login"
