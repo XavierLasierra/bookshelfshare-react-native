@@ -17,7 +17,7 @@ export default function InitialLoading({
 }: any) {
   useEffect(() => {
     setTimeout(() => {
-      navigation.push('Authenticate');
+      navigation.push('AuthenticationNavigator');
     }, 2000);
   }, []);
 

@@ -5,10 +5,16 @@ interface Action {
     data: any
 }
 
-function loggedUserReducer(loggedUser = [], action: Action) {
-  const newLoggedUser = loggedUser;
+function loggedUserReducer(loggedUser = {
+  isAuthenticated: false
+}, action: Action) {
+  let newLoggedUser = loggedUser;
   switch (action.type) {
     case loggedUserActions.LOG_USER:
+      newLoggedUser = {
+        ...action.data,
+        isAuthenticated: true
+      };
       break;
     default:
       break;
