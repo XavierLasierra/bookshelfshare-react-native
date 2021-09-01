@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import stylesConstants from '../../styles/styles.constants';
 
 export default StyleSheet.create({
   titleContainer: {
@@ -7,11 +8,11 @@ export default StyleSheet.create({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#D9D8C4'
+    backgroundColor: stylesConstants.colors.main
   },
   title: {
     fontSize: 40,
     fontWeight: 'bold',
-    color: '#3E3C37'
+    color: stylesConstants.colors.mainText
   }
 });
