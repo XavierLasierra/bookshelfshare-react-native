@@ -1,13 +1,18 @@
 import React from 'react';
-import {
-  SafeAreaView,
-  Text
-} from 'react-native';
+import { Provider } from 'react-redux';
+import { NavigationContainer } from '@react-navigation/native';
+
+// import MainNavigation from './src/pages/MainNavigation/MainNavigation';
+import MainNavigator from './src/navigators/MainNavigator/MainNavigator';
+
+import configureStore from './src/redux/store';
 
 export default function App() {
   return (
-    <SafeAreaView>
-      <Text>Hello</Text>
-    </SafeAreaView>
+    <Provider store={configureStore()}>
+      <NavigationContainer>
+        <MainNavigator />
+      </NavigationContainer>
+    </Provider>
   );
 }

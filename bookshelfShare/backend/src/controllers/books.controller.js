@@ -3,9 +3,9 @@ const Book = require('../classes/book.class');
 
 function createGoogleSearchUrl(query) {
   const queryEntries = Object.entries(query);
-  return `${queryEntries
-    .reduce((acc, queryElement, index) => `${acc}${queryElement[0]}:${queryElement[1]}${index < queryEntries.length - 1 ? '+' : ''}`, process.env.GOOGLE_API_URL)
-  }&key=${process.env.GOOGLE_API_KEY}`;
+  const url = queryEntries
+    .reduce((acc, queryElement, index) => `${acc}${queryElement[0]}:${queryElement[1]}${index < queryEntries.length - 1 ? '+' : ''}`, process.env.GOOGLE_API_URL);
+  return `${url}&key=${process.env.GOOGLE_API_KEY}`;
 }
 
 async function getBooks({ query }, res) {
