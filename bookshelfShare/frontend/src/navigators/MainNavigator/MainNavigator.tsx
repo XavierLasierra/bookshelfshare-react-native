@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { createSharedElementStackNavigator } from 'react-navigation-shared-element';
 import { CardStyleInterpolators } from '@react-navigation/stack';
 
@@ -8,6 +9,8 @@ import PagesNavigator from '../PagesNavigator/PagesNavigator';
 
 export default function MainNavigator() {
   const Stack = createSharedElementStackNavigator();
+
+  const { isAuthenticated } = useSelector((store: any) => store.loggedUser);
 
   return (
     <Stack.Navigator
@@ -19,19 +22,27 @@ export default function MainNavigator() {
         cardStyleInterpolator: CardStyleInterpolators.forFadeFromBottomAndroid
       }}
     >
-      <Stack.Screen
-        name="InitialLoading"
-        component={InitialLoading}
-      />
-      <Stack.Screen
-        name="AuthenticationNavigator"
-        component={AuthenticationNavigator}
-        sharedElements={() => ['mainIcon']}
-      />
-      <Stack.Screen
-        name="PagesNavigator"
-        component={PagesNavigator}
-      />
+      {!isAuthenticated
+        ? (
+          <>
+            <Stack.Screen
+              name="InitialLoading"
+              component={InitialLoading}
+            />
+            <Stack.Screen
+              name="AuthenticationNavigator"
+              component={AuthenticationNavigator}
+              sharedElements={() => ['mainIcon']}
+            />
+          </>
+        )
+        : (
+          <Stack.Screen
+            name="PagesNavigator"
+            component={PagesNavigator}
+          />
+        )}
+
     </Stack.Navigator>
   );
 }
