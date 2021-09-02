@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 
 import BookIcon from '../../assets/bookIcon.svg';
@@ -9,12 +9,6 @@ import styles from './customTabBar.styles';
 import AddPopUp from '../AddPopUp/AddPopUp';
 
 export default function CustomTabBar({ state, navigation }: any) {
-  const [isPopUpActive, setPopUpActive] = useState(false);
-
-  function handlePopUp() {
-    setPopUpActive(!isPopUpActive);
-  }
-
   function onPress(key: string, isFocused: boolean, name: string) {
     const event = navigation.emit({
       type: 'tabPress',
@@ -39,7 +33,6 @@ export default function CustomTabBar({ state, navigation }: any) {
 
   return (
     <>
-      {isPopUpActive && <AddPopUp />}
       <View style={styles.tabBarContainer}>
         <TouchableOpacity
           onPress={() => onPress(state.routes[0].key, state.index === 0, state.routes[0].name)}
@@ -59,13 +52,7 @@ export default function CustomTabBar({ state, navigation }: any) {
           <FollowingIcon width={30} height={30} />
           <Text style={styles.tabText}>following</Text>
         </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.addButton}
-          activeOpacity={0.8}
-          onPress={handlePopUp}
-        >
-          <Text style={styles.addButtonText}>+</Text>
-        </TouchableOpacity>
+        <AddPopUp navigation={navigation} />
         <TouchableOpacity
           onPress={() => onPress(state.routes[2].key, state.index === 2, state.routes[2].name)}
           onLongPress={() => onLongPress(state.routes[2].key)}

@@ -22,20 +22,5 @@ export default StyleSheet.create({
   tabText: {
     fontSize: 12,
     color: stylesConstants.colors.mainText
-  },
-  addButton: {
-    position: 'relative',
-    top: -25,
-    width: 60,
-    height: 60,
-    alignItems: 'center',
-    justifyContent: 'center',
-    elevation: 2,
-    borderRadius: 50,
-    backgroundColor: stylesConstants.colors.white
-  },
-  addButtonText: {
-    fontSize: 30,
-    color: stylesConstants.colors.mainText
   }
 });
