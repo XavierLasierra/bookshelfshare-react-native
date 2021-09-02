@@ -1,45 +1,10 @@
 import React from 'react';
+import { View } from 'react-native';
 import { RNCamera } from 'react-native-camera';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-const styles = {
-  container: {
-    flex: 1
-  },
-  overlay: {
-    position: 'absolute',
-    padding: 16,
-    right: 0,
-    left: 0,
-    alignItems: 'center'
-  },
-  topOverlay: {
-    top: 0,
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center'
-  },
-  bottomOverlay: {
-    bottom: 0,
-    backgroundColor: 'rgba(0,0,0,0.4)',
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  enterBarcodeManualButton: {
-    padding: 15,
-    backgroundColor: 'white',
-    borderRadius: 40
-  },
-  scanScreenMessage: {
-    fontSize: 14,
-    color: 'white',
-    textAlign: 'center',
-    alignItems: 'center',
-    justifyContent: 'center'
-  }
-};
+import CameraOverlay from '../../assets/cameraOverlay.svg';
+import styles from './barCodeScanner.styles';
 
 export default function ProductScanRNCamera() {
   interface BarCode {
@@ -65,8 +30,17 @@ export default function ProductScanRNCamera() {
           buttonNegative: 'Cancel'
         }}
         type={RNCamera.Constants.Type.back}
-        style={{ height: '100%', width: '100%' }}
+        style={styles.camera}
       />
+      <View style={styles.overlay}>
+        <View style={styles.overlayTop} />
+        <View style={styles.overlayMiddle}>
+          <View style={styles.overlaySide} />
+          <CameraOverlay width={300} height={250} />
+          <View style={styles.overlaySide} />
+        </View>
+        <View style={styles.overlayBottom} />
+      </View>
     </SafeAreaView>
   );
 }
