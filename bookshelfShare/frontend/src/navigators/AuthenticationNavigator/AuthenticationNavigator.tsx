@@ -12,7 +12,8 @@ export default function Authenticate({ navigation }:any) {
     if (isAuthenticated) {
       navigation.push('PagesNavigator');
     }
-  });
+  }, [isAuthenticated]);
+
   return (
     <NestedStack.Navigator
       initialRouteName="Login"
