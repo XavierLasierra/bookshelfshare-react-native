@@ -37,7 +37,7 @@ export default function Login({ navigation } : any) {
         </SharedElement>
       </View>
       <View style={styles.loginContainer}>
-        <Text style={globalStyles.title}>Login</Text>
+        <Text style={globalStyles.title}>Log in</Text>
         <View style={globalStyles.inputContainer}>
           <Text style={globalStyles.inputLabel}>email</Text>
           <TextInput
@@ -59,7 +59,7 @@ export default function Login({ navigation } : any) {
           style={[globalStyles.button, styles.loginButton]}
           onPress={handleLogin}
         >
-          <Text style={globalStyles.buttonText}>Login</Text>
+          <Text style={globalStyles.buttonText}>Log in</Text>
         </TouchableOpacity>
         <View style={styles.signUpTextContainer}>
           <Text style={styles.signUpText}>Don&quot;t have an account?</Text>
@@ -67,7 +67,7 @@ export default function Login({ navigation } : any) {
             style={styles.signUpButton}
             onPress={() => navigation.push('Register')}
           >
-            Signup
+            Sign up
           </Text>
         </View>
       </View>
