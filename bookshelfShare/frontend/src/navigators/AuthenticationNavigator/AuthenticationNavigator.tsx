@@ -5,9 +5,9 @@ import Login from '../../components/Login/Login';
 import Register from '../../components/Register/Register';
 
 export default function Authenticate() {
-  const NestedStack = createStackNavigator();
+  const Stack = createStackNavigator();
   return (
-    <NestedStack.Navigator
+    <Stack.Navigator
       initialRouteName="Login"
       screenOptions={{
         headerShown: false,
@@ -16,14 +16,14 @@ export default function Authenticate() {
         cardStyleInterpolator: CardStyleInterpolators.forFadeFromCenter
       }}
     >
-      <NestedStack.Screen
+      <Stack.Screen
         name="Login"
         component={Login}
       />
-      <NestedStack.Screen
+      <Stack.Screen
         name="Register"
         component={Register}
       />
-    </NestedStack.Navigator>
+    </Stack.Navigator>
   );
 }

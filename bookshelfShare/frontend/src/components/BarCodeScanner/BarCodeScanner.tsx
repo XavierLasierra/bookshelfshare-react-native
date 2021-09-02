@@ -1,9 +1,15 @@
 import React from 'react';
-import { View } from 'react-native';
+
+import {
+  View, SafeAreaView, Text, TouchableOpacity
+} from 'react-native';
 import { RNCamera } from 'react-native-camera';
-import { SafeAreaView } from 'react-native-safe-area-context';
 
 import CameraOverlay from '../../assets/cameraOverlay.svg';
+import SearchIcon from '../../assets/searchIcon.svg';
+import Header from '../Header/Header';
+
+import globalStyles from '../../styles/global.styles';
 import styles from './barCodeScanner.styles';
 
 export default function ProductScanRNCamera() {
@@ -11,7 +17,6 @@ export default function ProductScanRNCamera() {
     type: string,
     data: string
   }
-
   function onBarCodeRead(scanResult: BarCode) {
     console.warn(scanResult.type);
     console.warn(scanResult.data);
@@ -33,13 +38,26 @@ export default function ProductScanRNCamera() {
         style={styles.camera}
       />
       <View style={styles.overlay}>
+        <Header Logo={SearchIcon} />
         <View style={styles.overlayTop} />
         <View style={styles.overlayMiddle}>
           <View style={styles.overlaySide} />
           <CameraOverlay width={300} height={250} />
           <View style={styles.overlaySide} />
         </View>
-        <View style={styles.overlayBottom} />
+        <View style={styles.overlayBottom}>
+          <Text style={styles.overlayText}>
+            Scan book barcode
+          </Text>
+          <TouchableOpacity
+            style={globalStyles.button}
+          >
+            <Text style={globalStyles.buttonText}>
+              Add ISBN manually
+
+            </Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </SafeAreaView>
   );

@@ -15,7 +15,7 @@ export default StyleSheet.create({
   },
   overlayTop: {
     zIndex: 2,
-    height: 80,
+    height: 40,
     backgroundColor: stylesConstants.colors.light
   },
   overlayMiddle: {
@@ -30,6 +30,12 @@ export default StyleSheet.create({
   },
   overlayBottom: {
     height: '100%',
-    backgroundColor: stylesConstants.colors.light
+    backgroundColor: stylesConstants.colors.light,
+    alignItems: 'center',
+    padding: 30
+  },
+  overlayText: {
+    fontSize: 20,
+    marginBottom: 30
   }
 });

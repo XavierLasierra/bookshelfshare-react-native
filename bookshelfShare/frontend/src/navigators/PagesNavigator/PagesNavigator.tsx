@@ -16,7 +16,8 @@ export default function MainNavigation() {
       initialRouteName="InitialLoading"
       screenOptions={{
         headerShown: false,
-        tabBarShowLabel: false
+        tabBarShowLabel: false,
+        unmountOnBlur: true
       }}
       tabBar={({ state, navigation }) => (
         <CustomTabBar
