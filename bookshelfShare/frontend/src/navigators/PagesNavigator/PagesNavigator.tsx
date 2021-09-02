@@ -6,6 +6,7 @@ import Main from '../../components/Main/Main';
 import Following from '../../components/Following/Following';
 import Shelf from '../../components/Shelf/Shelf';
 import Profile from '../../components/Profile/Profile';
+import BarCodeScanner from '../../components/BarCodeScanner/BarCodeScanner';
 
 export default function MainNavigation() {
   const Tab = createBottomTabNavigator();
@@ -39,6 +40,10 @@ export default function MainNavigation() {
       <Tab.Screen
         name="Profile"
         component={Profile}
+      />
+      <Tab.Screen
+        name="BarCodeScanner"
+        component={BarCodeScanner}
       />
     </Tab.Navigator>
   );
