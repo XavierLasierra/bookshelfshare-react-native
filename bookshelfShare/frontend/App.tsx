@@ -2,7 +2,6 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { NavigationContainer } from '@react-navigation/native';
 
-// import MainNavigation from './src/pages/MainNavigation/MainNavigation';
 import MainNavigator from './src/navigators/MainNavigator/MainNavigator';
 
 import configureStore from './src/redux/store';
