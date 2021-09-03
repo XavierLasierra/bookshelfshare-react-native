@@ -6,7 +6,7 @@ interface Action {
 }
 
 function loggedUserReducer(loggedUser = {
-  isAuthenticated: false
+  isAuthenticated: true
 }, action: Action) {
   let newLoggedUser = loggedUser;
   switch (action.type) {

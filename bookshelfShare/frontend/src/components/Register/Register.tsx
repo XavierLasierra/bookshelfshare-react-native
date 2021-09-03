@@ -30,7 +30,7 @@ export default function Register({ navigation: { pop } }:any) {
         </SharedElement>
       </View>
       <View style={styles.registerContainer}>
-        <Text style={globalStyles.title}>Signup</Text>
+        <Text style={globalStyles.title}>Sign up</Text>
         <View style={globalStyles.inputContainer}>
           <Text style={globalStyles.inputLabel}>username</Text>
           <TextInput style={globalStyles.input} />
@@ -48,7 +48,7 @@ export default function Register({ navigation: { pop } }:any) {
           <TextInput secureTextEntry style={globalStyles.input} />
         </View>
         <TouchableOpacity style={[globalStyles.button, styles.registerButton]}>
-          <Text style={globalStyles.buttonText}>Signup</Text>
+          <Text style={globalStyles.buttonText}>Sign up</Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>

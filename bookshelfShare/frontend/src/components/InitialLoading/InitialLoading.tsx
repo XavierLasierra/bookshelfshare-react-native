@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import {
   SafeAreaView,
-  View,
-  Text
+  Text,
+  TouchableOpacity
 } from 'react-native';
 import {
   SharedElement
@@ -15,15 +15,21 @@ import BookIcon from '../../assets/bookIcon.svg';
 export default function InitialLoading({
   navigation
 }: any) {
+  function handlePageChange() {
+    navigation.push('AuthenticationNavigator');
+  }
+
   useEffect(() => {
-    setTimeout(() => {
-      navigation.push('AuthenticationNavigator');
-    }, 2000);
+    setTimeout(handlePageChange, 2000);
   }, []);
 
   return (
     <SafeAreaView>
-      <View style={styles.titleContainer}>
+      <TouchableOpacity
+        onPress={() => handlePageChange()}
+        style={styles.titleContainer}
+        activeOpacity={1}
+      >
         <Text style={styles.title}>bookshelfShare</Text>
         <SharedElement id="mainIcon">
           <BookIcon
@@ -31,7 +37,7 @@ export default function InitialLoading({
             height={50}
           />
         </SharedElement>
-      </View>
+      </TouchableOpacity>
     </SafeAreaView>
   );
 }
