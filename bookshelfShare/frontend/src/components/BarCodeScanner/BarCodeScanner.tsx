@@ -26,7 +26,7 @@ export default function ProductScanRNCamera() {
     <SafeAreaView style={styles.container}>
       <RNCamera
         flashMode={RNCamera.Constants.FlashMode.auto}
-        onBarCodeRead={(scanResult) => onBarCodeRead(scanResult)}
+        onBarCodeRead={onBarCodeRead}
         captureAudio={false}
         androidCameraPermissionOptions={{
           title: 'Permission to use camera',

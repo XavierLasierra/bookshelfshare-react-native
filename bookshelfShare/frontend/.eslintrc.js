@@ -43,7 +43,8 @@ module.exports = {
       ]
     }],
     'react/jsx-no-bind': [1, {
-      allowFunctions: true
+      allowFunctions: true,
+      allowArrowFunctions: true
     }],
     'no-use-before-define': 'off',
     '@typescript-eslint/no-use-before-define': ['error'],
