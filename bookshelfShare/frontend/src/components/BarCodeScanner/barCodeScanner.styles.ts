@@ -15,21 +15,22 @@ export default StyleSheet.create({
   },
   overlayTop: {
     zIndex: 2,
-    height: 40,
+    height: '10%',
     backgroundColor: stylesConstants.colors.light
   },
   overlayMiddle: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    height: '60%'
   },
   overlaySide: {
     width: 20,
-    height: 350,
+    height: '100%',
     backgroundColor: stylesConstants.colors.light
   },
   overlayBottom: {
-    height: '100%',
+    height: '50%',
     backgroundColor: stylesConstants.colors.light,
     alignItems: 'center',
     padding: 30
