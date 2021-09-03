@@ -41,6 +41,9 @@ module.exports = {
         '.tsx'
       ]
     }],
+    'react/jsx-no-bind': [1, {
+      allowFunctions: true
+    }],
     'no-use-before-define': 'off',
     '@typescript-eslint/no-use-before-define': ['error'],
     'comma-dangle': [2, 'never'],
