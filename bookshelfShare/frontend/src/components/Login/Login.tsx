@@ -80,7 +80,7 @@ export default function Login({ navigation: { push } } : any) {
         </SharedElement>
       </View>
       <View style={styles.loginContainer}>
-        <Text style={globalStyles.title}>Log in</Text>
+        <Text testID="loginTitle" style={globalStyles.title}>Log in</Text>
         <View style={globalStyles.inputContainer}>
           <Text style={globalStyles.inputLabel}>email</Text>
           <TextInput
