@@ -26,7 +26,7 @@ export default StyleSheet.create({
     borderColor: stylesConstants.colors.secondary
   },
   title: {
-    color: stylesConstants.colors.darkText,
+    color: stylesConstants.colors.mainText,
     fontSize: stylesConstants.fontSize.title,
     fontWeight: '500'
   },

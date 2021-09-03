@@ -1,14 +1,18 @@
 import React from 'react';
 import { createStackNavigator, CardStyleInterpolators } from '@react-navigation/stack';
 
-import Login from '../../components/Login/Login';
-import Register from '../../components/Register/Register';
+import BookSearch from '../../components/BookSearch/BookSearch';
+import BookResults from '../../components/BookResults/BookResults';
 
-export default function AuthenticateNavigator() {
+interface Props {
+    isbn?: string
+}
+
+export default function BookSearchNavigator({ isbn }: Props) {
   const Stack = createStackNavigator();
   return (
     <Stack.Navigator
-      initialRouteName="Login"
+      initialRouteName="BookSearch"
       screenOptions={{
         headerShown: false,
         cardShadowEnabled: false,
@@ -17,13 +21,18 @@ export default function AuthenticateNavigator() {
       }}
     >
       <Stack.Screen
-        name="Login"
-        component={Login}
-      />
+        name="BookSearch"
+      >
+        {() => <BookSearch isbn={isbn || ''} />}
+      </Stack.Screen>
       <Stack.Screen
         name="Register"
-        component={Register}
+        component={BookResults}
       />
     </Stack.Navigator>
   );
 }
+
+BookSearchNavigator.defaultProps = {
+  isbn: ''
+};
