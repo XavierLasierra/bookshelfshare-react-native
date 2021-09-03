@@ -6,13 +6,10 @@ let refreshTokens = [];
 
 async function registerUser({ user, body: { username } }, res) {
   try {
-    const createdUser = await User.create({ ...user, username });
+    await User.create({ ...user, username });
 
     res.status(201);
-    res.json({
-      createdUser,
-      message: 'User registered'
-    });
+    res.json(true);
   } catch (error) {
     res.status(500);
     res.send(error);
