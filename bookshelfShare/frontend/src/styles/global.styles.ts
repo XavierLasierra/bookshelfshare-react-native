@@ -12,13 +12,14 @@ export default StyleSheet.create({
       { translateY: 20 }
     ],
     zIndex: 1,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    fontSize: stylesConstants.fontSize.small
   },
   input: {
     height: '100%',
     paddingHorizontal: 30,
     paddingTop: 30,
-    fontSize: 20,
+    fontSize: stylesConstants.fontSize.big,
     backgroundColor: stylesConstants.colors.white,
     borderRadius: 10,
     borderWidth: 1,
@@ -26,7 +27,7 @@ export default StyleSheet.create({
   },
   title: {
     color: stylesConstants.colors.darkText,
-    fontSize: 35,
+    fontSize: stylesConstants.fontSize.title,
     fontWeight: '500'
   },
   button: {
@@ -40,7 +41,12 @@ export default StyleSheet.create({
   },
   buttonText: {
     color: stylesConstants.colors.white,
-    fontSize: 20,
+    fontSize: stylesConstants.fontSize.big,
     fontWeight: '500'
+  },
+  invalid: {
+    color: stylesConstants.colors.error,
+    fontSize: stylesConstants.fontSize.small,
+    paddingHorizontal: 10
   }
 });
