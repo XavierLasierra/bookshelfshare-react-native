@@ -59,6 +59,9 @@
   },
   "jest": {
     "preset": "react-native",
+    "transformIgnorePatterns": [
+      "node_modules/?!(react-navigation-shared-element)"
+    ],
     "moduleFileExtensions": [
       "ts",
       "tsx",
