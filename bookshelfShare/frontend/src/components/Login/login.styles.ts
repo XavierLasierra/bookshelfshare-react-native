@@ -14,7 +14,7 @@ export default StyleSheet.create({
   loginContainer: {
     backgroundColor: stylesConstants.colors.light,
     borderTopRightRadius: 40,
-    padding: 30,
+    padding: stylesConstants.padding.normal,
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -30,10 +30,10 @@ export default StyleSheet.create({
     marginTop: 20
   },
   signUpText: {
-    fontSize: 20
+    fontSize: stylesConstants.fontSize.big
   },
   signUpButton: {
-    fontSize: 20,
+    fontSize: stylesConstants.fontSize.big,
     fontWeight: 'bold'
   }
 });

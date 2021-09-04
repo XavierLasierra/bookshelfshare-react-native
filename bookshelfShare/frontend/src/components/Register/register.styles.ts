@@ -23,7 +23,7 @@ export default StyleSheet.create({
   registerContainer: {
     backgroundColor: stylesConstants.colors.light,
     borderTopRightRadius: 40,
-    padding: 30,
+    padding: stylesConstants.padding.normal,
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -32,5 +32,8 @@ export default StyleSheet.create({
   },
   registerButton: {
     marginTop: 20
+  },
+  invalidPasswordText: {
+    paddingHorizontal: 5
   }
 });

@@ -19,6 +19,14 @@ export default function AddPopUp({ navigation }: any) {
       merge: true
     });
   }
+
+  function handleClickSearch() {
+    navigation.navigate({
+      name: 'BookSearchNavigator',
+      merge: true
+    });
+  }
+
   return (
     <Menu style={styles.addButton} renderer={renderers.Popover}>
       <MenuTrigger>
@@ -29,13 +37,14 @@ export default function AddPopUp({ navigation }: any) {
       >
         <TouchableOpacity
           style={[globalStyles.button, styles.popUpButton]}
-          onPress={() => handleClickScan()}
+          onPress={handleClickScan}
         >
           <BarCodeIcon style={styles.popUpIcon} width={30} height={30} />
           <Text style={globalStyles.buttonText}>Scan</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={[globalStyles.button, styles.popUpButton]}
+          onPress={handleClickSearch}
         >
           <SearchIcon style={styles.popUpIcon} width={30} height={30} />
           <Text style={globalStyles.buttonText}>Search</Text>

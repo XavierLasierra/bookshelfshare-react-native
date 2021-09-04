@@ -6,6 +6,16 @@ export default {
     mainText: '#3E3C37',
     darkText: '#000000',
     secondary: '#ECECEC',
-    dark: '#000000'
+    dark: '#000000',
+    error: 'red'
+  },
+  padding: {
+    normal: 30
+  },
+  fontSize: {
+    title: 35,
+    big: 20,
+    mid: 16,
+    small: 12
   }
 };

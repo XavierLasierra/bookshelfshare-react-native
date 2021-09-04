@@ -1,7 +1,8 @@
 module.exports = {
   env: {
     es2021: true,
-    node: true
+    node: true,
+    jest: true
   },
   extends: [
     'plugin:react/recommended',
@@ -40,6 +41,10 @@ module.exports = {
         '.jsx',
         '.tsx'
       ]
+    }],
+    'react/jsx-no-bind': [1, {
+      allowFunctions: true,
+      allowArrowFunctions: true
     }],
     'no-use-before-define': 'off',
     '@typescript-eslint/no-use-before-define': ['error'],

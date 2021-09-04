@@ -12,21 +12,24 @@ import Header from '../Header/Header';
 import globalStyles from '../../styles/global.styles';
 import styles from './barCodeScanner.styles';
 
-export default function ProductScanRNCamera() {
+export default function BarCodeScanner({ navigation }: any) {
   interface BarCode {
     type: string,
     data: string
   }
   function onBarCodeRead(scanResult: BarCode) {
-    console.warn(scanResult.type);
-    console.warn(scanResult.data);
+    navigation.navigate({
+      name: 'BookSearchNavigator',
+      merge: true,
+      params: { isbn: scanResult.data }
+    });
   }
 
   return (
     <SafeAreaView style={styles.container}>
       <RNCamera
         flashMode={RNCamera.Constants.FlashMode.auto}
-        onBarCodeRead={(scanResult) => onBarCodeRead(scanResult)}
+        onBarCodeRead={onBarCodeRead}
         captureAudio={false}
         androidCameraPermissionOptions={{
           title: 'Permission to use camera',

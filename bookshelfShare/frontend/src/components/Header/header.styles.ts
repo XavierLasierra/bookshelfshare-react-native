@@ -14,6 +14,9 @@ export default StyleSheet.create({
     padding: 10,
     borderBottomLeftRadius: 25
   },
+  tailContainer: {
+    height: 0
+  },
   tailBack: {
     backgroundColor: stylesConstants.colors.main,
     width: 20,
