@@ -16,7 +16,7 @@ export default function InitialLoading({
   navigation
 }: any) {
   function handlePageChange() {
-    navigation.push('AuthenticationNavigator');
+    navigation.push('Login');
   }
 
   useEffect(() => {

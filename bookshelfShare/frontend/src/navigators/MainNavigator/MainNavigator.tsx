@@ -4,7 +4,8 @@ import { createSharedElementStackNavigator } from 'react-navigation-shared-eleme
 import { CardStyleInterpolators } from '@react-navigation/stack';
 
 import InitialLoading from '../../components/InitialLoading/InitialLoading';
-import AuthenticationNavigator from '../AuthenticationNavigator/AuthenticationNavigator';
+import Login from '../../components/Login/Login';
+import Register from '../../components/Register/Register';
 import PagesNavigator from '../PagesNavigator/PagesNavigator';
 
 export default function MainNavigator() {
@@ -30,9 +31,17 @@ export default function MainNavigator() {
               component={InitialLoading}
             />
             <Stack.Screen
-              name="AuthenticationNavigator"
-              component={AuthenticationNavigator}
+              name="Login"
+              component={Login}
               sharedElements={() => ['mainIcon']}
+            />
+            <Stack.Screen
+              name="Register"
+              component={Register}
+              sharedElements={() => ['mainIcon']}
+              options={{
+                cardStyleInterpolator: CardStyleInterpolators.forFadeFromCenter
+              }}
             />
           </>
         )
