@@ -33,7 +33,7 @@ export function loginUser(userInfo: LoginInformation) {
         type: loggedUserActions.LOG_USER,
         data
       });
-    } catch (error) {
+    } catch (error: any) {
       if (error?.response?.status === 401) {
         dispatch({
           type: notificationsActions.LOGIN_ERROR
@@ -56,7 +56,7 @@ export function registerUser(userInfo: RegisterInformation) {
         type: loggedUserActions.LOG_USER,
         data
       });
-    } catch (error) {
+    } catch (error: any) {
       if (error?.response?.status === 500) {
         dispatch({
           type: notificationsActions.REGISTER_ERROR

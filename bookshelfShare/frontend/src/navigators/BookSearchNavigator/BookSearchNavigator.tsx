@@ -5,10 +5,15 @@ import BookSearch from '../../components/BookSearch/BookSearch';
 import BookResults from '../../components/BookResults/BookResults';
 
 interface Props {
-    isbn?: string
+    route: Route
 }
-
-export default function BookSearchNavigator({ isbn }: Props) {
+interface Route {
+  params: Params
+}
+interface Params {
+  isbn?: string
+}
+export default function BookSearchNavigator({ route: { params } }: Props) {
   const Stack = createStackNavigator();
   return (
     <Stack.Navigator
@@ -23,7 +28,7 @@ export default function BookSearchNavigator({ isbn }: Props) {
       <Stack.Screen
         name="BookSearch"
       >
-        {() => <BookSearch isbn={isbn || ''} />}
+        {() => <BookSearch isbnFromCamera={params?.isbn || ''} />}
       </Stack.Screen>
       <Stack.Screen
         name="Register"
@@ -32,7 +37,3 @@ export default function BookSearchNavigator({ isbn }: Props) {
     </Stack.Navigator>
   );
 }
-
-BookSearchNavigator.defaultProps = {
-  isbn: ''
-};

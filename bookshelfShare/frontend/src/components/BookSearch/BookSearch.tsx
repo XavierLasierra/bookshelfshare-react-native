@@ -12,29 +12,43 @@ import globalStyles from '../../styles/global.styles';
 import searchBooks from '../../redux/actions/books.creator';
 
 interface Props {
-    isbn: string
+  isbnFromCamera: string
 }
 
-export default function BookSearch({ isbn }: Props) {
+export default function BookSearch({ isbnFromCamera }: Props) {
   const dispatch = useDispatch();
-  const [isISBN, setISBN] = useState(true);
-  const { token, refreshToken } = useSelector((store: any) => store.loggedUser);
+  const { token, refreshToken } = useSelector((store: any) => store.tokens);
+  const [isISBN, setIsIsbn] = useState(true);
+  const [isbn, setIsbn] = useState(isbnFromCamera);
 
   useEffect(() => {
-    if (isbn) {
-      dispatch(searchBooks({ isbn }, token, refreshToken));
+    if (isbnFromCamera) {
+      console.log('1');
+      dispatch(searchBooks({ isbn: isbnFromCamera }, token, refreshToken));
     }
-  }, []);
+  }, [isbnFromCamera]);
 
   function handleISBNPage() {
     if (!isISBN) {
-      setISBN(true);
+      setIsIsbn(true);
     }
   }
 
   function handleOtherPage() {
     if (isISBN) {
-      setISBN(false);
+      setIsIsbn(false);
+    }
+  }
+
+  function handleISBNChange(text: string) {
+    setIsbn(text);
+  }
+
+  function handleSearch() {
+    if (isbn.trim()) {
+      dispatch(searchBooks({
+        isbn
+      }, token, refreshToken));
     }
   }
 
@@ -62,19 +76,14 @@ export default function BookSearch({ isbn }: Props) {
         <View style={styles.formContainer}>
           {isISBN
             ? (
-              <>
-                <View style={globalStyles.inputContainer}>
-                  <Text style={globalStyles.inputLabel}>ISBN</Text>
-                  <TextInput
-                    style={globalStyles.input}
-                  />
-                </View>
-                <TouchableOpacity
-                  style={[globalStyles.button, styles.searchButton]}
-                >
-                  <Text style={globalStyles.buttonText}>Search</Text>
-                </TouchableOpacity>
-              </>
+              <View style={globalStyles.inputContainer}>
+                <Text style={globalStyles.inputLabel}>ISBN</Text>
+                <TextInput
+                  style={globalStyles.input}
+                  onChangeText={handleISBNChange}
+                  value={isbn}
+                />
+              </View>
             )
             : (
               <>
@@ -96,13 +105,14 @@ export default function BookSearch({ isbn }: Props) {
                     style={globalStyles.input}
                   />
                 </View>
-                <TouchableOpacity
-                  style={[globalStyles.button, styles.searchButton]}
-                >
-                  <Text style={globalStyles.buttonText}>Search</Text>
-                </TouchableOpacity>
               </>
             )}
+          <TouchableOpacity
+            style={[globalStyles.button, styles.searchButton]}
+            onPress={handleSearch}
+          >
+            <Text style={globalStyles.buttonText}>Search</Text>
+          </TouchableOpacity>
         </View>
       </View>
 
