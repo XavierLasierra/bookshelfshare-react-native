@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import {
   SafeAreaView,
-  Text,
   TouchableOpacity
 } from 'react-native';
 import {
@@ -20,21 +19,22 @@ export default function InitialLoading({
   }
 
   useEffect(() => {
-    setTimeout(handlePageChange, 2000);
+    setTimeout(handlePageChange, 0);
   }, []);
 
   return (
-    <SafeAreaView>
+    <SafeAreaView
+      style={styles.initialPage}
+    >
       <TouchableOpacity
         onPress={() => handlePageChange()}
         style={styles.titleContainer}
         activeOpacity={1}
       >
-        <Text style={styles.title}>bookshelfShare</Text>
         <SharedElement id="mainIcon">
           <BookIcon
-            width={50}
-            height={50}
+            width={60}
+            height={60}
           />
         </SharedElement>
       </TouchableOpacity>
