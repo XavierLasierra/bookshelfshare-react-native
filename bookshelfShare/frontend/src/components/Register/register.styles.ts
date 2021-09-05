@@ -12,14 +12,6 @@ export default StyleSheet.create({
     height: 100,
     paddingHorizontal: 30
   },
-  backButton: {
-    position: 'absolute',
-    top: 35,
-    left: 20
-  },
-  backButtonIcon: {
-    transform: [{ rotateZ: '180deg' }]
-  },
   registerContainer: {
     backgroundColor: stylesConstants.colors.light,
     borderTopRightRadius: 40,
