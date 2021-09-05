@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import {
-  SafeAreaView, ScrollView, Text, ActivityIndicator, FlatList
+  SafeAreaView, Text, ActivityIndicator, FlatList
 } from 'react-native';
 
 import { useDispatch, useSelector } from 'react-redux';
@@ -54,29 +54,27 @@ export default function BookResults(
   return (
     <SafeAreaView>
       <Header Logo={SearchIcon} BackButton navigation={navigation} />
-      <ScrollView>
-        <Text>
-          {isbn && `ISBN: ${isbn}`}
-          {inauthor && `Author: ${inauthor}`}
-          {intitle && `Title: ${intitle}`}
-          {inpublisher && `Publisher: ${inpublisher}`}
-        </Text>
-        {results
-          ? (
-            <>
-              {books.length > 0
-                ? (
-                  <FlatList
-                    data={books}
-                    renderItem={renderBook}
-                    keyExtractor={(book) => book?.isbn[0]?.identifier}
-                  />
-                )
-                : <Text>0 results</Text>}
-            </>
-          )
-          : <ActivityIndicator size="large" color={stylesConstants.colors.dark} />}
-      </ScrollView>
+      <Text>
+        {isbn && `ISBN: ${isbn}`}
+        {inauthor && `Author: ${inauthor}`}
+        {intitle && `Title: ${intitle}`}
+        {inpublisher && `Publisher: ${inpublisher}`}
+      </Text>
+      {results
+        ? (
+          <>
+            {books.length > 0
+              ? (
+                <FlatList
+                  data={books}
+                  renderItem={renderBook}
+                  keyExtractor={(book) => book?.isbn[0]?.identifier}
+                />
+              )
+              : <Text>0 results</Text>}
+          </>
+        )
+        : <ActivityIndicator size="large" color={stylesConstants.colors.dark} />}
     </SafeAreaView>
   );
 }
