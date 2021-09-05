@@ -24,8 +24,6 @@ export default function searchBooks(query: Query, token: string, refreshToken: s
         }
       });
 
-      console.log(data);
-
       dispatch({
         type: booksActions.LOAD_BOOKS,
         data
@@ -35,7 +33,6 @@ export default function searchBooks(query: Query, token: string, refreshToken: s
         try {
           const newToken = await refreshUserToken(refreshToken, dispatch);
 
-          console.log(newToken);
           if (!newToken) throw new Error('Server error');
 
           dispatch(searchBooks(query, newToken, refreshToken));

@@ -23,7 +23,6 @@ export default function BookSearch({ isbnFromCamera }: Props) {
 
   useEffect(() => {
     if (isbnFromCamera) {
-      console.log('1');
       dispatch(searchBooks({ isbn: isbnFromCamera }, token, refreshToken));
     }
   }, [isbnFromCamera]);

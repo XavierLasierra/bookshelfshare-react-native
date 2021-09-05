@@ -6,21 +6,28 @@ import {
 import {
   SharedElement
 } from 'react-navigation-shared-element';
+import { useDispatch, useSelector } from 'react-redux';
 
-import styles from './initialLoading.styles';
+import { automaticLogin } from '../../redux/actions/loggedUser.creator';
 
 import BookIcon from '../../assets/bookIcon.svg';
+import styles from './initialLoading.styles';
 
-export default function InitialLoading({
-  navigation
-}: any) {
+export default function InitialLoading({ navigation }: any) {
+  const dispatch = useDispatch();
+  const { needsLogin, isAuthenticated } = useSelector((store: any) => store.loggedUser);
+
   function handlePageChange() {
     navigation.push('Login');
   }
 
   useEffect(() => {
-    setTimeout(handlePageChange, 0);
-  }, []);
+    if (!needsLogin && !isAuthenticated) {
+      dispatch(automaticLogin());
+    } else if (needsLogin) {
+      setTimeout(handlePageChange, 0);
+    }
+  }, [needsLogin]);
 
   return (
     <SafeAreaView
