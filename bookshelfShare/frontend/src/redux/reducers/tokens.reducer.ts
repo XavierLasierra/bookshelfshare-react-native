@@ -22,9 +22,16 @@ function tokensReducer(tokens = initialState, action: Action): Tokens {
       };
       break;
     case tokenActions.REFRESH_TOKEN:
+      console.log(action.data);
       newTokens = {
         ...newTokens,
         token: action.data.token
+      };
+      break;
+    case tokenActions.SAVE_REFRESH_TOKEN:
+      newTokens = {
+        ...newTokens,
+        refreshToken: action.data
       };
       break;
     default:

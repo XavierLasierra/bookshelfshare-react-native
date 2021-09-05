@@ -4,6 +4,7 @@ import loggedUserActions from './loggedUser.actions';
 import notificationsActions from './notifications.actions';
 import { getSavedData } from '../../services/asyncStorage';
 import refreshUserToken from './tokens.creator';
+import tokenActions from './token.actions';
 
 interface Dispatch {
     // eslint-disable-next-line no-unused-vars
@@ -81,11 +82,17 @@ export function automaticLogin() {
       const newToken = await refreshUserToken(userData?.refreshToken, dispatch);
       if (!newToken) throw new Error('User not logged');
 
+      dispatch({
+        type: tokenActions.SAVE_REFRESH_TOKEN,
+        data: userData.refreshToken
+      });
+
       const { data } = await axios.get(BOOKSS_API.concat(`/users/${userData?.userId}`), {
         headers: {
           Authorization: `Bearer ${newToken}`
         }
       });
+
       dispatch({
         type: loggedUserActions.LOAD_USER_DATA,
         data

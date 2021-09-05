@@ -18,7 +18,7 @@ function loggedUserReducer(loggedUser = initialState, action: Action): LoggedUse
     case loggedUserActions.LOG_USER:
     case loggedUserActions.LOAD_USER_DATA:
       newLoggedUser = {
-        userData: action.data?.user,
+        userData: action.data.user,
         isAuthenticated: true
       };
       break;

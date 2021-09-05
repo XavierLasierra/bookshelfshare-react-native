@@ -12,7 +12,6 @@ export async function storeToken(refreshToken: string, userId: string) {
 export async function getSavedData() {
   try {
     const userData: any = await AsyncStorage.getItem('userData');
-
     if (!userData) throw new Error('User not logged');
 
     const data = JSON.parse(userData);
