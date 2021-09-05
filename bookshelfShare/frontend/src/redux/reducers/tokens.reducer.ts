@@ -22,7 +22,6 @@ function tokensReducer(tokens = initialState, action: Action): Tokens {
       };
       break;
     case tokenActions.REFRESH_TOKEN:
-      console.log(action.data);
       newTokens = {
         ...newTokens,
         token: action.data.token
