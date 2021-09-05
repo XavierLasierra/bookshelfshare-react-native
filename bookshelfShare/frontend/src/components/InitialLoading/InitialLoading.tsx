@@ -15,16 +15,20 @@ import styles from './initialLoading.styles';
 
 export default function InitialLoading({ navigation }: any) {
   const dispatch = useDispatch();
-  const { needsLogin, isAuthenticated } = useSelector((store: any) => store.loggedUser);
+  const { needsLogin } = useSelector((store: any) => store.loggedUser);
 
   function handlePageChange() {
     navigation.push('Login');
   }
 
   useEffect(() => {
-    if (!needsLogin && !isAuthenticated) {
+    if (!needsLogin) {
       dispatch(automaticLogin());
-    } else if (needsLogin) {
+    }
+  }, []);
+
+  useEffect(() => {
+    if (needsLogin) {
       setTimeout(handlePageChange, 0);
     }
   }, [needsLogin]);

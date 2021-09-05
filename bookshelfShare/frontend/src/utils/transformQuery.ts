@@ -8,7 +8,7 @@ interface Query {
 export default function transformQuery(query: Query):string {
   const queryEntries = Object.entries(query);
   return queryEntries
-    .reduce((acc, queryElement, index) => (queryElement[1].length > 0
-      ? `${acc}${queryElement[0]}=${queryElement[1]}${index < queryEntries.length - 1 ? '+' : ''}`
+    .reduce((acc, queryElement) => (queryElement[1].length > 0
+      ? `${acc}${queryElement[0]}=${queryElement[1]}&`
       : acc), '');
 }
