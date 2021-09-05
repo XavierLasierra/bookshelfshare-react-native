@@ -1,40 +1,51 @@
 import React, { useEffect } from 'react';
 import {
   SafeAreaView,
-  Text,
   TouchableOpacity
 } from 'react-native';
 import {
   SharedElement
 } from 'react-navigation-shared-element';
+import { useDispatch, useSelector } from 'react-redux';
 
-import styles from './initialLoading.styles';
+import { automaticLogin } from '../../redux/actions/loggedUser.creator';
 
 import BookIcon from '../../assets/bookIcon.svg';
+import styles from './initialLoading.styles';
 
-export default function InitialLoading({
-  navigation
-}: any) {
+export default function InitialLoading({ navigation }: any) {
+  const dispatch = useDispatch();
+  const { needsLogin } = useSelector((store: any) => store.loggedUser);
+
   function handlePageChange() {
     navigation.push('Login');
   }
 
   useEffect(() => {
-    setTimeout(handlePageChange, 2000);
+    if (!needsLogin) {
+      dispatch(automaticLogin());
+    }
   }, []);
 
+  useEffect(() => {
+    if (needsLogin) {
+      setTimeout(handlePageChange, 0);
+    }
+  }, [needsLogin]);
+
   return (
-    <SafeAreaView>
+    <SafeAreaView
+      style={styles.initialPage}
+    >
       <TouchableOpacity
         onPress={() => handlePageChange()}
         style={styles.titleContainer}
         activeOpacity={1}
       >
-        <Text style={styles.title}>bookshelfShare</Text>
         <SharedElement id="mainIcon">
           <BookIcon
-            width={50}
-            height={50}
+            width={60}
+            height={60}
           />
         </SharedElement>
       </TouchableOpacity>

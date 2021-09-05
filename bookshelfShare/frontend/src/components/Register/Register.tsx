@@ -90,10 +90,10 @@ export default function Register({ navigation: { pop } }:any) {
   return (
     <SafeAreaView style={styles.mainContainer}>
       <TouchableOpacity
-        style={styles.backButton}
+        style={globalStyles.backButton}
         onPress={handleLoginNavigation}
       >
-        <ArrowIcon width={30} height={30} style={styles.backButtonIcon} />
+        <ArrowIcon width={30} height={30} style={globalStyles.backButtonIcon} />
       </TouchableOpacity>
       <View style={styles.topContainer}>
         <SharedElement id="mainIcon">

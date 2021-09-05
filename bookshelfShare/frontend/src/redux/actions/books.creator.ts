@@ -11,10 +11,13 @@ interface Dispatch {
 }
 
 interface Query {
-    isbn?: string
+    isbn?: string,
+    inauthor?: string,
+    intitle?: string,
+    inpublisher?: string
 }
 
-export default function searchBooks(query: Query, token: string, refreshToken: string) {
+export function searchBooks(query: Query, token: string, refreshToken: string) {
   return async (dispatch: Dispatch) => {
     try {
       const transformedQuery = transformQuery(query);
@@ -23,8 +26,6 @@ export default function searchBooks(query: Query, token: string, refreshToken: s
           Authorization: `Bearer ${token}`
         }
       });
-
-      console.log(data);
 
       dispatch({
         type: booksActions.LOAD_BOOKS,
@@ -35,7 +36,6 @@ export default function searchBooks(query: Query, token: string, refreshToken: s
         try {
           const newToken = await refreshUserToken(refreshToken, dispatch);
 
-          console.log(newToken);
           if (!newToken) throw new Error('Server error');
 
           dispatch(searchBooks(query, newToken, refreshToken));
@@ -48,7 +48,17 @@ export default function searchBooks(query: Query, token: string, refreshToken: s
         dispatch({
           type: notificationsActions.ISBN_ERROR
         });
+      } else {
+        dispatch({
+          type: notificationsActions.SERVER_ERROR
+        });
       }
     }
+  };
+}
+
+export function clearBooks() {
+  return {
+    type: booksActions.CLEAR_BOOKS
   };
 }

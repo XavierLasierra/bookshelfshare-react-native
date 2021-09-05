@@ -48,5 +48,20 @@ export default StyleSheet.create({
     color: stylesConstants.colors.error,
     fontSize: stylesConstants.fontSize.small,
     paddingHorizontal: 10
+  },
+  backButton: {
+    position: 'absolute',
+    top: 35,
+    left: 20,
+    zIndex: 1
+  },
+  backButtonTop: {
+    position: 'absolute',
+    top: 20,
+    left: 20,
+    zIndex: 1
+  },
+  backButtonIcon: {
+    transform: [{ rotateZ: '180deg' }]
   }
 });

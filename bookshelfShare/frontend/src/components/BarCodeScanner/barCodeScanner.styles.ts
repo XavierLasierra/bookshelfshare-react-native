@@ -30,7 +30,7 @@ export default StyleSheet.create({
     backgroundColor: stylesConstants.colors.light
   },
   overlayBottom: {
-    height: '50%',
+    height: '100%',
     backgroundColor: stylesConstants.colors.light,
     alignItems: 'center',
     padding: 30

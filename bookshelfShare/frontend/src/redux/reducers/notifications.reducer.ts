@@ -20,7 +20,7 @@ function notificationsReducer(notification = [], action: Action): string[] {
       newNotification = ['User already registered'];
       break;
     case notificationsActions.ISBN_ERROR:
-      newNotification = ['Isbn not found'];
+      newNotification = ['Book not found'];
       break;
     default:
       break;

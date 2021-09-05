@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
+import { useSelector } from 'react-redux';
 import CustomTabBar from '../../components/CustomTabBar/CustomTabBar';
 import Main from '../../components/Main/Main';
 import Following from '../../components/Following/Following';
@@ -8,13 +9,23 @@ import Shelf from '../../components/Shelf/Shelf';
 import Profile from '../../components/Profile/Profile';
 import BarCodeScanner from '../../components/BarCodeScanner/BarCodeScanner';
 import BookSearchNavigator from '../BookSearchNavigator/BookSearchNavigator';
+import { storeToken } from '../../services/asyncStorage';
 
 export default function MainNavigation() {
   const Tab = createBottomTabNavigator();
+  const { refreshToken } = useSelector((store:any) => store.tokens);
+  const { userData } = useSelector((store:any) => store.loggedUser);
+
+  useEffect(() => {
+    if (userData) {
+      // eslint-disable-next-line no-underscore-dangle
+      storeToken(refreshToken, userData._id);
+    }
+  }, [userData]);
 
   return (
     <Tab.Navigator
-      initialRouteName="InitialLoading"
+      initialRouteName="Main"
       screenOptions={{
         headerShown: false,
         tabBarShowLabel: false,
