@@ -9,45 +9,79 @@ import Header from '../Header/Header';
 import SearchIcon from '../../assets/searchIcon.svg';
 import styles from './bookSearch.styles';
 import globalStyles from '../../styles/global.styles';
-import searchBooks from '../../redux/actions/books.creator';
+import { searchBooks } from '../../redux/actions/books.creator';
 
 interface Props {
+  navigation: any,
   isbnFromCamera: string
 }
 
-export default function BookSearch({ isbnFromCamera }: Props) {
+export default function BookSearch({ navigation, isbnFromCamera }: Props) {
   const dispatch = useDispatch();
   const { token, refreshToken } = useSelector((store: any) => store.tokens);
   const [isISBN, setIsIsbn] = useState(true);
   const [isbn, setIsbn] = useState(isbnFromCamera);
+  const [inauthor, setInauthor] = useState('');
+  const [intitle, setIntitle] = useState('');
+  const [inpublisher, setInpublisher] = useState('');
+
+  function handleBookResultPage() {
+    navigation.push('BookResults',
+      {
+        searchInformation: {
+          isbn, inauthor, intitle, inpublisher
+        }
+      });
+  }
 
   useEffect(() => {
     if (isbnFromCamera) {
       dispatch(searchBooks({ isbn: isbnFromCamera }, token, refreshToken));
+      handleBookResultPage();
     }
   }, [isbnFromCamera]);
 
   function handleISBNPage() {
     if (!isISBN) {
       setIsIsbn(true);
+      setInauthor('');
+      setIntitle('');
+      setInpublisher('');
     }
   }
 
   function handleOtherPage() {
     if (isISBN) {
       setIsIsbn(false);
+      setIsbn('');
     }
   }
 
-  function handleISBNChange(text: string) {
+  function handleIsbnChange(text: string) {
     setIsbn(text);
   }
 
+  function handleInauthorChange(text: string) {
+    setInauthor(text);
+  }
+
+  function handleIntitleChange(text: string) {
+    setIntitle(text);
+  }
+
+  function handleInpublisherChange(text: string) {
+    setInpublisher(text);
+  }
+
   function handleSearch() {
-    if (isbn.trim()) {
+    if (isbn.trim() || inauthor.trim() || intitle.trim() || inpublisher.trim()) {
       dispatch(searchBooks({
-        isbn
+        isbn: isbn.trim(),
+        inauthor: inauthor.trim(),
+        intitle: intitle.trim(),
+        inpublisher: inpublisher.trim()
       }, token, refreshToken));
+      handleBookResultPage();
     }
   }
 
@@ -79,7 +113,7 @@ export default function BookSearch({ isbnFromCamera }: Props) {
                 <Text style={globalStyles.inputLabel}>ISBN</Text>
                 <TextInput
                   style={globalStyles.input}
-                  onChangeText={handleISBNChange}
+                  onChangeText={handleIsbnChange}
                   value={isbn}
                 />
               </View>
@@ -90,18 +124,24 @@ export default function BookSearch({ isbnFromCamera }: Props) {
                   <Text style={globalStyles.inputLabel}>author</Text>
                   <TextInput
                     style={globalStyles.input}
+                    onChangeText={handleInauthorChange}
+                    value={inauthor}
                   />
                 </View>
                 <View style={globalStyles.inputContainer}>
                   <Text style={globalStyles.inputLabel}>title</Text>
                   <TextInput
                     style={globalStyles.input}
+                    onChangeText={handleIntitleChange}
+                    value={intitle}
                   />
                 </View>
                 <View style={globalStyles.inputContainer}>
                   <Text style={globalStyles.inputLabel}>publisher</Text>
                   <TextInput
                     style={globalStyles.input}
+                    onChangeText={handleInpublisherChange}
+                    value={inpublisher}
                   />
                 </View>
               </>
@@ -114,7 +154,6 @@ export default function BookSearch({ isbnFromCamera }: Props) {
           </TouchableOpacity>
         </View>
       </View>
-
     </SafeAreaView>
   );
 }
