@@ -11,10 +11,13 @@ interface Dispatch {
 }
 
 interface Query {
-    isbn?: string
+    isbn?: string,
+    inauthor?: string,
+    intitle?: string,
+    inpublisher?: string
 }
 
-export default function searchBooks(query: Query, token: string, refreshToken: string) {
+export function searchBooks(query: Query, token: string, refreshToken: string) {
   return async (dispatch: Dispatch) => {
     try {
       const transformedQuery = transformQuery(query);
@@ -45,7 +48,17 @@ export default function searchBooks(query: Query, token: string, refreshToken: s
         dispatch({
           type: notificationsActions.ISBN_ERROR
         });
+      } else {
+        dispatch({
+          type: notificationsActions.SERVER_ERROR
+        });
       }
     }
+  };
+}
+
+export function clearBooks() {
+  return {
+    type: booksActions.CLEAR_BOOKS
   };
 }
