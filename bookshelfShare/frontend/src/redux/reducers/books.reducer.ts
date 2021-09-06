@@ -7,7 +7,7 @@ interface Action {
     data: any
 }
 
-function Reducer(books = initialState, action: Action): any[] {
+function booksReducer(books = initialState, action: Action): any[] {
   let newBooks: any = books;
   switch (action.type) {
     case booksActions.LOAD_BOOKS:
@@ -15,7 +15,6 @@ function Reducer(books = initialState, action: Action): any[] {
         results: true,
         books: action.data
       };
-      console.log(newBooks);
       break;
     case booksActions.CLEAR_BOOKS:
       newBooks = initialState;
@@ -32,4 +31,4 @@ function Reducer(books = initialState, action: Action): any[] {
   return newBooks;
 }
 
-export default Reducer;
+export default booksReducer;
