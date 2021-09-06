@@ -1,5 +1,8 @@
 export default {
   isLoaded: false,
-  ratings: {},
-  notes: ''
+  ratings: [],
+  list: {
+    listid: '',
+    notes: ''
+  }
 };

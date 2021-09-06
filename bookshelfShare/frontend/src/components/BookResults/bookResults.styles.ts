@@ -11,7 +11,7 @@ export default StyleSheet.create({
   parameter: {
     fontSize: stylesConstants.fontSize.small,
     color: stylesConstants.colors.mainText,
-    marginHorizontal: 10
+    paddingHorizontal: 5
   },
   bookResultsContainer: {
     backgroundColor: stylesConstants.colors.light

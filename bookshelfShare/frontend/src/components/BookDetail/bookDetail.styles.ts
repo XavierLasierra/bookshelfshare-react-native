@@ -6,7 +6,8 @@ export default StyleSheet.create({
     backgroundColor: stylesConstants.colors.light
   },
   bookDetailContainer: {
-    padding: stylesConstants.padding.normal
+    padding: stylesConstants.padding.normal,
+    paddingBottom: 100
   },
   topContainer: {
     flexDirection: 'row'
@@ -36,7 +37,8 @@ export default StyleSheet.create({
   },
   titleText: {
     fontSize: stylesConstants.fontSize.mid,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    marginTop: 5
   },
   ratingContainer: {
     flexDirection: 'row',
@@ -54,5 +56,11 @@ export default StyleSheet.create({
   },
   textContainer: {
     width: '45%'
+  },
+  description: {
+    marginTop: 10,
+    fontSize: stylesConstants.fontSize.mid,
+    textAlign: 'justify',
+    lineHeight: 25
   }
 });
