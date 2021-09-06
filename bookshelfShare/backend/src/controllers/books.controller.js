@@ -34,7 +34,7 @@ async function getBookRating({ params: { bookIsbn } }, res) {
     return res.send(error);
   }
 }
-async function addBookRating({ params: { bookIsbn }, body }, res) {
+async function addUpdateBookRating({ params: { bookIsbn }, body }, res) {
   try {
     let foundBook = await Book.findOne({ bookIsbn });
 
@@ -42,41 +42,23 @@ async function addBookRating({ params: { bookIsbn }, body }, res) {
       foundBook = await Book.create({ bookIsbn });
     }
 
-    foundBook.ratings.push({
-      user: body.user,
-      rating: body.rating,
-      review: body.review
-    });
-
-    foundBook.save();
-
-    res.json(foundBook);
-  } catch (error) {
-    res.status(500);
-    res.send(error);
-  }
-}
-
-async function updateBookRating({ params: { bookIsbn }, body }, res) {
-  try {
-    const foundBook = await Book.findOne({ bookIsbn });
-
-    if (!foundBook) return res.sendStatus(404);
-
-    foundBook.ratings = foundBook.ratings.map((rating) => (`${rating.user}` === body.user
-      ? {
+    const foundRating = foundBook.ratings.find((rating) => `${rating.user}` === body.user);
+    if (foundRating) {
+      foundRating.user = body.user;
+      foundRating.rating = body.rating;
+      foundRating.review = body.review;
+    } else {
+      foundBook.ratings.push({
         user: body.user,
         rating: body.rating,
         review: body.review
-      }
-      : rating));
-
-    foundBook.save();
-
-    return res.json(foundBook);
+      });
+    }
+    const updatedBook = await foundBook.save();
+    res.json(updatedBook);
   } catch (error) {
     res.status(500);
-    return res.send(error);
+    res.send(error);
   }
 }
 
@@ -84,6 +66,5 @@ module.exports = {
   getBooks,
   createGoogleSearchUrl,
   getBookRating,
-  addBookRating,
-  updateBookRating
+  addUpdateBookRating
 };
