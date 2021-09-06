@@ -115,7 +115,12 @@ export default function BookDetail({
             <Text style={styles.description}>{bookData.description}</Text>
           </View>
           <Notes list={list} />
-          <Rating ratings={ratings} />
+          <Rating
+            ratings={ratings}
+            isbn={bookData.isbn.ISBN13}
+            token={token}
+            refreshToken={refreshToken}
+          />
         </View>
       </ScrollView>
     </SafeAreaView>

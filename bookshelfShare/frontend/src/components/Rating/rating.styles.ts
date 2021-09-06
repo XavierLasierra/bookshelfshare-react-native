@@ -14,5 +14,11 @@ export default StyleSheet.create({
     backgroundColor: stylesConstants.colors.white,
     height: 100,
     textAlignVertical: 'top'
+  },
+  topContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: 20,
+    marginBottom: 10
   }
 });
