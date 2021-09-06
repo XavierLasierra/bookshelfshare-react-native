@@ -10,6 +10,7 @@ function customBookDataReducer(customBookData = initialState, action: Action): a
   let newCustomData: any = customBookData;
   switch (action.type) {
     case booksActions.LOAD_RATINGS:
+    case booksActions.UPDATE_RATINGS:
       newCustomData = {
         ...newCustomData,
         isLoaded: true,

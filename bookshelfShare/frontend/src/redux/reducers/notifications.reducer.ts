@@ -1,4 +1,5 @@
 import notificationsActions from '../actions/notifications.actions';
+import booksActions from '../actions/books.actions';
 
 interface Action {
     type: string
@@ -21,6 +22,9 @@ function notificationsReducer(notification = [], action: Action): string[] {
       break;
     case notificationsActions.ISBN_ERROR:
       newNotification = ['Book not found'];
+      break;
+    case booksActions.UPDATE_RATINGS:
+      newNotification = ['Review saved'];
       break;
     default:
       break;
