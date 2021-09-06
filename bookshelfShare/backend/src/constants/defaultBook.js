@@ -12,7 +12,7 @@ module.exports = {
   },
   pageCount: '-',
   format: '-',
-  categories: '-',
+  categories: ['-'],
   images: {
     thumbnail: 'https://i.ibb.co/R0Z8ytw/placeholder.png',
     smallThumbnail: 'https://i.ibb.co/R0Z8ytw/placeholder.png'
