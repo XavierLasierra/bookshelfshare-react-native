@@ -11,6 +11,7 @@ export default {
   },
   padding: {
     normal: 30,
+    mid: 20,
     small: 10
   },
   fontSize: {

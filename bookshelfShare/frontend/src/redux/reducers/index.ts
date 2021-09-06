@@ -3,10 +3,12 @@ import loggedUser from './loggedUser.reducer';
 import tokens from './tokens.reducer';
 import notifications from './notifications.reducer';
 import books from './books.reducer';
+import customBookData from './customBookData.reducer';
 
 export default combineReducers({
   loggedUser,
   tokens,
   notifications,
-  books
+  books,
+  customBookData
 });
