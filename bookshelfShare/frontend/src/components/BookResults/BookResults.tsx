@@ -50,7 +50,7 @@ export default function BookResults(
   }, []);
 
   function renderBook({ item }: any) {
-    return <BookElementSearch bookData={item} />;
+    return <BookElementSearch bookData={item} navigation={navigation} />;
   }
   return (
     <SafeAreaView style={styles.bookResultsContainer}>
@@ -71,7 +71,7 @@ export default function BookResults(
                     showsVerticalScrollIndicator={false}
                     data={books}
                     renderItem={renderBook}
-                    keyExtractor={(item) => item.key}
+                    keyExtractor={(item, index) => `item-${index}`}
                   />
                 )
                 : <Text>0 results</Text>}

@@ -23,16 +23,10 @@ export default StyleSheet.create({
     borderBottomRightRadius: 10,
     justifyContent: 'space-between'
   },
-  topContainer: {
-
-  },
   titleLanguageContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     maxHeight: 75
-  },
-  bottomContainer: {
-
   },
   bookTitle: {
     width: 175,

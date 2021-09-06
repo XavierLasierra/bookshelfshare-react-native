@@ -3,6 +3,7 @@ import { createStackNavigator, CardStyleInterpolators } from '@react-navigation/
 
 import BookSearch from '../../components/BookSearch/BookSearch';
 import BookResults from '../../components/BookResults/BookResults';
+import BookDetail from '../../components/BookDetail/BookDetail';
 
 interface Props {
     route: Route
@@ -40,6 +41,10 @@ export default function BookSearchNavigator(
       <Stack.Screen
         name="BookResults"
         component={BookResults}
+      />
+      <Stack.Screen
+        name="BookDetail"
+        component={BookDetail}
       />
     </Stack.Navigator>
   );
