@@ -35,7 +35,6 @@ export function searchBooks(query: Query, token: string, refreshToken: string) {
       if (error?.response?.status === 401) {
         try {
           const newToken = await refreshUserToken(refreshToken, dispatch);
-
           if (!newToken) throw new Error('Server error');
 
           dispatch(searchBooks(query, newToken, refreshToken));

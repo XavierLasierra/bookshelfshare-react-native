@@ -10,7 +10,8 @@ export default {
     error: 'red'
   },
   padding: {
-    normal: 30
+    normal: 30,
+    small: 10
   },
   fontSize: {
     title: 35,

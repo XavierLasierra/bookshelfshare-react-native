@@ -55,10 +55,11 @@ export function registerUser(userInfo: RegisterInformation) {
     try {
       const { data } = await axios.post(BOOKSS_API.concat('/auth/register'), userInfo);
 
-      dispatch({
-        type: loggedUserActions.LOG_USER,
-        data
-      });
+      if (data) {
+        dispatch({
+          type: notificationsActions.REGISTER_USER
+        });
+      }
     } catch (error: any) {
       if (error?.response?.status === 500) {
         dispatch({
@@ -92,7 +93,6 @@ export function automaticLogin() {
           Authorization: `Bearer ${newToken}`
         }
       });
-
       dispatch({
         type: loggedUserActions.LOAD_USER_DATA,
         data
