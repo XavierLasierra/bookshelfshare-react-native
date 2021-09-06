@@ -26,11 +26,12 @@ async function getBooks({ query }, res) {
 async function getBookRating({ params: { bookIsbn } }, res) {
   try {
     const foundBook = await Book.findOne({ bookIsbn });
+    if (!foundBook) return res.json({ ratings: [] });
 
-    res.json(foundBook);
+    return res.json(foundBook);
   } catch (error) {
     res.status(500);
-    res.send(error);
+    return res.send(error);
   }
 }
 async function addBookRating({ params: { bookIsbn }, body }, res) {
