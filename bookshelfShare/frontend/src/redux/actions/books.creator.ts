@@ -36,7 +36,6 @@ export function searchBooks(query: Query, token: string, refreshToken: string) {
         try {
           const newToken = await refreshUserToken(refreshToken, dispatch);
           if (!newToken) throw new Error('Server error');
-
           dispatch(searchBooks(query, newToken, refreshToken));
         } catch {
           dispatch({
@@ -103,5 +102,43 @@ export function getRatings(isbn: string, token: string, refreshToken: string) {
 export function clearBook() {
   return {
     type: booksActions.CLEAR_BOOK
+  };
+}
+
+export function saveRating(isbn: string, ratingInfo: any, token: string, refreshToken: string) {
+  return async (dispatch: Dispatch) => {
+    try {
+      const { data } = await axios.post(BOOKSS_API.concat(`/books/rating/${isbn}`), ratingInfo, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+
+      dispatch({
+        type: booksActions.UPDATE_RATINGS,
+        data
+      });
+    } catch (error: any) {
+      if (error?.response?.status === 401) {
+        try {
+          const newToken = await refreshUserToken(refreshToken, dispatch);
+          if (!newToken) throw new Error('Server error');
+
+          dispatch(saveRating(isbn, ratingInfo, newToken, refreshToken));
+        } catch {
+          dispatch({
+            type: notificationsActions.SERVER_ERROR
+          });
+        }
+      } else if (error?.response?.status === 500) {
+        dispatch({
+          type: notificationsActions.ISBN_ERROR
+        });
+      } else {
+        dispatch({
+          type: notificationsActions.SERVER_ERROR
+        });
+      }
+    }
   };
 }

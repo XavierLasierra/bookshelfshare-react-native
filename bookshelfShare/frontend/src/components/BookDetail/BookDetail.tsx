@@ -3,11 +3,14 @@ import {
   View, Text, Image, SafeAreaView, ActivityIndicator, ScrollView
 } from 'react-native';
 import { AirbnbRating } from 'react-native-ratings';
-
 import { useDispatch, useSelector } from 'react-redux';
-import { getRatings, clearBook } from '../../redux/actions/books.creator';
 
 import Header from '../Header/Header';
+import Notes from '../Notes/Notes';
+import Rating from '../Rating/Rating';
+
+import { getRatings, clearBook } from '../../redux/actions/books.creator';
+
 import BookIcon from '../../assets/bookIcon.svg';
 import styles from './bookDetail.styles';
 import stylesConstants from '../../styles/styles.constants';
@@ -22,9 +25,10 @@ export default function BookDetail({
 }: any) {
   const dispatch = useDispatch();
   const { token, refreshToken } = useSelector((store: any) => store.tokens);
-  const customBookData = useSelector((store: any) => store.customBookData);
+  const { ratings, list, isLoaded } = useSelector((store: any) => store.customBookData);
   const [rating, setRating] = useState(0);
   const [ratingNumber, setRatingNumber] = useState(0);
+
   useEffect(() => {
     if (bookData?.isbn?.ISBN13) {
       dispatch(getRatings(bookData.isbn.ISBN13, token, refreshToken));
@@ -35,14 +39,15 @@ export default function BookDetail({
   }, []);
 
   useEffect(() => {
-    if (customBookData.ratings.length > 0) {
-      const numberUsersRating = customBookData.ratings.length;
-      const usersRating = customBookData.ratings
+    if (ratings.length > 0) {
+      const numberUsersRating = ratings.length;
+      const usersRating = ratings
         .reduce((acc: Number, review: any) => acc + review.rating, 0) / numberUsersRating;
       setRating(usersRating);
       setRatingNumber(numberUsersRating);
     }
-  }, [customBookData]);
+  }, [ratings]);
+
   return (
     <SafeAreaView style={styles.bookDetailPageContainer}>
       <Header Logo={BookIcon} BackButton navigation={navigation} />
@@ -56,7 +61,7 @@ export default function BookDetail({
             <View style={styles.mainInformation}>
               <View>
                 <Text style={styles.title}>{bookData.title}</Text>
-                <Text style={styles.smallText}>{bookData.subtitle && bookData.subtitle}</Text>
+                {!!bookData.subtitle && <Text style={styles.smallText}>{bookData.subtitle}</Text>}
                 {bookData.authors.map((author: string, index: number) => (index < 2
             && <Text style={styles.text} key={author}>{author}</Text>))}
                 {bookData.authors.length >= 3 && <Text style={styles.text}>...</Text>}
@@ -72,7 +77,7 @@ export default function BookDetail({
                   size={20}
                   isDisabled
                 />
-                { customBookData.isLoaded
+                { isLoaded
                   ? <Text style={styles.ratingCount}>{ratingNumber}</Text>
                   : <ActivityIndicator size="small" color={stylesConstants.colors.dark} />}
               </View>
@@ -88,10 +93,10 @@ export default function BookDetail({
               <Text style={styles.text}>{bookData.isbn.ISBN13}</Text>
             </View>
             <View style={styles.textContainer}>
-              <Text>Categories:</Text>
+              <Text style={styles.titleText}>Categories:</Text>
               {bookData.categories.map((categorie: string, index: number) => (index < 2
-            && <Text key={categorie}>{categorie}</Text>))}
-              {bookData.categories.length >= 3 && <Text>...</Text>}
+            && <Text key={categorie} style={styles.text}>{categorie}</Text>))}
+              {bookData.categories.length >= 3 && <Text style={styles.text}>...</Text>}
             </View>
             <View style={styles.textContainer}>
               <Text style={styles.titleText}>Page count:</Text>
@@ -107,8 +112,15 @@ export default function BookDetail({
             </View>
           </View>
           <View>
-            <Text>{bookData.description}</Text>
+            <Text style={styles.description}>{bookData.description}</Text>
           </View>
+          <Notes list={list} />
+          <Rating
+            ratings={ratings}
+            isbn={bookData.isbn.ISBN13}
+            token={token}
+            refreshToken={refreshToken}
+          />
         </View>
       </ScrollView>
     </SafeAreaView>
