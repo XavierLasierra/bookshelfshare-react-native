@@ -15,6 +15,7 @@ function Reducer(books = initialState, action: Action): any[] {
         results: true,
         books: action.data
       };
+      console.log(newBooks);
       break;
     case booksActions.CLEAR_BOOKS:
       newBooks = initialState;

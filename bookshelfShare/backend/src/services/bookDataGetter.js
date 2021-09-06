@@ -1,10 +1,9 @@
 const axios = require('axios');
 const Book = require('../classes/book.class');
-const defaultBook = require('../constants/defaultBook');
 
 function cleanBookData({ value }) {
   if (value?.status !== 200 || value?.data?.totalItems === 0) {
-    return defaultBook;
+    return new Book();
   }
   return new Book(value?.data?.items[0]);
 }

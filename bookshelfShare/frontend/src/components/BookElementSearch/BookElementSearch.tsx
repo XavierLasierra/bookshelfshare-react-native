@@ -3,34 +3,47 @@ import {
   View, Text, Image, TouchableOpacity
 } from 'react-native';
 
-import styles from './bookResults.styles';
+import styles from './bookElementSearch.styles';
 
-export default function BookElementSearch({ bookData }: any) {
+export default function BookElementSearch({ bookData, navigation }: any) {
+  function handleBookDetailPage() {
+    navigation.push('BookDetail',
+      {
+        bookData
+      });
+  }
+
   return (
     <TouchableOpacity
-      activeOpacity={0.9}
+      activeOpacity={0.8}
+      style={styles.container}
+      onPress={handleBookDetailPage}
     >
       <Image
         source={{ uri: bookData?.images?.thumbnail || bookData?.images?.smallThumbnail }}
         style={styles.bookImage}
       />
-      <View>
+      <View style={styles.informationContainer}>
         <View>
-          <View>
-            <Text>{bookData?.title}</Text>
-            <Text>{bookData?.language}</Text>
+          <View style={styles.titleLanguageContainer}>
+            <Text style={styles.bookTitle}>{bookData?.title}</Text>
+            <Text>{bookData?.language.toUpperCase()}</Text>
           </View>
-          <Text>{bookData?.author}</Text>
-          <Text>{bookData?.publisher}</Text>
+          {bookData?.authors.map((author: string, index: number) => (index < 2
+            && <Text key={author} style={styles.bookAuthor}>{author}</Text>))}
+          {bookData?.authors.length >= 3 && <Text style={styles.bookAuthor}>...</Text>}
+          <Text style={styles.bookPublisher}>{bookData?.publisher}</Text>
         </View>
         <View>
-          <Text>
+          <Text style={styles.bookIsbn}>
             ISBN13 -
-            {bookData?.isbn[0]?.identifier}
+            {' '}
+            {bookData?.isbn?.ISBN13}
           </Text>
-          <Text>
+          <Text style={styles.bookIsbn}>
             ISBN10 -
-            {bookData?.isbn[1]?.identifier}
+            {' '}
+            {bookData?.isbn?.ISBN10}
           </Text>
         </View>
       </View>
