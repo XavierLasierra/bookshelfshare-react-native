@@ -1,5 +1,6 @@
 const axios = require('axios');
-const Book = require('../classes/book.class');
+const BookClass = require('../classes/book.class');
+const Book = require('../models/book.model');
 
 function createGoogleSearchUrl(query) {
   const queryEntries = Object.entries(query);
@@ -13,7 +14,7 @@ async function getBooks({ query }, res) {
     const url = createGoogleSearchUrl(query);
     const { data: { items } } = await axios.get(url);
 
-    const foundBooks = items.map((book) => new Book(book));
+    const foundBooks = items.map((book) => new BookClass(book));
 
     res.json(foundBooks);
   } catch (error) {
@@ -22,7 +23,66 @@ async function getBooks({ query }, res) {
   }
 }
 
+async function getBookRating({ params: { bookIsbn } }, res) {
+  try {
+    const foundBook = await Book.findOne({ bookIsbn });
+
+    res.json(foundBook);
+  } catch (error) {
+    res.status(500);
+    res.send(error);
+  }
+}
+async function addBookRating({ params: { bookIsbn }, body }, res) {
+  try {
+    let foundBook = await Book.findOne({ bookIsbn });
+
+    if (!foundBook) {
+      foundBook = await Book.create({ bookIsbn });
+    }
+
+    foundBook.ratings.push({
+      user: body.user,
+      rating: body.rating,
+      review: body.review
+    });
+
+    foundBook.save();
+
+    res.json(foundBook);
+  } catch (error) {
+    res.status(500);
+    res.send(error);
+  }
+}
+
+async function updateBookRating({ params: { bookIsbn }, body }, res) {
+  try {
+    const foundBook = await Book.findOne({ bookIsbn });
+
+    if (!foundBook) return res.sendStatus(404);
+
+    foundBook.ratings = foundBook.ratings.map((rating) => (`${rating.user}` === body.user
+      ? {
+        user: body.user,
+        rating: body.rating,
+        review: body.review
+      }
+      : rating));
+
+    foundBook.save();
+
+    return res.json(foundBook);
+  } catch (error) {
+    res.status(500);
+    return res.send(error);
+  }
+}
+
 module.exports = {
   getBooks,
-  createGoogleSearchUrl
+  createGoogleSearchUrl,
+  getBookRating,
+  addBookRating,
+  updateBookRating
 };

@@ -6,7 +6,7 @@ const listSchema = mongoose.Schema({
   shelf: [Number],
   books: [
     {
-      bookISBN: String,
+      bookIsbn: String,
       customInformation: {
         notes: String,
         column: Number,
