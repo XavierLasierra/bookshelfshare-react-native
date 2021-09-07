@@ -66,7 +66,7 @@ export default function UsersRatings({ ratings, userData }: any) {
         </TouchableOpacity>
       </View>
       {filteredRatings.length > 0
-        ? filteredRatings.map((rating: any) => (rating.user._id !== userData._id
+        ? filteredRatings.map((rating: any) => (rating.user._id !== userData?._id
           ? <RatingElement key={`ratingNumber-${rating.user._id}`} rating={rating} />
           : <RatingElement key={`ratingNumber-${rating.user._id}`} rating={rating} yours />))
         : <Text style={styles.allReviewsText}>0 reviews</Text>}

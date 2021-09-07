@@ -31,9 +31,7 @@ export default function BookDetail({
   const [ratingNumber, setRatingNumber] = useState(0);
 
   useEffect(() => {
-    if (bookData?.isbn?.ISBN13) {
-      dispatch(getRatings(bookData.isbn.ISBN13, token, refreshToken));
-    }
+    dispatch(getRatings(bookData.isbn.ISBN13, token, refreshToken));
     return () => {
       dispatch(clearBook());
     };
@@ -44,7 +42,7 @@ export default function BookDetail({
       const numberUsersRating = ratings.length;
       const usersRating = ratings
         .reduce((acc: number, review: any) => acc + review.rating, 0) / numberUsersRating;
-      setRating(usersRating);
+      setRating(Math.round(usersRating));
       setRatingNumber(numberUsersRating);
     }
   }, [ratings]);
@@ -79,7 +77,7 @@ export default function BookDetail({
                   isDisabled
                 />
                 { isLoaded
-                  ? <Text style={styles.ratingCount}>{ratingNumber}</Text>
+                  ? <Text testID="numberOfRatings" style={styles.ratingCount}>{ratingNumber}</Text>
                   : <ActivityIndicator size="small" color={stylesConstants.colors.dark} />}
               </View>
             </View>
