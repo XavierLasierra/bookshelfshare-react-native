@@ -43,7 +43,7 @@ export default function BookDetail({
     if (ratings.length > 0) {
       const numberUsersRating = ratings.length;
       const usersRating = ratings
-        .reduce((acc: Number, review: any) => acc + review.rating, 0) / numberUsersRating;
+        .reduce((acc: number, review: any) => acc + review.rating, 0) / numberUsersRating;
       setRating(usersRating);
       setRatingNumber(numberUsersRating);
     }

@@ -8,7 +8,7 @@ import styles from './ratingElement.styles';
 
 export default function RatingElement({ rating, yours }: any) {
   return (
-    <View style={styles.ratingContainer} key={rating.user._id}>
+    <View style={styles.ratingContainer} key={`userRating-${rating.user._id}`}>
       <View style={styles.nameRatingContainer}>
         <Text style={globalStyles.titleText}>
           {rating.user.username}

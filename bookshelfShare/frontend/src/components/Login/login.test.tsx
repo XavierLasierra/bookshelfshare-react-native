@@ -103,19 +103,6 @@ describe('Given a Login component', () => {
           test('Then loadingIndicator should be rendered', () => {
             expect(screen.queryByTestId('loadingIndicator')).not.toBe(null);
           });
-
-          describe('And you click again while is loading', () => {
-            test('Then loginUser should have not been called', () => {
-              (loginUser as jest.Mock).mockClear();
-              (loginUser as jest.Mock).mockReturnValue({
-                type: ''
-              });
-
-              const loginButton = screen.getByTestId('loginButton');
-              fireEvent.press(loginButton);
-              expect((loginUser as jest.Mock).mock.calls.length).toBe(0);
-            });
-          });
         });
 
         describe('And the request is resolved (notification is sent)', () => {

@@ -52,6 +52,18 @@ export default function BookResults(
   function renderBook({ item }: any) {
     return <BookElementSearch bookData={item} navigation={navigation} />;
   }
+
+  const bookResults = books.length > 0
+    ? (
+      <FlatList
+        showsVerticalScrollIndicator={false}
+        data={books}
+        renderItem={renderBook}
+        keyExtractor={(item, index) => `book-${index}`}
+      />
+    )
+    : <Text>0 results</Text>;
+
   return (
     <SafeAreaView style={styles.bookResultsContainer}>
       <Header Logo={SearchIcon} BackButton navigation={navigation} />
@@ -63,20 +75,7 @@ export default function BookResults(
           <Text style={styles.parameter}>{inpublisher && `Publisher: ${inpublisher.toUpperCase()}`}</Text>
         </View>
         {results
-          ? (
-            <>
-              {books.length > 0
-                ? (
-                  <FlatList
-                    showsVerticalScrollIndicator={false}
-                    data={books}
-                    renderItem={renderBook}
-                    keyExtractor={(item, index) => `book-${index}`}
-                  />
-                )
-                : <Text>0 results</Text>}
-            </>
-          )
+          ? bookResults
           : <ActivityIndicator size="large" color={stylesConstants.colors.dark} />}
         <View style={styles.marginBottom} />
       </View>

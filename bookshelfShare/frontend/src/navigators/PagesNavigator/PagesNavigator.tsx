@@ -11,7 +11,7 @@ import BarCodeScanner from '../../components/BarCodeScanner/BarCodeScanner';
 import BookSearchNavigator from '../BookSearchNavigator/BookSearchNavigator';
 import { storeToken } from '../../services/asyncStorage';
 
-export default function MainNavigation() {
+export default function PagesNavigator() {
   const Tab = createBottomTabNavigator();
   const { refreshToken } = useSelector((store:any) => store.tokens);
   const { userData } = useSelector((store:any) => store.loggedUser);
