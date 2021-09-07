@@ -32,14 +32,6 @@ export default StyleSheet.create({
     maxWidth: 200,
     fontSize: stylesConstants.fontSize.small
   },
-  text: {
-    fontSize: stylesConstants.fontSize.mid
-  },
-  titleText: {
-    fontSize: stylesConstants.fontSize.mid,
-    fontWeight: 'bold',
-    marginTop: 5
-  },
   ratingContainer: {
     flexDirection: 'row',
     alignItems: 'center'

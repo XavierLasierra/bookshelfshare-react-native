@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, TextInput } from 'react-native';
+import globalStyles from '../../styles/global.styles';
 
 import styles from './notes.styles';
 
@@ -18,7 +19,7 @@ export default function Notes({ list }: any) {
 
   return (
     <View>
-      <Text style={styles.titleText}>Notes:</Text>
+      <Text style={globalStyles.titleText}>Notes:</Text>
       <TextInput
         style={styles.notesInput}
         multiline

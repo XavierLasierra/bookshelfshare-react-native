@@ -36,6 +36,7 @@ export function searchBooks(query: Query, token: string, refreshToken: string) {
         try {
           const newToken = await refreshUserToken(refreshToken, dispatch);
           if (!newToken) throw new Error('Server error');
+
           dispatch(searchBooks(query, newToken, refreshToken));
         } catch {
           dispatch({
@@ -108,13 +109,19 @@ export function clearBook() {
 export function saveRating(isbn: string, ratingInfo: any, token: string, refreshToken: string) {
   return async (dispatch: Dispatch) => {
     try {
+      if (isbn === 'Not found') {
+        return dispatch({
+          type: notificationsActions.REVIEW_ISBN_NOT_FOUND
+        });
+      }
+
       const { data } = await axios.post(BOOKSS_API.concat(`/books/rating/${isbn}`), ratingInfo, {
         headers: {
           Authorization: `Bearer ${token}`
         }
       });
 
-      dispatch({
+      return dispatch({
         type: booksActions.UPDATE_RATINGS,
         data
       });
@@ -124,18 +131,18 @@ export function saveRating(isbn: string, ratingInfo: any, token: string, refresh
           const newToken = await refreshUserToken(refreshToken, dispatch);
           if (!newToken) throw new Error('Server error');
 
-          dispatch(saveRating(isbn, ratingInfo, newToken, refreshToken));
+          return dispatch(saveRating(isbn, ratingInfo, newToken, refreshToken));
         } catch {
-          dispatch({
+          return dispatch({
             type: notificationsActions.SERVER_ERROR
           });
         }
       } else if (error?.response?.status === 500) {
-        dispatch({
+        return dispatch({
           type: notificationsActions.ISBN_ERROR
         });
       } else {
-        dispatch({
+        return dispatch({
           type: notificationsActions.SERVER_ERROR
         });
       }

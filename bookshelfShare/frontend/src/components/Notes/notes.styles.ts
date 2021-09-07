@@ -5,14 +5,8 @@ export default StyleSheet.create({
   notesInput: {
     backgroundColor: stylesConstants.colors.white,
     height: 100,
-    textAlignVertical: 'top'
-  },
-  text: {
-    fontSize: stylesConstants.fontSize.mid
-  },
-  titleText: {
+    textAlignVertical: 'top',
     fontSize: stylesConstants.fontSize.mid,
-    fontWeight: 'bold',
-    marginTop: 5
+    padding: stylesConstants.padding.small
   }
 });

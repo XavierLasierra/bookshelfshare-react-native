@@ -71,7 +71,7 @@ export default function BookResults(
                     showsVerticalScrollIndicator={false}
                     data={books}
                     renderItem={renderBook}
-                    keyExtractor={(item, index) => `item-${index}`}
+                    keyExtractor={(item, index) => `book-${index}`}
                   />
                 )
                 : <Text>0 results</Text>}
