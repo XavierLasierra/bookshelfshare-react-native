@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import {
   SafeAreaView,
-  TouchableOpacity
+  View
 } from 'react-native';
 import {
   SharedElement
@@ -29,7 +29,7 @@ export default function InitialLoading({ navigation }: any) {
 
   useEffect(() => {
     if (needsLogin) {
-      setTimeout(handlePageChange, 0);
+      setTimeout(handlePageChange, 100);
     }
   }, [needsLogin]);
 
@@ -37,10 +37,8 @@ export default function InitialLoading({ navigation }: any) {
     <SafeAreaView
       style={styles.initialPage}
     >
-      <TouchableOpacity
-        onPress={() => handlePageChange()}
+      <View
         style={styles.titleContainer}
-        activeOpacity={1}
       >
         <SharedElement id="mainIcon">
           <BookIcon
@@ -48,7 +46,7 @@ export default function InitialLoading({ navigation }: any) {
             height={60}
           />
         </SharedElement>
-      </TouchableOpacity>
+      </View>
     </SafeAreaView>
   );
 }

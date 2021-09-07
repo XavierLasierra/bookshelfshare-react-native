@@ -2,7 +2,7 @@ import MockAsyncStorage from 'mock-async-storage';
 
 const mockImpl = new MockAsyncStorage();
 jest.mock('@react-native-community/async-storage', () => mockImpl);
-
+jest.mock('react-native/Libraries/Animated/NativeAnimatedHelper');
 jest.mock('react-native-gesture-handler', () => {
   const View = require('react-native/Libraries/Components/View/View');
   return {
