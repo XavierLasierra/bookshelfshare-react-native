@@ -14,6 +14,7 @@ import { getRatings, clearBook } from '../../redux/actions/books.creator';
 import BookIcon from '../../assets/bookIcon.svg';
 import styles from './bookDetail.styles';
 import stylesConstants from '../../styles/styles.constants';
+import globalStyles from '../../styles/global.styles';
 
 export default function BookDetail({
   navigation,
@@ -63,11 +64,11 @@ export default function BookDetail({
                 <Text style={styles.title}>{bookData.title}</Text>
                 {!!bookData.subtitle && <Text style={styles.smallText}>{bookData.subtitle}</Text>}
                 {bookData.authors.map((author: string, index: number) => (index < 2
-            && <Text style={styles.text} key={author}>{author}</Text>))}
-                {bookData.authors.length >= 3 && <Text style={styles.text}>...</Text>}
-                <Text style={styles.titleText}>Publisher:</Text>
-                <Text style={styles.text}>{bookData.publisher}</Text>
-                <Text style={styles.text}>{bookData.publishedDate}</Text>
+            && <Text style={globalStyles.text} key={author}>{author}</Text>))}
+                {bookData.authors.length >= 3 && <Text style={globalStyles.text}>...</Text>}
+                <Text style={globalStyles.titleText}>Publisher:</Text>
+                <Text style={globalStyles.text}>{bookData.publisher}</Text>
+                <Text style={globalStyles.text}>{bookData.publishedDate}</Text>
               </View>
               <View style={styles.ratingContainer}>
                 <AirbnbRating
@@ -85,42 +86,49 @@ export default function BookDetail({
           </View>
           <View style={styles.secondaryInformation}>
             <View style={styles.textContainer}>
-              <Text style={styles.titleText}>ISBN10:</Text>
-              <Text style={styles.text}>{bookData.isbn.ISBN10}</Text>
+              <Text style={globalStyles.titleText}>ISBN10:</Text>
+              <Text style={globalStyles.text}>{bookData.isbn.ISBN10}</Text>
             </View>
             <View style={styles.textContainer}>
-              <Text style={styles.titleText}>ISBN13:</Text>
-              <Text style={styles.text}>{bookData.isbn.ISBN13}</Text>
+              <Text style={globalStyles.titleText}>ISBN13:</Text>
+              <Text style={globalStyles.text}>{bookData.isbn.ISBN13}</Text>
             </View>
             <View style={styles.textContainer}>
-              <Text style={styles.titleText}>Categories:</Text>
+              <Text style={globalStyles.titleText}>Categories:</Text>
               {bookData.categories.map((categorie: string, index: number) => (index < 2
-            && <Text key={categorie} style={styles.text}>{categorie}</Text>))}
-              {bookData.categories.length >= 3 && <Text style={styles.text}>...</Text>}
+            && <Text key={categorie} style={globalStyles.text}>{categorie}</Text>))}
+              {bookData.categories.length >= 3 && <Text style={globalStyles.text}>...</Text>}
             </View>
             <View style={styles.textContainer}>
-              <Text style={styles.titleText}>Page count:</Text>
-              <Text style={styles.text}>{bookData.pageCount}</Text>
+              <Text style={globalStyles.titleText}>Page count:</Text>
+              <Text style={globalStyles.text}>{bookData.pageCount}</Text>
             </View>
             <View style={styles.textContainer}>
-              <Text style={styles.titleText}>Language:</Text>
-              <Text style={styles.text}>{bookData.language.toUpperCase()}</Text>
+              <Text style={globalStyles.titleText}>Language:</Text>
+              <Text style={globalStyles.text}>{bookData.language.toUpperCase()}</Text>
             </View>
             <View style={styles.textContainer}>
-              <Text style={styles.titleText}>Format:</Text>
-              <Text style={styles.text}>{bookData.format}</Text>
+              <Text style={globalStyles.titleText}>Format:</Text>
+              <Text style={globalStyles.text}>{bookData.format}</Text>
             </View>
           </View>
           <View>
             <Text style={styles.description}>{bookData.description}</Text>
           </View>
-          <Notes list={list} />
-          <Rating
-            ratings={ratings}
-            isbn={bookData.isbn.ISBN13}
-            token={token}
-            refreshToken={refreshToken}
-          />
+          {isLoaded
+            ? (
+              <>
+                <Notes list={list} />
+                <Rating
+                  ratings={ratings}
+                  isbn={bookData.isbn.ISBN13}
+                  token={token}
+                  refreshToken={refreshToken}
+                />
+              </>
+            )
+            : <ActivityIndicator size="large" color={stylesConstants.colors.dark} />}
+
         </View>
       </ScrollView>
     </SafeAreaView>

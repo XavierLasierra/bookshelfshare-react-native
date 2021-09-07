@@ -31,6 +31,7 @@ export function loginUser(userInfo: LoginInformation) {
   return async (dispatch: Dispatch) => {
     try {
       const { data } = await axios.post(BOOKSS_API.concat('/auth/login'), userInfo);
+
       dispatch({
         type: loggedUserActions.LOG_USER,
         data

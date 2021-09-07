@@ -63,5 +63,13 @@ export default StyleSheet.create({
   },
   backButtonIcon: {
     transform: [{ rotateZ: '180deg' }]
+  },
+  text: {
+    fontSize: stylesConstants.fontSize.mid
+  },
+  titleText: {
+    fontSize: stylesConstants.fontSize.mid,
+    fontWeight: 'bold',
+    marginTop: 5
   }
 });
