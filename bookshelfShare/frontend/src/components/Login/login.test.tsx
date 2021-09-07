@@ -19,8 +19,7 @@ describe('Given a Login component', () => {
       screen = render(<Login navigation={navigation} />);
     });
     test('Then should match the snapshot', () => {
-      const login = render(<Login navigation={navigation} />);
-      expect(login).toMatchSnapshot();
+      expect(screen).toMatchSnapshot();
     });
 
     describe('And email input text is changed', () => {

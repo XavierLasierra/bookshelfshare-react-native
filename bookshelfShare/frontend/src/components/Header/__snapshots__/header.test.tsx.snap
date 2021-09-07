@@ -1,0 +1,154 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Given a Header component When it is rendered And the prop BackButton is false Then should match the snapshot 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "flex-end",
+      "backgroundColor": "#F5F5F5",
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#D9D8C4",
+        "borderBottomLeftRadius": 25,
+        "justifyContent": "center",
+        "padding": 10,
+        "width": "100%",
+      }
+    }
+  >
+    <Logo
+      height={45}
+      width={45}
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "height": 0,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "#D9D8C4",
+          "height": 20,
+          "width": 20,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "#F5F5F5",
+            "borderTopRightRadius": 25,
+            "height": 20,
+            "width": 20,
+          }
+        }
+      />
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Given a Header component When it is rendered And the prop BackButton is true Then should match the snapshot 1`] = `
+Array [
+  <View
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    nativeID="animatedComponent"
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "left": 20,
+        "opacity": 1,
+        "position": "absolute",
+        "top": 20,
+        "zIndex": 1,
+      }
+    }
+    testID="backButton"
+  >
+    <IconMock
+      height={30}
+      style={
+        Object {
+          "transform": Array [
+            Object {
+              "rotateZ": "180deg",
+            },
+          ],
+        }
+      }
+      width={30}
+    />
+  </View>,
+  <View
+    style={
+      Object {
+        "alignItems": "flex-end",
+        "backgroundColor": "#F5F5F5",
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#D9D8C4",
+          "borderBottomLeftRadius": 25,
+          "justifyContent": "center",
+          "padding": 10,
+          "width": "100%",
+        }
+      }
+    >
+      <Logo
+        height={45}
+        width={45}
+      />
+    </View>
+    <View
+      style={
+        Object {
+          "height": 0,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "#D9D8C4",
+            "height": 20,
+            "width": 20,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "#F5F5F5",
+              "borderTopRightRadius": 25,
+              "height": 20,
+              "width": 20,
+            }
+          }
+        />
+      </View>
+    </View>
+  </View>,
+]
+`;
