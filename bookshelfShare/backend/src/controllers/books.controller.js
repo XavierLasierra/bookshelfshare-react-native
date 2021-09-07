@@ -25,7 +25,7 @@ async function getBooks({ query }, res) {
 
 async function getBookRating({ params: { bookIsbn } }, res) {
   try {
-    const foundBook = await Book.findOne({ bookIsbn });
+    const foundBook = await Book.findOne({ bookIsbn }).populate({ path: 'ratings.user', select: 'username' });
     if (!foundBook) return res.json({ ratings: [] });
 
     return res.json(foundBook);
@@ -55,6 +55,7 @@ async function addUpdateBookRating({ params: { bookIsbn }, body }, res) {
       });
     }
     const updatedBook = await foundBook.save();
+    await updatedBook.populate({ path: 'ratings.user', select: 'username' });
     res.json(updatedBook);
   } catch (error) {
     res.status(500);
