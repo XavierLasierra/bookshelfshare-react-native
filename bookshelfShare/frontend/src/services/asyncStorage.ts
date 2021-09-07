@@ -4,8 +4,9 @@ export async function storeToken(refreshToken: string, userId: string) {
   try {
     await AsyncStorage.clear();
     await AsyncStorage.setItem('userData', JSON.stringify({ refreshToken, userId }));
+    return true;
   } catch (error) {
-    // TODO could not save userData
+    return error;
   }
 }
 
@@ -14,8 +15,7 @@ export async function getSavedData() {
     const userData: any = await AsyncStorage.getItem('userData');
     if (!userData) throw new Error('User not logged');
 
-    const data = JSON.parse(userData);
-    return data;
+    return JSON.parse(userData);
   } catch (error) {
     return '';
   }

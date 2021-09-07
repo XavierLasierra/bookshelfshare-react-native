@@ -1,0 +1,4458 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Given an BookDetail component When it is rendered And ratings are loaded Then should match the snapshot 1`] = `
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
+  style={
+    Object {
+      "backgroundColor": "#F5F5F5",
+    }
+  }
+>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "left": 20,
+        "opacity": 1,
+        "position": "absolute",
+        "top": 20,
+        "zIndex": 1,
+      }
+    }
+    testID="backButton"
+  >
+    <IconMock
+      height={30}
+      style={
+        Object {
+          "transform": Array [
+            Object {
+              "rotateZ": "180deg",
+            },
+          ],
+        }
+      }
+      width={30}
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "flex-end",
+        "backgroundColor": "#F5F5F5",
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#D9D8C4",
+          "borderBottomLeftRadius": 25,
+          "justifyContent": "center",
+          "padding": 10,
+          "width": "100%",
+        }
+      }
+    >
+      <IconMock
+        height={45}
+        width={45}
+      />
+    </View>
+    <View
+      style={
+        Object {
+          "height": 0,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "#D9D8C4",
+            "height": 20,
+            "width": 20,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "#F5F5F5",
+              "borderTopRightRadius": 25,
+              "height": 20,
+              "width": 20,
+            }
+          }
+        />
+      </View>
+    </View>
+  </View>
+  <RCTScrollView>
+    <View>
+      <View
+        style={
+          Object {
+            "padding": 30,
+            "paddingBottom": 100,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <Image
+            source={
+              Object {
+                "uri": "http://books.google.com/books/content?id=ocNGwgEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+              }
+            }
+            style={
+              Object {
+                "borderBottomLeftRadius": 10,
+                "borderTopLeftRadius": 10,
+                "height": 225,
+                "overflow": "hidden",
+                "width": 150,
+              }
+            }
+          />
+          <View
+            style={
+              Object {
+                "justifyContent": "space-between",
+                "paddingHorizontal": 20,
+              }
+            }
+          >
+            <View>
+              <Text
+                style={
+                  Object {
+                    "fontSize": 16,
+                    "fontWeight": "bold",
+                    "maxWidth": 200,
+                  }
+                }
+              >
+                1984
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "fontSize": 12,
+                    "maxWidth": 200,
+                  }
+                }
+              >
+                A Novel
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "fontSize": 16,
+                  }
+                }
+              >
+                George Orwell
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "fontSize": 16,
+                    "fontWeight": "bold",
+                    "marginTop": 5,
+                  }
+                }
+              >
+                Publisher:
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "fontSize": 16,
+                  }
+                }
+              >
+                No publisher found
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "fontSize": 16,
+                  }
+                }
+              >
+                2009
+              </Text>
+            </View>
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                }
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "transparent",
+                      "flexDirection": "column",
+                      "justifyContent": "center",
+                    },
+                  ]
+                }
+              >
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "alignItems": "center",
+                        "flexDirection": "row",
+                        "justifyContent": "center",
+                      },
+                    ]
+                  }
+                >
+                  <View
+                    accessible={true}
+                    focusable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Object {
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <Image
+                      collapsable={false}
+                      nativeID="animatedComponent"
+                      source={
+                        Object {
+                          "testUri": "../../react-native-ratings/dist/images/airbnb-star.png",
+                        }
+                      }
+                      style={
+                        Object {
+                          "height": 20,
+                          "margin": 3,
+                          "tintColor": "#f1c40f",
+                          "transform": Array [
+                            Object {
+                              "scale": 1,
+                            },
+                          ],
+                          "width": 20,
+                        }
+                      }
+                    />
+                  </View>
+                  <View
+                    accessible={true}
+                    focusable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Object {
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <Image
+                      collapsable={false}
+                      nativeID="animatedComponent"
+                      source={
+                        Object {
+                          "testUri": "../../react-native-ratings/dist/images/airbnb-star.png",
+                        }
+                      }
+                      style={
+                        Object {
+                          "height": 20,
+                          "margin": 3,
+                          "tintColor": "#f1c40f",
+                          "transform": Array [
+                            Object {
+                              "scale": 1,
+                            },
+                          ],
+                          "width": 20,
+                        }
+                      }
+                    />
+                  </View>
+                  <View
+                    accessible={true}
+                    focusable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Object {
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <Image
+                      collapsable={false}
+                      nativeID="animatedComponent"
+                      source={
+                        Object {
+                          "testUri": "../../react-native-ratings/dist/images/airbnb-star.png",
+                        }
+                      }
+                      style={
+                        Object {
+                          "height": 20,
+                          "margin": 3,
+                          "tintColor": "#f1c40f",
+                          "transform": Array [
+                            Object {
+                              "scale": 1,
+                            },
+                          ],
+                          "width": 20,
+                        }
+                      }
+                    />
+                  </View>
+                  <View
+                    accessible={true}
+                    focusable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Object {
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <Image
+                      collapsable={false}
+                      nativeID="animatedComponent"
+                      source={
+                        Object {
+                          "testUri": "../../react-native-ratings/dist/images/airbnb-star.png",
+                        }
+                      }
+                      style={
+                        Object {
+                          "height": 20,
+                          "margin": 3,
+                          "tintColor": "#BDC3C7",
+                          "transform": Array [
+                            Object {
+                              "scale": 1,
+                            },
+                          ],
+                          "width": 20,
+                        }
+                      }
+                    />
+                  </View>
+                  <View
+                    accessible={true}
+                    focusable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Object {
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <Image
+                      collapsable={false}
+                      nativeID="animatedComponent"
+                      source={
+                        Object {
+                          "testUri": "../../react-native-ratings/dist/images/airbnb-star.png",
+                        }
+                      }
+                      style={
+                        Object {
+                          "height": 20,
+                          "margin": 3,
+                          "tintColor": "#BDC3C7",
+                          "transform": Array [
+                            Object {
+                              "scale": 1,
+                            },
+                          ],
+                          "width": 20,
+                        }
+                      }
+                    />
+                  </View>
+                </View>
+              </View>
+              <Text
+                style={
+                  Object {
+                    "fontSize": 16,
+                    "marginLeft": 10,
+                  }
+                }
+                testID="numberOfRatings"
+              >
+                3
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+              "flexWrap": "wrap",
+              "justifyContent": "space-between",
+              "marginTop": 10,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "width": "45%",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "marginTop": 5,
+                }
+              }
+            >
+              ISBN10:
+            </Text>
+            <Text
+              style={
+                Object {
+                  "fontSize": 16,
+                }
+              }
+            >
+              0451524934
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "width": "45%",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "marginTop": 5,
+                }
+              }
+            >
+              ISBN13:
+            </Text>
+            <Text
+              style={
+                Object {
+                  "fontSize": 16,
+                }
+              }
+            >
+              9780451524935
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "width": "45%",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "marginTop": 5,
+                }
+              }
+            >
+              Categories:
+            </Text>
+            <Text
+              style={
+                Object {
+                  "fontSize": 16,
+                }
+              }
+            >
+              London (England)
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "width": "45%",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "marginTop": 5,
+                }
+              }
+            >
+              Page count:
+            </Text>
+            <Text
+              style={
+                Object {
+                  "fontSize": 16,
+                }
+              }
+            >
+              190
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "width": "45%",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "marginTop": 5,
+                }
+              }
+            >
+              Language:
+            </Text>
+            <Text
+              style={
+                Object {
+                  "fontSize": 16,
+                }
+              }
+            >
+              EN
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "width": "45%",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "marginTop": 5,
+                }
+              }
+            >
+              Format:
+            </Text>
+            <Text
+              style={
+                Object {
+                  "fontSize": 16,
+                }
+              }
+            >
+              BOOK
+            </Text>
+          </View>
+        </View>
+        <View>
+          <Text
+            style={
+              Object {
+                "fontSize": 16,
+                "lineHeight": 25,
+                "marginTop": 10,
+                "textAlign": "justify",
+              }
+            }
+          >
+            Winston Smith is a worker at the Ministry of Truth, where he falsifies records for the party. Secretly subversive, he and his colleague Julia try to free themselves from political slavery but the price of freedom is betrayal.
+          </Text>
+        </View>
+        <View>
+          <Text
+            style={
+              Object {
+                "fontSize": 16,
+                "fontWeight": "bold",
+                "marginTop": 5,
+              }
+            }
+          >
+            Notes:
+          </Text>
+          <TextInput
+            editable={false}
+            maxLength={200}
+            multiline={true}
+            style={
+              Object {
+                "backgroundColor": "#FFFFFF",
+                "fontSize": 16,
+                "height": 100,
+                "padding": 10,
+                "textAlignVertical": "top",
+              }
+            }
+            value="Add book to a list/shelf to add notes"
+          />
+        </View>
+        <View>
+          <View>
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "justifyContent": "space-between",
+                  "marginBottom": 10,
+                  "marginTop": 20,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 16,
+                    "fontWeight": "bold",
+                    "marginTop": 5,
+                  }
+                }
+              >
+                Rate:
+              </Text>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "transparent",
+                      "flexDirection": "column",
+                      "justifyContent": "center",
+                    },
+                  ]
+                }
+              >
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "alignItems": "center",
+                        "flexDirection": "row",
+                        "justifyContent": "center",
+                      },
+                    ]
+                  }
+                >
+                  <View
+                    accessible={true}
+                    focusable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Object {
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <Image
+                      collapsable={false}
+                      nativeID="animatedComponent"
+                      source={
+                        Object {
+                          "testUri": "../../react-native-ratings/dist/images/airbnb-star.png",
+                        }
+                      }
+                      style={
+                        Object {
+                          "height": 20,
+                          "margin": 3,
+                          "tintColor": "#BDC3C7",
+                          "transform": Array [
+                            Object {
+                              "scale": 1,
+                            },
+                          ],
+                          "width": 20,
+                        }
+                      }
+                    />
+                  </View>
+                  <View
+                    accessible={true}
+                    focusable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Object {
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <Image
+                      collapsable={false}
+                      nativeID="animatedComponent"
+                      source={
+                        Object {
+                          "testUri": "../../react-native-ratings/dist/images/airbnb-star.png",
+                        }
+                      }
+                      style={
+                        Object {
+                          "height": 20,
+                          "margin": 3,
+                          "tintColor": "#BDC3C7",
+                          "transform": Array [
+                            Object {
+                              "scale": 1,
+                            },
+                          ],
+                          "width": 20,
+                        }
+                      }
+                    />
+                  </View>
+                  <View
+                    accessible={true}
+                    focusable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Object {
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <Image
+                      collapsable={false}
+                      nativeID="animatedComponent"
+                      source={
+                        Object {
+                          "testUri": "../../react-native-ratings/dist/images/airbnb-star.png",
+                        }
+                      }
+                      style={
+                        Object {
+                          "height": 20,
+                          "margin": 3,
+                          "tintColor": "#BDC3C7",
+                          "transform": Array [
+                            Object {
+                              "scale": 1,
+                            },
+                          ],
+                          "width": 20,
+                        }
+                      }
+                    />
+                  </View>
+                  <View
+                    accessible={true}
+                    focusable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Object {
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <Image
+                      collapsable={false}
+                      nativeID="animatedComponent"
+                      source={
+                        Object {
+                          "testUri": "../../react-native-ratings/dist/images/airbnb-star.png",
+                        }
+                      }
+                      style={
+                        Object {
+                          "height": 20,
+                          "margin": 3,
+                          "tintColor": "#BDC3C7",
+                          "transform": Array [
+                            Object {
+                              "scale": 1,
+                            },
+                          ],
+                          "width": 20,
+                        }
+                      }
+                    />
+                  </View>
+                  <View
+                    accessible={true}
+                    focusable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Object {
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <Image
+                      collapsable={false}
+                      nativeID="animatedComponent"
+                      source={
+                        Object {
+                          "testUri": "../../react-native-ratings/dist/images/airbnb-star.png",
+                        }
+                      }
+                      style={
+                        Object {
+                          "height": 20,
+                          "margin": 3,
+                          "tintColor": "#BDC3C7",
+                          "transform": Array [
+                            Object {
+                              "scale": 1,
+                            },
+                          ],
+                          "width": 20,
+                        }
+                      }
+                    />
+                  </View>
+                </View>
+              </View>
+              <View
+                accessible={true}
+                focusable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "opacity": 1,
+                  }
+                }
+              >
+                <IconMock
+                  height={30}
+                  width={30}
+                />
+              </View>
+            </View>
+            <TextInput
+              editable={true}
+              maxLength={200}
+              multiline={true}
+              onChangeText={[Function]}
+              style={
+                Object {
+                  "backgroundColor": "#FFFFFF",
+                  "fontSize": 16,
+                  "height": 100,
+                  "padding": 10,
+                  "textAlignVertical": "top",
+                }
+              }
+              value=""
+            />
+          </View>
+          <View
+            style={
+              Object {
+                "marginTop": 20,
+              }
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "fontSize": 16,
+                    "fontWeight": "bold",
+                    "marginTop": 5,
+                  },
+                  Object {
+                    "marginBottom": 10,
+                  },
+                ]
+              }
+            >
+              Users reviews:
+            </Text>
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "borderBottomWidth": 1,
+                  "borderColor": "#000000",
+                  "marginBottom": 20,
+                }
+              }
+            >
+              <View
+                accessible={true}
+                focusable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "borderBottomWidth": 1,
+                    "borderColor": "#ECECEC",
+                    "borderTopWidth": 1,
+                    "flexDirection": "row",
+                    "justifyContent": "space-between",
+                    "opacity": 1,
+                    "paddingVertical": 5,
+                    "width": 225,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "alignItems": "center",
+                        "backgroundColor": "transparent",
+                        "flexDirection": "column",
+                        "justifyContent": "center",
+                      },
+                    ]
+                  }
+                >
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "alignItems": "center",
+                          "flexDirection": "row",
+                          "justifyContent": "center",
+                        },
+                      ]
+                    }
+                  >
+                    <View
+                      accessible={true}
+                      focusable={true}
+                      onClick={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                      style={
+                        Object {
+                          "opacity": 1,
+                        }
+                      }
+                    >
+                      <Image
+                        collapsable={false}
+                        nativeID="animatedComponent"
+                        source={
+                          Object {
+                            "testUri": "../../react-native-ratings/dist/images/airbnb-star.png",
+                          }
+                        }
+                        style={
+                          Object {
+                            "height": 20,
+                            "margin": 3,
+                            "tintColor": "#f1c40f",
+                            "transform": Array [
+                              Object {
+                                "scale": 1,
+                              },
+                            ],
+                            "width": 20,
+                          }
+                        }
+                      />
+                    </View>
+                    <View
+                      accessible={true}
+                      focusable={true}
+                      onClick={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                      style={
+                        Object {
+                          "opacity": 1,
+                        }
+                      }
+                    >
+                      <Image
+                        collapsable={false}
+                        nativeID="animatedComponent"
+                        source={
+                          Object {
+                            "testUri": "../../react-native-ratings/dist/images/airbnb-star.png",
+                          }
+                        }
+                        style={
+                          Object {
+                            "height": 20,
+                            "margin": 3,
+                            "tintColor": "#f1c40f",
+                            "transform": Array [
+                              Object {
+                                "scale": 1,
+                              },
+                            ],
+                            "width": 20,
+                          }
+                        }
+                      />
+                    </View>
+                    <View
+                      accessible={true}
+                      focusable={true}
+                      onClick={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                      style={
+                        Object {
+                          "opacity": 1,
+                        }
+                      }
+                    >
+                      <Image
+                        collapsable={false}
+                        nativeID="animatedComponent"
+                        source={
+                          Object {
+                            "testUri": "../../react-native-ratings/dist/images/airbnb-star.png",
+                          }
+                        }
+                        style={
+                          Object {
+                            "height": 20,
+                            "margin": 3,
+                            "tintColor": "#f1c40f",
+                            "transform": Array [
+                              Object {
+                                "scale": 1,
+                              },
+                            ],
+                            "width": 20,
+                          }
+                        }
+                      />
+                    </View>
+                    <View
+                      accessible={true}
+                      focusable={true}
+                      onClick={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                      style={
+                        Object {
+                          "opacity": 1,
+                        }
+                      }
+                    >
+                      <Image
+                        collapsable={false}
+                        nativeID="animatedComponent"
+                        source={
+                          Object {
+                            "testUri": "../../react-native-ratings/dist/images/airbnb-star.png",
+                          }
+                        }
+                        style={
+                          Object {
+                            "height": 20,
+                            "margin": 3,
+                            "tintColor": "#f1c40f",
+                            "transform": Array [
+                              Object {
+                                "scale": 1,
+                              },
+                            ],
+                            "width": 20,
+                          }
+                        }
+                      />
+                    </View>
+                    <View
+                      accessible={true}
+                      focusable={true}
+                      onClick={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                      style={
+                        Object {
+                          "opacity": 1,
+                        }
+                      }
+                    >
+                      <Image
+                        collapsable={false}
+                        nativeID="animatedComponent"
+                        source={
+                          Object {
+                            "testUri": "../../react-native-ratings/dist/images/airbnb-star.png",
+                          }
+                        }
+                        style={
+                          Object {
+                            "height": 20,
+                            "margin": 3,
+                            "tintColor": "#f1c40f",
+                            "transform": Array [
+                              Object {
+                                "scale": 1,
+                              },
+                            ],
+                            "width": 20,
+                          }
+                        }
+                      />
+                    </View>
+                  </View>
+                </View>
+                <Text
+                  style={
+                    Object {
+                      "fontSize": 16,
+                    }
+                  }
+                >
+                  0
+                   
+                  reviews
+                </Text>
+              </View>
+              <View
+                accessible={true}
+                focusable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "borderBottomWidth": 1,
+                    "borderColor": "#ECECEC",
+                    "borderTopWidth": 1,
+                    "flexDirection": "row",
+                    "justifyContent": "space-between",
+                    "opacity": 1,
+                    "paddingVertical": 5,
+                    "width": 225,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "alignItems": "center",
+                        "backgroundColor": "transparent",
+                        "flexDirection": "column",
+                        "justifyContent": "center",
+                      },
+                    ]
+                  }
+                >
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "alignItems": "center",
+                          "flexDirection": "row",
+                          "justifyContent": "center",
+                        },
+                      ]
+                    }
+                  >
+                    <View
+                      accessible={true}
+                      focusable={true}
+                      onClick={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                      style={
+                        Object {
+                          "opacity": 1,
+                        }
+                      }
+                    >
+                      <Image
+                        collapsable={false}
+                        nativeID="animatedComponent"
+                        source={
+                          Object {
+                            "testUri": "../../react-native-ratings/dist/images/airbnb-star.png",
+                          }
+                        }
+                        style={
+                          Object {
+                            "height": 20,
+                            "margin": 3,
+                            "tintColor": "#f1c40f",
+                            "transform": Array [
+                              Object {
+                                "scale": 1,
+                              },
+                            ],
+                            "width": 20,
+                          }
+                        }
+                      />
+                    </View>
+                    <View
+                      accessible={true}
+                      focusable={true}
+                      onClick={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                      style={
+                        Object {
+                          "opacity": 1,
+                        }
+                      }
+                    >
+                      <Image
+                        collapsable={false}
+                        nativeID="animatedComponent"
+                        source={
+                          Object {
+                            "testUri": "../../react-native-ratings/dist/images/airbnb-star.png",
+                          }
+                        }
+                        style={
+                          Object {
+                            "height": 20,
+                            "margin": 3,
+                            "tintColor": "#f1c40f",
+                            "transform": Array [
+                              Object {
+                                "scale": 1,
+                              },
+                            ],
+                            "width": 20,
+                          }
+                        }
+                      />
+                    </View>
+                    <View
+                      accessible={true}
+                      focusable={true}
+                      onClick={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                      style={
+                        Object {
+                          "opacity": 1,
+                        }
+                      }
+                    >
+                      <Image
+                        collapsable={false}
+                        nativeID="animatedComponent"
+                        source={
+                          Object {
+                            "testUri": "../../react-native-ratings/dist/images/airbnb-star.png",
+                          }
+                        }
+                        style={
+                          Object {
+                            "height": 20,
+                            "margin": 3,
+                            "tintColor": "#f1c40f",
+                            "transform": Array [
+                              Object {
+                                "scale": 1,
+                              },
+                            ],
+                            "width": 20,
+                          }
+                        }
+                      />
+                    </View>
+                    <View
+                      accessible={true}
+                      focusable={true}
+                      onClick={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                      style={
+                        Object {
+                          "opacity": 1,
+                        }
+                      }
+                    >
+                      <Image
+                        collapsable={false}
+                        nativeID="animatedComponent"
+                        source={
+                          Object {
+                            "testUri": "../../react-native-ratings/dist/images/airbnb-star.png",
+                          }
+                        }
+                        style={
+                          Object {
+                            "height": 20,
+                            "margin": 3,
+                            "tintColor": "#f1c40f",
+                            "transform": Array [
+                              Object {
+                                "scale": 1,
+                              },
+                            ],
+                            "width": 20,
+                          }
+                        }
+                      />
+                    </View>
+                    <View
+                      accessible={true}
+                      focusable={true}
+                      onClick={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                      style={
+                        Object {
+                          "opacity": 1,
+                        }
+                      }
+                    >
+                      <Image
+                        collapsable={false}
+                        nativeID="animatedComponent"
+                        source={
+                          Object {
+                            "testUri": "../../react-native-ratings/dist/images/airbnb-star.png",
+                          }
+                        }
+                        style={
+                          Object {
+                            "height": 20,
+                            "margin": 3,
+                            "tintColor": "#BDC3C7",
+                            "transform": Array [
+                              Object {
+                                "scale": 1,
+                              },
+                            ],
+                            "width": 20,
+                          }
+                        }
+                      />
+                    </View>
+                  </View>
+                </View>
+                <Text
+                  style={
+                    Object {
+                      "fontSize": 16,
+                    }
+                  }
+                >
+                  2
+                   
+                  reviews
+                </Text>
+              </View>
+              <View
+                accessible={true}
+                focusable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "borderBottomWidth": 1,
+                    "borderColor": "#ECECEC",
+                    "borderTopWidth": 1,
+                    "flexDirection": "row",
+                    "justifyContent": "space-between",
+                    "opacity": 1,
+                    "paddingVertical": 5,
+                    "width": 225,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "alignItems": "center",
+                        "backgroundColor": "transparent",
+                        "flexDirection": "column",
+                        "justifyContent": "center",
+                      },
+                    ]
+                  }
+                >
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "alignItems": "center",
+                          "flexDirection": "row",
+                          "justifyContent": "center",
+                        },
+                      ]
+                    }
+                  >
+                    <View
+                      accessible={true}
+                      focusable={true}
+                      onClick={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                      style={
+                        Object {
+                          "opacity": 1,
+                        }
+                      }
+                    >
+                      <Image
+                        collapsable={false}
+                        nativeID="animatedComponent"
+                        source={
+                          Object {
+                            "testUri": "../../react-native-ratings/dist/images/airbnb-star.png",
+                          }
+                        }
+                        style={
+                          Object {
+                            "height": 20,
+                            "margin": 3,
+                            "tintColor": "#f1c40f",
+                            "transform": Array [
+                              Object {
+                                "scale": 1,
+                              },
+                            ],
+                            "width": 20,
+                          }
+                        }
+                      />
+                    </View>
+                    <View
+                      accessible={true}
+                      focusable={true}
+                      onClick={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                      style={
+                        Object {
+                          "opacity": 1,
+                        }
+                      }
+                    >
+                      <Image
+                        collapsable={false}
+                        nativeID="animatedComponent"
+                        source={
+                          Object {
+                            "testUri": "../../react-native-ratings/dist/images/airbnb-star.png",
+                          }
+                        }
+                        style={
+                          Object {
+                            "height": 20,
+                            "margin": 3,
+                            "tintColor": "#f1c40f",
+                            "transform": Array [
+                              Object {
+                                "scale": 1,
+                              },
+                            ],
+                            "width": 20,
+                          }
+                        }
+                      />
+                    </View>
+                    <View
+                      accessible={true}
+                      focusable={true}
+                      onClick={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                      style={
+                        Object {
+                          "opacity": 1,
+                        }
+                      }
+                    >
+                      <Image
+                        collapsable={false}
+                        nativeID="animatedComponent"
+                        source={
+                          Object {
+                            "testUri": "../../react-native-ratings/dist/images/airbnb-star.png",
+                          }
+                        }
+                        style={
+                          Object {
+                            "height": 20,
+                            "margin": 3,
+                            "tintColor": "#f1c40f",
+                            "transform": Array [
+                              Object {
+                                "scale": 1,
+                              },
+                            ],
+                            "width": 20,
+                          }
+                        }
+                      />
+                    </View>
+                    <View
+                      accessible={true}
+                      focusable={true}
+                      onClick={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                      style={
+                        Object {
+                          "opacity": 1,
+                        }
+                      }
+                    >
+                      <Image
+                        collapsable={false}
+                        nativeID="animatedComponent"
+                        source={
+                          Object {
+                            "testUri": "../../react-native-ratings/dist/images/airbnb-star.png",
+                          }
+                        }
+                        style={
+                          Object {
+                            "height": 20,
+                            "margin": 3,
+                            "tintColor": "#BDC3C7",
+                            "transform": Array [
+                              Object {
+                                "scale": 1,
+                              },
+                            ],
+                            "width": 20,
+                          }
+                        }
+                      />
+                    </View>
+                    <View
+                      accessible={true}
+                      focusable={true}
+                      onClick={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                      style={
+                        Object {
+                          "opacity": 1,
+                        }
+                      }
+                    >
+                      <Image
+                        collapsable={false}
+                        nativeID="animatedComponent"
+                        source={
+                          Object {
+                            "testUri": "../../react-native-ratings/dist/images/airbnb-star.png",
+                          }
+                        }
+                        style={
+                          Object {
+                            "height": 20,
+                            "margin": 3,
+                            "tintColor": "#BDC3C7",
+                            "transform": Array [
+                              Object {
+                                "scale": 1,
+                              },
+                            ],
+                            "width": 20,
+                          }
+                        }
+                      />
+                    </View>
+                  </View>
+                </View>
+                <Text
+                  style={
+                    Object {
+                      "fontSize": 16,
+                    }
+                  }
+                >
+                  0
+                   
+                  reviews
+                </Text>
+              </View>
+              <View
+                accessible={true}
+                focusable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "borderBottomWidth": 1,
+                    "borderColor": "#ECECEC",
+                    "borderTopWidth": 1,
+                    "flexDirection": "row",
+                    "justifyContent": "space-between",
+                    "opacity": 1,
+                    "paddingVertical": 5,
+                    "width": 225,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "alignItems": "center",
+                        "backgroundColor": "transparent",
+                        "flexDirection": "column",
+                        "justifyContent": "center",
+                      },
+                    ]
+                  }
+                >
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "alignItems": "center",
+                          "flexDirection": "row",
+                          "justifyContent": "center",
+                        },
+                      ]
+                    }
+                  >
+                    <View
+                      accessible={true}
+                      focusable={true}
+                      onClick={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                      style={
+                        Object {
+                          "opacity": 1,
+                        }
+                      }
+                    >
+                      <Image
+                        collapsable={false}
+                        nativeID="animatedComponent"
+                        source={
+                          Object {
+                            "testUri": "../../react-native-ratings/dist/images/airbnb-star.png",
+                          }
+                        }
+                        style={
+                          Object {
+                            "height": 20,
+                            "margin": 3,
+                            "tintColor": "#f1c40f",
+                            "transform": Array [
+                              Object {
+                                "scale": 1,
+                              },
+                            ],
+                            "width": 20,
+                          }
+                        }
+                      />
+                    </View>
+                    <View
+                      accessible={true}
+                      focusable={true}
+                      onClick={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                      style={
+                        Object {
+                          "opacity": 1,
+                        }
+                      }
+                    >
+                      <Image
+                        collapsable={false}
+                        nativeID="animatedComponent"
+                        source={
+                          Object {
+                            "testUri": "../../react-native-ratings/dist/images/airbnb-star.png",
+                          }
+                        }
+                        style={
+                          Object {
+                            "height": 20,
+                            "margin": 3,
+                            "tintColor": "#f1c40f",
+                            "transform": Array [
+                              Object {
+                                "scale": 1,
+                              },
+                            ],
+                            "width": 20,
+                          }
+                        }
+                      />
+                    </View>
+                    <View
+                      accessible={true}
+                      focusable={true}
+                      onClick={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                      style={
+                        Object {
+                          "opacity": 1,
+                        }
+                      }
+                    >
+                      <Image
+                        collapsable={false}
+                        nativeID="animatedComponent"
+                        source={
+                          Object {
+                            "testUri": "../../react-native-ratings/dist/images/airbnb-star.png",
+                          }
+                        }
+                        style={
+                          Object {
+                            "height": 20,
+                            "margin": 3,
+                            "tintColor": "#BDC3C7",
+                            "transform": Array [
+                              Object {
+                                "scale": 1,
+                              },
+                            ],
+                            "width": 20,
+                          }
+                        }
+                      />
+                    </View>
+                    <View
+                      accessible={true}
+                      focusable={true}
+                      onClick={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                      style={
+                        Object {
+                          "opacity": 1,
+                        }
+                      }
+                    >
+                      <Image
+                        collapsable={false}
+                        nativeID="animatedComponent"
+                        source={
+                          Object {
+                            "testUri": "../../react-native-ratings/dist/images/airbnb-star.png",
+                          }
+                        }
+                        style={
+                          Object {
+                            "height": 20,
+                            "margin": 3,
+                            "tintColor": "#BDC3C7",
+                            "transform": Array [
+                              Object {
+                                "scale": 1,
+                              },
+                            ],
+                            "width": 20,
+                          }
+                        }
+                      />
+                    </View>
+                    <View
+                      accessible={true}
+                      focusable={true}
+                      onClick={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                      style={
+                        Object {
+                          "opacity": 1,
+                        }
+                      }
+                    >
+                      <Image
+                        collapsable={false}
+                        nativeID="animatedComponent"
+                        source={
+                          Object {
+                            "testUri": "../../react-native-ratings/dist/images/airbnb-star.png",
+                          }
+                        }
+                        style={
+                          Object {
+                            "height": 20,
+                            "margin": 3,
+                            "tintColor": "#BDC3C7",
+                            "transform": Array [
+                              Object {
+                                "scale": 1,
+                              },
+                            ],
+                            "width": 20,
+                          }
+                        }
+                      />
+                    </View>
+                  </View>
+                </View>
+                <Text
+                  style={
+                    Object {
+                      "fontSize": 16,
+                    }
+                  }
+                >
+                  1
+                   
+                  reviews
+                </Text>
+              </View>
+              <View
+                accessible={true}
+                focusable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "borderBottomWidth": 1,
+                    "borderColor": "#ECECEC",
+                    "borderTopWidth": 1,
+                    "flexDirection": "row",
+                    "justifyContent": "space-between",
+                    "opacity": 1,
+                    "paddingVertical": 5,
+                    "width": 225,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "alignItems": "center",
+                        "backgroundColor": "transparent",
+                        "flexDirection": "column",
+                        "justifyContent": "center",
+                      },
+                    ]
+                  }
+                >
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "alignItems": "center",
+                          "flexDirection": "row",
+                          "justifyContent": "center",
+                        },
+                      ]
+                    }
+                  >
+                    <View
+                      accessible={true}
+                      focusable={true}
+                      onClick={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                      style={
+                        Object {
+                          "opacity": 1,
+                        }
+                      }
+                    >
+                      <Image
+                        collapsable={false}
+                        nativeID="animatedComponent"
+                        source={
+                          Object {
+                            "testUri": "../../react-native-ratings/dist/images/airbnb-star.png",
+                          }
+                        }
+                        style={
+                          Object {
+                            "height": 20,
+                            "margin": 3,
+                            "tintColor": "#f1c40f",
+                            "transform": Array [
+                              Object {
+                                "scale": 1,
+                              },
+                            ],
+                            "width": 20,
+                          }
+                        }
+                      />
+                    </View>
+                    <View
+                      accessible={true}
+                      focusable={true}
+                      onClick={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                      style={
+                        Object {
+                          "opacity": 1,
+                        }
+                      }
+                    >
+                      <Image
+                        collapsable={false}
+                        nativeID="animatedComponent"
+                        source={
+                          Object {
+                            "testUri": "../../react-native-ratings/dist/images/airbnb-star.png",
+                          }
+                        }
+                        style={
+                          Object {
+                            "height": 20,
+                            "margin": 3,
+                            "tintColor": "#BDC3C7",
+                            "transform": Array [
+                              Object {
+                                "scale": 1,
+                              },
+                            ],
+                            "width": 20,
+                          }
+                        }
+                      />
+                    </View>
+                    <View
+                      accessible={true}
+                      focusable={true}
+                      onClick={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                      style={
+                        Object {
+                          "opacity": 1,
+                        }
+                      }
+                    >
+                      <Image
+                        collapsable={false}
+                        nativeID="animatedComponent"
+                        source={
+                          Object {
+                            "testUri": "../../react-native-ratings/dist/images/airbnb-star.png",
+                          }
+                        }
+                        style={
+                          Object {
+                            "height": 20,
+                            "margin": 3,
+                            "tintColor": "#BDC3C7",
+                            "transform": Array [
+                              Object {
+                                "scale": 1,
+                              },
+                            ],
+                            "width": 20,
+                          }
+                        }
+                      />
+                    </View>
+                    <View
+                      accessible={true}
+                      focusable={true}
+                      onClick={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                      style={
+                        Object {
+                          "opacity": 1,
+                        }
+                      }
+                    >
+                      <Image
+                        collapsable={false}
+                        nativeID="animatedComponent"
+                        source={
+                          Object {
+                            "testUri": "../../react-native-ratings/dist/images/airbnb-star.png",
+                          }
+                        }
+                        style={
+                          Object {
+                            "height": 20,
+                            "margin": 3,
+                            "tintColor": "#BDC3C7",
+                            "transform": Array [
+                              Object {
+                                "scale": 1,
+                              },
+                            ],
+                            "width": 20,
+                          }
+                        }
+                      />
+                    </View>
+                    <View
+                      accessible={true}
+                      focusable={true}
+                      onClick={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                      style={
+                        Object {
+                          "opacity": 1,
+                        }
+                      }
+                    >
+                      <Image
+                        collapsable={false}
+                        nativeID="animatedComponent"
+                        source={
+                          Object {
+                            "testUri": "../../react-native-ratings/dist/images/airbnb-star.png",
+                          }
+                        }
+                        style={
+                          Object {
+                            "height": 20,
+                            "margin": 3,
+                            "tintColor": "#BDC3C7",
+                            "transform": Array [
+                              Object {
+                                "scale": 1,
+                              },
+                            ],
+                            "width": 20,
+                          }
+                        }
+                      />
+                    </View>
+                  </View>
+                </View>
+                <Text
+                  style={
+                    Object {
+                      "fontSize": 16,
+                    }
+                  }
+                >
+                  0
+                   
+                  reviews
+                </Text>
+              </View>
+              <View
+                accessible={true}
+                focusable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "borderBottomWidth": 1,
+                    "borderColor": "#ECECEC",
+                    "borderTopWidth": 1,
+                    "flexDirection": "row",
+                    "justifyContent": "space-between",
+                    "opacity": 1,
+                    "paddingVertical": 5,
+                    "width": 225,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "fontSize": 16,
+                      "paddingVertical": 5,
+                      "textAlign": "center",
+                      "width": "100%",
+                    }
+                  }
+                >
+                  See all reviews
+                </Text>
+              </View>
+            </View>
+            <View
+              style={
+                Object {
+                  "backgroundColor": "#FFFFFF",
+                  "borderRadius": 5,
+                  "marginVertical": 5,
+                  "padding": 10,
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "borderBottomWidth": 1,
+                    "borderColor": "#ECECEC",
+                    "flexDirection": "row",
+                    "justifyContent": "space-between",
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "fontSize": 16,
+                      "fontWeight": "bold",
+                      "marginTop": 5,
+                    }
+                  }
+                >
+                  Xavi
+                   
+                </Text>
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "alignItems": "center",
+                        "backgroundColor": "transparent",
+                        "flexDirection": "column",
+                        "justifyContent": "center",
+                      },
+                    ]
+                  }
+                >
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "alignItems": "center",
+                          "flexDirection": "row",
+                          "justifyContent": "center",
+                        },
+                      ]
+                    }
+                  >
+                    <View
+                      accessible={true}
+                      focusable={true}
+                      onClick={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                      style={
+                        Object {
+                          "opacity": 1,
+                        }
+                      }
+                    >
+                      <Image
+                        collapsable={false}
+                        nativeID="animatedComponent"
+                        source={
+                          Object {
+                            "testUri": "../../react-native-ratings/dist/images/airbnb-star.png",
+                          }
+                        }
+                        style={
+                          Object {
+                            "height": 15,
+                            "margin": 3,
+                            "tintColor": "#f1c40f",
+                            "transform": Array [
+                              Object {
+                                "scale": 1,
+                              },
+                            ],
+                            "width": 15,
+                          }
+                        }
+                      />
+                    </View>
+                    <View
+                      accessible={true}
+                      focusable={true}
+                      onClick={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                      style={
+                        Object {
+                          "opacity": 1,
+                        }
+                      }
+                    >
+                      <Image
+                        collapsable={false}
+                        nativeID="animatedComponent"
+                        source={
+                          Object {
+                            "testUri": "../../react-native-ratings/dist/images/airbnb-star.png",
+                          }
+                        }
+                        style={
+                          Object {
+                            "height": 15,
+                            "margin": 3,
+                            "tintColor": "#f1c40f",
+                            "transform": Array [
+                              Object {
+                                "scale": 1,
+                              },
+                            ],
+                            "width": 15,
+                          }
+                        }
+                      />
+                    </View>
+                    <View
+                      accessible={true}
+                      focusable={true}
+                      onClick={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                      style={
+                        Object {
+                          "opacity": 1,
+                        }
+                      }
+                    >
+                      <Image
+                        collapsable={false}
+                        nativeID="animatedComponent"
+                        source={
+                          Object {
+                            "testUri": "../../react-native-ratings/dist/images/airbnb-star.png",
+                          }
+                        }
+                        style={
+                          Object {
+                            "height": 15,
+                            "margin": 3,
+                            "tintColor": "#BDC3C7",
+                            "transform": Array [
+                              Object {
+                                "scale": 1,
+                              },
+                            ],
+                            "width": 15,
+                          }
+                        }
+                      />
+                    </View>
+                    <View
+                      accessible={true}
+                      focusable={true}
+                      onClick={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                      style={
+                        Object {
+                          "opacity": 1,
+                        }
+                      }
+                    >
+                      <Image
+                        collapsable={false}
+                        nativeID="animatedComponent"
+                        source={
+                          Object {
+                            "testUri": "../../react-native-ratings/dist/images/airbnb-star.png",
+                          }
+                        }
+                        style={
+                          Object {
+                            "height": 15,
+                            "margin": 3,
+                            "tintColor": "#BDC3C7",
+                            "transform": Array [
+                              Object {
+                                "scale": 1,
+                              },
+                            ],
+                            "width": 15,
+                          }
+                        }
+                      />
+                    </View>
+                    <View
+                      accessible={true}
+                      focusable={true}
+                      onClick={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                      style={
+                        Object {
+                          "opacity": 1,
+                        }
+                      }
+                    >
+                      <Image
+                        collapsable={false}
+                        nativeID="animatedComponent"
+                        source={
+                          Object {
+                            "testUri": "../../react-native-ratings/dist/images/airbnb-star.png",
+                          }
+                        }
+                        style={
+                          Object {
+                            "height": 15,
+                            "margin": 3,
+                            "tintColor": "#BDC3C7",
+                            "transform": Array [
+                              Object {
+                                "scale": 1,
+                              },
+                            ],
+                            "width": 15,
+                          }
+                        }
+                      />
+                    </View>
+                  </View>
+                </View>
+              </View>
+              <View
+                style={
+                  Object {
+                    "paddingVertical": 10,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": "#3E3C37",
+                      "fontSize": 16,
+                    }
+                  }
+                >
+                  meh
+                </Text>
+              </View>
+            </View>
+            <View
+              style={
+                Object {
+                  "backgroundColor": "#FFFFFF",
+                  "borderRadius": 5,
+                  "marginVertical": 5,
+                  "padding": 10,
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "borderBottomWidth": 1,
+                    "borderColor": "#ECECEC",
+                    "flexDirection": "row",
+                    "justifyContent": "space-between",
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "fontSize": 16,
+                      "fontWeight": "bold",
+                      "marginTop": 5,
+                    }
+                  }
+                >
+                  Juan Jose
+                   
+                </Text>
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "alignItems": "center",
+                        "backgroundColor": "transparent",
+                        "flexDirection": "column",
+                        "justifyContent": "center",
+                      },
+                    ]
+                  }
+                >
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "alignItems": "center",
+                          "flexDirection": "row",
+                          "justifyContent": "center",
+                        },
+                      ]
+                    }
+                  >
+                    <View
+                      accessible={true}
+                      focusable={true}
+                      onClick={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                      style={
+                        Object {
+                          "opacity": 1,
+                        }
+                      }
+                    >
+                      <Image
+                        collapsable={false}
+                        nativeID="animatedComponent"
+                        source={
+                          Object {
+                            "testUri": "../../react-native-ratings/dist/images/airbnb-star.png",
+                          }
+                        }
+                        style={
+                          Object {
+                            "height": 15,
+                            "margin": 3,
+                            "tintColor": "#f1c40f",
+                            "transform": Array [
+                              Object {
+                                "scale": 1,
+                              },
+                            ],
+                            "width": 15,
+                          }
+                        }
+                      />
+                    </View>
+                    <View
+                      accessible={true}
+                      focusable={true}
+                      onClick={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                      style={
+                        Object {
+                          "opacity": 1,
+                        }
+                      }
+                    >
+                      <Image
+                        collapsable={false}
+                        nativeID="animatedComponent"
+                        source={
+                          Object {
+                            "testUri": "../../react-native-ratings/dist/images/airbnb-star.png",
+                          }
+                        }
+                        style={
+                          Object {
+                            "height": 15,
+                            "margin": 3,
+                            "tintColor": "#f1c40f",
+                            "transform": Array [
+                              Object {
+                                "scale": 1,
+                              },
+                            ],
+                            "width": 15,
+                          }
+                        }
+                      />
+                    </View>
+                    <View
+                      accessible={true}
+                      focusable={true}
+                      onClick={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                      style={
+                        Object {
+                          "opacity": 1,
+                        }
+                      }
+                    >
+                      <Image
+                        collapsable={false}
+                        nativeID="animatedComponent"
+                        source={
+                          Object {
+                            "testUri": "../../react-native-ratings/dist/images/airbnb-star.png",
+                          }
+                        }
+                        style={
+                          Object {
+                            "height": 15,
+                            "margin": 3,
+                            "tintColor": "#f1c40f",
+                            "transform": Array [
+                              Object {
+                                "scale": 1,
+                              },
+                            ],
+                            "width": 15,
+                          }
+                        }
+                      />
+                    </View>
+                    <View
+                      accessible={true}
+                      focusable={true}
+                      onClick={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                      style={
+                        Object {
+                          "opacity": 1,
+                        }
+                      }
+                    >
+                      <Image
+                        collapsable={false}
+                        nativeID="animatedComponent"
+                        source={
+                          Object {
+                            "testUri": "../../react-native-ratings/dist/images/airbnb-star.png",
+                          }
+                        }
+                        style={
+                          Object {
+                            "height": 15,
+                            "margin": 3,
+                            "tintColor": "#f1c40f",
+                            "transform": Array [
+                              Object {
+                                "scale": 1,
+                              },
+                            ],
+                            "width": 15,
+                          }
+                        }
+                      />
+                    </View>
+                    <View
+                      accessible={true}
+                      focusable={true}
+                      onClick={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                      style={
+                        Object {
+                          "opacity": 1,
+                        }
+                      }
+                    >
+                      <Image
+                        collapsable={false}
+                        nativeID="animatedComponent"
+                        source={
+                          Object {
+                            "testUri": "../../react-native-ratings/dist/images/airbnb-star.png",
+                          }
+                        }
+                        style={
+                          Object {
+                            "height": 15,
+                            "margin": 3,
+                            "tintColor": "#BDC3C7",
+                            "transform": Array [
+                              Object {
+                                "scale": 1,
+                              },
+                            ],
+                            "width": 15,
+                          }
+                        }
+                      />
+                    </View>
+                  </View>
+                </View>
+              </View>
+              <View
+                style={
+                  Object {
+                    "paddingVertical": 10,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": "#3E3C37",
+                      "fontSize": 16,
+                    }
+                  }
+                >
+                  wow
+                </Text>
+              </View>
+            </View>
+            <View
+              style={
+                Object {
+                  "backgroundColor": "#FFFFFF",
+                  "borderRadius": 5,
+                  "marginVertical": 5,
+                  "padding": 10,
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "borderBottomWidth": 1,
+                    "borderColor": "#ECECEC",
+                    "flexDirection": "row",
+                    "justifyContent": "space-between",
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "fontSize": 16,
+                      "fontWeight": "bold",
+                      "marginTop": 5,
+                    }
+                  }
+                >
+                  Frank
+                   
+                </Text>
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "alignItems": "center",
+                        "backgroundColor": "transparent",
+                        "flexDirection": "column",
+                        "justifyContent": "center",
+                      },
+                    ]
+                  }
+                >
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "alignItems": "center",
+                          "flexDirection": "row",
+                          "justifyContent": "center",
+                        },
+                      ]
+                    }
+                  >
+                    <View
+                      accessible={true}
+                      focusable={true}
+                      onClick={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                      style={
+                        Object {
+                          "opacity": 1,
+                        }
+                      }
+                    >
+                      <Image
+                        collapsable={false}
+                        nativeID="animatedComponent"
+                        source={
+                          Object {
+                            "testUri": "../../react-native-ratings/dist/images/airbnb-star.png",
+                          }
+                        }
+                        style={
+                          Object {
+                            "height": 15,
+                            "margin": 3,
+                            "tintColor": "#f1c40f",
+                            "transform": Array [
+                              Object {
+                                "scale": 1,
+                              },
+                            ],
+                            "width": 15,
+                          }
+                        }
+                      />
+                    </View>
+                    <View
+                      accessible={true}
+                      focusable={true}
+                      onClick={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                      style={
+                        Object {
+                          "opacity": 1,
+                        }
+                      }
+                    >
+                      <Image
+                        collapsable={false}
+                        nativeID="animatedComponent"
+                        source={
+                          Object {
+                            "testUri": "../../react-native-ratings/dist/images/airbnb-star.png",
+                          }
+                        }
+                        style={
+                          Object {
+                            "height": 15,
+                            "margin": 3,
+                            "tintColor": "#f1c40f",
+                            "transform": Array [
+                              Object {
+                                "scale": 1,
+                              },
+                            ],
+                            "width": 15,
+                          }
+                        }
+                      />
+                    </View>
+                    <View
+                      accessible={true}
+                      focusable={true}
+                      onClick={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                      style={
+                        Object {
+                          "opacity": 1,
+                        }
+                      }
+                    >
+                      <Image
+                        collapsable={false}
+                        nativeID="animatedComponent"
+                        source={
+                          Object {
+                            "testUri": "../../react-native-ratings/dist/images/airbnb-star.png",
+                          }
+                        }
+                        style={
+                          Object {
+                            "height": 15,
+                            "margin": 3,
+                            "tintColor": "#f1c40f",
+                            "transform": Array [
+                              Object {
+                                "scale": 1,
+                              },
+                            ],
+                            "width": 15,
+                          }
+                        }
+                      />
+                    </View>
+                    <View
+                      accessible={true}
+                      focusable={true}
+                      onClick={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                      style={
+                        Object {
+                          "opacity": 1,
+                        }
+                      }
+                    >
+                      <Image
+                        collapsable={false}
+                        nativeID="animatedComponent"
+                        source={
+                          Object {
+                            "testUri": "../../react-native-ratings/dist/images/airbnb-star.png",
+                          }
+                        }
+                        style={
+                          Object {
+                            "height": 15,
+                            "margin": 3,
+                            "tintColor": "#f1c40f",
+                            "transform": Array [
+                              Object {
+                                "scale": 1,
+                              },
+                            ],
+                            "width": 15,
+                          }
+                        }
+                      />
+                    </View>
+                    <View
+                      accessible={true}
+                      focusable={true}
+                      onClick={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                      style={
+                        Object {
+                          "opacity": 1,
+                        }
+                      }
+                    >
+                      <Image
+                        collapsable={false}
+                        nativeID="animatedComponent"
+                        source={
+                          Object {
+                            "testUri": "../../react-native-ratings/dist/images/airbnb-star.png",
+                          }
+                        }
+                        style={
+                          Object {
+                            "height": 15,
+                            "margin": 3,
+                            "tintColor": "#BDC3C7",
+                            "transform": Array [
+                              Object {
+                                "scale": 1,
+                              },
+                            ],
+                            "width": 15,
+                          }
+                        }
+                      />
+                    </View>
+                  </View>
+                </View>
+              </View>
+              <View
+                style={
+                  Object {
+                    "paddingVertical": 10,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": "#3E3C37",
+                      "fontSize": 16,
+                    }
+                  }
+                >
+                  great
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+</RCTSafeAreaView>
+`;
+
+exports[`Given an BookDetail component When it is rendered And ratings are not loaded Then should match the snapshot 1`] = `
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
+  style={
+    Object {
+      "backgroundColor": "#F5F5F5",
+    }
+  }
+>
+  <View
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    nativeID="animatedComponent"
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "left": 20,
+        "opacity": 1,
+        "position": "absolute",
+        "top": 20,
+        "zIndex": 1,
+      }
+    }
+    testID="backButton"
+  >
+    <IconMock
+      height={30}
+      style={
+        Object {
+          "transform": Array [
+            Object {
+              "rotateZ": "180deg",
+            },
+          ],
+        }
+      }
+      width={30}
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "flex-end",
+        "backgroundColor": "#F5F5F5",
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#D9D8C4",
+          "borderBottomLeftRadius": 25,
+          "justifyContent": "center",
+          "padding": 10,
+          "width": "100%",
+        }
+      }
+    >
+      <IconMock
+        height={45}
+        width={45}
+      />
+    </View>
+    <View
+      style={
+        Object {
+          "height": 0,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "#D9D8C4",
+            "height": 20,
+            "width": 20,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "#F5F5F5",
+              "borderTopRightRadius": 25,
+              "height": 20,
+              "width": 20,
+            }
+          }
+        />
+      </View>
+    </View>
+  </View>
+  <RCTScrollView>
+    <View>
+      <View
+        style={
+          Object {
+            "padding": 30,
+            "paddingBottom": 100,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <Image
+            source={
+              Object {
+                "uri": "http://books.google.com/books/content?id=ocNGwgEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+              }
+            }
+            style={
+              Object {
+                "borderBottomLeftRadius": 10,
+                "borderTopLeftRadius": 10,
+                "height": 225,
+                "overflow": "hidden",
+                "width": 150,
+              }
+            }
+          />
+          <View
+            style={
+              Object {
+                "justifyContent": "space-between",
+                "paddingHorizontal": 20,
+              }
+            }
+          >
+            <View>
+              <Text
+                style={
+                  Object {
+                    "fontSize": 16,
+                    "fontWeight": "bold",
+                    "maxWidth": 200,
+                  }
+                }
+              >
+                1984
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "fontSize": 12,
+                    "maxWidth": 200,
+                  }
+                }
+              >
+                A Novel
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "fontSize": 16,
+                  }
+                }
+              >
+                George Orwell
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "fontSize": 16,
+                    "fontWeight": "bold",
+                    "marginTop": 5,
+                  }
+                }
+              >
+                Publisher:
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "fontSize": 16,
+                  }
+                }
+              >
+                No publisher found
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "fontSize": 16,
+                  }
+                }
+              >
+                2009
+              </Text>
+            </View>
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                }
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "transparent",
+                      "flexDirection": "column",
+                      "justifyContent": "center",
+                    },
+                  ]
+                }
+              >
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "alignItems": "center",
+                        "flexDirection": "row",
+                        "justifyContent": "center",
+                      },
+                    ]
+                  }
+                >
+                  <View
+                    accessible={true}
+                    collapsable={false}
+                    focusable={true}
+                    nativeID="animatedComponent"
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Object {
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <Image
+                      collapsable={false}
+                      nativeID="animatedComponent"
+                      source={
+                        Object {
+                          "testUri": "../../react-native-ratings/dist/images/airbnb-star.png",
+                        }
+                      }
+                      style={
+                        Object {
+                          "height": 20,
+                          "margin": 3,
+                          "tintColor": "#BDC3C7",
+                          "transform": Array [
+                            Object {
+                              "scale": 1,
+                            },
+                          ],
+                          "width": 20,
+                        }
+                      }
+                    />
+                  </View>
+                  <View
+                    accessible={true}
+                    collapsable={false}
+                    focusable={true}
+                    nativeID="animatedComponent"
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Object {
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <Image
+                      collapsable={false}
+                      nativeID="animatedComponent"
+                      source={
+                        Object {
+                          "testUri": "../../react-native-ratings/dist/images/airbnb-star.png",
+                        }
+                      }
+                      style={
+                        Object {
+                          "height": 20,
+                          "margin": 3,
+                          "tintColor": "#BDC3C7",
+                          "transform": Array [
+                            Object {
+                              "scale": 1,
+                            },
+                          ],
+                          "width": 20,
+                        }
+                      }
+                    />
+                  </View>
+                  <View
+                    accessible={true}
+                    collapsable={false}
+                    focusable={true}
+                    nativeID="animatedComponent"
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Object {
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <Image
+                      collapsable={false}
+                      nativeID="animatedComponent"
+                      source={
+                        Object {
+                          "testUri": "../../react-native-ratings/dist/images/airbnb-star.png",
+                        }
+                      }
+                      style={
+                        Object {
+                          "height": 20,
+                          "margin": 3,
+                          "tintColor": "#BDC3C7",
+                          "transform": Array [
+                            Object {
+                              "scale": 1,
+                            },
+                          ],
+                          "width": 20,
+                        }
+                      }
+                    />
+                  </View>
+                  <View
+                    accessible={true}
+                    collapsable={false}
+                    focusable={true}
+                    nativeID="animatedComponent"
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Object {
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <Image
+                      collapsable={false}
+                      nativeID="animatedComponent"
+                      source={
+                        Object {
+                          "testUri": "../../react-native-ratings/dist/images/airbnb-star.png",
+                        }
+                      }
+                      style={
+                        Object {
+                          "height": 20,
+                          "margin": 3,
+                          "tintColor": "#BDC3C7",
+                          "transform": Array [
+                            Object {
+                              "scale": 1,
+                            },
+                          ],
+                          "width": 20,
+                        }
+                      }
+                    />
+                  </View>
+                  <View
+                    accessible={true}
+                    collapsable={false}
+                    focusable={true}
+                    nativeID="animatedComponent"
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Object {
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <Image
+                      collapsable={false}
+                      nativeID="animatedComponent"
+                      source={
+                        Object {
+                          "testUri": "../../react-native-ratings/dist/images/airbnb-star.png",
+                        }
+                      }
+                      style={
+                        Object {
+                          "height": 20,
+                          "margin": 3,
+                          "tintColor": "#BDC3C7",
+                          "transform": Array [
+                            Object {
+                              "scale": 1,
+                            },
+                          ],
+                          "width": 20,
+                        }
+                      }
+                    />
+                  </View>
+                </View>
+              </View>
+              <ActivityIndicator
+                color="#000000"
+                size="small"
+              />
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+              "flexWrap": "wrap",
+              "justifyContent": "space-between",
+              "marginTop": 10,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "width": "45%",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "marginTop": 5,
+                }
+              }
+            >
+              ISBN10:
+            </Text>
+            <Text
+              style={
+                Object {
+                  "fontSize": 16,
+                }
+              }
+            >
+              0451524934
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "width": "45%",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "marginTop": 5,
+                }
+              }
+            >
+              ISBN13:
+            </Text>
+            <Text
+              style={
+                Object {
+                  "fontSize": 16,
+                }
+              }
+            >
+              9780451524935
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "width": "45%",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "marginTop": 5,
+                }
+              }
+            >
+              Categories:
+            </Text>
+            <Text
+              style={
+                Object {
+                  "fontSize": 16,
+                }
+              }
+            >
+              London (England)
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "width": "45%",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "marginTop": 5,
+                }
+              }
+            >
+              Page count:
+            </Text>
+            <Text
+              style={
+                Object {
+                  "fontSize": 16,
+                }
+              }
+            >
+              190
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "width": "45%",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "marginTop": 5,
+                }
+              }
+            >
+              Language:
+            </Text>
+            <Text
+              style={
+                Object {
+                  "fontSize": 16,
+                }
+              }
+            >
+              EN
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "width": "45%",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "marginTop": 5,
+                }
+              }
+            >
+              Format:
+            </Text>
+            <Text
+              style={
+                Object {
+                  "fontSize": 16,
+                }
+              }
+            >
+              BOOK
+            </Text>
+          </View>
+        </View>
+        <View>
+          <Text
+            style={
+              Object {
+                "fontSize": 16,
+                "lineHeight": 25,
+                "marginTop": 10,
+                "textAlign": "justify",
+              }
+            }
+          >
+            Winston Smith is a worker at the Ministry of Truth, where he falsifies records for the party. Secretly subversive, he and his colleague Julia try to free themselves from political slavery but the price of freedom is betrayal.
+          </Text>
+        </View>
+        <ActivityIndicator
+          color="#000000"
+          size="large"
+        />
+      </View>
+    </View>
+  </RCTScrollView>
+</RCTSafeAreaView>
+`;
+
+exports[`Given an BookDetail component When it is rendered And the book rendered has not thumbnail and has 3 authors and categories Then should match the snapshot 1`] = `
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
+  style={
+    Object {
+      "backgroundColor": "#F5F5F5",
+    }
+  }
+>
+  <View
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    nativeID="animatedComponent"
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "left": 20,
+        "opacity": 1,
+        "position": "absolute",
+        "top": 20,
+        "zIndex": 1,
+      }
+    }
+    testID="backButton"
+  >
+    <IconMock
+      height={30}
+      style={
+        Object {
+          "transform": Array [
+            Object {
+              "rotateZ": "180deg",
+            },
+          ],
+        }
+      }
+      width={30}
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "flex-end",
+        "backgroundColor": "#F5F5F5",
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#D9D8C4",
+          "borderBottomLeftRadius": 25,
+          "justifyContent": "center",
+          "padding": 10,
+          "width": "100%",
+        }
+      }
+    >
+      <IconMock
+        height={45}
+        width={45}
+      />
+    </View>
+    <View
+      style={
+        Object {
+          "height": 0,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "#D9D8C4",
+            "height": 20,
+            "width": 20,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "#F5F5F5",
+              "borderTopRightRadius": 25,
+              "height": 20,
+              "width": 20,
+            }
+          }
+        />
+      </View>
+    </View>
+  </View>
+  <RCTScrollView>
+    <View>
+      <View
+        style={
+          Object {
+            "padding": 30,
+            "paddingBottom": 100,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <Image
+            source={
+              Object {
+                "uri": "http://books.google.com/books/content?id=ocNGwgEACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+              }
+            }
+            style={
+              Object {
+                "borderBottomLeftRadius": 10,
+                "borderTopLeftRadius": 10,
+                "height": 225,
+                "overflow": "hidden",
+                "width": 150,
+              }
+            }
+          />
+          <View
+            style={
+              Object {
+                "justifyContent": "space-between",
+                "paddingHorizontal": 20,
+              }
+            }
+          >
+            <View>
+              <Text
+                style={
+                  Object {
+                    "fontSize": 16,
+                    "fontWeight": "bold",
+                    "maxWidth": 200,
+                  }
+                }
+              >
+                1984
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "fontSize": 12,
+                    "maxWidth": 200,
+                  }
+                }
+              >
+                A Novel
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "fontSize": 16,
+                  }
+                }
+              >
+                George Orwell
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "fontSize": 16,
+                  }
+                }
+              >
+                Another author
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "fontSize": 16,
+                  }
+                }
+              >
+                ...
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "fontSize": 16,
+                    "fontWeight": "bold",
+                    "marginTop": 5,
+                  }
+                }
+              >
+                Publisher:
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "fontSize": 16,
+                  }
+                }
+              >
+                No publisher found
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "fontSize": 16,
+                  }
+                }
+              >
+                2009
+              </Text>
+            </View>
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                }
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "transparent",
+                      "flexDirection": "column",
+                      "justifyContent": "center",
+                    },
+                  ]
+                }
+              >
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "alignItems": "center",
+                        "flexDirection": "row",
+                        "justifyContent": "center",
+                      },
+                    ]
+                  }
+                >
+                  <View
+                    accessible={true}
+                    collapsable={false}
+                    focusable={true}
+                    nativeID="animatedComponent"
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Object {
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <Image
+                      collapsable={false}
+                      nativeID="animatedComponent"
+                      source={
+                        Object {
+                          "testUri": "../../react-native-ratings/dist/images/airbnb-star.png",
+                        }
+                      }
+                      style={
+                        Object {
+                          "height": 20,
+                          "margin": 3,
+                          "tintColor": "#BDC3C7",
+                          "transform": Array [
+                            Object {
+                              "scale": 1,
+                            },
+                          ],
+                          "width": 20,
+                        }
+                      }
+                    />
+                  </View>
+                  <View
+                    accessible={true}
+                    collapsable={false}
+                    focusable={true}
+                    nativeID="animatedComponent"
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Object {
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <Image
+                      collapsable={false}
+                      nativeID="animatedComponent"
+                      source={
+                        Object {
+                          "testUri": "../../react-native-ratings/dist/images/airbnb-star.png",
+                        }
+                      }
+                      style={
+                        Object {
+                          "height": 20,
+                          "margin": 3,
+                          "tintColor": "#BDC3C7",
+                          "transform": Array [
+                            Object {
+                              "scale": 1,
+                            },
+                          ],
+                          "width": 20,
+                        }
+                      }
+                    />
+                  </View>
+                  <View
+                    accessible={true}
+                    collapsable={false}
+                    focusable={true}
+                    nativeID="animatedComponent"
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Object {
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <Image
+                      collapsable={false}
+                      nativeID="animatedComponent"
+                      source={
+                        Object {
+                          "testUri": "../../react-native-ratings/dist/images/airbnb-star.png",
+                        }
+                      }
+                      style={
+                        Object {
+                          "height": 20,
+                          "margin": 3,
+                          "tintColor": "#BDC3C7",
+                          "transform": Array [
+                            Object {
+                              "scale": 1,
+                            },
+                          ],
+                          "width": 20,
+                        }
+                      }
+                    />
+                  </View>
+                  <View
+                    accessible={true}
+                    collapsable={false}
+                    focusable={true}
+                    nativeID="animatedComponent"
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Object {
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <Image
+                      collapsable={false}
+                      nativeID="animatedComponent"
+                      source={
+                        Object {
+                          "testUri": "../../react-native-ratings/dist/images/airbnb-star.png",
+                        }
+                      }
+                      style={
+                        Object {
+                          "height": 20,
+                          "margin": 3,
+                          "tintColor": "#BDC3C7",
+                          "transform": Array [
+                            Object {
+                              "scale": 1,
+                            },
+                          ],
+                          "width": 20,
+                        }
+                      }
+                    />
+                  </View>
+                  <View
+                    accessible={true}
+                    collapsable={false}
+                    focusable={true}
+                    nativeID="animatedComponent"
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Object {
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <Image
+                      collapsable={false}
+                      nativeID="animatedComponent"
+                      source={
+                        Object {
+                          "testUri": "../../react-native-ratings/dist/images/airbnb-star.png",
+                        }
+                      }
+                      style={
+                        Object {
+                          "height": 20,
+                          "margin": 3,
+                          "tintColor": "#BDC3C7",
+                          "transform": Array [
+                            Object {
+                              "scale": 1,
+                            },
+                          ],
+                          "width": 20,
+                        }
+                      }
+                    />
+                  </View>
+                </View>
+              </View>
+              <ActivityIndicator
+                color="#000000"
+                size="small"
+              />
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+              "flexWrap": "wrap",
+              "justifyContent": "space-between",
+              "marginTop": 10,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "width": "45%",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "marginTop": 5,
+                }
+              }
+            >
+              ISBN10:
+            </Text>
+            <Text
+              style={
+                Object {
+                  "fontSize": 16,
+                }
+              }
+            >
+              0451524934
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "width": "45%",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "marginTop": 5,
+                }
+              }
+            >
+              ISBN13:
+            </Text>
+            <Text
+              style={
+                Object {
+                  "fontSize": 16,
+                }
+              }
+            >
+              9780451524935
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "width": "45%",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "marginTop": 5,
+                }
+              }
+            >
+              Categories:
+            </Text>
+            <Text
+              style={
+                Object {
+                  "fontSize": 16,
+                }
+              }
+            >
+              London (England)
+            </Text>
+            <Text
+              style={
+                Object {
+                  "fontSize": 16,
+                }
+              }
+            >
+              Fiction
+            </Text>
+            <Text
+              style={
+                Object {
+                  "fontSize": 16,
+                }
+              }
+            >
+              ...
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "width": "45%",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "marginTop": 5,
+                }
+              }
+            >
+              Page count:
+            </Text>
+            <Text
+              style={
+                Object {
+                  "fontSize": 16,
+                }
+              }
+            >
+              190
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "width": "45%",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "marginTop": 5,
+                }
+              }
+            >
+              Language:
+            </Text>
+            <Text
+              style={
+                Object {
+                  "fontSize": 16,
+                }
+              }
+            >
+              EN
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "width": "45%",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "marginTop": 5,
+                }
+              }
+            >
+              Format:
+            </Text>
+            <Text
+              style={
+                Object {
+                  "fontSize": 16,
+                }
+              }
+            >
+              BOOK
+            </Text>
+          </View>
+        </View>
+        <View>
+          <Text
+            style={
+              Object {
+                "fontSize": 16,
+                "lineHeight": 25,
+                "marginTop": 10,
+                "textAlign": "justify",
+              }
+            }
+          >
+            Winston Smith is a worker at the Ministry of Truth, where he falsifies records for the party. Secretly subversive, he and his colleague Julia try to free themselves from political slavery but the price of freedom is betrayal.
+          </Text>
+        </View>
+        <ActivityIndicator
+          color="#000000"
+          size="large"
+        />
+      </View>
+    </View>
+  </RCTScrollView>
+</RCTSafeAreaView>
+`;

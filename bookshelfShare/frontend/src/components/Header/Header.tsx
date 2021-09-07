@@ -10,6 +10,7 @@ export default function Header({ Logo, BackButton, navigation }:any) {
     <>
       {BackButton && (
       <TouchableOpacity
+        testID="backButton"
         style={globalStyles.backButtonTop}
         onPress={() => navigation.pop()}
       >

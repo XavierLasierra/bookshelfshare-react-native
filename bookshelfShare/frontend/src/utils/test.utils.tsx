@@ -1,14 +1,21 @@
-// test-utils.js
+import React from 'react';
 import { render } from '@testing-library/react-native';
+import { Provider } from 'react-redux';
 
-const AllTheProviders = ({ children }: any) => (
-  { children }
-);
+import configureStore from '../redux/store';
 
-const customRender = (ui: any, options?: any) => render(ui, {
-  wrapper: AllTheProviders,
-  ...options
-});
+const customRender = (ui: any, initialState?: any, options?: any) => {
+  const AllTheProviders = ({ children }: any) => (
+    <Provider store={configureStore(initialState)}>
+      { children }
+    </Provider>
+  );
+
+  return render(ui, {
+    wrapper: AllTheProviders,
+    ...options
+  });
+};
 
 // re-export everything
 export * from '@testing-library/react-native';

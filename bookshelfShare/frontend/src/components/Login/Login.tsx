@@ -23,9 +23,7 @@ export default function Login({ navigation: { push } } : any) {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    if (isLoading) {
-      setIsLoading(false);
-    }
+    setIsLoading(false);
   }, [notification]);
 
   function handleEmailChange(text: string) {
@@ -33,9 +31,7 @@ export default function Login({ navigation: { push } } : any) {
   }
 
   function handleEmailFocus() {
-    if (!isValidEmail) {
-      setValidEmail(true);
-    }
+    return !isValidEmail && setValidEmail(true);
   }
 
   function handlePasswordChange(text: string) {
@@ -43,13 +39,10 @@ export default function Login({ navigation: { push } } : any) {
   }
 
   function handlePasswordFocus() {
-    if (!isValidPassword) {
-      setValidPassword(true);
-    }
+    return !isValidPassword && setValidPassword(true);
   }
 
   function handleLogin() {
-    if (isLoading) return;
     if (validateEmail(userEmail)) {
       if (userPassword) {
         setIsLoading(true);
@@ -84,37 +77,52 @@ export default function Login({ navigation: { push } } : any) {
         <View style={globalStyles.inputContainer}>
           <Text style={globalStyles.inputLabel}>email</Text>
           <TextInput
+            testID="emailInput"
             style={globalStyles.input}
             value={userEmail}
             onFocus={handleEmailFocus}
             onChangeText={handleEmailChange}
           />
-          {!isValidEmail && <Text style={globalStyles.invalid}>Invalid email</Text>}
+          {!isValidEmail && <Text testID="invalidEmail" style={globalStyles.invalid}>Invalid email</Text>}
         </View>
         <View style={globalStyles.inputContainer}>
           <Text style={globalStyles.inputLabel}>password</Text>
           <TextInput
+            testID="passwordInput"
             secureTextEntry
             style={globalStyles.input}
             value={userPassword}
             onFocus={handlePasswordFocus}
             onChangeText={handlePasswordChange}
           />
-          {!isValidPassword && <Text style={globalStyles.invalid}>Type your password</Text>}
+          {!isValidPassword && <Text testID="invalidPassword" style={globalStyles.invalid}>Type your password</Text>}
         </View>
-        <TouchableOpacity
-          style={[globalStyles.button, styles.loginButton]}
-          onPress={handleLogin}
-        >
-          {!isLoading
-            ? <Text style={globalStyles.buttonText}>Log in</Text>
-            : <ActivityIndicator size="large" color={stylesConstants.colors.white} />}
-        </TouchableOpacity>
+        {!isLoading
+          ? (
+            <TouchableOpacity
+              style={[globalStyles.button, styles.loginButton]}
+              onPress={handleLogin}
+              testID="loginButton"
+            >
+              <Text style={globalStyles.buttonText}>Log in</Text>
+            </TouchableOpacity>
+          )
+          : (
+            <TouchableOpacity
+              style={[globalStyles.button, styles.loginButton]}
+              testID="loginButton"
+              disabled
+            >
+              <ActivityIndicator testID="loadingIndicator" size="large" color={stylesConstants.colors.white} />
+            </TouchableOpacity>
+          )}
+
         <View style={styles.signUpTextContainer}>
           <Text style={styles.signUpText}>Don&quot;t have an account?</Text>
           <Text
             style={styles.signUpButton}
             onPress={handleRegisterNavigation}
+            testID="signUpButton"
           >
             Sign up
           </Text>

@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Snackbar } from 'react-native-paper';
 import { useSelector } from 'react-redux';
 
-const MyComponent = () => {
+export default function Notification() {
   const [visible, setVisible] = useState(false);
   const notificationMessage = useSelector((store: any) => store.notifications);
 
@@ -29,6 +29,4 @@ const MyComponent = () => {
       {[notificationMessage]}
     </Snackbar>
   );
-};
-
-export default MyComponent;
+}

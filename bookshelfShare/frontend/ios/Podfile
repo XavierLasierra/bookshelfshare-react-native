@@ -12,6 +12,10 @@ target 'bookshelfShare' do
     :hermes_enabled => false
   )
 
+  pod 'RNCAsyncStorage', :path => '../node_modules/@react-native-community/async-storage'
+
+  pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
+
   target 'bookshelfShareTests' do
     inherit! :complete
     # Pods for testing
