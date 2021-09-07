@@ -14,7 +14,6 @@ module.exports = {
   format: '-',
   categories: ['-'],
   images: {
-    thumbnail: 'https://i.ibb.co/R0Z8ytw/placeholder.png',
     smallThumbnail: 'https://i.ibb.co/R0Z8ytw/placeholder.png'
   }
 };

@@ -17,7 +17,7 @@ class Book {
     this.format = volumeInfo.printType || defaultBook.format;
     this.categories = volumeInfo.categories || defaultBook.categories;
     this.images = {
-      thumbnail: volumeInfo.imageLinks?.thumbnail || defaultBook.images.thumbnail,
+      thumbnail: volumeInfo.imageLinks?.thumbnail,
       smallThumbnail: volumeInfo.imageLinks?.smallThumbnail || defaultBook.images.smallThumbnail
     };
   }
