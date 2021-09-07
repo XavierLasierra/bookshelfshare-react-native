@@ -1,10 +1,11 @@
 import React from 'react';
-import { TouchableOpacity, Text } from 'react-native';
+import { Text } from 'react-native';
 import {
   Menu,
   MenuOptions,
   MenuTrigger,
-  renderers
+  renderers,
+  MenuOption
 } from 'react-native-popup-menu';
 
 import BarCodeIcon from '../../assets/barCodeIcon.svg';
@@ -29,26 +30,26 @@ export default function AddPopUp({ navigation }: any) {
 
   return (
     <Menu style={styles.addButton} renderer={renderers.Popover}>
-      <MenuTrigger>
+      <MenuTrigger testID="openMenuButton">
         <Text style={styles.addButtonText}>+</Text>
       </MenuTrigger>
       <MenuOptions
         optionsContainerStyle={styles.popUp}
       >
-        <TouchableOpacity
+        <MenuOption
           style={[globalStyles.button, styles.popUpButton]}
-          onPress={handleClickScan}
+          onSelect={handleClickScan}
         >
           <BarCodeIcon style={styles.popUpIcon} width={30} height={30} />
           <Text style={globalStyles.buttonText}>Scan</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
+        </MenuOption>
+        <MenuOption
           style={[globalStyles.button, styles.popUpButton]}
-          onPress={handleClickSearch}
+          onSelect={handleClickSearch}
         >
           <SearchIcon style={styles.popUpIcon} width={30} height={30} />
           <Text style={globalStyles.buttonText}>Search</Text>
-        </TouchableOpacity>
+        </MenuOption>
       </MenuOptions>
     </Menu>
   );
