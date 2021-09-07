@@ -17,7 +17,9 @@
     "@testing-library/react-native": "^7.2.0",
     "axios": "^0.21.1",
     "metro-config": "^0.66.2",
+    "mock-async-storage": "^2.2.0",
     "react": "17.0.2",
+    "react-dom": "^17.0.2",
     "react-native": "0.65.1",
     "react-native-camera": "^4.1.1",
     "react-native-dotenv": "^3.2.0",
@@ -61,17 +63,6 @@
     "@types/react": "^17"
   },
   "jest": {
-    "preset": "react-native",
-    "transformIgnorePatterns": [
-      "node_modules/?!(react-navigation-shared-element)"
-    ],
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "jsx",
-      "json",
-      "node"
-    ]
+    
   }
 }
