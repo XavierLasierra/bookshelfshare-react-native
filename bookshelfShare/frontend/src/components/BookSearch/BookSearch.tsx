@@ -87,7 +87,7 @@ export default function BookSearch({ navigation, isbnFromCamera }: Props) {
   }
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={globalStyles.mainContainer}>
       <Header Logo={SearchIcon} />
       <View style={styles.searchContainer}>
         <Text style={globalStyles.title}>

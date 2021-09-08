@@ -13,9 +13,6 @@ export default StyleSheet.create({
     color: stylesConstants.colors.mainText,
     paddingHorizontal: 5
   },
-  bookResultsContainer: {
-    backgroundColor: stylesConstants.colors.light
-  },
   resultsContainer: {
     alignItems: 'center',
     height: '100%'

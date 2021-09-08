@@ -2,9 +2,6 @@ import { StyleSheet } from 'react-native';
 import stylesConstants from '../../styles/styles.constants';
 
 export default StyleSheet.create({
-  mainContainer: {
-    backgroundColor: stylesConstants.colors.main
-  },
   topContainer: {
     display: 'flex',
     alignItems: 'center',

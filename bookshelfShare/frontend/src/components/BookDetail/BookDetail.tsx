@@ -49,7 +49,7 @@ export default function BookDetail({
   }, [ratings]);
 
   return (
-    <SafeAreaView style={styles.bookDetailPageContainer}>
+    <SafeAreaView style={globalStyles.mainContainer}>
       <Header Logo={logoSelector(logo)} BackButton navigation={navigation} />
       <ScrollView>
         <View style={styles.bookDetailContainer}>

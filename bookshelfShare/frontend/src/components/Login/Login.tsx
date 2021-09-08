@@ -63,7 +63,7 @@ export default function Login({ navigation: { push } } : any) {
   }
 
   return (
-    <SafeAreaView style={styles.mainContainer}>
+    <SafeAreaView style={globalStyles.mainContainer}>
       <View style={styles.topContainer}>
         <SharedElement id="mainIcon">
           <BookIcon

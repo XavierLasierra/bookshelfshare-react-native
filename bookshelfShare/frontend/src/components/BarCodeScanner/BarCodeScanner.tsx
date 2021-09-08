@@ -26,7 +26,7 @@ export default function BarCodeScanner({ navigation }: any) {
   }
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={globalStyles.mainContainer}>
       <RNCamera
         flashMode={RNCamera.Constants.FlashMode.auto}
         onBarCodeRead={onBarCodeRead}

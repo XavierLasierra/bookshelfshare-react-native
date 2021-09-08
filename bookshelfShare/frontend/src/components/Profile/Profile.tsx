@@ -8,12 +8,18 @@ import Header from '../Header/Header';
 import ProfileIcon from '../../assets/profileIcon.svg';
 import BookStackIcon from '../../assets/bookStackIcon.svg';
 import styles from './profile.styles';
+import globalStyles from '../../styles/global.styles';
 
 export default function Profile() {
   const { userData } = useSelector((store: any) => store.loggedUser);
   const shelves = useSelector((store: any) => store.shelves);
+
+  function handleLogout() {
+
+  }
+
   return (
-    <SafeAreaView>
+    <SafeAreaView style={globalStyles.mainContainer}>
       <Header Logo={ProfileIcon} />
       <View style={styles.profileContainer}>
         <View style={styles.topContainer}>
@@ -28,6 +34,24 @@ export default function Profile() {
 
         </View>
         <View>
+          <View>
+            <TouchableOpacity style={styles.profileButton}>
+              <BookStackIcon width={40} height={40} />
+              <Text>
+                {userData.followers.length}
+                {' '}
+                {userData.followers.length === 1 ? 'follower' : 'followers'}
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.profileButton}>
+              <BookStackIcon width={40} height={40} />
+              <Text>
+                {userData.following.length}
+                {' '}
+                following
+              </Text>
+            </TouchableOpacity>
+          </View>
           <TouchableOpacity style={styles.profileButton}>
             <BookStackIcon width={40} height={40} />
             <Text>
@@ -58,24 +82,7 @@ export default function Profile() {
               on wishlist
             </Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.profileButton}>
-            <BookStackIcon width={40} height={40} />
-            <Text>
-              {userData.followers.length}
-              {' '}
-              {userData.followers.length === 1 ? 'follower' : 'followers'}
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.profileButton}>
-            <BookStackIcon width={40} height={40} />
-            <Text>
-              {userData.following.length}
-              {' '}
-              {userData.following.length === 1 ? 'user' : 'users'}
-              {' '}
-              following
-            </Text>
-          </TouchableOpacity>
+
           <TouchableOpacity style={styles.profileButton}>
             <BookStackIcon width={40} height={40} />
             <Text>
@@ -85,6 +92,13 @@ export default function Profile() {
             </Text>
           </TouchableOpacity>
         </View>
+        <TouchableOpacity
+          style={globalStyles.button}
+          onPress={handleLogout}
+          testID="logoutButton"
+        >
+          <Text style={globalStyles.buttonText}>Log out</Text>
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );

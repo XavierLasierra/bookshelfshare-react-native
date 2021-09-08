@@ -11,6 +11,7 @@ import { clearBooks } from '../../redux/actions/books.creator';
 import stylesConstants from '../../styles/styles.constants';
 import styles from './bookResults.styles';
 import logoSelector from '../../utils/logoSelector';
+import globalStyles from '../../styles/global.styles';
 
 interface Props {
   route: Route,
@@ -66,7 +67,7 @@ export default function BookResults(
     : <Text>0 results</Text>;
 
   return (
-    <SafeAreaView style={styles.bookResultsContainer}>
+    <SafeAreaView style={globalStyles.mainContainer}>
       <Header Logo={logoSelector(logo)} BackButton navigation={navigation} />
       <View style={styles.resultsContainer}>
         <View style={styles.searchParameters}>

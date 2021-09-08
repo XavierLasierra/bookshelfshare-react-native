@@ -28,6 +28,8 @@ export default StyleSheet.create({
     fontSize: stylesConstants.fontSize.mid
   },
   profileButton: {
-    flexDirection: 'row'
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderWidth: 1
   }
 });

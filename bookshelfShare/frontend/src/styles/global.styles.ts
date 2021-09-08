@@ -71,5 +71,8 @@ export default StyleSheet.create({
     fontSize: stylesConstants.fontSize.mid,
     fontWeight: 'bold',
     marginTop: 5
+  },
+  mainContainer: {
+    backgroundColor: stylesConstants.colors.main
   }
 });
