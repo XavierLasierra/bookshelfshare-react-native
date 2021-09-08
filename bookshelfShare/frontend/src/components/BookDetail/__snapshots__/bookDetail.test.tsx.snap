@@ -922,6 +922,7 @@ exports[`Given an BookDetail component When it is rendered And ratings are loade
                     "opacity": 1,
                   }
                 }
+                testID="saveButton"
               >
                 <IconMock
                   height={30}
@@ -943,6 +944,7 @@ exports[`Given an BookDetail component When it is rendered And ratings are loade
                   "textAlignVertical": "top",
                 }
               }
+              testID="ratingInput"
               value=""
             />
           </View>
