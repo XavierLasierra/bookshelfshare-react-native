@@ -17,10 +17,11 @@ const userSchema = mongoose.Schema({
   ],
   books: {
     read: [String],
-    pending: [String],
-    whishlist: [String],
+    wishlist: [String],
     current: [String]
-  }
+  },
+  following: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
+  followers: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }]
 });
 
 userSchema.methods.isValidPassword = function isValidPassword(password) {

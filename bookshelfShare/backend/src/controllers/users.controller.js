@@ -2,7 +2,7 @@ const User = require('../models/user.model');
 
 async function getUsers({ query }, res) {
   try {
-    const foundUsers = await User.find(query).select('username email photo activity books');
+    const foundUsers = await User.find(query).select('username email photo activity books following followers');
 
     res.json(foundUsers);
   } catch (error) {
@@ -13,7 +13,7 @@ async function getUsers({ query }, res) {
 
 async function getOneUserById({ params: { userId } }, res) {
   try {
-    const foundUser = await User.findById(userId).select('username email photo activity books');
+    const foundUser = await User.findById(userId).select('username email photo activity books following followers');
 
     if (!foundUser) return res.sendStatus(404);
 
@@ -39,7 +39,7 @@ async function updateOneUserById({ params: { userId }, body }, res) {
       userId,
       body,
       { new: true }
-    ).select('username email photo activity books');
+    ).select('username email photo activity books following followers');
 
     if (!updatedUser) return res.sendStatus(404);
 
