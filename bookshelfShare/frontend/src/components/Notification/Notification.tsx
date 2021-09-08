@@ -22,6 +22,7 @@ export default function Notification() {
       visible={visible}
       onDismiss={onDismissSnackBar}
       action={{
+        testID: 'closeSnackbarButton',
         label: 'x',
         onPress: onDismissSnackBar
       }}
