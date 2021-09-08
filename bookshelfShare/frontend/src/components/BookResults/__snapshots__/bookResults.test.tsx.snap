@@ -5,7 +5,7 @@ exports[`Given a BookResults component When it is rendered And book results are 
   emulateUnlessSupported={true}
   style={
     Object {
-      "backgroundColor": "#F5F5F5",
+      "backgroundColor": "#D9D8C4",
     }
   }
 >
@@ -184,7 +184,7 @@ exports[`Given a BookResults component When it is rendered And there are book re
   emulateUnlessSupported={true}
   style={
     Object {
-      "backgroundColor": "#F5F5F5",
+      "backgroundColor": "#D9D8C4",
     }
   }
 >
@@ -711,7 +711,7 @@ exports[`Given a BookResults component When it is rendered And there are no book
   emulateUnlessSupported={true}
   style={
     Object {
-      "backgroundColor": "#F5F5F5",
+      "backgroundColor": "#D9D8C4",
     }
   }
 >
