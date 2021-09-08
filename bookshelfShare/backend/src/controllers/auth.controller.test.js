@@ -92,8 +92,7 @@ describe('Given a loginUser function', () => {
 
       expect(res.json.mock.calls[0][0]).toEqual({
         user: {
-          email: userMock.email,
-          password: userMock.password
+          email: userMock.email
         },
         token: 'token',
         refreshToken: 'refreshToken'
