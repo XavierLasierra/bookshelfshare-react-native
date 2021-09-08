@@ -118,7 +118,7 @@ exports[`Given an BookDetail component When it is rendered And ratings are loade
           <Image
             source={
               Object {
-                "uri": "http://books.google.com/books/content?id=ocNGwgEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+                "uri": "thumbnail1",
               }
             }
             style={
@@ -3241,7 +3241,7 @@ exports[`Given an BookDetail component When it is rendered And ratings are not l
           <Image
             source={
               Object {
-                "uri": "http://books.google.com/books/content?id=ocNGwgEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+                "uri": "thumbnail1",
               }
             }
             style={
@@ -3891,7 +3891,7 @@ exports[`Given an BookDetail component When it is rendered And the book rendered
           <Image
             source={
               Object {
-                "uri": "http://books.google.com/books/content?id=ocNGwgEACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+                "uri": "smallThumbnail2",
               }
             }
             style={
