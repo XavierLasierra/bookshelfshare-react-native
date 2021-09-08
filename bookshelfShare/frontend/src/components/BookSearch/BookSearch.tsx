@@ -96,12 +96,14 @@ export default function BookSearch({ navigation, isbnFromCamera }: Props) {
           <TouchableOpacity
             style={[styles.toggle, isISBN && styles.toggleActive]}
             onPress={handleISBNPage}
+            testID="isbnPageButton"
           >
             <Text style={styles.toggleText}>ISBN</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={[styles.toggle, !isISBN && styles.toggleActive]}
             onPress={handleOtherPage}
+            testID="otherPageButton"
           >
             <Text style={styles.toggleText}>Other</Text>
           </TouchableOpacity>
@@ -115,6 +117,8 @@ export default function BookSearch({ navigation, isbnFromCamera }: Props) {
                   style={globalStyles.input}
                   onChangeText={handleIsbnChange}
                   value={isbn}
+                  testID="isbnInput"
+
                 />
               </View>
             )
@@ -126,6 +130,8 @@ export default function BookSearch({ navigation, isbnFromCamera }: Props) {
                     style={globalStyles.input}
                     onChangeText={handleInauthorChange}
                     value={inauthor}
+                    testID="authorInput"
+
                   />
                 </View>
                 <View style={globalStyles.inputContainer}>
@@ -134,6 +140,7 @@ export default function BookSearch({ navigation, isbnFromCamera }: Props) {
                     style={globalStyles.input}
                     onChangeText={handleIntitleChange}
                     value={intitle}
+                    testID="titleInput"
                   />
                 </View>
                 <View style={globalStyles.inputContainer}>
@@ -142,6 +149,7 @@ export default function BookSearch({ navigation, isbnFromCamera }: Props) {
                     style={globalStyles.input}
                     onChangeText={handleInpublisherChange}
                     value={inpublisher}
+                    testID="publisherInput"
                   />
                 </View>
               </>
@@ -149,6 +157,7 @@ export default function BookSearch({ navigation, isbnFromCamera }: Props) {
           <TouchableOpacity
             style={[globalStyles.button, styles.searchButton]}
             onPress={handleSearch}
+            testID="searchButton"
           >
             <Text style={globalStyles.buttonText}>Search</Text>
           </TouchableOpacity>
