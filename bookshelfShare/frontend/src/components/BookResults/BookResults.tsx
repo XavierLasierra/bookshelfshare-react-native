@@ -18,7 +18,6 @@ interface Props {
 }
 interface Route {
   params: Params
-
 }
 interface Params {
   searchInformation: SearchInformation

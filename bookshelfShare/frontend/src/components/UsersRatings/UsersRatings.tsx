@@ -38,6 +38,7 @@ export default function UsersRatings({ ratings, userData }: any) {
       <View style={styles.ratingFilterContainer}>
         {ratingTypes.map((ratingNumber) => (
           <TouchableOpacity
+            testID={`${ratingNumber}ratingButton`}
             key={`${ratingNumber}star`}
             style={styles.ratingFilterOption}
             onPress={() => handleFilter(ratingNumber)}
@@ -59,6 +60,7 @@ export default function UsersRatings({ ratings, userData }: any) {
         <TouchableOpacity
           style={styles.ratingFilterOption}
           onPress={handleClearFilter}
+          testID="seeAllReviewsButton"
         >
           <Text style={styles.allReviewsText}>
             See all reviews
@@ -69,7 +71,7 @@ export default function UsersRatings({ ratings, userData }: any) {
         ? filteredRatings.map((rating: any) => (rating.user._id !== userData?._id
           ? <RatingElement key={`ratingNumber-${rating.user._id}`} rating={rating} />
           : <RatingElement key={`ratingNumber-${rating.user._id}`} rating={rating} yours />))
-        : <Text style={styles.allReviewsText}>0 reviews</Text>}
+        : <Text testID="noRatings" style={styles.allReviewsText}>0 reviews</Text>}
     </View>
   );
 }

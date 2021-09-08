@@ -68,11 +68,11 @@ export default function Rating({
   const saveButton = isSaving
     ? (
       <TouchableOpacity disabled>
-        <ActivityIndicator style={styles.activityIndicator} size="small" color={stylesConstants.colors.mainText} />
+        <ActivityIndicator testID="savingIndicator" style={styles.activityIndicator} size="small" color={stylesConstants.colors.mainText} />
       </TouchableOpacity>
     )
     : (
-      <TouchableOpacity onPress={handleSaveButton}>
+      <TouchableOpacity onPress={handleSaveButton} testID="saveButton">
         <SaveIcon width={30} height={30} />
       </TouchableOpacity>
     );
@@ -94,6 +94,7 @@ export default function Rating({
             ? (
               <TouchableOpacity
                 onPress={handleEditButton}
+                testID="editButton"
               >
                 <EditIcon width={30} height={30} />
               </TouchableOpacity>
@@ -107,8 +108,9 @@ export default function Rating({
           value={userReview}
           editable={canEdit}
           onChangeText={handleInputChange}
+          testID="ratingInput"
         />
-        {!canSave && <Text style={globalStyles.invalid}>Minimum 1 star to rate</Text>}
+        {!canSave && <Text style={globalStyles.invalid} testID="canNotSave">Minimum 1 star to rate</Text>}
       </View>
       <UsersRatings ratings={ratings} userData={userData} />
     </View>

@@ -4,10 +4,10 @@ import { NavigationContainer } from '@react-navigation/native';
 import { MenuProvider } from 'react-native-popup-menu';
 import SplashScreen from 'react-native-splash-screen';
 
-import MainNavigator from './src/navigators/MainNavigator/MainNavigator';
-import Notification from './src/components/Notification/Notification';
+import MainNavigator from './navigators/MainNavigator/MainNavigator';
+import Notification from './components/Notification/Notification';
 
-import configureStore from './src/redux/store';
+import configureStore from './redux/store';
 
 export default function App() {
   useEffect(() => {

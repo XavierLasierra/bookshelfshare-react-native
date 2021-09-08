@@ -1,0 +1,273 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Given a BookElementSearch component When it is rendered And the book has a thumbnail and less than 3 authors Then should match the snapshot 1`] = `
+<View
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  nativeID="animatedComponent"
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "flexDirection": "row",
+      "marginVertical": 10,
+      "opacity": 1,
+    }
+  }
+  testID="bookDetailButton"
+>
+  <Image
+    source={
+      Object {
+        "uri": "thumbnail1",
+      }
+    }
+    style={
+      Object {
+        "borderBottomLeftRadius": 10,
+        "borderTopLeftRadius": 10,
+        "height": 200,
+        "overflow": "hidden",
+        "width": 125,
+      }
+    }
+  />
+  <View
+    style={
+      Object {
+        "backgroundColor": "#FFFFFF",
+        "borderBottomRightRadius": 10,
+        "borderTopRightRadius": 10,
+        "height": 175,
+        "justifyContent": "space-between",
+        "padding": 10,
+        "width": 210,
+      }
+    }
+  >
+    <View>
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+            "maxHeight": 75,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "fontSize": 16,
+              "fontWeight": "bold",
+              "width": 175,
+            }
+          }
+        >
+          1984
+        </Text>
+        <Text>
+          EN
+        </Text>
+      </View>
+      <Text
+        style={
+          Object {
+            "fontSize": 12,
+          }
+        }
+      >
+        George Orwell
+      </Text>
+      <Text
+        style={
+          Object {
+            "color": "#3E3C37",
+            "fontSize": 12,
+          }
+        }
+      >
+        No publisher found
+      </Text>
+    </View>
+    <View>
+      <Text
+        style={
+          Object {
+            "color": "#3E3C37",
+            "fontSize": 12,
+          }
+        }
+      >
+        ISBN13 -
+         
+        9780451524935
+      </Text>
+      <Text
+        style={
+          Object {
+            "color": "#3E3C37",
+            "fontSize": 12,
+          }
+        }
+      >
+        ISBN10 -
+         
+        0451524934
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Given a BookElementSearch component When it is rendered And the book has not a thumbnail and 3 authors or more Then should match the snapshot 1`] = `
+<View
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  nativeID="animatedComponent"
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "flexDirection": "row",
+      "marginVertical": 10,
+      "opacity": 1,
+    }
+  }
+  testID="bookDetailButton"
+>
+  <Image
+    source={
+      Object {
+        "uri": "smallThumbnail2",
+      }
+    }
+    style={
+      Object {
+        "borderBottomLeftRadius": 10,
+        "borderTopLeftRadius": 10,
+        "height": 200,
+        "overflow": "hidden",
+        "width": 125,
+      }
+    }
+  />
+  <View
+    style={
+      Object {
+        "backgroundColor": "#FFFFFF",
+        "borderBottomRightRadius": 10,
+        "borderTopRightRadius": 10,
+        "height": 175,
+        "justifyContent": "space-between",
+        "padding": 10,
+        "width": 210,
+      }
+    }
+  >
+    <View>
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+            "maxHeight": 75,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "fontSize": 16,
+              "fontWeight": "bold",
+              "width": 175,
+            }
+          }
+        >
+          1984
+        </Text>
+        <Text>
+          EN
+        </Text>
+      </View>
+      <Text
+        style={
+          Object {
+            "fontSize": 12,
+          }
+        }
+      >
+        George Orwell
+      </Text>
+      <Text
+        style={
+          Object {
+            "fontSize": 12,
+          }
+        }
+      >
+        Another author
+      </Text>
+      <Text
+        style={
+          Object {
+            "fontSize": 12,
+          }
+        }
+      >
+        ...
+      </Text>
+      <Text
+        style={
+          Object {
+            "color": "#3E3C37",
+            "fontSize": 12,
+          }
+        }
+      >
+        No publisher found
+      </Text>
+    </View>
+    <View>
+      <Text
+        style={
+          Object {
+            "color": "#3E3C37",
+            "fontSize": 12,
+          }
+        }
+      >
+        ISBN13 -
+         
+        9780451524935
+      </Text>
+      <Text
+        style={
+          Object {
+            "color": "#3E3C37",
+            "fontSize": 12,
+          }
+        }
+      >
+        ISBN10 -
+         
+        0451524934
+      </Text>
+    </View>
+  </View>
+</View>
+`;

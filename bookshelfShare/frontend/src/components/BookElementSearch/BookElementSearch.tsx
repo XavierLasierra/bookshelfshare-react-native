@@ -18,6 +18,7 @@ export default function BookElementSearch({ bookData, navigation }: any) {
       activeOpacity={0.8}
       style={styles.container}
       onPress={handleBookDetailPage}
+      testID="bookDetailButton"
     >
       <Image
         source={{ uri: bookData?.images?.thumbnail || bookData?.images?.smallThumbnail }}
