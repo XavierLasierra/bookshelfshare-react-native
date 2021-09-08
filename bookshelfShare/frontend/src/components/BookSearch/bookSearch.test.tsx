@@ -77,7 +77,7 @@ describe('Given a BookSearch component', () => {
           });
         });
 
-        describe('And you click on isbnPageButton', () => {
+        describe('And you click on isbnPageButton while on isbnPage', () => {
           test('Then screen should not have changed', () => {
             const isbnPageButton = screen.getByTestId('isbnPageButton');
             fireEvent.press(isbnPageButton);

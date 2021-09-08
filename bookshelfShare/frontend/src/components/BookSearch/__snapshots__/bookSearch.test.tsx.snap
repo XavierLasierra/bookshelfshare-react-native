@@ -906,7 +906,7 @@ exports[`Given a BookSearch component When it is rendered And isbnFromCamera is 
 </RNCSafeAreaView>
 `;
 
-exports[`Given a BookSearch component When it is rendered And isbnFromCamera is empty And you stay on ISBN page And you click on isbnPageButton Then screen should not have changed 1`] = `
+exports[`Given a BookSearch component When it is rendered And isbnFromCamera is empty And you stay on ISBN page And you click on isbnPageButton while on isbnPage Then screen should not have changed 1`] = `
 <RNCSafeAreaView>
   <View
     style={

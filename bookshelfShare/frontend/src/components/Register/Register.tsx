@@ -65,7 +65,7 @@ export default function Register({ navigation: { pop } }:any) {
   }
 
   function handlePasswordRepeatFocus() {
-    if (!isValidPassword) {
+    if (!isValidPasswordRepeat) {
       setValidPasswordRepeat(true);
     }
   }
@@ -92,6 +92,7 @@ export default function Register({ navigation: { pop } }:any) {
       <TouchableOpacity
         style={globalStyles.backButton}
         onPress={handleLoginNavigation}
+        testID="loginPageButton"
       >
         <ArrowIcon width={30} height={30} style={globalStyles.backButtonIcon} />
       </TouchableOpacity>
@@ -112,8 +113,9 @@ export default function Register({ navigation: { pop } }:any) {
             value={username}
             onChangeText={handleUsernameChange}
             onFocus={handleUsernameFocus}
+            testID="usernameInput"
           />
-          {!isValidUsername && <Text style={globalStyles.invalid}>Type your username</Text>}
+          {!isValidUsername && <Text testID="invalidUsername" style={globalStyles.invalid}>Type your username</Text>}
         </View>
         <View style={globalStyles.inputContainer}>
           <Text style={globalStyles.inputLabel}>email</Text>
@@ -122,9 +124,9 @@ export default function Register({ navigation: { pop } }:any) {
             value={email}
             onChangeText={handleEmailChange}
             onFocus={handleEmailFocus}
-
+            testID="emailInput"
           />
-          {!isValidEmail && <Text style={globalStyles.invalid}>Invalid email</Text>}
+          {!isValidEmail && <Text testID="invalidEmail" style={globalStyles.invalid}>Invalid email</Text>}
         </View>
         <View style={globalStyles.inputContainer}>
           <Text style={globalStyles.inputLabel}>password</Text>
@@ -134,9 +136,10 @@ export default function Register({ navigation: { pop } }:any) {
             value={password}
             onChangeText={handlePasswordChange}
             onFocus={handlePasswordFocus}
+            testID="passwordInput"
           />
           {!isValidPassword && (
-          <Text style={[globalStyles.invalid, styles.invalidPasswordText]}>
+          <Text testID="invalidPassword" style={[globalStyles.invalid, styles.invalidPasswordText]}>
             Minimum: 8 characters, 1 uppercase,
             1 lowercase and 1 number
           </Text>
@@ -150,13 +153,15 @@ export default function Register({ navigation: { pop } }:any) {
             value={passwordRepeat}
             onChangeText={handlePasswordRepeatChange}
             onFocus={handlePasswordRepeatFocus}
+            testID="passwordRepeatInput"
           />
           {!isValidPasswordRepeat
-          && <Text style={globalStyles.invalid}>Passwords don&quot;t match</Text>}
+          && <Text testID="invalidPasswordRepeat" style={globalStyles.invalid}>Passwords don&quot;t match</Text>}
         </View>
         <TouchableOpacity
           style={[globalStyles.button, styles.registerButton]}
           onPress={handleRegister}
+          testID="registerButton"
         >
           <Text style={globalStyles.buttonText}>Sign up</Text>
         </TouchableOpacity>
