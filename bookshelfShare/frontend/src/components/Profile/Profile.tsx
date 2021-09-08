@@ -2,7 +2,7 @@ import React from 'react';
 import {
   SafeAreaView, View, Image, Text, TouchableOpacity, ScrollView
 } from 'react-native';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Header from '../Header/Header';
 
 import ProfileIcon from '../../assets/profileIcon.svg';
@@ -10,13 +10,16 @@ import BookStackIcon from '../../assets/bookStackIcon.svg';
 import ShelfIcon from '../../assets/shelfIcon.svg';
 import styles from './profile.styles';
 import globalStyles from '../../styles/global.styles';
+import { logoutUser } from '../../redux/actions/loggedUser.creator';
 
 export default function Profile() {
+  const dispatch = useDispatch();
   const { userData } = useSelector((store: any) => store.loggedUser);
+  const { refreshToken } = useSelector((store: any) => store.tokens);
   const shelves = useSelector((store: any) => store.shelves);
 
   function handleLogout() {
-
+    dispatch(logoutUser(refreshToken));
   }
 
   return (

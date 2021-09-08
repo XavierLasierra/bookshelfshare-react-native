@@ -20,3 +20,12 @@ export async function getSavedData() {
     return '';
   }
 }
+
+export async function clearStorage() {
+  try {
+    await AsyncStorage.clear();
+    return true;
+  } catch (error) {
+    return error;
+  }
+}

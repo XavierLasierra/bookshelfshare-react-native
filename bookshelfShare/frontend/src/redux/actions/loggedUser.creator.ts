@@ -2,7 +2,7 @@ import axios from 'axios';
 import { BOOKSS_API } from '@env';
 import loggedUserActions from './loggedUser.actions';
 import notificationsActions from './notifications.actions';
-import { getSavedData } from '../../services/asyncStorage';
+import { clearStorage, getSavedData } from '../../services/asyncStorage';
 import refreshUserToken from './tokens.creator';
 import tokenActions from './token.actions';
 
@@ -100,6 +100,23 @@ export function automaticLogin() {
     } catch (error: any) {
       dispatch({
         type: loggedUserActions.USER_NOT_LOGGED
+      });
+    }
+  };
+}
+
+export function logoutUser(refreshToken: string) {
+  return async (dispatch: Dispatch) => {
+    try {
+      await axios.post(BOOKSS_API.concat('/auth/logout'), { refreshToken });
+      await clearStorage();
+
+      dispatch({
+        type: loggedUserActions.USER_NOT_LOGGED
+      });
+    } catch (error: any) {
+      dispatch({
+        type: notificationsActions.SERVER_ERROR
       });
     }
   };
