@@ -1004,6 +1004,7 @@ exports[`Given an BookDetail component When it is rendered And ratings are loade
                     "width": 225,
                   }
                 }
+                testID="5ratingButton"
               >
                 <View
                   style={
@@ -1260,6 +1261,7 @@ exports[`Given an BookDetail component When it is rendered And ratings are loade
                     "width": 225,
                   }
                 }
+                testID="4ratingButton"
               >
                 <View
                   style={
@@ -1516,6 +1518,7 @@ exports[`Given an BookDetail component When it is rendered And ratings are loade
                     "width": 225,
                   }
                 }
+                testID="3ratingButton"
               >
                 <View
                   style={
@@ -1772,6 +1775,7 @@ exports[`Given an BookDetail component When it is rendered And ratings are loade
                     "width": 225,
                   }
                 }
+                testID="2ratingButton"
               >
                 <View
                   style={
@@ -2028,6 +2032,7 @@ exports[`Given an BookDetail component When it is rendered And ratings are loade
                     "width": 225,
                   }
                 }
+                testID="1ratingButton"
               >
                 <View
                   style={
@@ -2284,6 +2289,7 @@ exports[`Given an BookDetail component When it is rendered And ratings are loade
                     "width": 225,
                   }
                 }
+                testID="seeAllReviewsButton"
               >
                 <Text
                   style={
@@ -2308,6 +2314,7 @@ exports[`Given an BookDetail component When it is rendered And ratings are loade
                   "padding": 10,
                 }
               }
+              testID="ratingElement"
             >
               <View
                 style={
@@ -2580,6 +2587,7 @@ exports[`Given an BookDetail component When it is rendered And ratings are loade
                   "padding": 10,
                 }
               }
+              testID="ratingElement"
             >
               <View
                 style={
@@ -2852,6 +2860,7 @@ exports[`Given an BookDetail component When it is rendered And ratings are loade
                   "padding": 10,
                 }
               }
+              testID="ratingElement"
             >
               <View
                 style={

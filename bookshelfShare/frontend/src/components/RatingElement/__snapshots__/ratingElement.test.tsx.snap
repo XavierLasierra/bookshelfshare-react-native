@@ -10,6 +10,7 @@ exports[`Given an RatingElement component When it is rendered And the rating is 
       "padding": 10,
     }
   }
+  testID="ratingElement"
 >
   <View
     style={
@@ -295,6 +296,7 @@ exports[`Given an RatingElement component When it is rendered And the rating is 
       "padding": 10,
     }
   }
+  testID="ratingElement"
 >
   <View
     style={
