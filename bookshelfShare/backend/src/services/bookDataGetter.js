@@ -22,10 +22,21 @@ async function getBooksDataFromList(bookList) {
       }))
     };
   } catch (error) {
-    return error.message;
+    return error;
+  }
+}
+
+async function getBooksDataFromArray(bookIsbnArray) {
+  try {
+    const booksISBNPromises = bookIsbnArray.map((bookISBN) => axios.get(`${process.env.GOOGLE_API_URL}isbn:${bookISBN}&key=${process.env.GOOGLE_API_KEY}`));
+    const booksData = await Promise.allSettled(booksISBNPromises);
+    return booksData.map((book) => cleanBookData(book));
+  } catch (error) {
+    return error;
   }
 }
 
 module.exports = {
-  getBooksDataFromList
+  getBooksDataFromList,
+  getBooksDataFromArray
 };

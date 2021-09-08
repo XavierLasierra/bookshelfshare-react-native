@@ -3,7 +3,8 @@ const passport = require('passport');
 const {
   getBooks,
   getBookRating,
-  addUpdateBookRating
+  addUpdateBookRating,
+  getBookDataFromIsbn
 } = require('../controllers/books.controller');
 
 const booksRouter = new Router();
@@ -18,5 +19,10 @@ booksRouter
   .all(passport.authenticate('jwt', { session: false }))
   .get(getBookRating)
   .post(addUpdateBookRating);
+
+booksRouter
+  .route('/getData')
+  .all(passport.authenticate('jwt', { session: false }))
+  .post(getBookDataFromIsbn);
 
 module.exports = booksRouter;
