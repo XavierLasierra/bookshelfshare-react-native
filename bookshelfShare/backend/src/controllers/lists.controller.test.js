@@ -442,17 +442,17 @@ describe('Given a updateBooksFromList function', () => {
     describe('And List.findById is resolved', () => {
       describe('And listToUpdate exists', () => {
         describe('And body.actionType is ADD', () => {
-          describe('And listToUpdate contains the bookISBN to include', () => {
+          describe('And listToUpdate contains the bookIsbn to include', () => {
             beforeEach(() => {
               req.body = {
                 actionType: 'ADD',
-                bookISBN: '5',
+                bookIsbn: '5',
                 customInformation: { notes: 'no' }
               };
               List.findById.mockResolvedValue({
                 books: [
                   {
-                    bookISBN: '5',
+                    bookIsbn: '5',
                     customInformation: { notes: 'yes' }
                   }
                 ],
@@ -472,12 +472,12 @@ describe('Given a updateBooksFromList function', () => {
             test('Then the listToUpdate book should change its custom information', async () => {
               const listToUpdate = await List.findById();
               const initialCustomInformation = listToUpdate.books
-                .find(({ bookISBN }) => bookISBN === req.body.bookISBN).customInformation;
+                .find(({ bookIsbn }) => bookIsbn === req.body.bookIsbn).customInformation;
 
               await updateBooksFromList(req, res);
 
               const finalCustomInformation = listToUpdate.books
-                .find(({ bookISBN }) => bookISBN === req.body.bookISBN).customInformation;
+                .find(({ bookIsbn }) => bookIsbn === req.body.bookIsbn).customInformation;
 
               expect(finalCustomInformation).not.toEqual(initialCustomInformation);
             });
@@ -488,11 +488,11 @@ describe('Given a updateBooksFromList function', () => {
               expect(res.json).toHaveBeenCalled();
             });
           });
-          describe('And listToUpdate does not contain the bookISBN to include', () => {
+          describe('And listToUpdate does not contain the bookIsbn to include', () => {
             beforeEach(() => {
               req.body = {
                 actionType: 'ADD',
-                bookISBN: '5'
+                bookIsbn: '5'
               };
               List.findById.mockResolvedValue({
                 books: [],
@@ -517,16 +517,16 @@ describe('Given a updateBooksFromList function', () => {
           });
         });
         describe('And body.actionType is DELETE', () => {
-          describe('And body.bookISBN is in listToUpdate.books', () => {
+          describe('And body.bookIsbn is in listToUpdate.books', () => {
             beforeEach(() => {
               req.body = {
                 actionType: 'DELETE',
-                bookISBN: '1'
+                bookIsbn: '1'
               };
               List.findById.mockResolvedValue({
                 books: [
-                  { bookISBN: '1' },
-                  { bookISBN: '2' }
+                  { bookIsbn: '1' },
+                  { bookIsbn: '2' }
                 ],
                 save: jest.fn()
               });
