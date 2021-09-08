@@ -73,6 +73,9 @@ export default StyleSheet.create({
     marginTop: 5
   },
   mainContainer: {
+    backgroundColor: stylesConstants.colors.light
+  },
+  authenticationContainer: {
     backgroundColor: stylesConstants.colors.main
   }
 });

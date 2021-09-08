@@ -5,7 +5,7 @@ exports[`Given an BarCodeScanner component When it is rendered Then should match
   emulateUnlessSupported={true}
   style={
     Object {
-      "backgroundColor": "#D9D8C4",
+      "backgroundColor": "#F5F5F5",
     }
   }
 >

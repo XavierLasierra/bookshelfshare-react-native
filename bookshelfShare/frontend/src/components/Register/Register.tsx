@@ -88,7 +88,7 @@ export default function Register({ navigation: { pop } }:any) {
   }
 
   return (
-    <SafeAreaView style={globalStyles.mainContainer}>
+    <SafeAreaView style={globalStyles.authenticationContainer}>
       <TouchableOpacity
         style={globalStyles.backButton}
         onPress={handleLoginNavigation}

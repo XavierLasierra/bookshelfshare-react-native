@@ -5,7 +5,7 @@ exports[`Given an BookDetail component When it is rendered And ratings are loade
   emulateUnlessSupported={true}
   style={
     Object {
-      "backgroundColor": "#D9D8C4",
+      "backgroundColor": "#F5F5F5",
     }
   }
 >
@@ -3137,7 +3137,7 @@ exports[`Given an BookDetail component When it is rendered And ratings are not l
   emulateUnlessSupported={true}
   style={
     Object {
-      "backgroundColor": "#D9D8C4",
+      "backgroundColor": "#F5F5F5",
     }
   }
 >
@@ -3787,7 +3787,7 @@ exports[`Given an BookDetail component When it is rendered And the book rendered
   emulateUnlessSupported={true}
   style={
     Object {
-      "backgroundColor": "#D9D8C4",
+      "backgroundColor": "#F5F5F5",
     }
   }
 >

@@ -4,7 +4,7 @@ exports[`Given a BookSearch component When it is rendered And isbnFromCamera is 
 <RNCSafeAreaView
   style={
     Object {
-      "backgroundColor": "#D9D8C4",
+      "backgroundColor": "#F5F5F5",
     }
   }
 >
@@ -252,7 +252,7 @@ exports[`Given a BookSearch component When it is rendered And isbnFromCamera is 
 <RNCSafeAreaView
   style={
     Object {
-      "backgroundColor": "#D9D8C4",
+      "backgroundColor": "#F5F5F5",
     }
   }
 >
@@ -590,7 +590,7 @@ exports[`Given a BookSearch component When it is rendered And isbnFromCamera is 
 <RNCSafeAreaView
   style={
     Object {
-      "backgroundColor": "#D9D8C4",
+      "backgroundColor": "#F5F5F5",
     }
   }
 >
@@ -928,7 +928,7 @@ exports[`Given a BookSearch component When it is rendered And isbnFromCamera is 
 <RNCSafeAreaView
   style={
     Object {
-      "backgroundColor": "#D9D8C4",
+      "backgroundColor": "#F5F5F5",
     }
   }
 >
@@ -1182,7 +1182,7 @@ exports[`Given a BookSearch component When it is rendered And isbnFromCamera is 
 <RNCSafeAreaView
   style={
     Object {
-      "backgroundColor": "#D9D8C4",
+      "backgroundColor": "#F5F5F5",
     }
   }
 >
