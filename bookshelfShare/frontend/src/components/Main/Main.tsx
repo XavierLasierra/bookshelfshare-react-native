@@ -1,6 +1,13 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { SafeAreaView } from 'react-native';
+import Header from '../Header/Header';
+
+import BookIcon from '../../assets/bookIcon.svg';
 
 export default function Main() {
-  return <Text>Main works</Text>;
+  return (
+    <SafeAreaView>
+      <Header Logo={BookIcon} />
+    </SafeAreaView>
+  );
 }

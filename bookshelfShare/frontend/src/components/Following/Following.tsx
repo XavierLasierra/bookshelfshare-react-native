@@ -1,6 +1,13 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { SafeAreaView } from 'react-native';
+import Header from '../Header/Header';
+
+import FollowingIcon from '../../assets/followingIcon.svg';
 
 export default function Following() {
-  return <Text>Following works</Text>;
+  return (
+    <SafeAreaView>
+      <Header Logo={FollowingIcon} />
+    </SafeAreaView>
+  );
 }
