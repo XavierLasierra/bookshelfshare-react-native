@@ -27,9 +27,34 @@ export default StyleSheet.create({
   userEmail: {
     fontSize: stylesConstants.fontSize.mid
   },
+  actionsContainer: {
+    marginTop: 20
+  },
+  socialContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  },
   profileButton: {
     flexDirection: 'row',
     alignItems: 'center',
-    borderWidth: 1
+    borderTopWidth: 2,
+    borderBottomWidth: 2,
+    borderColor: stylesConstants.colors.secondary,
+    marginBottom: 15,
+    height: 50
+  },
+  socialButton: {
+    width: 160,
+    paddingHorizontal: 10
+  },
+  booksButton: {
+
+  },
+  buttonText: {
+    fontSize: stylesConstants.fontSize.mid,
+    marginLeft: 15
+  },
+  logoutButton: {
+    marginTop: 30
   }
 });
