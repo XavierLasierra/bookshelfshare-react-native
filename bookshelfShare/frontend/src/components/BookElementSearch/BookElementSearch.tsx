@@ -5,11 +5,12 @@ import {
 
 import styles from './bookElementSearch.styles';
 
-export default function BookElementSearch({ bookData, navigation }: any) {
+export default function BookElementSearch({ bookData, navigation, logo }: any) {
   function handleBookDetailPage() {
     navigation.push('BookDetail',
       {
-        bookData
+        bookData,
+        logo
       });
   }
 

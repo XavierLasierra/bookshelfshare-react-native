@@ -2,25 +2,26 @@ import React, { useEffect } from 'react';
 import {
   SafeAreaView, Text, ActivityIndicator, FlatList, View
 } from 'react-native';
-
 import { useDispatch, useSelector } from 'react-redux';
-import Header from '../Header/Header';
 
-import SearchIcon from '../../assets/searchIcon.svg';
+import Header from '../Header/Header';
+import BookElementSearch from '../BookElementSearch/BookElementSearch';
+
 import { clearBooks } from '../../redux/actions/books.creator';
 import stylesConstants from '../../styles/styles.constants';
-import BookElementSearch from '../BookElementSearch/BookElementSearch';
 import styles from './bookResults.styles';
+import logoSelector from '../../utils/logoSelector';
 
 interface Props {
   route: Route,
-  navigation: any
+  navigation: any,
 }
 interface Route {
   params: Params
 }
 interface Params {
-  searchInformation: SearchInformation
+  searchInformation: SearchInformation,
+  logo: string
 }
 interface SearchInformation {
   isbn: string,
@@ -33,7 +34,8 @@ export default function BookResults(
   {
     navigation, route: {
       params: {
-        searchInformation
+        searchInformation,
+        logo
       }
     }
   }: Props
@@ -49,7 +51,7 @@ export default function BookResults(
   }, []);
 
   function renderBook({ item }: any) {
-    return <BookElementSearch bookData={item} navigation={navigation} />;
+    return <BookElementSearch bookData={item} navigation={navigation} logo={logo} />;
   }
 
   const bookResults = books.length > 0
@@ -65,7 +67,7 @@ export default function BookResults(
 
   return (
     <SafeAreaView style={styles.bookResultsContainer}>
-      <Header Logo={SearchIcon} BackButton navigation={navigation} />
+      <Header Logo={logoSelector(logo)} BackButton navigation={navigation} />
       <View style={styles.resultsContainer}>
         <View style={styles.searchParameters}>
           <Text style={styles.parameter}>{isbn && `ISBN: ${isbn.toUpperCase()}`}</Text>

@@ -30,7 +30,8 @@ export default function BookSearch({ navigation, isbnFromCamera }: Props) {
       {
         searchInformation: {
           isbn, inauthor, intitle, inpublisher
-        }
+        },
+        logo: 'SearchIcon'
       });
   }
 

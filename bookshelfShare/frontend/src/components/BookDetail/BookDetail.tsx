@@ -11,16 +11,17 @@ import Rating from '../Rating/Rating';
 
 import { getRatings, clearBook } from '../../redux/actions/books.creator';
 
-import BookIcon from '../../assets/bookIcon.svg';
 import styles from './bookDetail.styles';
 import stylesConstants from '../../styles/styles.constants';
 import globalStyles from '../../styles/global.styles';
+import logoSelector from '../../utils/logoSelector';
 
 export default function BookDetail({
   navigation,
   route: {
     params: {
-      bookData
+      bookData,
+      logo
     }
   }
 }: any) {
@@ -49,7 +50,7 @@ export default function BookDetail({
 
   return (
     <SafeAreaView style={styles.bookDetailPageContainer}>
-      <Header Logo={BookIcon} BackButton navigation={navigation} />
+      <Header Logo={logoSelector(logo)} BackButton navigation={navigation} />
       <ScrollView>
         <View style={styles.bookDetailContainer}>
           <View style={styles.topContainer}>
