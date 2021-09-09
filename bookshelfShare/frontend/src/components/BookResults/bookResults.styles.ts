@@ -20,10 +20,6 @@ export default StyleSheet.create({
   marginBottom: {
     width: '100%',
     height: 130
-  },
-  listTitle: {
-    fontSize: stylesConstants.fontSize.big,
-    paddingVertical: stylesConstants.padding.small,
-    fontWeight: 'bold'
   }
+
 });

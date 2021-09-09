@@ -119,7 +119,7 @@ export default function AddBookToUser({
     <View style={styles.addBookToUserContainer}>
       {bookIsbn !== 'Not found'
         ? menus
-        : <Text>Cannot save a book without isbn</Text>}
+        : <Text style={styles.canNotSaveText}>Cannot save a book without isbn</Text>}
     </View>
   );
 }

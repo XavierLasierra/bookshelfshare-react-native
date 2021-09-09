@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   SafeAreaView, Text, ActivityIndicator, FlatList, View
 } from 'react-native';
@@ -12,6 +12,7 @@ import stylesConstants from '../../styles/styles.constants';
 import styles from './bookResults.styles';
 import logoSelector from '../../utils/logoSelector';
 import globalStyles from '../../styles/global.styles';
+import BookListFilter from '../BookListFilter/BookListFilter';
 
 interface Props {
   route: Route,
@@ -45,10 +46,15 @@ export default function BookResults(
 ) {
   const dispatch = useDispatch();
   const { books, results } = useSelector((store: any) => store.books);
+  const [filteredBooks, setFilterdBooks] = useState([]);
 
   useEffect(() => () => {
     dispatch(clearBooks());
   }, []);
+
+  useEffect(() => {
+    setFilterdBooks(books);
+  }, [books]);
 
   function renderBook({ item }: any) {
     return <BookElementSearch bookData={item} navigation={navigation} logo={logo} />;
@@ -58,7 +64,7 @@ export default function BookResults(
     ? (
       <FlatList
         showsVerticalScrollIndicator={false}
-        data={books}
+        data={filteredBooks}
         renderItem={renderBook}
         keyExtractor={(item, index) => `book-${index}`}
       />
@@ -70,7 +76,7 @@ export default function BookResults(
       <Header Logo={logoSelector(logo)} BackButton navigation={navigation} />
       <View style={styles.resultsContainer}>
         {listName
-          ? <Text style={styles.listTitle}>{listName.toUpperCase()}</Text>
+          ? <BookListFilter listName={listName} books={books} setFilteredBooks={setFilterdBooks} />
           : (
             <View style={styles.searchParameters}>
               <Text style={styles.parameter}>{searchInformation?.isbn && `ISBN: ${searchInformation?.isbn.toUpperCase()}`}</Text>

@@ -36,5 +36,10 @@ export default StyleSheet.create({
     width: 150,
     alignItems: 'center',
     justifyContent: 'center'
+  },
+  canNotSaveText: {
+    textAlign: 'center',
+    fontSize: stylesConstants.fontSize.small,
+    width: '100%'
   }
 });
