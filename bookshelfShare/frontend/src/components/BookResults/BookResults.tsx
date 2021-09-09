@@ -22,6 +22,7 @@ interface Route {
 }
 interface Params {
   searchInformation: SearchInformation,
+  listName: string,
   logo: string
 }
 interface SearchInformation {
@@ -36,6 +37,7 @@ export default function BookResults(
     navigation, route: {
       params: {
         searchInformation,
+        listName,
         logo
       }
     }
@@ -43,9 +45,6 @@ export default function BookResults(
 ) {
   const dispatch = useDispatch();
   const { books, results } = useSelector((store: any) => store.books);
-  const {
-    isbn, inauthor, intitle, inpublisher
-  } = searchInformation;
 
   useEffect(() => () => {
     dispatch(clearBooks());
@@ -64,18 +63,22 @@ export default function BookResults(
         keyExtractor={(item, index) => `book-${index}`}
       />
     )
-    : <Text>0 results</Text>;
+    : <Text>0 books</Text>;
 
   return (
     <SafeAreaView style={globalStyles.mainContainer}>
       <Header Logo={logoSelector(logo)} BackButton navigation={navigation} />
       <View style={styles.resultsContainer}>
-        <View style={styles.searchParameters}>
-          <Text style={styles.parameter}>{isbn && `ISBN: ${isbn.toUpperCase()}`}</Text>
-          <Text style={styles.parameter}>{intitle && `Title: ${intitle.toUpperCase()}`}</Text>
-          <Text style={styles.parameter}>{inauthor && `Author: ${inauthor.toUpperCase()}`}</Text>
-          <Text style={styles.parameter}>{inpublisher && `Publisher: ${inpublisher.toUpperCase()}`}</Text>
-        </View>
+        {listName
+          ? <Text style={styles.listTitle}>{listName.toUpperCase()}</Text>
+          : (
+            <View style={styles.searchParameters}>
+              <Text style={styles.parameter}>{searchInformation?.isbn && `ISBN: ${searchInformation?.isbn.toUpperCase()}`}</Text>
+              <Text style={styles.parameter}>{searchInformation?.intitle && `Title: ${searchInformation?.intitle.toUpperCase()}`}</Text>
+              <Text style={styles.parameter}>{searchInformation?.inauthor && `Author: ${searchInformation?.inauthor.toUpperCase()}`}</Text>
+              <Text style={styles.parameter}>{searchInformation?.inpublisher && `Publisher: ${searchInformation?.inpublisher.toUpperCase()}`}</Text>
+            </View>
+          )}
         {results
           ? bookResults
           : <ActivityIndicator size="large" color={stylesConstants.colors.dark} />}

@@ -149,3 +149,41 @@ export function saveRating(isbn: string, ratingInfo: any, token: string, refresh
     }
   };
 }
+
+export function getBooksData(bookIsbnArray: string[], token: string, refreshToken: string) {
+  return async (dispatch: Dispatch) => {
+    try {
+      const { data } = await axios.post(BOOKSS_API.concat('/books/getData'), bookIsbnArray, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+
+      dispatch({
+        type: booksActions.LOAD_BOOKS,
+        data
+      });
+    } catch (error: any) {
+      if (error?.response?.status === 401) {
+        try {
+          const newToken = await refreshUserToken(refreshToken, dispatch);
+          if (!newToken) throw new Error('Server error');
+
+          dispatch(getBooksData(bookIsbnArray, newToken, refreshToken));
+        } catch {
+          dispatch({
+            type: notificationsActions.SERVER_ERROR
+          });
+        }
+      } else if (error?.response?.status === 500) {
+        dispatch({
+          type: notificationsActions.ISBN_ERROR
+        });
+      } else {
+        dispatch({
+          type: notificationsActions.SERVER_ERROR
+        });
+      }
+    }
+  };
+}

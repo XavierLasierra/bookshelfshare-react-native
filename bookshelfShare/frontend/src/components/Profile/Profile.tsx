@@ -11,15 +11,25 @@ import ShelfIcon from '../../assets/shelfIcon.svg';
 import styles from './profile.styles';
 import globalStyles from '../../styles/global.styles';
 import { logoutUser } from '../../redux/actions/loggedUser.creator';
+import { getBooksData } from '../../redux/actions/books.creator';
 
-export default function Profile() {
+export default function Profile({ navigation }: any) {
   const dispatch = useDispatch();
   const { userData } = useSelector((store: any) => store.loggedUser);
-  const { refreshToken } = useSelector((store: any) => store.tokens);
+  const { token, refreshToken } = useSelector((store: any) => store.tokens);
   const shelves = useSelector((store: any) => store.shelves);
 
   function handleLogout() {
     dispatch(logoutUser(refreshToken));
+  }
+
+  function handleBookResultsPage(listName: string, bookArray: string[]) {
+    dispatch(getBooksData(bookArray, token, refreshToken));
+    navigation.push('BookResults',
+      {
+        listName,
+        logo: 'ProfileIcon'
+      });
   }
 
   return (
@@ -57,7 +67,10 @@ export default function Profile() {
                 </Text>
               </TouchableOpacity>
             </View>
-            <TouchableOpacity style={[styles.profileButton, styles.booksButton]}>
+            <TouchableOpacity
+              style={[styles.profileButton, styles.booksButton]}
+              onPress={() => handleBookResultsPage('currently reading', userData.books.current)}
+            >
               <BookStackIcon width={40} height={40} />
               <Text style={styles.buttonText}>
                 {userData.books.current.length}
@@ -67,7 +80,10 @@ export default function Profile() {
                 currently reading
               </Text>
             </TouchableOpacity>
-            <TouchableOpacity style={[styles.profileButton, styles.booksButton]}>
+            <TouchableOpacity
+              style={[styles.profileButton, styles.booksButton]}
+              onPress={() => handleBookResultsPage('read', userData.books.read)}
+            >
               <BookStackIcon width={40} height={40} />
               <Text style={styles.buttonText}>
                 {userData.books.read.length}
@@ -77,7 +93,10 @@ export default function Profile() {
                 read
               </Text>
             </TouchableOpacity>
-            <TouchableOpacity style={[styles.profileButton, styles.booksButton]}>
+            <TouchableOpacity
+              style={[styles.profileButton, styles.booksButton]}
+              onPress={() => handleBookResultsPage('whislist', userData.books.wishlist)}
+            >
               <BookStackIcon width={40} height={40} />
               <Text style={styles.buttonText}>
                 {userData.books.wishlist.length}
