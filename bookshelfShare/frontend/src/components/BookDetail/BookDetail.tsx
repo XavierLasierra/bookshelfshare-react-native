@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Header from '../Header/Header';
 import Notes from '../Notes/Notes';
 import Rating from '../Rating/Rating';
+import AddBookToUser from '../AddBookToUser/AddBookToUser';
 
 import { getRatings, clearBook } from '../../redux/actions/books.creator';
 
@@ -28,6 +29,7 @@ export default function BookDetail({
   const dispatch = useDispatch();
   const { token, refreshToken } = useSelector((store: any) => store.tokens);
   const { ratings, list, isLoaded } = useSelector((store: any) => store.customBookData);
+  const { userData } = useSelector((store: any) => store.loggedUser);
   const [rating, setRating] = useState(0);
   const [ratingNumber, setRatingNumber] = useState(0);
 
@@ -53,6 +55,13 @@ export default function BookDetail({
       <Header Logo={logoSelector(logo)} BackButton navigation={navigation} />
       <ScrollView>
         <View style={styles.bookDetailContainer}>
+          <AddBookToUser
+            bookIsbn={bookData.isbn.ISBN13}
+            token={token}
+            refreshToken={refreshToken}
+            // eslint-disable-next-line no-underscore-dangle
+            userId={userData._id}
+          />
           <View style={styles.topContainer}>
             <Image
               source={{ uri: bookData?.images?.thumbnail || bookData?.images?.smallThumbnail }}
@@ -123,6 +132,8 @@ export default function BookDetail({
                   isbn={bookData.isbn.ISBN13}
                   token={token}
                   refreshToken={refreshToken}
+                  // eslint-disable-next-line no-underscore-dangle
+                  userId={userData._id}
                 />
               </>
             )

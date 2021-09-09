@@ -21,7 +21,7 @@ export default function BookSearchNavigator(
 ) {
   const Stack = createStackNavigator();
   useEffect(() => () => {
-    pagesNavigation.setParams({ isbn: '' });
+    if (params?.isbn) { pagesNavigation.setParams({ isbn: '' }); }
   }, []);
   return (
     <Stack.Navigator

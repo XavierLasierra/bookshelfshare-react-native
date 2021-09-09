@@ -16,6 +16,7 @@ import { getBooksData } from '../../redux/actions/books.creator';
 export default function Profile({ navigation }: any) {
   const dispatch = useDispatch();
   const { userData } = useSelector((store: any) => store.loggedUser);
+  const userBooks = useSelector((store: any) => store.userBooks);
   const { token, refreshToken } = useSelector((store: any) => store.tokens);
   const shelves = useSelector((store: any) => store.shelves);
 
@@ -69,39 +70,39 @@ export default function Profile({ navigation }: any) {
             </View>
             <TouchableOpacity
               style={[styles.profileButton, styles.booksButton]}
-              onPress={() => handleBookResultsPage('currently reading', userData.books.current)}
+              onPress={() => handleBookResultsPage('currently reading', userBooks.reading)}
             >
               <BookStackIcon width={40} height={40} />
               <Text style={styles.buttonText}>
-                {userData.books.current.length}
+                {userBooks.reading.length}
                 {' '}
-                {userData.books.current.length === 1 ? 'book' : 'books'}
+                {userBooks.reading.length === 1 ? 'book' : 'books'}
                 {' '}
                 currently reading
               </Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={[styles.profileButton, styles.booksButton]}
-              onPress={() => handleBookResultsPage('read', userData.books.read)}
+              onPress={() => handleBookResultsPage('read', userBooks.read)}
             >
               <BookStackIcon width={40} height={40} />
               <Text style={styles.buttonText}>
-                {userData.books.read.length}
+                {userBooks.read.length}
                 {' '}
-                {userData.books.read.length === 1 ? 'book' : 'books'}
+                {userBooks.read.length === 1 ? 'book' : 'books'}
                 {' '}
                 read
               </Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={[styles.profileButton, styles.booksButton]}
-              onPress={() => handleBookResultsPage('whislist', userData.books.wishlist)}
+              onPress={() => handleBookResultsPage('whislist', userBooks.wishlist)}
             >
               <BookStackIcon width={40} height={40} />
               <Text style={styles.buttonText}>
-                {userData.books.wishlist.length}
+                {userBooks.wishlist.length}
                 {' '}
-                {userData.books.wishlist.length === 1 ? 'book' : 'books'}
+                {userBooks.wishlist.length === 1 ? 'book' : 'books'}
                 {' '}
                 on wishlist
               </Text>
