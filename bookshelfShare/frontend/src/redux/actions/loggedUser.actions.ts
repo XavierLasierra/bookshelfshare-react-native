@@ -1,5 +1,4 @@
 export default {
   LOG_USER: 'LOG_USER',
-  LOAD_USER_DATA: 'LOAD_USER_DATA',
   USER_NOT_LOGGED: 'USER_NOT_LOGGED'
 };
