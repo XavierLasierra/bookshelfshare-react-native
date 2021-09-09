@@ -29,6 +29,9 @@ function notificationsReducer(notification = [], action: Action): string[] {
     case notificationsActions.REVIEW_ISBN_NOT_FOUND:
       newNotification = ['Can not review a book without ISBN'];
       break;
+    case notificationsActions.SAVE_ERROR:
+      newNotification = ['Could not save'];
+      break;
     default:
       break;
   }
