@@ -16,7 +16,7 @@ async function getUsers({ query }, res) {
 
 async function getOneUserById({ params: { userId } }, res) {
   try {
-    const foundUser = await User.findById(userId).select('username email photo activity books following followers').populate('following followers');
+    const foundUser = await User.findById(userId).select('username email photo activity books following followers').populate({ path: 'followers following', select: 'username email photo' });
 
     if (!foundUser) return res.sendStatus(404);
 
@@ -91,6 +91,8 @@ async function addUserFollowing({ body: { followingId }, params: { userId } }, r
     foundUser.save();
     followingUser.save();
 
+    await foundUser.populate({ path: 'followers following', select: 'username email photo' });
+
     return res.json(foundUser);
   } catch (error) {
     res.status(500);
@@ -111,6 +113,8 @@ async function deleteUserFollowing({ body: { followingId }, params: { userId } }
 
     foundUser.save();
     followingUser.save();
+
+    await foundUser.populate({ path: 'followers following', select: 'username email photo' });
 
     return res.json(foundUser);
   } catch (error) {

@@ -16,7 +16,7 @@ usersRouter
   .route('/following/:userId')
   .all(passport.authenticate('jwt', { session: false }))
   .post(addUserFollowing)
-  .delete(deleteUserFollowing);
+  .put(deleteUserFollowing);
 
 usersRouter
   .route('/books/:userId')
