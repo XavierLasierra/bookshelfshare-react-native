@@ -12,9 +12,9 @@ export default StyleSheet.create({
     width: 200
   },
   markButton: {
-    backgroundColor: stylesConstants.colors.white,
     height: 40,
     width: 150,
+    backgroundColor: stylesConstants.colors.white,
     borderRadius: 10,
     borderWidth: 1,
     borderColor: stylesConstants.colors.secondary,
@@ -26,5 +26,15 @@ export default StyleSheet.create({
     width: 150,
     justifyContent: 'center',
     paddingHorizontal: stylesConstants.padding.mid
+  },
+  activityIndicatorContainer: {
+    backgroundColor: stylesConstants.colors.white,
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: stylesConstants.colors.secondary,
+    height: 40,
+    width: 150,
+    alignItems: 'center',
+    justifyContent: 'center'
   }
 });

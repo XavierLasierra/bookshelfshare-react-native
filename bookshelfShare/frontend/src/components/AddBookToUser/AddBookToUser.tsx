@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, ActivityIndicator } from 'react-native';
 import {
   Menu, MenuOptions, MenuTrigger, MenuOption, renderers
 } from 'react-native-popup-menu';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateUserBooks } from '../../redux/actions/loggedUser.creator';
+import stylesConstants from '../../styles/styles.constants';
 
 import styles from './addBookToUser.styles';
 
@@ -12,9 +13,10 @@ export default function AddBookToUser({
   bookIsbn, token, refreshToken, userId
 }: any) {
   const dispatch = useDispatch();
+  const books = useSelector((store: any) => store.userBooks);
   const [markListName, setMarkListName] = useState('Mark as');
   const [deleteFrom, setDeleteFrom] = useState('');
-  const books = useSelector((store: any) => store.userBooks);
+  const [isLoading, setIsLoading] = useState(false);
 
   function findInUserBooks() {
     if (books.read.includes(bookIsbn)) {
@@ -34,9 +36,11 @@ export default function AddBookToUser({
 
   useEffect(() => {
     setMarkListName(findInUserBooks());
+    setIsLoading(false);
   }, [books]);
 
   function handleCategorySelect(value: string) {
+    setIsLoading(true);
     dispatch(updateUserBooks(
       userId, {
         bookIsbn,
@@ -55,7 +59,13 @@ export default function AddBookToUser({
         renderer={renderers.NotAnimatedContextMenu}
       >
         <MenuTrigger>
-          <Text style={styles.markButton}>{markListName}</Text>
+          {isLoading
+            ? (
+              <View style={styles.activityIndicatorContainer}>
+                <ActivityIndicator size="small" color={stylesConstants.colors.dark} />
+              </View>
+            )
+            : <Text style={styles.markButton}>{markListName}</Text>}
         </MenuTrigger>
         <MenuOptions>
           <MenuOption
