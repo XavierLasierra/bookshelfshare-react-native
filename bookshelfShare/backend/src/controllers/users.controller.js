@@ -1,8 +1,11 @@
 const User = require('../models/user.model');
+const { transformQuery } = require('../utils/transformQuery');
 
 async function getUsers({ query }, res) {
   try {
-    const foundUsers = await User.find(query).select('username email photo activity books following followers');
+    const transformedQuery = transformQuery(query);
+
+    const foundUsers = await User.find(transformedQuery).limit(20).select('username email photo activity books following followers');
 
     res.json(foundUsers);
   } catch (error) {
