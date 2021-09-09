@@ -5,10 +5,18 @@ const {
   getOneUserById,
   deleteOneUserById,
   updateOneUserById,
-  updateUserBooks
+  updateUserBooks,
+  addUserFollowing,
+  deleteUserFollowing
 } = require('../controllers/users.controller');
 
 const usersRouter = new Router();
+
+usersRouter
+  .route('/following/:userId')
+  .all(passport.authenticate('jwt', { session: false }))
+  .post(addUserFollowing)
+  .delete(deleteUserFollowing);
 
 usersRouter
   .route('/books/:userId')

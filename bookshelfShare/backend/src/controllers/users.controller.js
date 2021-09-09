@@ -13,7 +13,7 @@ async function getUsers({ query }, res) {
 
 async function getOneUserById({ params: { userId } }, res) {
   try {
-    const foundUser = await User.findById(userId).select('username email photo activity books following followers');
+    const foundUser = await User.findById(userId).select('username email photo activity books following followers').populate('following followers');
 
     if (!foundUser) return res.sendStatus(404);
 
@@ -23,6 +23,7 @@ async function getOneUserById({ params: { userId } }, res) {
     return res.send(error);
   }
 }
+
 async function deleteOneUserById({ params: { userId } }, res) {
   try {
     await User.findByIdAndDelete(userId);
@@ -71,10 +72,56 @@ async function updateUserBooks({ body, params: { userId } }, res) {
   }
 }
 
+async function addUserFollowing({ body: { followingId }, params: { userId } }, res) {
+  try {
+    const foundUser = await User.findById(userId).select('username email photo activity books following followers');
+    if (!foundUser) return res.sendStatus(404);
+
+    const followingUser = await User.findById(followingId);
+    if (!followingUser) return res.sendStatus(404);
+
+    if (foundUser.following.some((user) => `${user}` === followingId)) return res.sendStatus(409);
+
+    foundUser.following.push(followingId);
+    followingUser.followers.push(userId);
+
+    foundUser.save();
+    followingUser.save();
+
+    return res.json(foundUser);
+  } catch (error) {
+    res.status(500);
+    return res.send(error);
+  }
+}
+
+async function deleteUserFollowing({ body: { followingId }, params: { userId } }, res) {
+  try {
+    const foundUser = await User.findById(userId).select('username email photo activity books following followers');
+    if (!foundUser) return res.sendStatus(404);
+
+    const followingUser = await User.findById(followingId);
+    if (!followingUser) return res.sendStatus(404);
+
+    foundUser.following = foundUser.following.filter((user) => `${user}` !== followingId);
+    followingUser.followers = followingUser.followers.filter((user) => `${user}` !== userId);
+
+    foundUser.save();
+    followingUser.save();
+
+    return res.json(foundUser);
+  } catch (error) {
+    res.status(500);
+    return res.send(error);
+  }
+}
+
 module.exports = {
   getUsers,
   getOneUserById,
   deleteOneUserById,
   updateOneUserById,
-  updateUserBooks
+  updateUserBooks,
+  addUserFollowing,
+  deleteUserFollowing
 };
