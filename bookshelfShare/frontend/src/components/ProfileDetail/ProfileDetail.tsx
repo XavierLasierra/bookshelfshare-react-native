@@ -1,131 +1,165 @@
-import React from 'react';
+/* eslint-disable no-underscore-dangle */
+import React, { useEffect, useState } from 'react';
 import {
-  SafeAreaView, View, Image, Text, TouchableOpacity, ScrollView
+  SafeAreaView, View, Image, Text, TouchableOpacity, ScrollView, ActivityIndicator
 } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
+
 import Header from '../Header/Header';
 
-import ProfileIcon from '../../assets/profileIcon.svg';
-import BookStackIcon from '../../assets/bookStackIcon.svg';
-import ShelfIcon from '../../assets/shelfIcon.svg';
-import styles from './profileDetail.styles';
-import globalStyles from '../../styles/global.styles';
-import { logoutUser } from '../../redux/actions/loggedUser.creator';
+import { addUserFollowing, deleteUserFollowing } from '../../redux/actions/loggedUser.creator';
 import { getBooksData } from '../../redux/actions/books.creator';
 
-export default function Profile({ navigation }: any) {
-  const dispatch = useDispatch();
-  const { userData } = useSelector((store: any) => store.loggedUser);
-  const userBooks = useSelector((store: any) => store.userBooks);
-  const socials = useSelector((store: any) => store.userSocials);
-  const { token, refreshToken } = useSelector((store: any) => store.tokens);
-  const shelves = useSelector((store: any) => store.shelves);
+import RedProfileIcon from '../../assets/redProfileIcon.svg';
+import AddUserIcon from '../../assets/addUserIcon.svg';
+import BookStackIcon from '../../assets/bookStackIcon.svg';
+import ShelfIcon from '../../assets/shelfIcon.svg';
+import globalStyles from '../../styles/global.styles';
+import styles from './profileDetail.styles';
+import stylesConstants from '../../styles/styles.constants';
+import { clearCurrentUser } from '../../redux/actions/currentUser.creator';
+import logoSelector from '../../utils/logoSelector';
 
-  function handleLogout() {
-    dispatch(logoutUser(refreshToken));
-  }
+export default function ProfileDetail({ navigation, route: { params: { logo } } }: any) {
+  const dispatch = useDispatch();
+  const { userData: { _id: loggedUserId } } = useSelector((store: any) => store.loggedUser);
+  const { following } = useSelector((store: any) => store.userSocials);
+  const { token, refreshToken } = useSelector((store: any) => store.tokens);
+  const { user, results } = useSelector((store: any) => store.currentUser);
+  const [isDisabled, setIsDisabled] = useState(false);
+
+  const isFollowed = following.some((followedUser: any) => followedUser._id === user._id);
+  const isFollower = user?.following
+  && user.following.some(({ _id: followingId }: any) => followingId === loggedUserId);
+
+  useEffect(() => {
+    setIsDisabled(false);
+  }, [following]);
+
+  useEffect(() => () => {
+    dispatch(clearCurrentUser());
+  }, []);
 
   function handleBookResultsPage(listName: string, bookArray: string[]) {
     dispatch(getBooksData(bookArray, token, refreshToken));
     navigation.push('BookResults',
       {
         listName,
-        logo: 'ProfileIcon'
+        logo
       });
+  }
+
+  function handleAddFollowing() {
+    dispatch(addUserFollowing(user._id, loggedUserId, token, refreshToken));
+    setIsDisabled(true);
+  }
+
+  function handleDeleteFollowing() {
+    dispatch(deleteUserFollowing(user._id, loggedUserId, token, refreshToken));
+    setIsDisabled(true);
   }
 
   return (
     <SafeAreaView style={globalStyles.mainContainer}>
+      <Header Logo={logoSelector(logo)} BackButton navigation={navigation} />
       <ScrollView>
-        <Header Logo={ProfileIcon} />
-        <View style={styles.profileContainer}>
-          <View style={styles.topContainer}>
-            <Image
-              source={{ uri: userData.photo }}
-              style={styles.userPhoto}
-            />
-            <View style={styles.userInformationContainer}>
-              <Text style={styles.userUsername}>{userData.username}</Text>
-              <Text style={styles.userEmail}>{userData.email}</Text>
-            </View>
+        {results
+          ? (
+            <View style={styles.profileContainer}>
+              <View style={styles.topContainer}>
+                <Image
+                  source={{ uri: user?.photo }}
+                  style={styles.userPhoto}
+                />
+                <View style={styles.userInformationContainer}>
+                  <Text style={styles.userUsername}>{user?.username}</Text>
+                  <Text style={styles.userEmail}>{user?.email}</Text>
+                  {isFollower && <Text style={styles.follower}>Follows you</Text>}
+                </View>
+              </View>
+              <View>
+                <View style={styles.socialContainer}>
+                  {isFollowed
+                    ? (
+                      <TouchableOpacity
+                        onPress={handleDeleteFollowing}
+                        disabled={isDisabled}
+                      >
+                        <RedProfileIcon width={35} height={35} />
+                      </TouchableOpacity>
+                    )
+                    : (
+                      <TouchableOpacity
+                        onPress={handleAddFollowing}
+                        disabled={isDisabled}
+                      >
+                        <AddUserIcon width={35} height={35} />
+                      </TouchableOpacity>
+                    )}
+                </View>
+                <TouchableOpacity
+                  style={styles.profileButton}
+                  onPress={() => handleBookResultsPage('currently reading', user?.books?.reading)}
+                >
+                  <BookStackIcon width={40} height={40} />
+                  <Text style={styles.buttonText}>
+                    {user?.books?.reading.length}
+                    {' '}
+                    {user?.books?.reading.length === 1 ? 'book' : 'books'}
+                    {' '}
+                    currently reading
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.profileButton}
+                  onPress={() => handleBookResultsPage('read', user?.books?.read)}
+                >
+                  <BookStackIcon width={40} height={40} />
+                  <Text style={styles.buttonText}>
+                    {user?.books?.read.length}
+                    {' '}
+                    {user?.books?.read.length === 1 ? 'book' : 'books'}
+                    {' '}
+                    read
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.profileButton}
+                  onPress={() => handleBookResultsPage('to read', user?.books?.toRead)}
+                >
+                  <BookStackIcon width={40} height={40} />
+                  <Text style={styles.buttonText}>
+                    {user?.books?.toRead.length}
+                    {' '}
+                    {user?.books?.toRead.length === 1 ? 'book' : 'books'}
+                    {' '}
+                    to read
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.profileButton}
+                  onPress={() => handleBookResultsPage('whislist', user?.books?.wishlist)}
+                >
+                  <BookStackIcon width={40} height={40} />
+                  <Text style={styles.buttonText}>
+                    {user?.books?.wishlist.length}
+                    {' '}
+                    {user?.books?.wishlist.length === 1 ? 'book' : 'books'}
+                    {' '}
+                    on wishlist
+                  </Text>
+                </TouchableOpacity>
 
-          </View>
-          <View style={styles.actionsContainer}>
-            <View style={styles.socialContainer}>
-              <TouchableOpacity style={[styles.profileButton, styles.socialButton]}>
-                <ProfileIcon width={25} height={25} />
-                <Text style={styles.buttonText}>
-                  {socials.followers.length}
-                  {' '}
-                  {socials.followers.length === 1 ? 'follower' : 'followers'}
-                </Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={[styles.profileButton, styles.socialButton]}>
-                <ProfileIcon width={25} height={25} />
-                <Text style={styles.buttonText}>
-                  {socials.following.length}
-                  {' '}
-                  following
-                </Text>
-              </TouchableOpacity>
+                <TouchableOpacity style={styles.profileButton}>
+                  <ShelfIcon width={40} height={35} />
+                  <Text style={styles.buttonText}>
+                    X shelves
+                  </Text>
+                </TouchableOpacity>
+              </View>
             </View>
-            <TouchableOpacity
-              style={[styles.profileButton, styles.booksButton]}
-              onPress={() => handleBookResultsPage('currently reading', userBooks.reading)}
-            >
-              <BookStackIcon width={40} height={40} />
-              <Text style={styles.buttonText}>
-                {userBooks.reading.length}
-                {' '}
-                {userBooks.reading.length === 1 ? 'book' : 'books'}
-                {' '}
-                currently reading
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={[styles.profileButton, styles.booksButton]}
-              onPress={() => handleBookResultsPage('read', userBooks.read)}
-            >
-              <BookStackIcon width={40} height={40} />
-              <Text style={styles.buttonText}>
-                {userBooks.read.length}
-                {' '}
-                {userBooks.read.length === 1 ? 'book' : 'books'}
-                {' '}
-                read
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={[styles.profileButton, styles.booksButton]}
-              onPress={() => handleBookResultsPage('whislist', userBooks.wishlist)}
-            >
-              <BookStackIcon width={40} height={40} />
-              <Text style={styles.buttonText}>
-                {userBooks.wishlist.length}
-                {' '}
-                {userBooks.wishlist.length === 1 ? 'book' : 'books'}
-                {' '}
-                on wishlist
-              </Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity style={[styles.profileButton, styles.booksButton]}>
-              <ShelfIcon width={40} height={35} />
-              <Text style={styles.buttonText}>
-                {shelves.length}
-                {' '}
-                {shelves.length === 1 ? 'shelf' : 'shelves'}
-              </Text>
-            </TouchableOpacity>
-          </View>
-          <TouchableOpacity
-            style={[globalStyles.button, styles.logoutButton]}
-            onPress={handleLogout}
-            testID="logoutButton"
-          >
-            <Text style={globalStyles.buttonText}>Log out</Text>
-          </TouchableOpacity>
-        </View>
+          )
+          : <ActivityIndicator size="large" color={stylesConstants.colors.dark} style={styles.activityIndicator} />}
       </ScrollView>
     </SafeAreaView>
   );

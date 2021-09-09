@@ -27,12 +27,10 @@ export default StyleSheet.create({
   userEmail: {
     fontSize: stylesConstants.fontSize.mid
   },
-  actionsContainer: {
-    marginTop: 20
-  },
   socialContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    justifyContent: 'center',
+    marginBottom: 20
   },
   profileButton: {
     flexDirection: 'row',
@@ -43,18 +41,16 @@ export default StyleSheet.create({
     marginBottom: 15,
     height: 50
   },
-  socialButton: {
-    width: 160,
-    paddingHorizontal: 10
-  },
-  booksButton: {
-
-  },
   buttonText: {
     fontSize: stylesConstants.fontSize.mid,
     marginLeft: 15
   },
-  logoutButton: {
-    marginTop: 30
+  follower: {
+    fontSize: stylesConstants.fontSize.small,
+    color: stylesConstants.colors.followDark,
+    marginTop: 5
+  },
+  activityIndicator: {
+    marginTop: 50
   }
 });
