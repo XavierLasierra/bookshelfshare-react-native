@@ -4,6 +4,8 @@ import { createStackNavigator, CardStyleInterpolators } from '@react-navigation/
 import Profile from '../../components/Profile/Profile';
 import BookResults from '../../components/BookResults/BookResults';
 import BookDetail from '../../components/BookDetail/BookDetail';
+import UsersList from '../../components/UsersList/UsersList';
+import ProfileDetail from '../../components/ProfileDetail/ProfileDetail';
 
 export default function BookSearchNavigator() {
   const Stack = createStackNavigator();
@@ -28,6 +30,14 @@ export default function BookSearchNavigator() {
       <Stack.Screen
         name="BookDetail"
         component={BookDetail}
+      />
+      <Stack.Screen
+        name="UsersList"
+        component={UsersList}
+      />
+      <Stack.Screen
+        name="ProfileDetail"
+        component={ProfileDetail}
       />
     </Stack.Navigator>
   );
