@@ -17,6 +17,7 @@ export default function Profile({ navigation }: any) {
   const dispatch = useDispatch();
   const { userData } = useSelector((store: any) => store.loggedUser);
   const userBooks = useSelector((store: any) => store.userBooks);
+  const socials = useSelector((store: any) => store.userSocials);
   const { token, refreshToken } = useSelector((store: any) => store.tokens);
   const shelves = useSelector((store: any) => store.shelves);
 
@@ -54,15 +55,15 @@ export default function Profile({ navigation }: any) {
               <TouchableOpacity style={[styles.profileButton, styles.socialButton]}>
                 <ProfileIcon width={25} height={25} />
                 <Text style={styles.buttonText}>
-                  {userData.followers.length}
+                  {socials.followers.length}
                   {' '}
-                  {userData.followers.length === 1 ? 'follower' : 'followers'}
+                  {socials.followers.length === 1 ? 'follower' : 'followers'}
                 </Text>
               </TouchableOpacity>
               <TouchableOpacity style={[styles.profileButton, styles.socialButton]}>
                 <ProfileIcon width={25} height={25} />
                 <Text style={styles.buttonText}>
-                  {userData.following.length}
+                  {socials.following.length}
                   {' '}
                   following
                 </Text>
