@@ -18,7 +18,7 @@ const userSchema = mongoose.Schema({
   books: {
     read: [String],
     wishlist: [String],
-    current: [String]
+    reading: [String]
   },
   following: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
   followers: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }]

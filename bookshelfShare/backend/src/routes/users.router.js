@@ -4,10 +4,16 @@ const {
   getUsers,
   getOneUserById,
   deleteOneUserById,
-  updateOneUserById
+  updateOneUserById,
+  updateUserBooks
 } = require('../controllers/users.controller');
 
 const usersRouter = new Router();
+
+usersRouter
+  .route('/books/:userId')
+  .all(passport.authenticate('jwt', { session: false }))
+  .put(updateUserBooks);
 
 usersRouter
   .route('/')
