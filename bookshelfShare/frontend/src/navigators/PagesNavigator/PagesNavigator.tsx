@@ -17,7 +17,7 @@ export default function PagesNavigator() {
   const { userData } = useSelector((store:any) => store.loggedUser);
 
   useEffect(() => {
-    if (userData) {
+    if (userData && refreshToken) {
       // eslint-disable-next-line no-underscore-dangle
       storeToken(refreshToken, userData._id);
     }

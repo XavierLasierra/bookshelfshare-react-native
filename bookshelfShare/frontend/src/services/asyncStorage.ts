@@ -2,7 +2,6 @@ import AsyncStorage from '@react-native-community/async-storage';
 
 export async function storeToken(refreshToken: string, userId: string) {
   try {
-    await AsyncStorage.clear();
     await AsyncStorage.setItem('userData', JSON.stringify({ refreshToken, userId }));
     return true;
   } catch (error) {

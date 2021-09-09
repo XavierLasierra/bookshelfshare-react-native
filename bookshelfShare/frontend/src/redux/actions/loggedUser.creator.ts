@@ -94,7 +94,7 @@ export function automaticLogin() {
         }
       });
       dispatch({
-        type: loggedUserActions.LOG_USER,
+        type: loggedUserActions.LOAD_CURRENT_USER,
         data: { user: data }
       });
     } catch (error: any) {

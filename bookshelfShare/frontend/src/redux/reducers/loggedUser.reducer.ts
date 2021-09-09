@@ -16,6 +16,7 @@ function loggedUserReducer(loggedUser = initialState, action: Action): LoggedUse
   let newLoggedUser: LoggedUser = loggedUser;
   switch (action.type) {
     case loggedUserActions.LOG_USER:
+    case loggedUserActions.LOAD_CURRENT_USER:
       newLoggedUser = {
         userData: action.data.user,
         isAuthenticated: true

@@ -7,6 +7,7 @@ function userBooksReducer(userBooks = initialState, action: any): any {
 
   switch (action.type) {
     case loggedUserActions.LOG_USER:
+    case loggedUserActions.LOAD_CURRENT_USER:
       newUserBooks = action.data.user.books;
       break;
     case userBooksActions.LOAD_USER_BOOKS:
