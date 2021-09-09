@@ -22,6 +22,8 @@ function loggedUserReducer(loggedUser = initialState, action: Action): LoggedUse
         isAuthenticated: true
       };
       delete newLoggedUser.userData.books;
+      delete newLoggedUser.userData.following;
+      delete newLoggedUser.userData.followers;
       break;
     case loggedUserActions.USER_NOT_LOGGED:
       newLoggedUser = {

@@ -6,9 +6,11 @@ import books from './books.reducer';
 import customBookData from './customBookData.reducer';
 import shelves from './shelves.reducer';
 import userBooks from './userBooks.reducer';
+import userSocials from './userSocialsreducer';
 
 export default combineReducers({
   userBooks,
+  userSocials,
   loggedUser,
   tokens,
   notifications,
