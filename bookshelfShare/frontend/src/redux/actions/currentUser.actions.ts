@@ -1,0 +1,4 @@
+export default {
+  LOAD_OTHER_USER: 'LOAD_OTHER_USER',
+  CLEAR_OTHER_USER: 'CLEAR_OTHER_USER'
+};

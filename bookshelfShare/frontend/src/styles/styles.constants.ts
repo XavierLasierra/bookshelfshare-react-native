@@ -8,7 +8,8 @@ export default {
     secondary: '#ECECEC',
     dark: '#000000',
     error: 'red',
-    follow: '#E4FDFF'
+    follow: '#E4FDFF',
+    followDark: 'blue'
   },
   padding: {
     normal: 30,

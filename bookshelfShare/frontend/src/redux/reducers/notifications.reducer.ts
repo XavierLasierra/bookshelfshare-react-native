@@ -32,6 +32,9 @@ function notificationsReducer(notification = [], action: Action): string[] {
     case notificationsActions.SAVE_ERROR:
       newNotification = ['Could not save'];
       break;
+    case notificationsActions.LOAD_USER_ERROR:
+      newNotification = ['Could not load user'];
+      break;
     default:
       break;
   }

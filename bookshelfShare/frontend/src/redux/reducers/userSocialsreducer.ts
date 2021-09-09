@@ -17,7 +17,6 @@ function userSocialsReducer(socials = initialState, action: any): any {
         ...newSocials,
         following: action.data
       };
-      console.log(newSocials);
       break;
     default:
       break;
