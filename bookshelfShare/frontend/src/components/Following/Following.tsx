@@ -18,7 +18,8 @@ export default function Following({ navigation }: any) {
     dispatch(loadLocalUsers(following));
     navigation.push('UsersList',
       {
-        logo: 'FollowingIcon'
+        logo: 'FollowingIcon',
+        followingPage: true
       });
   }
 
