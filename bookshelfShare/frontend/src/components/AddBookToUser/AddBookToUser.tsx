@@ -31,6 +31,10 @@ export default function AddBookToUser({
       setDeleteFrom('wishlist');
       return 'Wishlist';
     }
+    if (books.toRead.includes(bookIsbn)) {
+      setDeleteFrom('toRead');
+      return 'To Read';
+    }
     return 'Mark as';
   }
 
@@ -84,8 +88,13 @@ export default function AddBookToUser({
             style={styles.menuOption}
           />
           <MenuOption
+            value="toRead"
+            text="To Read"
+            style={styles.menuOption}
+          />
+          <MenuOption
             value=""
-            text="Delete"
+            text="Unmark"
             style={styles.menuOption}
           />
         </MenuOptions>

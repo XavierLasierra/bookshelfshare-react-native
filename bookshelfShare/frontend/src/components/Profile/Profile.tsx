@@ -36,8 +36,8 @@ export default function Profile({ navigation }: any) {
 
   return (
     <SafeAreaView style={globalStyles.mainContainer}>
+      <Header Logo={ProfileIcon} />
       <ScrollView>
-        <Header Logo={ProfileIcon} />
         <View style={styles.profileContainer}>
           <View style={styles.topContainer}>
             <Image
@@ -97,6 +97,19 @@ export default function Profile({ navigation }: any) {
             </TouchableOpacity>
             <TouchableOpacity
               style={[styles.profileButton, styles.booksButton]}
+              onPress={() => handleBookResultsPage('toRead', userBooks.toReat)}
+            >
+              <BookStackIcon width={40} height={40} />
+              <Text style={styles.buttonText}>
+                {userBooks.toRead.length}
+                {' '}
+                {userBooks.toRead.length === 1 ? 'book' : 'books'}
+                {' '}
+                to read
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={[styles.profileButton, styles.booksButton]}
               onPress={() => handleBookResultsPage('whislist', userBooks.wishlist)}
             >
               <BookStackIcon width={40} height={40} />
@@ -126,6 +139,7 @@ export default function Profile({ navigation }: any) {
             <Text style={globalStyles.buttonText}>Log out</Text>
           </TouchableOpacity>
         </View>
+        <View style={styles.marginBottom} />
       </ScrollView>
     </SafeAreaView>
   );

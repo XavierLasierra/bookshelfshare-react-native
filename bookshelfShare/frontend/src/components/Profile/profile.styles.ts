@@ -55,6 +55,10 @@ export default StyleSheet.create({
     marginLeft: 15
   },
   logoutButton: {
-    marginTop: 30
+    marginTop: 50
+  },
+  marginBottom: {
+    width: '100%',
+    height: 130
   }
 });
