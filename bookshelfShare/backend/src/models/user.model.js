@@ -17,6 +17,7 @@ const userSchema = mongoose.Schema({
   ],
   books: {
     read: [String],
+    toRead: [String],
     wishlist: [String],
     reading: [String]
   },
