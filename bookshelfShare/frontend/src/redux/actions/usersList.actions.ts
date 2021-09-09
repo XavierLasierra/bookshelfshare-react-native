@@ -1,0 +1,4 @@
+export default {
+  LOAD_USERS_LIST: 'LOAD_USERS_LIST',
+  CLEAR_USERS_LIST: 'CLEAR_USERS_LIST'
+};
