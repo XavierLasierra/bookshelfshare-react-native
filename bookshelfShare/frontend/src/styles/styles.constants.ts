@@ -7,7 +7,9 @@ export default {
     darkText: '#000000',
     secondary: '#ECECEC',
     dark: '#000000',
-    error: 'red'
+    error: 'red',
+    follow: '#E4FDFF',
+    followDark: 'blue'
   },
   padding: {
     normal: 30,

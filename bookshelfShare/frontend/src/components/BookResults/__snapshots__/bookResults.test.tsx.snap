@@ -11,9 +11,7 @@ exports[`Given a BookResults component When it is rendered And book results are 
 >
   <View
     accessible={true}
-    collapsable={false}
     focusable={true}
-    nativeID="animatedComponent"
     onClick={[Function]}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
@@ -190,9 +188,7 @@ exports[`Given a BookResults component When it is rendered And there are book re
 >
   <View
     accessible={true}
-    collapsable={false}
     focusable={true}
-    nativeID="animatedComponent"
     onClick={[Function]}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
@@ -692,6 +688,13 @@ exports[`Given a BookResults component When it is rendered And there are book re
             </View>
           </View>
         </View>
+        <View
+          style={
+            Object {
+              "height": 0,
+            }
+          }
+        />
       </View>
     </RCTScrollView>
     <View
@@ -717,9 +720,7 @@ exports[`Given a BookResults component When it is rendered And there are no book
 >
   <View
     accessible={true}
-    collapsable={false}
     focusable={true}
-    nativeID="animatedComponent"
     onClick={[Function]}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}

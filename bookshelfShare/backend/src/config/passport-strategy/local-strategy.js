@@ -36,7 +36,7 @@ passport.use(
     },
     async (email, password, done) => {
       try {
-        const user = await User.findOne({ email });
+        const user = await User.findOne({ email }).populate({ path: 'followers following', select: 'username email photo' });
 
         if (!user) {
           throw new Error('User not registered');
