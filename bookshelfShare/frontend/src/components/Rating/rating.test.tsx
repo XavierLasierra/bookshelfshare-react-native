@@ -42,10 +42,9 @@ describe('Given a Rating component', () => {
       describe('And there is a rating from the user logged', () => {
         let screen: any;
         beforeEach(() => {
-          const initialState = { loggedUser: { userData: loggedUserMock.user } };
           screen = render(
-            <Rating ratings={ratingsMock.ratings} isbn={ratingsMock.bookIsbn} token="token" refreshToken="refreshToken" />,
-            initialState
+            // eslint-disable-next-line no-underscore-dangle
+            <Rating ratings={ratingsMock.ratings} isbn={ratingsMock.bookIsbn} token="token" refreshToken="refreshToken" userId={loggedUserMock.user._id} />
           );
         });
 

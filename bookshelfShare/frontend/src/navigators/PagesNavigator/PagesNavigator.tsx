@@ -6,7 +6,7 @@ import CustomTabBar from '../../components/CustomTabBar/CustomTabBar';
 import Main from '../../components/Main/Main';
 import Following from '../../components/Following/Following';
 import Shelf from '../../components/Shelf/Shelf';
-import Profile from '../../components/Profile/Profile';
+import ProfileNavigator from '../ProfileNavigator/ProfileNavigator';
 import BarCodeScanner from '../../components/BarCodeScanner/BarCodeScanner';
 import BookSearchNavigator from '../BookSearchNavigator/BookSearchNavigator';
 import { storeToken } from '../../services/asyncStorage';
@@ -17,7 +17,7 @@ export default function PagesNavigator() {
   const { userData } = useSelector((store:any) => store.loggedUser);
 
   useEffect(() => {
-    if (userData) {
+    if (userData && refreshToken) {
       // eslint-disable-next-line no-underscore-dangle
       storeToken(refreshToken, userData._id);
     }
@@ -51,8 +51,8 @@ export default function PagesNavigator() {
         component={Shelf}
       />
       <Tab.Screen
-        name="Profile"
-        component={Profile}
+        name="ProfileNavigator"
+        component={ProfileNavigator}
       />
       <Tab.Screen
         name="BarCodeScanner"

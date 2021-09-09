@@ -101,17 +101,17 @@ async function updateBooksFromList({ params: { listId }, body }, res) {
     if (!listToUpdate) return res.sendStatus(404);
 
     if (body.actionType === 'ADD') {
-      const bookToUpdate = listToUpdate.books.find(({ bookISBN }) => bookISBN === body.bookISBN);
+      const bookToUpdate = listToUpdate.books.find(({ bookIsbn }) => bookIsbn === body.bookIsbn);
       if (bookToUpdate) {
         bookToUpdate.customInformation = body.customInformation;
       } else {
         listToUpdate.books.push({
-          bookISBN: body.bookISBN,
+          bookIsbn: body.bookIsbn,
           customInformation: body.customInformation
         });
       }
     } else if (body.actionType === 'DELETE') {
-      listToUpdate.books = listToUpdate.books.filter(({ bookISBN }) => bookISBN !== body.bookISBN);
+      listToUpdate.books = listToUpdate.books.filter(({ bookIsbn }) => bookIsbn !== body.bookIsbn);
     } else return res.sendStatus(400);
 
     listToUpdate.save();

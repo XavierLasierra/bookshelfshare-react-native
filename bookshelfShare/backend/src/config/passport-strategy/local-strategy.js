@@ -45,7 +45,7 @@ passport.use(
           throw new Error('Invalid password');
         }
 
-        done(null, user);
+        done(null, user.toObject());
       } catch ({ message }) {
         done(null, false, { message });
       }

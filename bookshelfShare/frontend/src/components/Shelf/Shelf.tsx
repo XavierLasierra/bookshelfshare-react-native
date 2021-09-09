@@ -1,6 +1,13 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { SafeAreaView } from 'react-native';
+import Header from '../Header/Header';
+
+import ShelfIcon from '../../assets/shelfIcon.svg';
 
 export default function Shelf() {
-  return <Text>Shelf works</Text>;
+  return (
+    <SafeAreaView>
+      <Header Logo={ShelfIcon} />
+    </SafeAreaView>
+  );
 }

@@ -8,7 +8,7 @@ import RatingElement from '../RatingElement/RatingElement';
 import globalStyles from '../../styles/global.styles';
 import styles from './usersRatings.styles';
 
-export default function UsersRatings({ ratings, userData }: any) {
+export default function UsersRatings({ ratings, userId }: any) {
   const ratingTypes = [5, 4, 3, 2, 1];
   const [filteredRatings, setFilteredRatings] = useState(ratings);
 
@@ -68,9 +68,9 @@ export default function UsersRatings({ ratings, userData }: any) {
         </TouchableOpacity>
       </View>
       {filteredRatings.length > 0
-        ? filteredRatings.map((rating: any) => (rating.user._id !== userData?._id
-          ? <RatingElement key={`ratingNumber-${rating.user._id}`} rating={rating} />
-          : <RatingElement key={`ratingNumber-${rating.user._id}`} rating={rating} yours />))
+        ? filteredRatings.map((rating: any) => (rating?.user?._id !== userId
+          ? <RatingElement key={`ratingNumber-${rating?.user?._id}`} rating={rating} />
+          : <RatingElement key={`ratingNumber-${rating?.user?._id}`} rating={rating} yours />))
         : <Text testID="noRatings" style={styles.allReviewsText}>0 reviews</Text>}
     </View>
   );

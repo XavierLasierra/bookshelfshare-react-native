@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import {
   View, Text, TextInput, TouchableOpacity, ActivityIndicator
 } from 'react-native';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { AirbnbRating } from 'react-native-ratings';
 
 import EditIcon from '../../assets/editIcon.svg';
@@ -15,10 +15,9 @@ import stylesConstants from '../../styles/styles.constants';
 import UsersRatings from '../UsersRatings/UsersRatings';
 
 export default function Rating({
-  ratings, isbn, token, refreshToken
+  ratings, isbn, token, refreshToken, userId
 }:any) {
   const dispatch = useDispatch();
-  const { userData } = useSelector((store: any) => store.loggedUser);
   const [userRating, setUserRating] = useState(0);
   const [userReview, setUserReview] = useState('');
   const [canEdit, setCanEdit] = useState(false);
@@ -26,7 +25,7 @@ export default function Rating({
   const [isSaving, setIsSaving] = useState(false);
 
   useEffect(() => {
-    const existingUserRating = ratings.find(({ user }: any) => user?._id === userData?._id);
+    const existingUserRating = ratings.find(({ user }: any) => user?._id === userId);
     if (existingUserRating) {
       setUserRating(existingUserRating.rating);
       setUserReview(existingUserRating.review);
@@ -48,7 +47,7 @@ export default function Rating({
     if (userRating > 0) {
       setIsSaving(true);
       return dispatch(saveRating(isbn, {
-        user: userData._id,
+        user: userId,
         rating: userRating,
         review: userReview
       }, token, refreshToken));
@@ -112,7 +111,7 @@ export default function Rating({
         />
         {!canSave && <Text style={globalStyles.invalid} testID="canNotSave">Minimum 1 star to rate</Text>}
       </View>
-      <UsersRatings ratings={ratings} userData={userData} />
+      <UsersRatings ratings={ratings} userId={userId} />
     </View>
   );
 }

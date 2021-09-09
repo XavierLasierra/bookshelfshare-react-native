@@ -2,7 +2,7 @@ const User = require('../models/user.model');
 
 async function getUsers({ query }, res) {
   try {
-    const foundUsers = await User.find(query);
+    const foundUsers = await User.find(query).select('username email photo activity books following followers');
 
     res.json(foundUsers);
   } catch (error) {
@@ -13,7 +13,7 @@ async function getUsers({ query }, res) {
 
 async function getOneUserById({ params: { userId } }, res) {
   try {
-    const foundUser = await User.findById(userId);
+    const foundUser = await User.findById(userId).select('username email photo activity books following followers');
 
     if (!foundUser) return res.sendStatus(404);
 
@@ -39,7 +39,7 @@ async function updateOneUserById({ params: { userId }, body }, res) {
       userId,
       body,
       { new: true }
-    );
+    ).select('username email photo activity books following followers');
 
     if (!updatedUser) return res.sendStatus(404);
 
@@ -50,9 +50,31 @@ async function updateOneUserById({ params: { userId }, body }, res) {
   }
 }
 
+async function updateUserBooks({ body, params: { userId } }, res) {
+  try {
+    const foundUser = await User.findById(userId).select('username email photo activity books following followers');
+    if (!foundUser) return res.sendStatus(404);
+
+    if (body.deleteFrom) {
+      foundUser.books[body.deleteFrom] = foundUser.books[body.deleteFrom]
+        .filter((bookIsbn) => bookIsbn !== body.bookIsbn);
+    }
+    if (body.addTo) {
+      foundUser.books[body.addTo].push(body.bookIsbn);
+    }
+    foundUser.save();
+
+    return res.json(foundUser);
+  } catch (error) {
+    res.status(500);
+    return res.send(error);
+  }
+}
+
 module.exports = {
   getUsers,
   getOneUserById,
   deleteOneUserById,
-  updateOneUserById
+  updateOneUserById,
+  updateUserBooks
 };

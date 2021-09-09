@@ -15,6 +15,7 @@ interface Action {
 export default async function refreshUserToken(refreshToken: string, dispatch: Dispatch) {
   try {
     const { data } = await axios.post(BOOKSS_API.concat('/auth/refreshToken'), { refreshToken });
+
     dispatch({
       type: tokenActions.REFRESH_TOKEN,
       data

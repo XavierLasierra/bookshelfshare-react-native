@@ -1,6 +1,7 @@
 const axios = require('axios');
 const BookClass = require('../classes/book.class');
 const Book = require('../models/book.model');
+const { getBooksDataFromArray } = require('../services/bookDataGetter');
 
 function createGoogleSearchUrl(query) {
   const queryEntries = Object.entries(query);
@@ -63,9 +64,20 @@ async function addUpdateBookRating({ params: { bookIsbn }, body }, res) {
   }
 }
 
+async function getBookDataFromIsbn({ body }, res) {
+  try {
+    const bookData = await getBooksDataFromArray(body);
+    res.json(bookData);
+  } catch (error) {
+    res.status(500);
+    res.send(error);
+  }
+}
+
 module.exports = {
   getBooks,
   createGoogleSearchUrl,
   getBookRating,
-  addUpdateBookRating
+  addUpdateBookRating,
+  getBookDataFromIsbn
 };

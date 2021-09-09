@@ -1,31 +1,15 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { createStackNavigator, CardStyleInterpolators } from '@react-navigation/stack';
 
-import BookSearch from '../../components/BookSearch/BookSearch';
+import Profile from '../../components/Profile/Profile';
 import BookResults from '../../components/BookResults/BookResults';
 import BookDetail from '../../components/BookDetail/BookDetail';
 
-interface Props {
-    route: Route
-    navigation: any
-}
-interface Route {
-  params: Params
-}
-interface Params {
-  isbn?: string,
-}
-
-export default function BookSearchNavigator(
-  { route: { params }, navigation: pagesNavigation }: Props
-) {
+export default function BookSearchNavigator() {
   const Stack = createStackNavigator();
-  useEffect(() => () => {
-    if (params?.isbn) { pagesNavigation.setParams({ isbn: '' }); }
-  }, []);
   return (
     <Stack.Navigator
-      initialRouteName="BookSearch"
+      initialRouteName="Profile"
       screenOptions={{
         headerShown: false,
         cardShadowEnabled: false,
@@ -34,10 +18,9 @@ export default function BookSearchNavigator(
       }}
     >
       <Stack.Screen
-        name="BookSearch"
-      >
-        {({ navigation }) => <BookSearch navigation={navigation} isbnFromCamera={params?.isbn || ''} />}
-      </Stack.Screen>
+        name="Profile"
+        component={Profile}
+      />
       <Stack.Screen
         name="BookResults"
         component={BookResults}

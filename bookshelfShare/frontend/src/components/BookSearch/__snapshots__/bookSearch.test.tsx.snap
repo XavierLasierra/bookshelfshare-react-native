@@ -1,7 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Given a BookSearch component When it is rendered And isbnFromCamera is empty And you change to Other page clicking otherPageButton And you click IsbnPageButton Then should match the snapshot 1`] = `
-<RNCSafeAreaView>
+<RNCSafeAreaView
+  style={
+    Object {
+      "backgroundColor": "#F5F5F5",
+    }
+  }
+>
   <View
     style={
       Object {
@@ -243,7 +249,13 @@ exports[`Given a BookSearch component When it is rendered And isbnFromCamera is 
 `;
 
 exports[`Given a BookSearch component When it is rendered And isbnFromCamera is empty And you change to Other page clicking otherPageButton And you click on otherPageButton Then screen should not have changed 1`] = `
-<RNCSafeAreaView>
+<RNCSafeAreaView
+  style={
+    Object {
+      "backgroundColor": "#F5F5F5",
+    }
+  }
+>
   <View
     style={
       Object {
@@ -575,7 +587,13 @@ exports[`Given a BookSearch component When it is rendered And isbnFromCamera is 
 `;
 
 exports[`Given a BookSearch component When it is rendered And isbnFromCamera is empty And you change to Other page clicking otherPageButton Then should match the snapshot 1`] = `
-<RNCSafeAreaView>
+<RNCSafeAreaView
+  style={
+    Object {
+      "backgroundColor": "#F5F5F5",
+    }
+  }
+>
   <View
     style={
       Object {
@@ -907,7 +925,13 @@ exports[`Given a BookSearch component When it is rendered And isbnFromCamera is 
 `;
 
 exports[`Given a BookSearch component When it is rendered And isbnFromCamera is empty And you stay on ISBN page And you click on isbnPageButton while on isbnPage Then screen should not have changed 1`] = `
-<RNCSafeAreaView>
+<RNCSafeAreaView
+  style={
+    Object {
+      "backgroundColor": "#F5F5F5",
+    }
+  }
+>
   <View
     style={
       Object {
@@ -1155,7 +1179,13 @@ exports[`Given a BookSearch component When it is rendered And isbnFromCamera is 
 `;
 
 exports[`Given a BookSearch component When it is rendered And isbnFromCamera is empty And you stay on ISBN page Then should match the snapshot 1`] = `
-<RNCSafeAreaView>
+<RNCSafeAreaView
+  style={
+    Object {
+      "backgroundColor": "#F5F5F5",
+    }
+  }
+>
   <View
     style={
       Object {

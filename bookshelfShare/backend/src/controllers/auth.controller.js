@@ -30,8 +30,11 @@ function loginUser({ user }, res) {
 
   refreshTokens.push(refreshToken);
 
+  const returnUser = user;
+  delete returnUser.password;
+
   res.json({
-    user,
+    user: returnUser,
     token,
     refreshToken
   });

@@ -870,7 +870,7 @@ exports[`Given a BookResults component When it is rendered And there are no book
       </Text>
     </View>
     <Text>
-      0 results
+      0 books
     </Text>
     <View
       style={

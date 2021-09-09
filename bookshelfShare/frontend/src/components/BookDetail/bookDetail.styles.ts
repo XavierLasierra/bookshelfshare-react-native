@@ -2,9 +2,6 @@ import { StyleSheet } from 'react-native';
 import stylesConstants from '../../styles/styles.constants';
 
 export default StyleSheet.create({
-  bookDetailPageContainer: {
-    backgroundColor: stylesConstants.colors.light
-  },
   bookDetailContainer: {
     padding: stylesConstants.padding.normal,
     paddingBottom: 100

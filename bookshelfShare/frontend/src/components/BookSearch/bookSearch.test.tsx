@@ -10,19 +10,19 @@ jest.mock('../../redux/actions/books.creator', () => ({
   searchBooks: jest.fn()
 }));
 
-const navigation = {
-  push: jest.fn()
-};
-
 describe('Given a BookSearch component', () => {
   describe('When it is rendered', () => {
     describe('And isbnFromCamera is empty', () => {
       let screen: any;
+      let navigation: any;
       beforeEach(() => {
         (searchBooks as jest.Mock).mockReturnValue({
           type: booksActions.LOAD_BOOKS,
           data: bookDetailsMock
         });
+        navigation = {
+          push: jest.fn()
+        };
         screen = render(<BookSearch navigation={navigation} isbnFromCamera="" />);
       });
       describe('And you stay on ISBN page', () => {
@@ -61,7 +61,8 @@ describe('Given a BookSearch component', () => {
                   inauthor: '',
                   intitle: '',
                   inpublisher: ''
-                }
+                },
+                logo: 'SearchIcon'
               });
             });
           });
@@ -147,7 +148,8 @@ describe('Given a BookSearch component', () => {
                   inauthor: '',
                   intitle: '',
                   inpublisher: publisherChange
-                }
+                },
+                logo: 'SearchIcon'
               });
             });
           });
@@ -173,11 +175,15 @@ describe('Given a BookSearch component', () => {
 
     describe('And isbnFromCamera has an isbn', () => {
       const isbnFromCamera = '1234';
+      let navigation;
       beforeEach(() => {
         (searchBooks as jest.Mock).mockReturnValue({
           type: booksActions.LOAD_BOOKS,
           data: bookDetailsMock
         });
+        navigation = {
+          push: jest.fn()
+        };
         render(<BookSearch navigation={navigation} isbnFromCamera={isbnFromCamera} />);
       });
       test('Then searchBooks should be called', () => {
@@ -191,7 +197,8 @@ describe('Given a BookSearch component', () => {
             inauthor: '',
             intitle: '',
             inpublisher: ''
-          }
+          },
+          logo: 'SearchIcon'
         });
       });
     });

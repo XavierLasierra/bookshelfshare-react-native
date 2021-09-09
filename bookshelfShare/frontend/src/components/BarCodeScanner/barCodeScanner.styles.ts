@@ -2,9 +2,6 @@ import { StyleSheet } from 'react-native';
 import stylesConstants from '../../styles/styles.constants';
 
 export default StyleSheet.create({
-  container: {
-    flex: 1
-  },
   camera: {
     height: '100%'
   },

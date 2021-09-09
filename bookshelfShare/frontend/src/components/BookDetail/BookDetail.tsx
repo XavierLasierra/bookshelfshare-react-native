@@ -8,25 +8,28 @@ import { useDispatch, useSelector } from 'react-redux';
 import Header from '../Header/Header';
 import Notes from '../Notes/Notes';
 import Rating from '../Rating/Rating';
+import AddBookToUser from '../AddBookToUser/AddBookToUser';
 
 import { getRatings, clearBook } from '../../redux/actions/books.creator';
 
-import BookIcon from '../../assets/bookIcon.svg';
 import styles from './bookDetail.styles';
 import stylesConstants from '../../styles/styles.constants';
 import globalStyles from '../../styles/global.styles';
+import logoSelector from '../../utils/logoSelector';
 
 export default function BookDetail({
   navigation,
   route: {
     params: {
-      bookData
+      bookData,
+      logo
     }
   }
 }: any) {
   const dispatch = useDispatch();
   const { token, refreshToken } = useSelector((store: any) => store.tokens);
   const { ratings, list, isLoaded } = useSelector((store: any) => store.customBookData);
+  const { userData } = useSelector((store: any) => store.loggedUser);
   const [rating, setRating] = useState(0);
   const [ratingNumber, setRatingNumber] = useState(0);
 
@@ -48,10 +51,17 @@ export default function BookDetail({
   }, [ratings]);
 
   return (
-    <SafeAreaView style={styles.bookDetailPageContainer}>
-      <Header Logo={BookIcon} BackButton navigation={navigation} />
+    <SafeAreaView style={globalStyles.mainContainer}>
+      <Header Logo={logoSelector(logo)} BackButton navigation={navigation} />
       <ScrollView>
         <View style={styles.bookDetailContainer}>
+          <AddBookToUser
+            bookIsbn={bookData.isbn.ISBN13}
+            token={token}
+            refreshToken={refreshToken}
+            // eslint-disable-next-line no-underscore-dangle
+            userId={userData._id}
+          />
           <View style={styles.topContainer}>
             <Image
               source={{ uri: bookData?.images?.thumbnail || bookData?.images?.smallThumbnail }}
@@ -122,6 +132,8 @@ export default function BookDetail({
                   isbn={bookData.isbn.ISBN13}
                   token={token}
                   refreshToken={refreshToken}
+                  // eslint-disable-next-line no-underscore-dangle
+                  userId={userData._id}
                 />
               </>
             )

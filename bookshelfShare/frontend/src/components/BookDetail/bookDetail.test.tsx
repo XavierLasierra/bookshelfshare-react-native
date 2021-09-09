@@ -1,10 +1,12 @@
 import React from 'react';
+import { MenuProvider } from 'react-native-popup-menu';
 import BookDetail from './BookDetail';
 import { render } from '../../utils/test.utils';
 import bookDetailMock from '../../mocks/bookDetails.mock';
 import { getRatings } from '../../redux/actions/books.creator';
 import booksActions from '../../redux/actions/books.actions';
 import ratingsMock from '../../mocks/ratings.mock';
+import loggedUserMock from '../../mocks/loggedUser.mock';
 
 jest.mock('../../redux/actions/books.creator', () => ({
   ...jest.requireActual('../../redux/actions/books.creator'),
@@ -25,7 +27,13 @@ describe('Given an BookDetail component', () => {
           }
         };
         (getRatings as jest.Mock).mockReturnValue({ type: '' });
-        const screen = render(<BookDetail navigation={navigation} route={route} />);
+        const initialState = { loggedUser: { userData: loggedUserMock.user } };
+        const screen = render(
+          <MenuProvider>
+            <BookDetail navigation={navigation} route={route} />
+          </MenuProvider>,
+          initialState
+        );
         expect(screen).toMatchSnapshot();
       });
     });
@@ -42,7 +50,13 @@ describe('Given an BookDetail component', () => {
           type: booksActions.LOAD_RATINGS,
           data: ratingsMock
         });
-        screen = render(<BookDetail navigation={navigation} route={route} />);
+        const initialState = { loggedUser: { userData: loggedUserMock.user } };
+        screen = render(
+          <MenuProvider>
+            <BookDetail navigation={navigation} route={route} />
+          </MenuProvider>,
+          initialState
+        );
       });
       test('Then should match the snapshot', () => {
         expect(screen).toMatchSnapshot();
@@ -61,7 +75,13 @@ describe('Given an BookDetail component', () => {
           }
         };
         (getRatings as jest.Mock).mockReturnValue({ type: '' });
-        const screen = render(<BookDetail navigation={navigation} route={route} />);
+        const initialState = { loggedUser: { userData: loggedUserMock.user } };
+        const screen = render(
+          <MenuProvider>
+            <BookDetail navigation={navigation} route={route} />
+          </MenuProvider>,
+          initialState
+        );
         expect(screen).toMatchSnapshot();
       });
     });

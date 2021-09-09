@@ -9,7 +9,8 @@ describe('Given a UsersRatings component', () => {
     let screen: any;
     beforeEach(() => {
       screen = render(
-        <UsersRatings ratings={ratingsMock.ratings} userData={loggedUserMock.user} />
+        // eslint-disable-next-line no-underscore-dangle
+        <UsersRatings ratings={ratingsMock.ratings} userId={loggedUserMock.user._id} />
       );
     });
     test('Then should match the snapshot', () => {

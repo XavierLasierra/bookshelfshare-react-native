@@ -2,13 +2,14 @@ import axios from 'axios';
 import { BOOKSS_API } from '@env';
 import loggedUserActions from './loggedUser.actions';
 import notificationsActions from './notifications.actions';
-import { getSavedData } from '../../services/asyncStorage';
+import { clearStorage, getSavedData } from '../../services/asyncStorage';
 import refreshUserToken from './tokens.creator';
 import tokenActions from './token.actions';
+import userBooksActions from './userBooks.actions';
 
 interface Dispatch {
     // eslint-disable-next-line no-unused-vars
-    (action: Action): void
+    (action: Action | any): void
 }
 
 interface Action {
@@ -54,7 +55,6 @@ export function registerUser(userInfo: RegisterInformation) {
   return async (dispatch: Dispatch) => {
     try {
       const { data } = await axios.post(BOOKSS_API.concat('/auth/register'), userInfo);
-
       if (data) {
         dispatch({
           type: notificationsActions.REGISTER_USER
@@ -94,13 +94,70 @@ export function automaticLogin() {
         }
       });
       dispatch({
-        type: loggedUserActions.LOAD_USER_DATA,
+        type: loggedUserActions.LOAD_CURRENT_USER,
         data: { user: data }
       });
     } catch (error: any) {
       dispatch({
         type: loggedUserActions.USER_NOT_LOGGED
       });
+    }
+  };
+}
+
+export function logoutUser(refreshToken: string) {
+  return async (dispatch: Dispatch) => {
+    try {
+      await axios.post(BOOKSS_API.concat('/auth/logout'), { refreshToken });
+      await clearStorage();
+
+      dispatch({
+        type: loggedUserActions.USER_NOT_LOGGED
+      });
+    } catch (error: any) {
+      dispatch({
+        type: notificationsActions.SERVER_ERROR
+      });
+    }
+  };
+}
+
+export function updateUserBooks(
+  userId: string, updateAction: any, token: string, refreshToken: string
+) {
+  return async (dispatch: Dispatch) => {
+    try {
+      const { data } = await axios.put(BOOKSS_API.concat(`/users/books/${userId}`), updateAction, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+
+      dispatch({
+        type: userBooksActions.LOAD_USER_BOOKS,
+        data: data.books
+      });
+    } catch (error: any) {
+      if (error?.response?.status === 401) {
+        try {
+          const newToken = await refreshUserToken(refreshToken, dispatch);
+          if (!newToken) throw new Error('Server error');
+
+          dispatch(updateUserBooks(userId, updateAction, newToken, refreshToken));
+        } catch {
+          dispatch({
+            type: notificationsActions.SERVER_ERROR
+          });
+        }
+      } else if (error?.response?.status === 500) {
+        dispatch({
+          type: notificationsActions.SAVE_ERROR
+        });
+      } else {
+        dispatch({
+          type: notificationsActions.SERVER_ERROR
+        });
+      }
     }
   };
 }
