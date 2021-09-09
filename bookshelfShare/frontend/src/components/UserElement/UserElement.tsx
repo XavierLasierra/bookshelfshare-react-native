@@ -1,20 +1,38 @@
 /* eslint-disable no-underscore-dangle */
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Image, Text, View, TouchableOpacity
 } from 'react-native';
+import { useDispatch } from 'react-redux';
 import RedProfileIcon from '../../assets/redProfileIcon.svg';
 import AddUserIcon from '../../assets/addUserIcon.svg';
 
 import styles from './userElement.styles';
+import { addUserFollowing, deleteUserFollowing } from '../../redux/actions/loggedUser.creator';
 
 export default function UserElement({
-  navigation, user, following, loggedUserId
+  navigation, user, following, loggedUserId, token, refreshToken
 }: any) {
+  const dispatch = useDispatch();
+  const [isDisabled, setIsDisabled] = useState(false);
   const isFollowed = following.some((followedUser: any) => followedUser._id === user._id);
+
+  useEffect(() => {
+    setIsDisabled(false);
+  }, [following]);
 
   function handleUserDetail() {
     navigation.push();
+  }
+
+  function handleAddFollowing(followingUserId: string) {
+    dispatch(addUserFollowing(followingUserId, loggedUserId, token, refreshToken));
+    setIsDisabled(true);
+  }
+
+  function handleDeleteFollowing(followingUserId: string) {
+    dispatch(deleteUserFollowing(followingUserId, loggedUserId, token, refreshToken));
+    setIsDisabled(true);
   }
 
   return (
@@ -33,12 +51,18 @@ export default function UserElement({
         </View>
         {isFollowed
           ? (
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => handleDeleteFollowing(user._id)}
+              disabled={isDisabled}
+            >
               <RedProfileIcon width={30} height={30} />
             </TouchableOpacity>
           )
           : (
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => handleAddFollowing(user._id)}
+              disabled={isDisabled}
+            >
               <AddUserIcon width={30} height={30} />
             </TouchableOpacity>
           )}

@@ -34,6 +34,8 @@ export default function UsersList({ navigation, route: { params: { logo, followi
         user={item}
         following={following}
         loggedUserId={loggedUserId}
+        token={token}
+        refreshToken={refreshToken}
       />
     );
   }

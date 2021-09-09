@@ -8,6 +8,7 @@ import shelves from './shelves.reducer';
 import userBooks from './userBooks.reducer';
 import userSocials from './userSocialsreducer';
 import usersList from './usersList.reducer';
+import currentUser from './currentUser.reducer';
 
 export default combineReducers({
   userBooks,
@@ -18,5 +19,6 @@ export default combineReducers({
   books,
   customBookData,
   shelves,
-  usersList
+  usersList,
+  currentUser
 });

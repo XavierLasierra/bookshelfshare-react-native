@@ -12,6 +12,13 @@ function userSocialsReducer(socials = initialState, action: any): any {
         followers: action.data.user.followers
       };
       break;
+    case loggedUserActions.UPDATE_USER_FOLLOWING:
+      newSocials = {
+        ...newSocials,
+        following: action.data
+      };
+      console.log(newSocials);
+      break;
     default:
       break;
   }

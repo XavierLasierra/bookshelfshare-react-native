@@ -161,3 +161,85 @@ export function updateUserBooks(
     }
   };
 }
+
+export function addUserFollowing(
+  followingId: string, userId: string, token: string, refreshToken: string
+) {
+  return async (dispatch: any) => {
+    try {
+      const { data } = await axios.post(BOOKSS_API.concat(`/users/following/${userId}`),
+        { followingId },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        });
+      dispatch({
+        type: loggedUserActions.UPDATE_USER_FOLLOWING,
+        data: data.following
+      });
+    } catch (error: any) {
+      if (error?.response?.status === 401) {
+        try {
+          const newToken = await refreshUserToken(refreshToken, dispatch);
+          if (!newToken) throw new Error('Server error');
+
+          dispatch(addUserFollowing(followingId, userId, newToken, refreshToken));
+        } catch {
+          dispatch({
+            type: notificationsActions.SERVER_ERROR
+          });
+        }
+      } else if (error?.response?.status === 500) {
+        dispatch({
+          type: notificationsActions.ISBN_ERROR
+        });
+      } else {
+        dispatch({
+          type: notificationsActions.SERVER_ERROR
+        });
+      }
+    }
+  };
+}
+
+export function deleteUserFollowing(
+  followingId: string, userId: string, token: string, refreshToken: string
+) {
+  return async (dispatch: any) => {
+    try {
+      const { data } = await axios.put(BOOKSS_API.concat(`/users/following/${userId}`),
+        { followingId },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        });
+      dispatch({
+        type: loggedUserActions.UPDATE_USER_FOLLOWING,
+        data: data.following
+      });
+    } catch (error: any) {
+      if (error?.response?.status === 401) {
+        try {
+          const newToken = await refreshUserToken(refreshToken, dispatch);
+          if (!newToken) throw new Error('Server error');
+
+          dispatch(deleteUserFollowing(followingId, userId, newToken, refreshToken));
+        } catch {
+          dispatch({
+            type: notificationsActions.SERVER_ERROR
+          });
+        }
+      } else if (error?.response?.status === 500) {
+        dispatch({
+          type: notificationsActions.ISBN_ERROR
+        });
+      } else {
+        dispatch({
+          type: notificationsActions.SERVER_ERROR
+        });
+      }
+    }
+  };
+}
