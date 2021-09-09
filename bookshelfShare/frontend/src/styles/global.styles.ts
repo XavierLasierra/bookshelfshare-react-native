@@ -73,9 +73,19 @@ export default StyleSheet.create({
     marginTop: 5
   },
   mainContainer: {
-    backgroundColor: stylesConstants.colors.light
+    backgroundColor: stylesConstants.colors.light,
+    minHeight: '100%'
   },
   authenticationContainer: {
     backgroundColor: stylesConstants.colors.main
+  },
+  circularButton: {
+    backgroundColor: stylesConstants.colors.white,
+    width: 60,
+    height: 60,
+    borderRadius: 100,
+    alignItems: 'center',
+    justifyContent: 'center',
+    elevation: 5
   }
 });

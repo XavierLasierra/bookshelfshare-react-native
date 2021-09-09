@@ -2,6 +2,7 @@ import React from 'react';
 import { createStackNavigator, CardStyleInterpolators } from '@react-navigation/stack';
 
 import Following from '../../components/Following/Following';
+import UsersList from '../../components/UsersList/UsersList';
 
 export default function FollowingNavigator() {
   const Stack = createStackNavigator();
@@ -18,6 +19,10 @@ export default function FollowingNavigator() {
       <Stack.Screen
         name="Following"
         component={Following}
+      />
+      <Stack.Screen
+        name="UsersList"
+        component={UsersList}
       />
     </Stack.Navigator>
   );
