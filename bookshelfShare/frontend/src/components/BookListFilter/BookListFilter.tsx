@@ -17,7 +17,6 @@ export default function BookListFilter({ listName, books, setFilteredBooks }: an
 
       return acc;
     }, []);
-    console.log(text);
     setFilteredBooks(filteredBooks);
     setFilter(text);
   }
