@@ -1,21 +1,12 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { createStackNavigator, CardStyleInterpolators } from '@react-navigation/stack';
 
 import Profile from '../../components/Profile/Profile';
 import BookResults from '../../components/BookResults/BookResults';
 import BookDetail from '../../components/BookDetail/BookDetail';
 
-interface Props {
-    navigation: any
-}
-
-export default function BookSearchNavigator(
-  { navigation: pagesNavigation }: Props
-) {
+export default function BookSearchNavigator() {
   const Stack = createStackNavigator();
-  useEffect(() => () => {
-    pagesNavigation.setParams({ isbn: '' });
-  }, []);
   return (
     <Stack.Navigator
       initialRouteName="Profile"
