@@ -36,6 +36,7 @@ export default function UsersList({ navigation, route: { params: { logo, followi
         loggedUserId={loggedUserId}
         token={token}
         refreshToken={refreshToken}
+        logo={logo}
       />
     );
   }
@@ -88,7 +89,7 @@ export default function UsersList({ navigation, route: { params: { logo, followi
             <TouchableOpacity
               onPress={handleUserSearch}
             >
-              <SearchIcon width={40} height={40} />
+              <SearchIcon width={35} height={35} />
             </TouchableOpacity>
           </View>
           {isSearching
@@ -102,7 +103,7 @@ export default function UsersList({ navigation, route: { params: { logo, followi
           )}
         </View>
         )}
-        <View>
+        <View style={styles.resultsContainer}>
           {results
             ? usersResults
             : <ActivityIndicator size="large" color={stylesConstants.colors.dark} />}

@@ -39,5 +39,8 @@ export default StyleSheet.create({
   },
   clearSearchButtonText: {
     fontSize: stylesConstants.fontSize.mid
+  },
+  resultsContainer: {
+    alignItems: 'center'
   }
 });

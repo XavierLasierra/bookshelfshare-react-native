@@ -47,9 +47,6 @@ export default StyleSheet.create({
     width: 160,
     paddingHorizontal: 10
   },
-  booksButton: {
-
-  },
   buttonText: {
     fontSize: stylesConstants.fontSize.mid,
     marginLeft: 15
