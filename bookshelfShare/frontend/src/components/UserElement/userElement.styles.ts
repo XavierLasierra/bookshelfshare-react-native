@@ -11,7 +11,8 @@ export default StyleSheet.create({
     borderRadius: 20,
     borderWidth: 1,
     borderColor: stylesConstants.colors.secondary,
-    marginVertical: 10
+    marginVertical: 10,
+    width: 325
   },
   userElementFollowedContainer: {
     backgroundColor: stylesConstants.colors.follow

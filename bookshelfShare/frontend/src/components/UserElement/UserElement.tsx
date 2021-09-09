@@ -4,14 +4,16 @@ import {
   Image, Text, View, TouchableOpacity
 } from 'react-native';
 import { useDispatch } from 'react-redux';
+
+import { addUserFollowing, deleteUserFollowing } from '../../redux/actions/loggedUser.creator';
+import { loadCurrentUser } from '../../redux/actions/currentUser.creator';
+
 import RedProfileIcon from '../../assets/redProfileIcon.svg';
 import AddUserIcon from '../../assets/addUserIcon.svg';
-
 import styles from './userElement.styles';
-import { addUserFollowing, deleteUserFollowing } from '../../redux/actions/loggedUser.creator';
 
 export default function UserElement({
-  navigation, user, following, loggedUserId, token, refreshToken
+  navigation, user, following, loggedUserId, token, refreshToken, logo
 }: any) {
   const dispatch = useDispatch();
   const [isDisabled, setIsDisabled] = useState(false);
@@ -22,7 +24,11 @@ export default function UserElement({
   }, [following]);
 
   function handleUserDetail() {
-    navigation.push();
+    dispatch(loadCurrentUser(user._id, token, refreshToken));
+    navigation.push('ProfileDetail',
+      {
+        logo
+      });
   }
 
   function handleAddFollowing(followingUserId: string) {
@@ -40,6 +46,7 @@ export default function UserElement({
       {user._id !== loggedUserId && (
       <TouchableOpacity
         style={[styles.userElementContainer, isFollowed && styles.userElementFollowedContainer]}
+        onPress={handleUserDetail}
       >
         <Image
           source={{ uri: user.photo }}
