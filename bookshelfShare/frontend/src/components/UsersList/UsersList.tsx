@@ -82,7 +82,7 @@ export default function UsersList({ navigation, route: { params: { logo, followi
           <View style={styles.inputContainer}>
             <TextInput
               style={styles.input}
-              placeholder="Search new user by email"
+              placeholder="Search new users by email/name"
               value={emailSearch}
               onChangeText={handleEmailInputChange}
             />

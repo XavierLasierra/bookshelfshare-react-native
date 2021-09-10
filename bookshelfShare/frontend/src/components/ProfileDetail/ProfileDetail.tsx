@@ -99,7 +99,7 @@ export default function ProfileDetail({ navigation, route: { params: { logo } } 
                 </View>
                 <TouchableOpacity
                   style={styles.profileButton}
-                  onPress={() => handleBookResultsPage('currently reading', user?.books?.reading)}
+                  onPress={() => handleBookResultsPage(`${user.username}'s\ncurrently reading`, user?.books?.reading)}
                 >
                   <BookStackIcon width={40} height={40} />
                   <Text style={styles.buttonText}>
@@ -112,7 +112,7 @@ export default function ProfileDetail({ navigation, route: { params: { logo } } 
                 </TouchableOpacity>
                 <TouchableOpacity
                   style={styles.profileButton}
-                  onPress={() => handleBookResultsPage('read', user?.books?.read)}
+                  onPress={() => handleBookResultsPage(`${user.username}'s\nread`, user?.books?.read)}
                 >
                   <BookStackIcon width={40} height={40} />
                   <Text style={styles.buttonText}>
@@ -125,7 +125,7 @@ export default function ProfileDetail({ navigation, route: { params: { logo } } 
                 </TouchableOpacity>
                 <TouchableOpacity
                   style={styles.profileButton}
-                  onPress={() => handleBookResultsPage('to read', user?.books?.toRead)}
+                  onPress={() => handleBookResultsPage(`${user.username}'s\nto read`, user?.books?.toRead)}
                 >
                   <BookStackIcon width={40} height={40} />
                   <Text style={styles.buttonText}>
@@ -138,7 +138,7 @@ export default function ProfileDetail({ navigation, route: { params: { logo } } 
                 </TouchableOpacity>
                 <TouchableOpacity
                   style={styles.profileButton}
-                  onPress={() => handleBookResultsPage('whislist', user?.books?.wishlist)}
+                  onPress={() => handleBookResultsPage(`${user.username}'s\nwhislist`, user?.books?.wishlist)}
                 >
                   <BookStackIcon width={40} height={40} />
                   <Text style={styles.buttonText}>

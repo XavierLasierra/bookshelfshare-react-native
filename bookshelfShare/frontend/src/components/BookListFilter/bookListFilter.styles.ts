@@ -5,7 +5,8 @@ export default StyleSheet.create({
   listTitle: {
     fontSize: stylesConstants.fontSize.big,
     fontWeight: 'bold',
-    marginBottom: 10
+    marginBottom: 10,
+    textAlign: 'center'
   },
   inputContainer: {
     width: 300,

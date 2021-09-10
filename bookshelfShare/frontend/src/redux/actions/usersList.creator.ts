@@ -4,10 +4,10 @@ import notificationsActions from './notifications.actions';
 import refreshUserToken from './tokens.creator';
 import usersListActions from './usersList.actions';
 
-export function getUsers(email: string, token: string, refreshToken: string) {
+export function getUsers(text: string, token: string, refreshToken: string) {
   return async (dispatch: any) => {
     try {
-      const { data } = await axios.get(BOOKSS_API.concat(`/users?email=${email}`), {
+      const { data } = await axios.get(BOOKSS_API.concat(`/users?email=${text}&username=${text}`), {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -22,7 +22,7 @@ export function getUsers(email: string, token: string, refreshToken: string) {
           const newToken = await refreshUserToken(refreshToken, dispatch);
           if (!newToken) throw new Error('Server error');
 
-          dispatch(getUsers(email, newToken, refreshToken));
+          dispatch(getUsers(text, newToken, refreshToken));
         } catch {
           dispatch({
             type: notificationsActions.SERVER_ERROR

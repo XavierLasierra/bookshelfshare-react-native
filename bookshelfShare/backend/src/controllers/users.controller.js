@@ -5,7 +5,7 @@ async function getUsers({ query }, res) {
   try {
     const transformedQuery = transformQuery(query);
 
-    const foundUsers = await User.find(transformedQuery).limit(20).select('username email photo activity books following followers');
+    const foundUsers = await User.find({ $or: transformedQuery }).limit(20).select('username email photo activity books following followers');
 
     res.json(foundUsers);
   } catch (error) {
