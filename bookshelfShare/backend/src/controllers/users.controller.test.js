@@ -26,7 +26,11 @@ describe('Given a getUsers function', () => {
 
     describe('And find is resolved', () => {
       test('Then should call res.json', async () => {
-        User.find.mockReturnValue({ select: jest.fn().mockResolvedValue([]) });
+        User.find.mockReturnValue({
+          limit: jest.fn().mockReturnValue({
+            select: jest.fn().mockResolvedValue([])
+          })
+        });
 
         await getUsers(req, res);
 
@@ -36,7 +40,9 @@ describe('Given a getUsers function', () => {
     describe('And find is rejected', () => {
       beforeEach(async () => {
         User.find.mockReturnValue({
-          select: jest.fn().mockRejectedValue(new Error('Server error'))
+          limit: jest.fn().mockReturnValue({
+            select: jest.fn().mockRejectedValue(new Error('Server error'))
+          })
         });
 
         await getUsers(req, res);
@@ -74,7 +80,11 @@ describe('Given a getOneUserById function', () => {
     describe('And findById is resolved', () => {
       describe('And the user exists', () => {
         test('Then should call res.send', async () => {
-          User.findById.mockReturnValue({ select: jest.fn().mockResolvedValue(userMock) });
+          User.findById.mockReturnValue({
+            select: jest.fn().mockReturnValue({
+              populate: jest.fn().mockResolvedValue(userMock)
+            })
+          });
 
           await getOneUserById(req, res);
           expect(res.json).toHaveBeenCalled();
@@ -83,7 +93,11 @@ describe('Given a getOneUserById function', () => {
 
       describe('And the user is undefined', () => {
         test('Then should call res.sendStatus with 404', async () => {
-          User.findById.mockReturnValue({ select: jest.fn().mockResolvedValue(undefined) });
+          User.findById.mockReturnValue({
+            select: jest.fn().mockReturnValue({
+              populate: jest.fn().mockResolvedValue(undefined)
+            })
+          });
 
           await getOneUserById(req, res);
           expect(res.sendStatus).toHaveBeenCalledWith(404);
@@ -93,8 +107,11 @@ describe('Given a getOneUserById function', () => {
     describe('And findById is rejected', () => {
       beforeEach(async () => {
         User.findById.mockReturnValue({
-          select: jest.fn().mockRejectedValue(new Error('Server error'))
+          select: jest.fn().mockReturnValue({
+            populate: jest.fn().mockRejectedValue(new Error('Server error'))
+          })
         });
+
         await getOneUserById(req, res);
       });
 
