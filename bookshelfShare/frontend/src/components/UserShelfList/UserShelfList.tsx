@@ -15,10 +15,11 @@ import styles from './userShelfList.styles';
 
 export default function UserShelfList() {
   const userShelves = useSelector((store:any) => store.userShelves);
+  const { userData: { _id: loggedUserId } } = useSelector((store: any) => store.loggedUser);
 
   function renderShelves({ item }: any) {
     return (
-      <ShelfListElement shelf={item} />
+      <ShelfListElement shelf={item} loggedUserId={loggedUserId} />
     );
   }
 
@@ -41,6 +42,7 @@ export default function UserShelfList() {
           renderItem={renderShelves}
           keyExtractor={(item, index) => `shelf-${index}`}
         />
+        <View style={styles.marginBottom} />
       </View>
     </SafeAreaView>
   );
