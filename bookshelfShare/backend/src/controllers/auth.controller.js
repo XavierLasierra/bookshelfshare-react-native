@@ -1,6 +1,7 @@
 /* eslint-disable no-underscore-dangle */
 const jwt = require('jsonwebtoken');
 const User = require('../models/user.model');
+const { verifyToken } = require('../utils/verifyToken');
 
 let refreshTokens = [];
 
@@ -37,24 +38,6 @@ function loginUser({ user }, res) {
     user: returnUser,
     token,
     refreshToken
-  });
-}
-
-function verifyToken(err, user, res) {
-  if (err) {
-    return res.sendStatus(403);
-  }
-
-  const data = { _id: user._id, email: user.email };
-
-  const token = jwt.sign(
-    { user: data },
-    process.env.JWT_SECRET,
-    { expiresIn: '1m' }
-  );
-
-  return res.json({
-    token
   });
 }
 
