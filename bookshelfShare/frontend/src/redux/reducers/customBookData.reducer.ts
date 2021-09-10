@@ -1,5 +1,6 @@
 import initialState from '../../constants/customBookDataInitialState.constant';
 import booksActions from '../actions/books.actions';
+import notificationsActions from '../actions/notifications.actions';
 
 interface Action {
     type: string,
@@ -19,6 +20,14 @@ function customBookDataReducer(customBookData = initialState, action: Action): a
       break;
     case booksActions.CLEAR_BOOK:
       newCustomData = initialState;
+      break;
+    case notificationsActions.LOAD_RATINGS_ERROR:
+    case notificationsActions.SAVE_RATING_ERROR:
+      newCustomData = {
+        ...newCustomData,
+        ratings: [],
+        isLoaded: true
+      };
       break;
     default:
       break;

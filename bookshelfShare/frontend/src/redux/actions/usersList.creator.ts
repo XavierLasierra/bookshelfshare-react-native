@@ -30,7 +30,7 @@ export function getUsers(text: string, token: string, refreshToken: string) {
         }
       } else if (error?.response?.status === 500) {
         dispatch({
-          type: notificationsActions.ISBN_ERROR
+          type: notificationsActions.LOAD_USER_LIST_ERROR
         });
       } else {
         dispatch({

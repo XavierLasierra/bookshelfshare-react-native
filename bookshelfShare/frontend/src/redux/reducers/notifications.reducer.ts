@@ -35,6 +35,18 @@ function notificationsReducer(notification = [], action: Action): string[] {
     case notificationsActions.LOAD_USER_ERROR:
       newNotification = ['Could not load user'];
       break;
+    case notificationsActions.LOAD_RATINGS_ERROR:
+      newNotification = ['Could not load ratings'];
+      break;
+    case notificationsActions.SAVE_RATING_ERROR:
+      newNotification = ['Could not save rating'];
+      break;
+    case notificationsActions.LOAD_BOOKS_ERROR:
+      newNotification = ['Could not load books data'];
+      break;
+    case notificationsActions.LOAD_USER_LIST_ERROR:
+      newNotification = ['Could not load users'];
+      break;
     default:
       break;
   }

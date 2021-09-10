@@ -20,6 +20,7 @@ function booksReducer(books = initialState, action: Action): any[] {
       newBooks = initialState;
       break;
     case notificationsActions.ISBN_ERROR:
+    case notificationsActions.LOAD_BOOKS_ERROR:
       newBooks = {
         results: true,
         books: []
