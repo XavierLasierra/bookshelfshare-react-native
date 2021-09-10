@@ -16,16 +16,6 @@ export default StyleSheet.create({
     alignItems: 'center',
     paddingVertical: 10
   },
-  input: {
-    height: '100%',
-    width: '85%',
-    paddingHorizontal: 20,
-    fontSize: stylesConstants.fontSize.mid,
-    backgroundColor: stylesConstants.colors.white,
-    borderRadius: 10,
-    borderWidth: 1,
-    borderColor: stylesConstants.colors.secondary
-  },
   clearSearchButton: {
     alignItems: 'center',
     justifyContent: 'center',

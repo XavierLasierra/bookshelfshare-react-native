@@ -13,6 +13,7 @@ import logoSelector from '../../utils/logoSelector';
 import SearchIcon from '../../assets/searchIcon.svg';
 import stylesConstants from '../../styles/styles.constants';
 import styles from './usersList.styles';
+import globalStyles from '../../styles/global.styles';
 
 export default function UsersList({ navigation, route: { params: { logo, followingPage } } }: any) {
   const dispatch = useDispatch();
@@ -81,7 +82,7 @@ export default function UsersList({ navigation, route: { params: { logo, followi
         <View>
           <View style={styles.inputContainer}>
             <TextInput
-              style={styles.input}
+              style={globalStyles.thinInput}
               placeholder="Search new users by email/name"
               value={emailSearch}
               onChangeText={handleEmailInputChange}
