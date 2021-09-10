@@ -6,6 +6,7 @@ exports[`Given an BarCodeScanner component When it is rendered Then should match
   style={
     Object {
       "backgroundColor": "#F5F5F5",
+      "minHeight": "100%",
     }
   }
 >

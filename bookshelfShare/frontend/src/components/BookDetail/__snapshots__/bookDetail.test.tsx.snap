@@ -26,6 +26,7 @@ exports[`Given an BookDetail component When it is rendered And ratings are loade
       style={
         Object {
           "backgroundColor": "#F5F5F5",
+          "minHeight": "100%",
         }
       }
     >
@@ -3342,6 +3343,7 @@ exports[`Given an BookDetail component When it is rendered And ratings are not l
       style={
         Object {
           "backgroundColor": "#F5F5F5",
+          "minHeight": "100%",
         }
       }
     >
@@ -4175,6 +4177,7 @@ exports[`Given an BookDetail component When it is rendered And the book rendered
       style={
         Object {
           "backgroundColor": "#F5F5F5",
+          "minHeight": "100%",
         }
       }
     >

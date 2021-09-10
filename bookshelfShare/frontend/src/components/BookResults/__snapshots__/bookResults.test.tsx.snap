@@ -6,6 +6,7 @@ exports[`Given a BookResults component When it is rendered And book results are 
   style={
     Object {
       "backgroundColor": "#F5F5F5",
+      "minHeight": "100%",
     }
   }
 >
@@ -183,6 +184,7 @@ exports[`Given a BookResults component When it is rendered And there are book re
   style={
     Object {
       "backgroundColor": "#F5F5F5",
+      "minHeight": "100%",
     }
   }
 >
@@ -715,6 +717,7 @@ exports[`Given a BookResults component When it is rendered And there are no book
   style={
     Object {
       "backgroundColor": "#F5F5F5",
+      "minHeight": "100%",
     }
   }
 >
