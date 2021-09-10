@@ -47,6 +47,9 @@ function notificationsReducer(notification = [], action: Action): string[] {
     case notificationsActions.LOAD_USER_LIST_ERROR:
       newNotification = ['Could not load users'];
       break;
+    case notificationsActions.LOAD_USER_SHELVES_ERROR:
+      newNotification = ['Could not load user shelves'];
+      break;
     default:
       break;
   }

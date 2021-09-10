@@ -2,10 +2,11 @@ import axios from 'axios';
 import { BOOKSS_API } from '@env';
 import loggedUserActions from './loggedUser.actions';
 import notificationsActions from './notifications.actions';
-import { clearStorage, getSavedData } from '../../services/asyncStorage';
+import { clearStorage, getSavedData, storeToken } from '../../services/asyncStorage';
 import refreshUserToken from './tokens.creator';
 import tokenActions from './token.actions';
 import userBooksActions from './userBooks.actions';
+import { loadUserShelves } from './userShelves.creator';
 
 interface Dispatch {
     // eslint-disable-next-line no-unused-vars
@@ -37,6 +38,10 @@ export function loginUser(userInfo: LoginInformation) {
         type: loggedUserActions.LOG_USER,
         data
       });
+      // eslint-disable-next-line no-underscore-dangle
+      dispatch(loadUserShelves(data.user._id, data.token, data.refreshToken));
+      // eslint-disable-next-line no-underscore-dangle
+      storeToken(data.refreshToken, data.user._id);
     } catch (error: any) {
       if (error?.response?.status === 401) {
         dispatch({
@@ -97,6 +102,8 @@ export function automaticLogin() {
         type: loggedUserActions.LOAD_CURRENT_USER,
         data: { user: data }
       });
+      // eslint-disable-next-line no-underscore-dangle
+      dispatch(loadUserShelves(data._id, newToken, userData.refreshToken));
     } catch (error: any) {
       dispatch({
         type: loggedUserActions.USER_NOT_LOGGED
