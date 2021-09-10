@@ -6,21 +6,20 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 
 import Header from '../Header/Header';
+import ProfileDetail from '../ProfileDetail/ProfileDetail';
 
 import { addUserFollowing, deleteUserFollowing } from '../../redux/actions/loggedUser.creator';
 import { getBooksData } from '../../redux/actions/books.creator';
-
-import RedProfileIcon from '../../assets/redProfileIcon.svg';
-import AddUserIcon from '../../assets/addUserIcon.svg';
-import BookStackIcon from '../../assets/bookStackIcon.svg';
-import ShelfIcon from '../../assets/shelfIcon.svg';
-import globalStyles from '../../styles/global.styles';
-import styles from './otherUserProfile.styles';
-import stylesConstants from '../../styles/styles.constants';
 import { clearCurrentUser } from '../../redux/actions/currentUser.creator';
 import logoSelector from '../../utils/logoSelector';
 
-export default function ProfileDetail({ navigation, route: { params: { logo } } }: any) {
+import RedProfileIcon from '../../assets/redProfileIcon.svg';
+import AddUserIcon from '../../assets/addUserIcon.svg';
+import globalStyles from '../../styles/global.styles';
+import styles from './otherUserProfile.styles';
+import stylesConstants from '../../styles/styles.constants';
+
+export default function OtherUserProfile({ navigation, route: { params: { logo } } }: any) {
   const dispatch = useDispatch();
   const { userData: { _id: loggedUserId } } = useSelector((store: any) => store.loggedUser);
   const { following } = useSelector((store: any) => store.userSocials);
@@ -44,7 +43,7 @@ export default function ProfileDetail({ navigation, route: { params: { logo } } 
     dispatch(getBooksData(bookArray, token, refreshToken));
     navigation.push('BookResults',
       {
-        listName,
+        listName: `${user.username}'s\n${listName}`,
         logo
       });
   }
@@ -60,15 +59,15 @@ export default function ProfileDetail({ navigation, route: { params: { logo } } 
   }
 
   const currentUserDetail = (
-    <View style={styles.profileContainer}>
-      <View style={styles.topContainer}>
+    <View style={globalStyles.profileContainer}>
+      <View style={globalStyles.topContainer}>
         <Image
           source={{ uri: user?.photo }}
-          style={styles.userPhoto}
+          style={globalStyles.userPhoto}
         />
-        <View style={styles.userInformationContainer}>
-          <Text style={styles.userUsername}>{user?.username}</Text>
-          <Text style={styles.userEmail}>{user?.email}</Text>
+        <View style={globalStyles.userInformationContainer}>
+          <Text style={globalStyles.userUsername}>{user?.username}</Text>
+          <Text style={globalStyles.userEmail}>{user?.email}</Text>
           {isFollower && <Text style={styles.follower}>Follows you</Text>}
         </View>
       </View>
@@ -92,65 +91,11 @@ export default function ProfileDetail({ navigation, route: { params: { logo } } 
               </TouchableOpacity>
             )}
         </View>
-        <TouchableOpacity
-          style={styles.profileButton}
-          onPress={() => handleBookResultsPage(`${user.username}'s\ncurrently reading`, user?.books?.reading)}
-        >
-          <BookStackIcon width={40} height={40} />
-          <Text style={styles.buttonText}>
-            {user?.books?.reading.length}
-            {' '}
-            {user?.books?.reading.length === 1 ? 'book' : 'books'}
-            {' '}
-            currently reading
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.profileButton}
-          onPress={() => handleBookResultsPage(`${user.username}'s\nread`, user?.books?.read)}
-        >
-          <BookStackIcon width={40} height={40} />
-          <Text style={styles.buttonText}>
-            {user?.books?.read.length}
-            {' '}
-            {user?.books?.read.length === 1 ? 'book' : 'books'}
-            {' '}
-            read
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.profileButton}
-          onPress={() => handleBookResultsPage(`${user.username}'s\nto read`, user?.books?.toRead)}
-        >
-          <BookStackIcon width={40} height={40} />
-          <Text style={styles.buttonText}>
-            {user?.books?.toRead.length}
-            {' '}
-            {user?.books?.toRead.length === 1 ? 'book' : 'books'}
-            {' '}
-            to read
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.profileButton}
-          onPress={() => handleBookResultsPage(`${user.username}'s\nwhislist`, user?.books?.wishlist)}
-        >
-          <BookStackIcon width={40} height={40} />
-          <Text style={styles.buttonText}>
-            {user?.books?.wishlist.length}
-            {' '}
-            {user?.books?.wishlist.length === 1 ? 'book' : 'books'}
-            {' '}
-            on wishlist
-          </Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={styles.profileButton}>
-          <ShelfIcon width={40} height={35} />
-          <Text style={styles.buttonText}>
-            X shelves
-          </Text>
-        </TouchableOpacity>
+        <ProfileDetail
+          handleBookResultsPage={handleBookResultsPage}
+          userBooks={user.books}
+          shelves={[]}
+        />
       </View>
     </View>
   );
