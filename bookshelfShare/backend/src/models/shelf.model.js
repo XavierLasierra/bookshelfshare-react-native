@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const listSchema = mongoose.Schema({
+const shelfSchema = mongoose.Schema({
   users: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
   name: String,
   shelf: [Number],
@@ -16,4 +16,4 @@ const listSchema = mongoose.Schema({
   ]
 });
 
-module.exports = mongoose.model('List', listSchema);
+module.exports = mongoose.model('Shelf', shelfSchema);

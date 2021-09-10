@@ -10,7 +10,7 @@ function cleanBookData({ value }) {
 
 async function getBooksDataFromList(bookList) {
   try {
-    const booksISBNPromises = bookList.books.map(({ bookISBN }) => axios.get(`${process.env.GOOGLE_API_URL}isbn:${bookISBN}&key=${process.env.GOOGLE_API_KEY}`));
+    const booksISBNPromises = bookList.books.map(({ bookIsbn }) => axios.get(`${process.env.GOOGLE_API_URL}isbn:${bookIsbn}&key=${process.env.GOOGLE_API_KEY}`));
 
     const booksData = await Promise.allSettled(booksISBNPromises);
     const treatedBookData = booksData.map((book) => cleanBookData(book));

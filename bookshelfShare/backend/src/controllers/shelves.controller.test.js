@@ -6,9 +6,9 @@ const {
   updateListById,
   updateListUsers,
   updateBooksFromList
-} = require('./lists.controller');
+} = require('./shelves.controller');
 const { getBooksDataFromList } = require('../services/bookDataGetter');
-const List = require('../models/list.model');
+const List = require('../models/shelf.model');
 
 jest.mock('../models/list.model');
 jest.mock('../services/bookDataGetter');
@@ -137,7 +137,7 @@ describe('Given a getListById function', () => {
     beforeEach(() => {
       req = {
         params: {
-          listId: '1'
+          shelfId: '1'
         }
       };
       res = {
@@ -196,7 +196,7 @@ describe('Given a deleteListById function', () => {
     beforeEach(() => {
       req = {
         params: {
-          listId: '1'
+          shelfId: '1'
         },
         body: {
           List: '1'
@@ -283,7 +283,7 @@ describe('Given an updateListById function', () => {
     beforeEach(() => {
       req = {
         params: {
-          listId: '1'
+          shelfId: '1'
         },
         body: {}
       };
@@ -341,7 +341,7 @@ describe('Given a updateListUsers function', () => {
     beforeEach(() => {
       req = {
         params: {
-          listId: '1'
+          shelfId: '1'
         },
         body: {
           user: '1'
@@ -428,7 +428,7 @@ describe('Given a updateBooksFromList function', () => {
     beforeEach(() => {
       req = {
         params: {
-          listId: '1'
+          shelfId: '1'
         },
         body: {}
       };

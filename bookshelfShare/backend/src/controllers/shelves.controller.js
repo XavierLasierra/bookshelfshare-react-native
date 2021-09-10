@@ -1,4 +1,4 @@
-const List = require('../models/list.model');
+const List = require('../models/shelf.model');
 const { getBooksDataFromList } = require('../services/bookDataGetter');
 
 async function getLists({ query }, res) {
@@ -27,9 +27,9 @@ async function createList({ body }, res) {
   }
 }
 
-async function getListById({ params: { listId } }, res) {
+async function getListById({ params: { shelfId } }, res) {
   try {
-    const foundList = await List.findById(listId);
+    const foundList = await List.findById(shelfId);
 
     if (!foundList) return res.sendStatus(404);
 
@@ -41,9 +41,9 @@ async function getListById({ params: { listId } }, res) {
     return res.send(error);
   }
 }
-async function deleteListById({ params: { listId }, body: { user } }, res) {
+async function deleteListById({ params: { shelfId }, body: { user } }, res) {
   try {
-    const listToDelete = await List.findById(listId);
+    const listToDelete = await List.findById(shelfId);
 
     if (!listToDelete) return res.sendStatus(404);
 
@@ -60,10 +60,10 @@ async function deleteListById({ params: { listId }, body: { user } }, res) {
     return res.send(error);
   }
 }
-async function updateListById({ params: { listId }, body }, res) {
+async function updateListById({ params: { shelfId }, body }, res) {
   try {
     const updatedList = await List.findByIdAndUpdate(
-      listId,
+      shelfId,
       body,
       { new: true }
     );
@@ -77,9 +77,9 @@ async function updateListById({ params: { listId }, body }, res) {
   }
 }
 
-async function updateListUsers({ params: { listId }, body: { user } }, res) {
+async function updateListUsers({ params: { shelfId }, body: { user } }, res) {
   try {
-    const foundList = await List.findById(listId);
+    const foundList = await List.findById(shelfId);
 
     if (!foundList) return res.sendStatus(404);
     if (foundList.users.some((userFromList) => `${userFromList}` === user)) return res.sendStatus(409);
@@ -94,9 +94,9 @@ async function updateListUsers({ params: { listId }, body: { user } }, res) {
   }
 }
 
-async function updateBooksFromList({ params: { listId }, body }, res) {
+async function updateBooksFromList({ params: { shelfId }, body }, res) {
   try {
-    const listToUpdate = await List.findById(listId);
+    const listToUpdate = await List.findById(shelfId);
 
     if (!listToUpdate) return res.sendStatus(404);
 
