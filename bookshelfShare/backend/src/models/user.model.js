@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
 const defaultPhoto = require('../constants/defaultProfileImage');
+const { isValidPassword } = require('../utils/isValidPassword');
 
 const userSchema = mongoose.Schema({
   username: String,
@@ -25,8 +25,6 @@ const userSchema = mongoose.Schema({
   followers: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }]
 });
 
-userSchema.methods.isValidPassword = function isValidPassword(password) {
-  return bcrypt.compareSync(password, this.password);
-};
+userSchema.methods.isValidPassword = isValidPassword;
 
 module.exports = mongoose.model('User', userSchema);

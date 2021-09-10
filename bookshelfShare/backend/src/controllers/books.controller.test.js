@@ -3,14 +3,20 @@ const {
   getBooks,
   createGoogleSearchUrl,
   getBookRating,
-  addUpdateBookRating
+  addUpdateBookRating,
+  getBookDataFromIsbn
 } = require('./books.controller');
+const { getBooksDataFromArray } = require('../services/bookDataGetter');
+
 const googleBooksMock = require('../mocks/googleBooks.mock');
 const Book = require('../models/book.model');
 const ratingsMock = require('../mocks/ratings.mock');
 
 jest.mock('axios');
 jest.mock('../models/book.model');
+jest.mock('../services/bookDataGetter', () => ({
+  getBooksDataFromArray: jest.fn()
+}));
 
 describe('Given a getBooks function', () => {
   describe('When it is triggered', () => {
@@ -217,6 +223,52 @@ describe('Given a addUpdateBookRating function', () => {
       beforeEach(async () => {
         Book.findOne.mockRejectedValue(new Error('Server error'));
         await addUpdateBookRating(req, res);
+      });
+
+      test('Then should call res.status with 500', () => {
+        expect(res.status).toHaveBeenCalledWith(500);
+      });
+
+      test('Then should call res.send with an error with a message Server error', () => {
+        expect(res.send).toHaveBeenCalled();
+      });
+    });
+  });
+});
+
+describe('Given a getBookDataFromIsbn function', () => {
+  describe('When it is triggered', () => {
+    let req;
+    let res;
+    beforeEach(() => {
+      req = {
+        body: {
+          user: '',
+          rating: '',
+          review: ''
+        }
+      };
+      res = {
+        send: jest.fn(),
+        status: jest.fn(),
+        json: jest.fn()
+      };
+    });
+    describe('And getBooksDataFromArray is resolved', () => {
+      test('Then should call res.json', async () => {
+        getBooksDataFromArray.mockResolvedValue([]);
+
+        await getBookDataFromIsbn(req, res);
+
+        expect(res.json).toHaveBeenCalled();
+      });
+    });
+
+    describe('And getBooksDataFromArray is rejected', () => {
+      beforeEach(async () => {
+        getBooksDataFromArray.mockRejectedValue(new Error('Server error'));
+
+        await getBookDataFromIsbn(req, res);
       });
 
       test('Then should call res.status with 500', () => {

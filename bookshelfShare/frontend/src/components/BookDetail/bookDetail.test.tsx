@@ -7,6 +7,7 @@ import { getRatings } from '../../redux/actions/books.creator';
 import booksActions from '../../redux/actions/books.actions';
 import ratingsMock from '../../mocks/ratings.mock';
 import loggedUserMock from '../../mocks/loggedUser.mock';
+import userBooksMock from '../../mocks/userBooks.mock';
 
 jest.mock('../../redux/actions/books.creator', () => ({
   ...jest.requireActual('../../redux/actions/books.creator'),
@@ -27,7 +28,10 @@ describe('Given an BookDetail component', () => {
           }
         };
         (getRatings as jest.Mock).mockReturnValue({ type: '' });
-        const initialState = { loggedUser: { userData: loggedUserMock.user } };
+        const initialState = {
+          loggedUser: { userData: loggedUserMock.user },
+          userBooks: userBooksMock
+        };
         const screen = render(
           <MenuProvider>
             <BookDetail navigation={navigation} route={route} />
@@ -50,7 +54,10 @@ describe('Given an BookDetail component', () => {
           type: booksActions.LOAD_RATINGS,
           data: ratingsMock
         });
-        const initialState = { loggedUser: { userData: loggedUserMock.user } };
+        const initialState = {
+          loggedUser: { userData: loggedUserMock.user },
+          userBooks: userBooksMock
+        };
         screen = render(
           <MenuProvider>
             <BookDetail navigation={navigation} route={route} />
@@ -75,7 +82,10 @@ describe('Given an BookDetail component', () => {
           }
         };
         (getRatings as jest.Mock).mockReturnValue({ type: '' });
-        const initialState = { loggedUser: { userData: loggedUserMock.user } };
+        const initialState = {
+          loggedUser: { userData: loggedUserMock.user },
+          userBooks: userBooksMock
+        };
         const screen = render(
           <MenuProvider>
             <BookDetail navigation={navigation} route={route} />

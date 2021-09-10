@@ -2,10 +2,10 @@ const axios = require('axios');
 const Book = require('../classes/book.class');
 
 function cleanBookData({ value }) {
-  if (value?.status !== 200 || value?.data?.totalItems === 0) {
-    return new Book();
+  if (value.status !== 200 || !value?.data?.items) {
+    return new Book({ volumeInfo: {} });
   }
-  return new Book(value?.data?.items[0]);
+  return new Book(value.data.items[0]);
 }
 
 async function getBooksDataFromList(bookList) {

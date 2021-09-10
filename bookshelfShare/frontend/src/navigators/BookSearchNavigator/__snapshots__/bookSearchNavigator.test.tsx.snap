@@ -1,0 +1,455 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Given a BookSearchNavigator component When it is rendered Then should match the snapshot 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <RNCSafeAreaProvider
+    onInsetsChange={[Function]}
+    style={
+      Array [
+        Object {
+          "flex": 1,
+        },
+        undefined,
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "rgb(242, 242, 242)",
+            "flex": 1,
+          },
+          undefined,
+        ]
+      }
+    >
+      <View
+        onLayout={[Function]}
+        style={
+          Object {
+            "flex": 1,
+          }
+        }
+      >
+        <View
+          pointerEvents="box-none"
+          style={
+            Object {
+              "bottom": 0,
+              "left": 0,
+              "position": "absolute",
+              "right": 0,
+              "top": 0,
+            }
+          }
+        >
+          <View
+            collapsable={false}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+          />
+          <View
+            accessibilityElementsHidden={false}
+            closing={false}
+            gestureVelocityImpact={0.3}
+            importantForAccessibility="auto"
+            onClose={[Function]}
+            onGestureBegin={[Function]}
+            onGestureCanceled={[Function]}
+            onGestureEnd={[Function]}
+            onOpen={[Function]}
+            onTransition={[Function]}
+            pointerEvents="box-none"
+            style={
+              Array [
+                Object {
+                  "display": "flex",
+                  "overflow": undefined,
+                },
+                Object {
+                  "bottom": 0,
+                  "left": 0,
+                  "position": "absolute",
+                  "right": 0,
+                  "top": 0,
+                },
+              ]
+            }
+            transitionSpec={
+              Object {
+                "close": Object {
+                  "animation": "spring",
+                  "config": Object {
+                    "damping": 500,
+                    "mass": 3,
+                    "overshootClamping": true,
+                    "restDisplacementThreshold": 10,
+                    "restSpeedThreshold": 10,
+                    "stiffness": 1000,
+                  },
+                },
+                "open": Object {
+                  "animation": "spring",
+                  "config": Object {
+                    "damping": 500,
+                    "mass": 3,
+                    "overshootClamping": true,
+                    "restDisplacementThreshold": 10,
+                    "restSpeedThreshold": 10,
+                    "stiffness": 1000,
+                  },
+                },
+              }
+            }
+          >
+            <View
+              collapsable={false}
+              nativeID="animatedComponent"
+              pointerEvents="box-none"
+              style={
+                Object {
+                  "flex": 1,
+                  "marginTop": 0,
+                }
+              }
+            >
+              <View
+                enableTrackpadTwoFingerGesture={true}
+                enabled={false}
+                hitSlop={
+                  Object {
+                    "right": -700,
+                  }
+                }
+                maxDeltaY={20}
+                minOffsetX={5}
+                onHandlerStateChange={[Function]}
+              >
+                <View
+                  needsOffscreenAlphaCompositing={true}
+                  style={
+                    Object {
+                      "flex": 1,
+                      "opacity": 1,
+                    }
+                  }
+                >
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "flex": 1,
+                          "overflow": "hidden",
+                        },
+                        Array [
+                          Object {
+                            "backgroundColor": "rgb(242, 242, 242)",
+                          },
+                          undefined,
+                        ],
+                      ]
+                    }
+                  >
+                    <View
+                      style={
+                        Object {
+                          "flex": 1,
+                          "flexDirection": "column-reverse",
+                        }
+                      }
+                    >
+                      <View
+                        style={
+                          Object {
+                            "flex": 1,
+                          }
+                        }
+                      >
+                        <RNCSafeAreaView
+                          style={
+                            Object {
+                              "backgroundColor": "#F5F5F5",
+                              "minHeight": "100%",
+                            }
+                          }
+                        >
+                          <View
+                            style={
+                              Object {
+                                "alignItems": "flex-end",
+                                "backgroundColor": "#F5F5F5",
+                              }
+                            }
+                          >
+                            <View
+                              style={
+                                Object {
+                                  "alignItems": "center",
+                                  "backgroundColor": "#D9D8C4",
+                                  "borderBottomLeftRadius": 25,
+                                  "justifyContent": "center",
+                                  "padding": 10,
+                                  "width": "100%",
+                                }
+                              }
+                            >
+                              <IconMock
+                                height={45}
+                                width={45}
+                              />
+                            </View>
+                            <View
+                              style={
+                                Object {
+                                  "height": 0,
+                                }
+                              }
+                            >
+                              <View
+                                style={
+                                  Object {
+                                    "backgroundColor": "#D9D8C4",
+                                    "height": 20,
+                                    "width": 20,
+                                  }
+                                }
+                              >
+                                <View
+                                  style={
+                                    Object {
+                                      "backgroundColor": "#F5F5F5",
+                                      "borderTopRightRadius": 25,
+                                      "height": 20,
+                                      "width": 20,
+                                    }
+                                  }
+                                />
+                              </View>
+                            </View>
+                          </View>
+                          <View
+                            style={
+                              Object {
+                                "alignItems": "center",
+                                "padding": 30,
+                              }
+                            }
+                          >
+                            <Text
+                              style={
+                                Object {
+                                  "color": "#3E3C37",
+                                  "fontSize": 35,
+                                  "fontWeight": "500",
+                                }
+                              }
+                            >
+                              Book Search
+                            </Text>
+                            <View
+                              style={
+                                Object {
+                                  "flexDirection": "row",
+                                  "marginTop": 10,
+                                }
+                              }
+                            >
+                              <View
+                                accessible={true}
+                                collapsable={false}
+                                focusable={true}
+                                nativeID="animatedComponent"
+                                onClick={[Function]}
+                                onResponderGrant={[Function]}
+                                onResponderMove={[Function]}
+                                onResponderRelease={[Function]}
+                                onResponderTerminate={[Function]}
+                                onResponderTerminationRequest={[Function]}
+                                onStartShouldSetResponder={[Function]}
+                                style={
+                                  Object {
+                                    "alignItems": "center",
+                                    "backgroundColor": "#ECECEC",
+                                    "opacity": 1,
+                                    "paddingVertical": 15,
+                                    "width": 150,
+                                  }
+                                }
+                                testID="isbnPageButton"
+                              >
+                                <Text
+                                  style={
+                                    Object {
+                                      "fontSize": 20,
+                                    }
+                                  }
+                                >
+                                  ISBN
+                                </Text>
+                              </View>
+                              <View
+                                accessible={true}
+                                collapsable={false}
+                                focusable={true}
+                                nativeID="animatedComponent"
+                                onClick={[Function]}
+                                onResponderGrant={[Function]}
+                                onResponderMove={[Function]}
+                                onResponderRelease={[Function]}
+                                onResponderTerminate={[Function]}
+                                onResponderTerminationRequest={[Function]}
+                                onStartShouldSetResponder={[Function]}
+                                style={
+                                  Object {
+                                    "alignItems": "center",
+                                    "backgroundColor": "#FFFFFF",
+                                    "opacity": 1,
+                                    "paddingVertical": 15,
+                                    "width": 150,
+                                  }
+                                }
+                                testID="otherPageButton"
+                              >
+                                <Text
+                                  style={
+                                    Object {
+                                      "fontSize": 20,
+                                    }
+                                  }
+                                >
+                                  Other
+                                </Text>
+                              </View>
+                            </View>
+                            <View
+                              style={
+                                Object {
+                                  "height": 400,
+                                  "justifyContent": "space-between",
+                                  "width": "100%",
+                                }
+                              }
+                            >
+                              <View
+                                style={
+                                  Object {
+                                    "height": 70,
+                                    "width": "100%",
+                                  }
+                                }
+                              >
+                                <Text
+                                  style={
+                                    Object {
+                                      "fontSize": 12,
+                                      "fontWeight": "bold",
+                                      "transform": Array [
+                                        Object {
+                                          "translateX": 5,
+                                        },
+                                        Object {
+                                          "translateY": 20,
+                                        },
+                                      ],
+                                      "zIndex": 1,
+                                    }
+                                  }
+                                >
+                                  ISBN
+                                </Text>
+                                <TextInput
+                                  onChangeText={[Function]}
+                                  style={
+                                    Object {
+                                      "backgroundColor": "#FFFFFF",
+                                      "borderColor": "#ECECEC",
+                                      "borderRadius": 10,
+                                      "borderWidth": 1,
+                                      "fontSize": 20,
+                                      "height": "100%",
+                                      "paddingHorizontal": 30,
+                                      "paddingTop": 30,
+                                    }
+                                  }
+                                  testID="isbnInput"
+                                  value=""
+                                />
+                              </View>
+                              <View
+                                accessible={true}
+                                collapsable={false}
+                                focusable={true}
+                                nativeID="animatedComponent"
+                                onClick={[Function]}
+                                onResponderGrant={[Function]}
+                                onResponderMove={[Function]}
+                                onResponderRelease={[Function]}
+                                onResponderTerminate={[Function]}
+                                onResponderTerminationRequest={[Function]}
+                                onStartShouldSetResponder={[Function]}
+                                style={
+                                  Object {
+                                    "alignItems": "center",
+                                    "backgroundColor": "#000000",
+                                    "borderRadius": 10,
+                                    "display": "flex",
+                                    "height": 70,
+                                    "justifyContent": "center",
+                                    "marginTop": 20,
+                                    "opacity": 1,
+                                    "width": "100%",
+                                  }
+                                }
+                                testID="searchButton"
+                              >
+                                <Text
+                                  style={
+                                    Object {
+                                      "color": "#FFFFFF",
+                                      "fontSize": 20,
+                                      "fontWeight": "500",
+                                    }
+                                  }
+                                >
+                                  Search
+                                </Text>
+                              </View>
+                            </View>
+                          </View>
+                        </RNCSafeAreaView>
+                      </View>
+                    </View>
+                  </View>
+                </View>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        pointerEvents="box-none"
+        style={
+          Object {
+            "height": 44,
+            "left": 0,
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+            "zIndex": 1,
+          }
+        }
+      />
+    </View>
+  </RNCSafeAreaProvider>
+</View>
+`;

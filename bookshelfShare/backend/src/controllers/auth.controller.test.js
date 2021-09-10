@@ -3,14 +3,22 @@ const {
   registerUser,
   loginUser,
   refreshUserToken,
-  logoutUser,
-  verifyToken
+  logoutUser
 } = require('./auth.controller');
+const {
+  verifyToken
+} = require('../utils/verifyToken');
 const User = require('../models/user.model');
 const userMock = require('../mocks/user.mock');
 
 jest.mock('../models/user.model');
-jest.mock('jsonwebtoken');
+jest.mock('jsonwebtoken', () => ({
+  verify: jest.fn(),
+  sign: jest.fn()
+}));
+jest.mock('../utils/verifyToken', () => ({
+  verifyToken: jest.fn()
+}));
 
 describe('Given a registerUser function', () => {
   describe('When it is triggered', () => {
@@ -160,18 +168,23 @@ describe('Given a refreshUserToken function', () => {
         res = {
           json: jest.fn()
         };
-      });
-
-      test('Then jwt.verify should have been called', () => {
         jwt.sign = jest.fn()
           .mockReturnValueOnce('token')
           .mockReturnValueOnce('myRefreshToken');
-        jwt.verify = jest.fn();
+        jwt.verify.mockImplementation((refreshToken, jwtSecret, callback = jest.fn()) => {
+          callback('error', { user: 'user' }, res);
+        });
 
         loginUser(req, res);
         refreshUserToken(req, res);
+      });
 
+      test('Then jwt.verify should have been called', () => {
         expect(jwt.verify).toHaveBeenCalled();
+      });
+
+      test('Then jwt.verify callback should have been called', () => {
+        expect(verifyToken).toHaveBeenCalled();
       });
     });
   });
@@ -217,38 +230,6 @@ describe('Given a logoutUser function', () => {
         logoutUser(req, res);
 
         expect(res.send).toHaveBeenCalledWith('Logout successful');
-      });
-    });
-  });
-});
-
-describe('Given a verify token function', () => {
-  describe('When it is triggered', () => {
-    const user = userMock;
-    let res;
-    beforeEach(() => {
-      res = {
-        sendStatus: jest.fn(),
-        json: jest.fn()
-      };
-    });
-
-    describe('And there is an error', () => {
-      test('Then res.sendStatus should have been called with 403', () => {
-        verifyToken(true, user, res);
-
-        expect(res.sendStatus).toHaveBeenCalledWith(403);
-      });
-    });
-
-    describe('And there is no error', () => {
-      test('Then res.json should have been called', () => {
-        jwt.sign = jest.fn()
-          .mockReturnValue('token');
-
-        verifyToken(false, user, res);
-
-        expect(res.json).toHaveBeenCalled();
       });
     });
   });

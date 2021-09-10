@@ -5,6 +5,7 @@ exports[`Given a BookSearch component When it is rendered And isbnFromCamera is 
   style={
     Object {
       "backgroundColor": "#F5F5F5",
+      "minHeight": "100%",
     }
   }
 >
@@ -253,6 +254,7 @@ exports[`Given a BookSearch component When it is rendered And isbnFromCamera is 
   style={
     Object {
       "backgroundColor": "#F5F5F5",
+      "minHeight": "100%",
     }
   }
 >
@@ -591,6 +593,7 @@ exports[`Given a BookSearch component When it is rendered And isbnFromCamera is 
   style={
     Object {
       "backgroundColor": "#F5F5F5",
+      "minHeight": "100%",
     }
   }
 >
@@ -929,6 +932,7 @@ exports[`Given a BookSearch component When it is rendered And isbnFromCamera is 
   style={
     Object {
       "backgroundColor": "#F5F5F5",
+      "minHeight": "100%",
     }
   }
 >
@@ -1183,6 +1187,7 @@ exports[`Given a BookSearch component When it is rendered And isbnFromCamera is 
   style={
     Object {
       "backgroundColor": "#F5F5F5",
+      "minHeight": "100%",
     }
   }
 >
