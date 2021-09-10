@@ -25,7 +25,7 @@ export default function UserElement({
 
   function handleUserDetail() {
     dispatch(loadCurrentUser(user._id, token, refreshToken));
-    navigation.push('ProfileDetail',
+    navigation.push('OtherUserProfile',
       {
         logo
       });

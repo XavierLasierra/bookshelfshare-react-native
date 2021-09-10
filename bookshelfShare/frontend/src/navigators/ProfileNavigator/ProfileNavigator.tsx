@@ -5,9 +5,9 @@ import Profile from '../../components/Profile/Profile';
 import BookResults from '../../components/BookResults/BookResults';
 import BookDetail from '../../components/BookDetail/BookDetail';
 import UsersList from '../../components/UsersList/UsersList';
-import ProfileDetail from '../../components/ProfileDetail/ProfileDetail';
+import OtherUserProfile from '../../components/OtherUserProfile/OtherUserProfile';
 
-export default function BookSearchNavigator() {
+export default function ProfileNavigator() {
   const Stack = createStackNavigator();
   return (
     <Stack.Navigator
@@ -36,8 +36,8 @@ export default function BookSearchNavigator() {
         component={UsersList}
       />
       <Stack.Screen
-        name="ProfileDetail"
-        component={ProfileDetail}
+        name="OtherUserProfile"
+        component={OtherUserProfile}
       />
     </Stack.Navigator>
   );

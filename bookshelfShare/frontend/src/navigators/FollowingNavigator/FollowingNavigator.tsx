@@ -3,7 +3,7 @@ import { createStackNavigator, CardStyleInterpolators } from '@react-navigation/
 
 import Following from '../../components/Following/Following';
 import UsersList from '../../components/UsersList/UsersList';
-import ProfileDetail from '../../components/ProfileDetail/ProfileDetail';
+import OtherUserProfile from '../../components/OtherUserProfile/OtherUserProfile';
 import BookResults from '../../components/BookResults/BookResults';
 import BookDetail from '../../components/BookDetail/BookDetail';
 
@@ -28,8 +28,8 @@ export default function FollowingNavigator() {
         component={UsersList}
       />
       <Stack.Screen
-        name="ProfileDetail"
-        component={ProfileDetail}
+        name="OtherUserProfile"
+        component={OtherUserProfile}
       />
       <Stack.Screen
         name="BookResults"
