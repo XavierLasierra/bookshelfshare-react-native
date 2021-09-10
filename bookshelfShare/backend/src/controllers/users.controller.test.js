@@ -2,7 +2,8 @@ const {
   getUsers,
   getOneUserById,
   deleteOneUserById,
-  updateOneUserById
+  updateOneUserById,
+  updateUserBooks
 } = require('./users.controller');
 const User = require('../models/user.model');
 const userMock = require('../mocks/user.mock');
@@ -220,6 +221,106 @@ describe('Given an updateOneUserById function', () => {
           select: jest.fn().mockRejectedValue(new Error('Server error'))
         });
         await updateOneUserById(req, res);
+      });
+
+      test('Then should call res.status with 500', async () => {
+        expect(res.status).toHaveBeenCalledWith(500);
+      });
+      test('Then should call res.send with an error with a message Server error', async () => {
+        expect(res.send.mock.calls[0][0].message).toBe('Server error');
+      });
+    });
+  });
+});
+
+describe('Given an updateUserBooks function', () => {
+  describe('When it is triggered', () => {
+    let req;
+    let res;
+    beforeEach(() => {
+      req = {
+        params: {
+          userId: '1'
+        },
+        body: {
+          bookIsbn: '1'
+        }
+      };
+      res = {
+        send: jest.fn(),
+        status: jest.fn(),
+        sendStatus: jest.fn(),
+        json: jest.fn()
+      };
+    });
+    describe('And User.findById is resolved', () => {
+      describe('And found user is undefined', () => {
+        test('Then res.sendStatus should have been called with 404', async () => {
+          User.findById.mockReturnValue({
+            select: jest.fn().mockResolvedValue(undefined)
+          });
+          await updateUserBooks(req, res);
+
+          expect(res.sendStatus).toHaveBeenCalledWith(404);
+        });
+      });
+
+      describe('And found user is not undefined', () => {
+        let foundUser;
+        beforeEach(() => {
+          foundUser = userMock;
+          User.findById.mockReturnValue({
+            select: jest.fn().mockResolvedValue({
+              ...foundUser,
+              save: jest.fn()
+            })
+          });
+        });
+        describe('And req.body has not addTo and deleteFrom properties', () => {
+          ['read', 'toRead', 'reading', 'wishlist'].forEach((list) => {
+            test(`Then foundUser.${list}.length should have not change`, async () => {
+              const initialLength = foundUser.books[list].length;
+
+              await updateUserBooks(req, res);
+
+              expect(foundUser.books[list].length - initialLength).toBe(0);
+            });
+          });
+          test('Then res.json should have been called', async () => {
+            await updateUserBooks(req, res);
+
+            expect(res.json).toHaveBeenCalled();
+          });
+        });
+
+        describe('And req.body has addTo read and deleteFrom reading and bookIsbn is in reading list', () => {
+          beforeEach(() => {
+            req.body.addTo = 'read';
+            req.body.deleteFrom = 'reading';
+          });
+
+          test('Then foundUser.read.length should have increased 1', async () => {
+            const initialLength = foundUser.books.read.length;
+
+            await updateUserBooks(req, res);
+
+            expect(foundUser.books.read.length - initialLength).toBe(1);
+          });
+
+          test('Then res.json should have been called', async () => {
+            await updateUserBooks(req, res);
+
+            expect(res.json).toHaveBeenCalled();
+          });
+        });
+      });
+    });
+    describe('And User.findById is rejected', () => {
+      beforeEach(async () => {
+        User.findById.mockReturnValue({
+          select: jest.fn().mockRejectedValue(new Error('Server error'))
+        });
+        await updateUserBooks(req, res);
       });
 
       test('Then should call res.status with 500', async () => {
