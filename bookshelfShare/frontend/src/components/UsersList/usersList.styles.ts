@@ -9,13 +9,6 @@ export default StyleSheet.create({
   usersListContainer: {
     paddingHorizontal: stylesConstants.padding.normal
   },
-  inputContainer: {
-    flexDirection: 'row',
-    width: '100%',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingVertical: 10
-  },
   clearSearchButton: {
     alignItems: 'center',
     justifyContent: 'center',

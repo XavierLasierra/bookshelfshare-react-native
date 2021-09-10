@@ -69,7 +69,7 @@ export default function UsersList({ navigation, route: { params: { logo, followi
         showsVerticalScrollIndicator={false}
         data={users}
         renderItem={renderUser}
-        keyExtractor={(item, index) => `book-${index}`}
+        keyExtractor={(item, index) => `user-${index}`}
       />
     )
     : <Text>0 users</Text>;
@@ -80,7 +80,7 @@ export default function UsersList({ navigation, route: { params: { logo, followi
       <View style={styles.usersListContainer}>
         {followingPage && (
         <View>
-          <View style={styles.inputContainer}>
+          <View style={globalStyles.thinInputContainer}>
             <TextInput
               style={globalStyles.thinInput}
               placeholder="Search new users by email/name"

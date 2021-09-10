@@ -4,10 +4,10 @@ import { useSelector } from 'react-redux';
 
 import CustomTabBar from '../../components/CustomTabBar/CustomTabBar';
 import Main from '../../components/Main/Main';
-import Shelf from '../../components/Shelf/Shelf';
 import ProfileNavigator from '../ProfileNavigator/ProfileNavigator';
 import FollowingNavigator from '../FollowingNavigator/FollowingNavigator';
 import BarCodeScanner from '../../components/BarCodeScanner/BarCodeScanner';
+import ShelfNavigator from '../ShelfNavigator/ShelfNavigator';
 import BookSearchNavigator from '../BookSearchNavigator/BookSearchNavigator';
 
 import { storeToken } from '../../services/asyncStorage';
@@ -48,8 +48,8 @@ export default function PagesNavigator() {
         component={FollowingNavigator}
       />
       <Tab.Screen
-        name="Shelf"
-        component={Shelf}
+        name="ShelfNavigator"
+        component={ShelfNavigator}
       />
       <Tab.Screen
         name="ProfileNavigator"

@@ -3,7 +3,7 @@ interface Action {
     data: any
 }
 
-function shelvesReducer(shelves = [], action: Action): any {
+function userShelvesReducer(shelves = [], action: Action): any {
   let newShelves: any = shelves;
   if (action) {
     newShelves = [];
@@ -11,4 +11,4 @@ function shelvesReducer(shelves = [], action: Action): any {
   return newShelves;
 }
 
-export default shelvesReducer;
+export default userShelvesReducer;
