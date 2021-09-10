@@ -3,7 +3,7 @@ const { getBooksDataFromList } = require('../services/bookDataGetter');
 
 async function getLists({ query }, res) {
   try {
-    const foundLists = await List.find(query);
+    const foundLists = await List.find(query).populate({ path: 'users', select: 'photo' });
 
     res.json(foundLists);
   } catch (error) {
