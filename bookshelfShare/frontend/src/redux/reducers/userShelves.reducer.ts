@@ -11,6 +11,9 @@ function userShelvesReducer(shelves = [], action: Action): any {
     case userShelvesActions.LOAD_USER_SHELVES:
       newShelves = action.data;
       break;
+    case userShelvesActions.ADD_NEW_SHELF:
+      newShelves = [...newShelves, action.data];
+      break;
     default:
       break;
   }

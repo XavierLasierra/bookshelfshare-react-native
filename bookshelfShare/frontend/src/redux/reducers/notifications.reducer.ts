@@ -50,6 +50,9 @@ function notificationsReducer(notification = [], action: Action): string[] {
     case notificationsActions.LOAD_USER_SHELVES_ERROR:
       newNotification = ['Could not load user shelves'];
       break;
+    case notificationsActions.CREATE_SHELF_ERROR:
+      newNotification = ['Could not create new shelf'];
+      break;
     default:
       break;
   }

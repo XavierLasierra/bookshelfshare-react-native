@@ -47,6 +47,44 @@ export function loadUserShelves(userId: string, token: string, refreshToken: str
   };
 }
 
-export function updateShelves() {
+export function createShelf(
+  shelfInformation: any, token: string, refreshToken: string
+) {
+  return async (dispatch: Dispatch) => {
+    try {
+      const { data } = await axios.post(BOOKSS_API.concat('/shelves'),
+        shelfInformation,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        });
 
+      dispatch({
+        type: userShelvesActions.ADD_NEW_SHELF,
+        data
+      });
+    } catch (error: any) {
+      if (error?.response?.status === 401) {
+        try {
+          const newToken = await refreshUserToken(refreshToken, dispatch);
+          if (!newToken) throw new Error('Server error');
+
+          dispatch(createShelf(shelfInformation, newToken, refreshToken));
+        } catch {
+          dispatch({
+            type: notificationsActions.SERVER_ERROR
+          });
+        }
+      } else if (error?.response?.status === 500) {
+        dispatch({
+          type: notificationsActions.CREATE_SHELF_ERROR
+        });
+      } else {
+        dispatch({
+          type: notificationsActions.SERVER_ERROR
+        });
+      }
+    }
+  };
 }

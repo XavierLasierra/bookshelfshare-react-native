@@ -1,7 +1,6 @@
 import React from 'react';
 import {
-  FlatList,
-  SafeAreaView, TextInput, TouchableOpacity, View, Text
+  FlatList, SafeAreaView, TextInput, TouchableOpacity, View, Text
 } from 'react-native';
 import { useSelector } from 'react-redux';
 
@@ -18,7 +17,10 @@ export default function UserShelfList({ navigation }: any) {
   const { userData: { _id: loggedUserId } } = useSelector((store: any) => store.loggedUser);
 
   function handleNewShelfPage() {
-    navigation.push('NewShelf');
+    navigation.push('NewShelf',
+      {
+        loggedUserId
+      });
   }
 
   function renderShelves({ item }: any) {
@@ -53,14 +55,13 @@ export default function UserShelfList({ navigation }: any) {
           </TouchableOpacity>
         </View>
         <FlatList
-          showsVerticalScrollIndicator={false}
           data={userShelves}
           renderItem={renderShelves}
           keyExtractor={(item, index) => `shelf-${index}`}
           ListFooterComponent={newShelf}
         />
-        <View style={styles.marginBottom} />
       </View>
+      <View style={styles.marginBottom} />
     </SafeAreaView>
   );
 }
