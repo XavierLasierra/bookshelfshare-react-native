@@ -12,9 +12,8 @@ export default StyleSheet.create({
     paddingVertical: stylesConstants.padding.small,
     paddingHorizontal: stylesConstants.padding.mid
   },
-  topContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
+  photoBooksContainer: {
+    height: 65,
     justifyContent: 'space-between'
   },
   photosContainer: {

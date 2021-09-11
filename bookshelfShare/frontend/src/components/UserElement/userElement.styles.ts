@@ -4,7 +4,9 @@ import stylesConstants from '../../styles/styles.constants';
 export default StyleSheet.create({
   userElementContainer: {
     backgroundColor: stylesConstants.colors.white,
+    flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'space-between',
     padding: stylesConstants.padding.small,
     borderRadius: 20,
     borderWidth: 1,
@@ -12,10 +14,11 @@ export default StyleSheet.create({
     marginVertical: 10,
     width: 325
   },
-  flexContainer: {
+  nameFollowContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    width: 290
+    alignItems: 'center',
+    width: 200
   },
   userElementFollowedContainer: {
     backgroundColor: stylesConstants.colors.follow
@@ -26,7 +29,6 @@ export default StyleSheet.create({
     borderRadius: 100
   },
   userInformationContainer: {
-    width: 150
   },
   userName: {
     fontSize: stylesConstants.fontSize.mid,

@@ -12,11 +12,8 @@ export default function ShelfListElement({ shelf, loggedUserId }: any) {
   return (
     <TouchableOpacity style={styles.shelfContainer}>
       <ShelfIcon width={35} height={35} />
-      <View style={styles.topContainer}>
-        <Text style={styles.shelfName}>{shelf.name}</Text>
-
-      </View>
-      <View>
+      <Text style={styles.shelfName}>{shelf.name}</Text>
+      <View style={styles.photoBooksContainer}>
         <View style={styles.photosContainer}>
           <Image
             source={{ uri: filteredUserList[0]?.photo }}
@@ -35,7 +32,6 @@ export default function ShelfListElement({ shelf, loggedUserId }: any) {
           {' '}
           {shelf.books.length === 1 ? 'book' : 'books'}
         </Text>
-
       </View>
     </TouchableOpacity>
   );

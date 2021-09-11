@@ -52,7 +52,7 @@ export default function UserElement({
           source={{ uri: user.photo }}
           style={styles.userPhoto}
         />
-        <View style={styles.flexContainer}>
+        <View style={styles.nameFollowContainer}>
           <View style={styles.userInformationContainer}>
             <Text style={styles.userName}>{user.username}</Text>
             <Text style={styles.userEmail}>{user.email}</Text>
