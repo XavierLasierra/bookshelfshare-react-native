@@ -1,28 +1,44 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Text, TouchableOpacity, View, TextInput
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-// import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Header from '../Header/Header';
 
 import ShelfIcon from '../../assets/shelfIcon.svg';
 import styles from './newShelf.styles';
 import globalStyles from '../../styles/global.styles';
+import { createShelf } from '../../redux/actions/userShelves.creator';
 
 interface Props {
   navigation: any,
+  route: any
 }
 
-export default function NewShelf({ navigation }: Props) {
-  // const dispatch = useDispatch();
-  // const { token, refreshToken } = useSelector((store: any) => store.tokens);
+export default function NewShelf({ navigation, route: { params: { loggedUserId } } }: Props) {
+  const dispatch = useDispatch();
+  const { token, refreshToken } = useSelector((store: any) => store.tokens);
+  const shelves = useSelector((store: any) => store.userShelves);
   const [name, setName] = useState('');
   const [rows, setRows] = useState('');
   const [columns, setColumns] = useState('');
+  const [isCreating, setIsCreating] = useState(false);
+
+  useEffect(() => {
+    if (isCreating) {
+      navigation.pop();
+    }
+  }, [shelves]);
 
   function handleShelfCreation() {
-    navigation.push();
+    setIsCreating(true);
+    const shelvesInformation = {
+      name,
+      users: [loggedUserId],
+      shelf: new Array(+rows).fill(+columns)
+    };
+    dispatch(createShelf(shelvesInformation, token, refreshToken));
   }
 
   function handleNameChange(text: string) {
