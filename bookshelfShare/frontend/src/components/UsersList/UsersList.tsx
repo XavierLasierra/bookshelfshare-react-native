@@ -65,12 +65,16 @@ export default function UsersList({ navigation, route: { params: { logo, followi
 
   const usersResults = users.length > 0
     ? (
-      <FlatList
-        showsVerticalScrollIndicator={false}
-        data={users}
-        renderItem={renderUser}
-        keyExtractor={(item, index) => `user-${index}`}
-      />
+      <>
+        <FlatList
+          showsVerticalScrollIndicator={false}
+          data={users}
+          renderItem={renderUser}
+          keyExtractor={(item, index) => `user-${index}`}
+          ListFooterComponent={() => <View style={styles.marginBottom} />}
+        />
+
+      </>
     )
     : <Text>0 users</Text>;
 
@@ -109,7 +113,6 @@ export default function UsersList({ navigation, route: { params: { logo, followi
           {results
             ? usersResults
             : <ActivityIndicator size="large" color={stylesConstants.colors.dark} />}
-          <View style={styles.marginBottom} />
         </View>
       </View>
     </SafeAreaView>

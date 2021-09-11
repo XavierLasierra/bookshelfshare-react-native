@@ -4,7 +4,7 @@ import stylesConstants from '../../styles/styles.constants';
 export default StyleSheet.create({
   marginBottom: {
     width: '100%',
-    height: 130
+    height: 550
   },
   usersListContainer: {
     paddingHorizontal: stylesConstants.padding.normal

@@ -13,7 +13,8 @@ export default StyleSheet.create({
     padding: stylesConstants.padding.normal,
     flexDirection: 'row',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    marginBottom: 450
   },
   addShelfCircle: {
     backgroundColor: stylesConstants.colors.secondary,

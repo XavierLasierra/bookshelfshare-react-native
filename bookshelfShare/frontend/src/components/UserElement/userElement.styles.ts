@@ -4,8 +4,6 @@ import stylesConstants from '../../styles/styles.constants';
 export default StyleSheet.create({
   userElementContainer: {
     backgroundColor: stylesConstants.colors.white,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
     alignItems: 'center',
     padding: stylesConstants.padding.small,
     borderRadius: 20,
@@ -13,6 +11,11 @@ export default StyleSheet.create({
     borderColor: stylesConstants.colors.secondary,
     marginVertical: 10,
     width: 325
+  },
+  flexContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: 290
   },
   userElementFollowedContainer: {
     backgroundColor: stylesConstants.colors.follow

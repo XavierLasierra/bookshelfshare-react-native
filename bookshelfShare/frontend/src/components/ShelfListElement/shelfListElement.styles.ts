@@ -7,11 +7,15 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     backgroundColor: stylesConstants.colors.detail,
-    height: 85,
     borderRadius: 10,
     marginVertical: 10,
     paddingVertical: stylesConstants.padding.small,
     paddingHorizontal: stylesConstants.padding.mid
+  },
+  topContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between'
   },
   photosContainer: {
     flexDirection: 'row-reverse',
@@ -36,12 +40,11 @@ export default StyleSheet.create({
   bookCounter: {
     fontSize: stylesConstants.fontSize.small,
     textAlign: 'right',
-    width: 70
+    fontWeight: 'bold'
   },
-  photoCounterContainer: {
-    flexDirection: 'column-reverse',
-    height: '100%',
-    justifyContent: 'space-between',
-    alignItems: 'flex-end'
+  addShelfCircle: {
+    backgroundColor: stylesConstants.colors.secondary,
+    width: 30,
+    height: 30
   }
 });

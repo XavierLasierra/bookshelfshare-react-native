@@ -59,6 +59,7 @@ export default function UserShelfList({ navigation }: any) {
           renderItem={renderShelves}
           keyExtractor={(item, index) => `shelf-${index}`}
           ListFooterComponent={newShelf}
+          showsVerticalScrollIndicator={false}
         />
       </View>
       <View style={styles.marginBottom} />
