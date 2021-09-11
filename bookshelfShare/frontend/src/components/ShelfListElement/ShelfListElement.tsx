@@ -21,28 +21,20 @@ export default function ShelfListElement({ shelf, loggedUserId }: any) {
             {shelf.books.length === 1 ? 'book' : 'books'}
           </Text>
           <View style={styles.photosContainer}>
-            {filteredUserList.map(({ photo, _id }: any, index: number) => index < 2 && (
-              <Image
-                key={`shared-${_id}`}
-                source={{ uri: photo }}
-                style={styles.sharedUserPhoto}
-              />
-            )) }
-
+            <Image
+              source={{ uri: filteredUserList[0]?.photo }}
+              style={styles.sharedUserPhoto}
+            />
             {filteredUserList.length > 2 && (
-            <Text>
+            <Text style={styles.sharedUserNumber}>
               {' '}
               +
-              {filteredUserList.length - 2 }
-              {' '}
+              {filteredUserList.length - 1 }
             </Text>
             )}
-
           </View>
         </View>
-
       </View>
-
     </TouchableOpacity>
   );
 }

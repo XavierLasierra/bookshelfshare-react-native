@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   FlatList,
-  SafeAreaView, TextInput, TouchableOpacity, View
+  SafeAreaView, TextInput, TouchableOpacity, View, Text
 } from 'react-native';
 import { useSelector } from 'react-redux';
 
@@ -23,6 +23,15 @@ export default function UserShelfList() {
     );
   }
 
+  const newShelf = (
+    <TouchableOpacity style={styles.addShelfButton}>
+      <View style={[globalStyles.circularButton, styles.addShelfCircle]}>
+        <Text style={styles.addShelfCircleText}>+</Text>
+      </View>
+      <Text style={styles.addShelfButtonText}>Create new bookshelf</Text>
+    </TouchableOpacity>
+  );
+
   return (
     <SafeAreaView style={globalStyles.mainContainer}>
       <Header Logo={ShelfIcon} />
@@ -41,6 +50,7 @@ export default function UserShelfList() {
           data={userShelves}
           renderItem={renderShelves}
           keyExtractor={(item, index) => `shelf-${index}`}
+          ListFooterComponent={newShelf}
         />
         <View style={styles.marginBottom} />
       </View>

@@ -8,5 +8,24 @@ export default StyleSheet.create({
   marginBottom: {
     width: '100%',
     height: 130
+  },
+  addShelfButton: {
+    padding: stylesConstants.padding.normal,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  addShelfCircle: {
+    backgroundColor: stylesConstants.colors.secondary,
+    width: 40,
+    height: 40,
+    marginRight: 20
+  },
+  addShelfCircleText: {
+    fontSize: stylesConstants.fontSize.big
+  },
+  addShelfButtonText: {
+    color: stylesConstants.colors.mainText,
+    fontSize: stylesConstants.fontSize.mid
   }
 });

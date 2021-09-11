@@ -14,24 +14,29 @@ export default StyleSheet.create({
     paddingHorizontal: stylesConstants.padding.mid
   },
   photosContainer: {
-    width: 60,
-    maxHeight: 30,
     flexDirection: 'row-reverse',
-    justifyContent: 'flex-end'
+    justifyContent: 'flex-end',
+    alignItems: 'center'
   },
   sharedUserPhoto: {
     width: 30,
     height: 30,
     borderRadius: 100
   },
+  sharedUserNumber: {
+    fontSize: stylesConstants.fontSize.mid,
+    marginRight: 5
+  },
   shelfName: {
     fontSize: stylesConstants.fontSize.mid,
     letterSpacing: 1,
-    width: 175,
+    width: 150,
     fontWeight: 'bold'
   },
   bookCounter: {
-    fontSize: stylesConstants.fontSize.small
+    fontSize: stylesConstants.fontSize.small,
+    textAlign: 'right',
+    width: 70
   },
   photoCounterContainer: {
     flexDirection: 'column-reverse',
