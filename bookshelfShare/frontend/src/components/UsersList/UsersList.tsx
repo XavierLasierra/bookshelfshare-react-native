@@ -86,6 +86,7 @@ export default function UsersList({ navigation, route: { params: { logo, followi
               placeholder="Search new users by email/name"
               value={emailSearch}
               onChangeText={handleEmailInputChange}
+              maxLength={25}
             />
             <TouchableOpacity
               onPress={handleUserSearch}

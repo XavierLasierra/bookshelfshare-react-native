@@ -30,6 +30,7 @@ export default function BookListFilter({ listName, books, setFilteredBooks }: an
           placeholder="Filter by title/author/publisher/isbn"
           value={filter}
           onChangeText={handleFilter}
+          maxLength={25}
         />
       </View>
     </View>
