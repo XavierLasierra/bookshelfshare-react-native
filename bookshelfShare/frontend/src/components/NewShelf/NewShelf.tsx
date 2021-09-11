@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {
-  Text, TouchableOpacity, View, TextInput
+  Text, TouchableOpacity, View, TextInput, ActivityIndicator
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useDispatch, useSelector } from 'react-redux';
@@ -10,6 +10,7 @@ import ShelfIcon from '../../assets/shelfIcon.svg';
 import styles from './newShelf.styles';
 import globalStyles from '../../styles/global.styles';
 import { createShelf } from '../../redux/actions/userShelves.creator';
+import stylesConstants from '../../styles/styles.constants';
 
 interface Props {
   navigation: any,
@@ -24,6 +25,8 @@ export default function NewShelf({ navigation, route: { params: { loggedUserId }
   const [rows, setRows] = useState('');
   const [columns, setColumns] = useState('');
   const [isCreating, setIsCreating] = useState(false);
+  const [invalidShelf, setInvalidShelf] = useState(false);
+  const [invalidShelfName, setInvalidShelfName] = useState(false);
 
   useEffect(() => {
     if (isCreating) {
@@ -32,17 +35,35 @@ export default function NewShelf({ navigation, route: { params: { loggedUserId }
   }, [shelves]);
 
   function handleShelfCreation() {
-    setIsCreating(true);
-    const shelvesInformation = {
-      name,
-      users: [loggedUserId],
-      shelf: new Array(+rows).fill(+columns)
-    };
-    dispatch(createShelf(shelvesInformation, token, refreshToken));
+    if (!name) {
+      setInvalidShelfName(true);
+    } else if (+columns > 6 || +rows > 6 || +columns <= 0 || +rows <= 0) {
+      setInvalidShelf(true);
+    } else {
+      setIsCreating(true);
+      const shelvesInformation = {
+        name,
+        users: [loggedUserId],
+        shelf: new Array(+rows).fill(+columns)
+      };
+      dispatch(createShelf(shelvesInformation, token, refreshToken));
+    }
   }
 
   function handleNameChange(text: string) {
     setName(text);
+  }
+
+  function handleNameFocus() {
+    if (invalidShelfName) {
+      setInvalidShelfName(false);
+    }
+  }
+
+  function handleRowColumnFocus() {
+    if (invalidShelf) {
+      setInvalidShelf(false);
+    }
   }
 
   function handleRowsChange(text: string) {
@@ -69,7 +90,13 @@ export default function NewShelf({ navigation, route: { params: { loggedUserId }
               value={name}
               testID="nameInput"
               maxLength={25}
+              onFocus={handleNameFocus}
             />
+            {invalidShelfName && (
+            <Text style={globalStyles.invalid}>
+              Select a name for your shelf
+            </Text>
+            )}
           </View>
           <View style={styles.shelfSizeContainer}>
             <View style={[globalStyles.inputContainer, styles.smallInputContainer]}>
@@ -80,7 +107,8 @@ export default function NewShelf({ navigation, route: { params: { loggedUserId }
                 value={rows}
                 testID="rowsInput"
                 keyboardType="number-pad"
-                maxLength={2}
+                maxLength={1}
+                onFocus={handleRowColumnFocus}
               />
             </View>
             <View style={[globalStyles.inputContainer, styles.smallInputContainer]}>
@@ -91,16 +119,24 @@ export default function NewShelf({ navigation, route: { params: { loggedUserId }
                 value={columns}
                 testID="columnsInput"
                 keyboardType="number-pad"
-                maxLength={2}
+                maxLength={1}
+                onFocus={handleRowColumnFocus}
               />
             </View>
           </View>
+          {invalidShelf && (
+          <Text style={globalStyles.invalid}>
+            Shelfs must have at least 1 and no more than 6 columns/rows
+          </Text>
+          )}
           <TouchableOpacity
             style={[globalStyles.button, styles.createButton]}
             onPress={handleShelfCreation}
             testID="createButton"
           >
-            <Text style={globalStyles.buttonText}>Create</Text>
+            {isCreating
+              ? <ActivityIndicator size="small" color={stylesConstants.colors.white} />
+              : <Text style={globalStyles.buttonText}>Create</Text>}
           </TouchableOpacity>
         </View>
       </View>
