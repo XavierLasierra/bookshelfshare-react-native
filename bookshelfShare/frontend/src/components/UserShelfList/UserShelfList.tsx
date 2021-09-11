@@ -13,9 +13,13 @@ import ShelfIcon from '../../assets/shelfIcon.svg';
 import globalStyles from '../../styles/global.styles';
 import styles from './userShelfList.styles';
 
-export default function UserShelfList() {
+export default function UserShelfList({ navigation }: any) {
   const userShelves = useSelector((store:any) => store.userShelves);
   const { userData: { _id: loggedUserId } } = useSelector((store: any) => store.loggedUser);
+
+  function handleNewShelfPage() {
+    navigation.push('NewShelf');
+  }
 
   function renderShelves({ item }: any) {
     return (
@@ -24,7 +28,10 @@ export default function UserShelfList() {
   }
 
   const newShelf = (
-    <TouchableOpacity style={styles.addShelfButton}>
+    <TouchableOpacity
+      style={styles.addShelfButton}
+      onPress={handleNewShelfPage}
+    >
       <View style={[globalStyles.circularButton, styles.addShelfCircle]}>
         <Text style={styles.addShelfCircleText}>+</Text>
       </View>
