@@ -25,7 +25,12 @@ export default function UserShelfList({ navigation }: any) {
 
   function renderShelves({ item }: any) {
     return (
-      <ShelfListElement shelf={item} loggedUserId={loggedUserId} />
+      <ShelfListElement
+        shelf={item}
+        loggedUserId={loggedUserId}
+        navigation={navigation}
+        logo="ShelfIcon"
+      />
     );
   }
 
