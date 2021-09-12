@@ -54,6 +54,7 @@ export default function UserShelfList({ navigation }: any) {
           <TextInput
             style={globalStyles.thinInput}
             placeholder="Search in all your shelves"
+            maxLength={25}
           />
           <TouchableOpacity>
             <SearchIcon width={35} height={35} />
