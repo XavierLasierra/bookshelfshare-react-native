@@ -13,10 +13,10 @@ export default function ShelfSimulation({ shelfSize }: any) {
     return 400;
   }
 
-  function renderColumns(columns: number) {
+  function renderColumns(columns: number, index: number) {
     const renderedColumns = [];
     for (let i = 0; i < columns; i += 1) {
-      renderedColumns.push(<ShelfBox width={`${100 / columns}%`} />);
+      renderedColumns.push(<ShelfBox key={`${index}-column-${i}`} width={`${100 / columns}%`} />);
     }
     return renderedColumns;
   }
@@ -30,7 +30,7 @@ export default function ShelfSimulation({ shelfSize }: any) {
             // eslint-disable-next-line react/no-array-index-key
             key={`row-${index}`}
           >
-            {renderColumns(columns)}
+            {renderColumns(columns, index)}
           </View>
         ))}
       </View>

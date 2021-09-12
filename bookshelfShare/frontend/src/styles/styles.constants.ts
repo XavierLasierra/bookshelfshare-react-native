@@ -12,7 +12,8 @@ export default {
     followDark: 'blue',
     detail: '#F9CB83',
     shelfOutline: '#958472',
-    shelfBackground: '#4D3C2A'
+    shelfBackground: '#4D3C2A',
+    shelfShadow: '#2F2406'
   },
   padding: {
     normal: 30,
