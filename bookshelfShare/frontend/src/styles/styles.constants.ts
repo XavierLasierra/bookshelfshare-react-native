@@ -10,7 +10,9 @@ export default {
     error: 'red',
     follow: '#E4FDFF',
     followDark: 'blue',
-    detail: '#F9CB83'
+    detail: '#F9CB83',
+    shelfOutline: '#958472',
+    shelfBackground: '#4D3C2A'
   },
   padding: {
     normal: 30,

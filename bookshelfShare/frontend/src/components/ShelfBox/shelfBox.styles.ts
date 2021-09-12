@@ -1,15 +1,16 @@
 import { StyleSheet } from 'react-native';
+import stylesConstants from '../../styles/styles.constants';
 
 export default StyleSheet.create({
   shelfBoxOutline: {
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'brown',
+    backgroundColor: stylesConstants.colors.shelfOutline,
     height: '100%'
   },
   shelfInside: {
     width: '90%',
     height: '90%',
-    backgroundColor: 'yellow'
+    backgroundColor: stylesConstants.colors.shelfBackground
   }
 });
