@@ -89,7 +89,7 @@ export function getRatings(isbn: string, token: string, refreshToken: string) {
         }
       } else if (error?.response?.status === 500) {
         dispatch({
-          type: notificationsActions.ISBN_ERROR
+          type: notificationsActions.LOAD_RATINGS_ERROR
         });
       } else {
         dispatch({
@@ -139,7 +139,7 @@ export function saveRating(isbn: string, ratingInfo: any, token: string, refresh
         }
       } else if (error?.response?.status === 500) {
         return dispatch({
-          type: notificationsActions.ISBN_ERROR
+          type: notificationsActions.SAVE_RATING_ERROR
         });
       } else {
         return dispatch({
@@ -177,7 +177,7 @@ export function getBooksData(bookIsbnArray: string[], token: string, refreshToke
         }
       } else if (error?.response?.status === 500) {
         dispatch({
-          type: notificationsActions.ISBN_ERROR
+          type: notificationsActions.LOAD_BOOKS_ERROR
         });
       } else {
         dispatch({

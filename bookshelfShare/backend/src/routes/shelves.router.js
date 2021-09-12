@@ -8,17 +8,17 @@ const {
   updateListById,
   updateListUsers,
   updateBooksFromList
-} = require('../controllers/lists.controller');
+} = require('../controllers/shelves.controller');
 
 const listsRouter = new Router();
 
 listsRouter
-  .route('/addUser/:listId')
+  .route('/addUser/:shelfId')
   .all(passport.authenticate('jwt', { session: false }))
   .put(updateListUsers);
 
 listsRouter
-  .route('/book/:listId')
+  .route('/book/:shelfId')
   .all(passport.authenticate('jwt', { session: false }))
   .put(updateBooksFromList);
 
@@ -29,7 +29,7 @@ listsRouter
   .post(createList);
 
 listsRouter
-  .route('/:listId')
+  .route('/:shelfId')
   .all(passport.authenticate('jwt', { session: false }))
   .get(getListById)
   .delete(deleteListById)

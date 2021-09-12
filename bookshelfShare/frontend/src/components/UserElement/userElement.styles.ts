@@ -5,14 +5,20 @@ export default StyleSheet.create({
   userElementContainer: {
     backgroundColor: stylesConstants.colors.white,
     flexDirection: 'row',
-    justifyContent: 'space-between',
     alignItems: 'center',
+    justifyContent: 'space-between',
     padding: stylesConstants.padding.small,
     borderRadius: 20,
     borderWidth: 1,
     borderColor: stylesConstants.colors.secondary,
     marginVertical: 10,
     width: 325
+  },
+  nameFollowContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    width: 200
   },
   userElementFollowedContainer: {
     backgroundColor: stylesConstants.colors.follow
@@ -23,7 +29,6 @@ export default StyleSheet.create({
     borderRadius: 100
   },
   userInformationContainer: {
-    width: 150
   },
   userName: {
     fontSize: stylesConstants.fontSize.mid,

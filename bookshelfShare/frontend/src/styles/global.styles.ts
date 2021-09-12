@@ -112,5 +112,22 @@ export default StyleSheet.create({
   },
   userEmail: {
     fontSize: stylesConstants.fontSize.mid
+  },
+  thinInputContainer: {
+    flexDirection: 'row',
+    width: '100%',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingVertical: 10
+  },
+  thinInput: {
+    height: '100%',
+    width: '85%',
+    paddingHorizontal: 20,
+    fontSize: stylesConstants.fontSize.mid,
+    backgroundColor: stylesConstants.colors.white,
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: stylesConstants.colors.secondary
   }
 });

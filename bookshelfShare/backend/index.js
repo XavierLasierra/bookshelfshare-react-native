@@ -7,7 +7,7 @@ const cors = require('cors');
 const authRouter = require('./src/routes/auth.router');
 const booksRouter = require('./src/routes/books.router');
 const userRouter = require('./src/routes/users.router');
-const listsRouter = require('./src/routes/lists.router');
+const shelvesRouter = require('./src/routes/shelves.router');
 
 require('./src/config/ddbb.config');
 
@@ -23,7 +23,7 @@ server.use(express.json());
 server.use('/api/auth', authRouter);
 server.use('/api/books', booksRouter);
 server.use('/api/users', userRouter);
-server.use('/api/lists', listsRouter);
+server.use('/api/shelves', shelvesRouter);
 
 server.listen(
   port,

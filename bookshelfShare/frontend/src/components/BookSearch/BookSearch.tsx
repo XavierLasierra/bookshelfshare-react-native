@@ -119,7 +119,8 @@ export default function BookSearch({ navigation, isbnFromCamera }: Props) {
                   onChangeText={handleIsbnChange}
                   value={isbn}
                   testID="isbnInput"
-
+                  keyboardType="number-pad"
+                  maxLength={13}
                 />
               </View>
             )
@@ -132,7 +133,7 @@ export default function BookSearch({ navigation, isbnFromCamera }: Props) {
                     onChangeText={handleInauthorChange}
                     value={inauthor}
                     testID="authorInput"
-
+                    maxLength={25}
                   />
                 </View>
                 <View style={globalStyles.inputContainer}>
@@ -142,6 +143,7 @@ export default function BookSearch({ navigation, isbnFromCamera }: Props) {
                     onChangeText={handleIntitleChange}
                     value={intitle}
                     testID="titleInput"
+                    maxLength={25}
                   />
                 </View>
                 <View style={globalStyles.inputContainer}>
@@ -151,6 +153,7 @@ export default function BookSearch({ navigation, isbnFromCamera }: Props) {
                     onChangeText={handleInpublisherChange}
                     value={inpublisher}
                     testID="publisherInput"
+                    maxLength={25}
                   />
                 </View>
               </>

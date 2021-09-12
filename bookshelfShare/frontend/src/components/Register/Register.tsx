@@ -114,6 +114,7 @@ export default function Register({ navigation: { pop } }:any) {
             onChangeText={handleUsernameChange}
             onFocus={handleUsernameFocus}
             testID="usernameInput"
+            maxLength={25}
           />
           {!isValidUsername && <Text testID="invalidUsername" style={globalStyles.invalid}>Type your username</Text>}
         </View>
@@ -125,6 +126,7 @@ export default function Register({ navigation: { pop } }:any) {
             onChangeText={handleEmailChange}
             onFocus={handleEmailFocus}
             testID="emailInput"
+            maxLength={25}
           />
           {!isValidEmail && <Text testID="invalidEmail" style={globalStyles.invalid}>Invalid email</Text>}
         </View>
@@ -137,6 +139,7 @@ export default function Register({ navigation: { pop } }:any) {
             onChangeText={handlePasswordChange}
             onFocus={handlePasswordFocus}
             testID="passwordInput"
+            maxLength={25}
           />
           {!isValidPassword && (
           <Text testID="invalidPassword" style={[globalStyles.invalid, styles.invalidPasswordText]}>
@@ -154,6 +157,7 @@ export default function Register({ navigation: { pop } }:any) {
             onChangeText={handlePasswordRepeatChange}
             onFocus={handlePasswordRepeatFocus}
             testID="passwordRepeatInput"
+            maxLength={25}
           />
           {!isValidPasswordRepeat
           && <Text testID="invalidPasswordRepeat" style={globalStyles.invalid}>Passwords don&quot;t match</Text>}

@@ -62,7 +62,5 @@
   "resolutions": {
     "@types/react": "^17"
   },
-  "jest": {
-    
-  }
+  "jest": {}
 }

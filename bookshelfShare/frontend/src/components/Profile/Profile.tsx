@@ -19,7 +19,7 @@ export default function Profile({ navigation }: any) {
   const userBooks = useSelector((store: any) => store.userBooks);
   const { followers, following } = useSelector((store: any) => store.userSocials);
   const { token, refreshToken } = useSelector((store: any) => store.tokens);
-  const shelves = useSelector((store: any) => store.shelves);
+  const shelves = useSelector((store: any) => store.userShelves);
 
   function handleLogout() {
     dispatch(logoutUser(refreshToken));

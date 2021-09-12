@@ -9,7 +9,8 @@ export default {
     dark: '#000000',
     error: 'red',
     follow: '#E4FDFF',
-    followDark: 'blue'
+    followDark: 'blue',
+    detail: '#F9CB83'
   },
   padding: {
     normal: 30,

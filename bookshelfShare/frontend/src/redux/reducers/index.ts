@@ -4,7 +4,7 @@ import tokens from './tokens.reducer';
 import notifications from './notifications.reducer';
 import books from './books.reducer';
 import customBookData from './customBookData.reducer';
-import shelves from './shelves.reducer';
+import userShelves from './userShelves.reducer';
 import userBooks from './userBooks.reducer';
 import userSocials from './userSocials.reducer';
 import usersList from './usersList.reducer';
@@ -18,7 +18,7 @@ export default combineReducers({
   notifications,
   books,
   customBookData,
-  shelves,
+  userShelves,
   usersList,
   currentUser
 });

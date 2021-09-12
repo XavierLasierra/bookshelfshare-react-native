@@ -52,28 +52,29 @@ export default function UserElement({
           source={{ uri: user.photo }}
           style={styles.userPhoto}
         />
-        <View style={styles.userInformationContainer}>
-          <Text style={styles.userName}>{user.username}</Text>
-          <Text style={styles.userEmail}>{user.email}</Text>
+        <View style={styles.nameFollowContainer}>
+          <View style={styles.userInformationContainer}>
+            <Text style={styles.userName}>{user.username}</Text>
+            <Text style={styles.userEmail}>{user.email}</Text>
+          </View>
+          {isFollowed
+            ? (
+              <TouchableOpacity
+                onPress={() => handleDeleteFollowing(user._id)}
+                disabled={isDisabled}
+              >
+                <RedProfileIcon width={30} height={30} />
+              </TouchableOpacity>
+            )
+            : (
+              <TouchableOpacity
+                onPress={() => handleAddFollowing(user._id)}
+                disabled={isDisabled}
+              >
+                <AddUserIcon width={30} height={30} />
+              </TouchableOpacity>
+            )}
         </View>
-        {isFollowed
-          ? (
-            <TouchableOpacity
-              onPress={() => handleDeleteFollowing(user._id)}
-              disabled={isDisabled}
-            >
-              <RedProfileIcon width={30} height={30} />
-            </TouchableOpacity>
-          )
-          : (
-            <TouchableOpacity
-              onPress={() => handleAddFollowing(user._id)}
-              disabled={isDisabled}
-            >
-              <AddUserIcon width={30} height={30} />
-            </TouchableOpacity>
-          )}
-
       </TouchableOpacity>
       )}
     </>

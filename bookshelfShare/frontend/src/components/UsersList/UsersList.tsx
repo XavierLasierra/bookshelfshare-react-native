@@ -13,6 +13,7 @@ import logoSelector from '../../utils/logoSelector';
 import SearchIcon from '../../assets/searchIcon.svg';
 import stylesConstants from '../../styles/styles.constants';
 import styles from './usersList.styles';
+import globalStyles from '../../styles/global.styles';
 
 export default function UsersList({ navigation, route: { params: { logo, followingPage } } }: any) {
   const dispatch = useDispatch();
@@ -64,12 +65,16 @@ export default function UsersList({ navigation, route: { params: { logo, followi
 
   const usersResults = users.length > 0
     ? (
-      <FlatList
-        showsVerticalScrollIndicator={false}
-        data={users}
-        renderItem={renderUser}
-        keyExtractor={(item, index) => `book-${index}`}
-      />
+      <>
+        <FlatList
+          showsVerticalScrollIndicator={false}
+          data={users}
+          renderItem={renderUser}
+          keyExtractor={(item, index) => `user-${index}`}
+          ListFooterComponent={() => <View style={styles.marginBottom} />}
+        />
+
+      </>
     )
     : <Text>0 users</Text>;
 
@@ -79,12 +84,13 @@ export default function UsersList({ navigation, route: { params: { logo, followi
       <View style={styles.usersListContainer}>
         {followingPage && (
         <View>
-          <View style={styles.inputContainer}>
+          <View style={globalStyles.thinInputContainer}>
             <TextInput
-              style={styles.input}
+              style={globalStyles.thinInput}
               placeholder="Search new users by email/name"
               value={emailSearch}
               onChangeText={handleEmailInputChange}
+              maxLength={25}
             />
             <TouchableOpacity
               onPress={handleUserSearch}
@@ -107,7 +113,6 @@ export default function UsersList({ navigation, route: { params: { logo, followi
           {results
             ? usersResults
             : <ActivityIndicator size="large" color={stylesConstants.colors.dark} />}
-          <View style={styles.marginBottom} />
         </View>
       </View>
     </SafeAreaView>

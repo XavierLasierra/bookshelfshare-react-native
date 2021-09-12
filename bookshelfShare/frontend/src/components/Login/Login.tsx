@@ -82,6 +82,7 @@ export default function Login({ navigation: { push } } : any) {
             value={userEmail}
             onFocus={handleEmailFocus}
             onChangeText={handleEmailChange}
+            maxLength={25}
           />
           {!isValidEmail && <Text testID="invalidEmail" style={globalStyles.invalid}>Invalid email</Text>}
         </View>
@@ -94,6 +95,7 @@ export default function Login({ navigation: { push } } : any) {
             value={userPassword}
             onFocus={handlePasswordFocus}
             onChangeText={handlePasswordChange}
+            maxLength={25}
           />
           {!isValidPassword && <Text testID="invalidPassword" style={globalStyles.invalid}>Type your password</Text>}
         </View>
