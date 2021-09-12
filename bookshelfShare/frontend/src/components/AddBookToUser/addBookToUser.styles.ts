@@ -23,9 +23,7 @@ export default StyleSheet.create({
   },
   menuOption: {
     minHeight: 40,
-    width: 150,
-    justifyContent: 'center',
-    paddingHorizontal: stylesConstants.padding.mid
+    justifyContent: 'center'
   },
   activityIndicatorContainer: {
     backgroundColor: stylesConstants.colors.white,
@@ -41,5 +39,14 @@ export default StyleSheet.create({
     textAlign: 'center',
     fontSize: stylesConstants.fontSize.small,
     width: '100%'
+  },
+  shelfLocationContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingHorizontal: 20
+  },
+  shelfLocationText: {
+    fontSize: stylesConstants.fontSize.mid,
+    fontWeight: '500'
   }
 });
