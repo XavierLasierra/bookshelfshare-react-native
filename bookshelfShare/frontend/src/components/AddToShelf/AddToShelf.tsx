@@ -22,7 +22,6 @@ export default function AddToShelf({
       shelf,
       logo,
       deleteFromShelf,
-      notes,
       bookIsbn
     }
   }
@@ -56,7 +55,6 @@ export default function AddToShelf({
         // eslint-disable-next-line no-underscore-dangle
         shelf._id,
         bookIsbn, {
-          notes,
           location
         },
         token,
