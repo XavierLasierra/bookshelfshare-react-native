@@ -13,6 +13,7 @@ import styles from './addToShelf.styles';
 import globalStyles from '../../styles/global.styles';
 import stylesConstants from '../../styles/styles.constants';
 import { addToShelf } from '../../redux/actions/userShelves.creator';
+import sortShelfData from '../../utils/sortShelfData';
 
 export default function AddToShelf({
   navigation,
@@ -74,6 +75,7 @@ export default function AddToShelf({
             shelfSize={shelf.shelf}
             clickCallback={clickCallback}
             activeShelf={location}
+            shelfData={sortShelfData(shelf)}
           />
         </View>
         {!isLoading

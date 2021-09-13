@@ -15,6 +15,7 @@ import styles from './shelfDetail.styles';
 import globalStyles from '../../styles/global.styles';
 import ShelfSimulation from '../ShelfSimulation/ShelfSimulation';
 import ShelfBooksList from '../ShelfBooksList/ShelfBooksList';
+import sortShelfData from '../../utils/sortShelfData';
 
 interface Props {
     route: Route,
@@ -39,6 +40,11 @@ export default function ShelfDetail(
   const dispatch = useDispatch();
   const { results, shelf } = useSelector((store: any) => store.currentShelf);
   const [isShelf, setIsShelf] = useState(true);
+  const [shelfData, setShelfData] = useState([]);
+
+  useEffect(() => {
+    setShelfData(sortShelfData(shelf));
+  }, [shelf]);
 
   useEffect(() => () => {
     dispatch(clearCurrentShelf());
@@ -85,7 +91,7 @@ export default function ShelfDetail(
       </View>
       <View>
         {isShelf
-          ? <ShelfSimulation shelfSize={shelf.shelf} />
+          ? <ShelfSimulation shelfSize={shelf.shelf} shelfData={shelfData} />
           : <ShelfBooksList />}
 
       </View>

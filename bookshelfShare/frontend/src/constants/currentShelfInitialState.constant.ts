@@ -1,4 +1,6 @@
 export default {
   results: false,
-  shelf: {}
+  shelf: {
+    books: []
+  }
 };

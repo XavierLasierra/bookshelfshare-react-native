@@ -4,13 +4,25 @@ import ShelfBox from '../ShelfBox/ShelfBox';
 
 import styles from './shelfSimulation.styles';
 
-export default function ShelfSimulation({ shelfSize, clickCallback, activeShelf }: any) {
+export default function ShelfSimulation({
+  shelfSize, clickCallback, activeShelf, shelfData
+}: any) {
   function calculateHeight() {
     const maxColumns: number = Math.max(...shelfSize);
     const rows: number = shelfSize.length;
 
     if (maxColumns > rows) return (rows / maxColumns) * 400;
     return 400;
+  }
+
+  function calculateBoooks(shelfLocation: number[]) {
+    const foundShelf = shelfData.find(({ location }: any) => JSON.stringify(location)
+    === JSON.stringify(shelfLocation));
+
+    if (foundShelf) {
+      return foundShelf.books.length;
+    }
+    return 0;
   }
 
   function renderColumns(columns: number, index: number) {
@@ -23,6 +35,7 @@ export default function ShelfSimulation({ shelfSize, clickCallback, activeShelf 
         row={index}
         column={i}
         activeShelf={activeShelf}
+        numberOfBooks={calculateBoooks([index, i])}
       />);
     }
     return renderedColumns;

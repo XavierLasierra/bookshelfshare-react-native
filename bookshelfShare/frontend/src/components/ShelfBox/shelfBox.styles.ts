@@ -14,9 +14,16 @@ export default StyleSheet.create({
     backgroundColor: stylesConstants.colors.shelfBackground,
     borderColor: stylesConstants.colors.shelfShadow,
     borderBottomWidth: 5,
-    borderRightWidth: 5
+    borderRightWidth: 5,
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   activeShelf: {
     backgroundColor: stylesConstants.colors.activeShelf
+  },
+  numberOfBooksText: {
+    color: stylesConstants.colors.white,
+    fontWeight: 'bold',
+    fontSize: stylesConstants.fontSize.mid
   }
 });
