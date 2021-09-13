@@ -4,7 +4,7 @@ import ShelfBox from '../ShelfBox/ShelfBox';
 
 import styles from './shelfSimulation.styles';
 
-export default function ShelfSimulation({ shelfSize }: any) {
+export default function ShelfSimulation({ shelfSize, clickCallback, activeShelf }: any) {
   function calculateHeight() {
     const maxColumns: number = Math.max(...shelfSize);
     const rows: number = shelfSize.length;
@@ -16,7 +16,14 @@ export default function ShelfSimulation({ shelfSize }: any) {
   function renderColumns(columns: number, index: number) {
     const renderedColumns = [];
     for (let i = 0; i < columns; i += 1) {
-      renderedColumns.push(<ShelfBox key={`${index}-column-${i}`} width={`${100 / columns}%`} />);
+      renderedColumns.push(<ShelfBox
+        key={`${index}-column-${i}`}
+        width={`${100 / columns}%`}
+        clickCallback={clickCallback}
+        row={index}
+        column={i}
+        activeShelf={activeShelf}
+      />);
     }
     return renderedColumns;
   }

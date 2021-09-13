@@ -5,12 +5,13 @@ import {
 } from 'react-native-popup-menu';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateUserBooks } from '../../redux/actions/loggedUser.creator';
+import { addToShelf } from '../../redux/actions/userShelves.creator';
 import stylesConstants from '../../styles/styles.constants';
 
 import styles from './addBookToUser.styles';
 
 export default function AddBookToUser({
-  bookIsbn, token, refreshToken, userId, navigation
+  bookIsbn, token, refreshToken, userId, navigation, logo
 }: any) {
   const dispatch = useDispatch();
   const books = useSelector((store: any) => store.userBooks);
@@ -19,7 +20,7 @@ export default function AddBookToUser({
   const [markShelfName, setMarkShelfName] = useState('Add to shelf');
   const [deleteFrom, setDeleteFrom] = useState('');
   const [deleteFromShelf, setDeleteFromShelf] = useState('');
-  const [shelfLocation, setShelfLocation] = useState();
+  const [shelfLocation, setShelfLocation] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
   function findInUserBooks() {
@@ -44,6 +45,8 @@ export default function AddBookToUser({
 
   function findInUserShelves() {
     let name = 'Add to shelf';
+    setDeleteFromShelf('');
+    setShelfLocation(null);
     shelves.forEach((shelf: any) => {
       const foundBook = shelf.books
         .find(({ bookIsbn: shelfBookIsbn }: any) => shelfBookIsbn === bookIsbn);
@@ -59,9 +62,12 @@ export default function AddBookToUser({
 
   useEffect(() => {
     setMarkListName(findInUserBooks());
-    setMarkShelfName(findInUserShelves());
     setIsLoading(false);
   }, [books]);
+
+  useEffect(() => {
+    setMarkShelfName(findInUserShelves());
+  }, [shelves]);
 
   function handleCategorySelect(value: string) {
     setIsLoading(true);
@@ -77,11 +83,25 @@ export default function AddBookToUser({
   }
 
   function handleShelfSelect(value: string) {
-    navigation.push('AddToShelf',
-      {
-        shelf: shelves.find(({ _id }: any) => _id === value),
-        deleteFromShelf
-      });
+    if (value === 'delete') {
+      dispatch(addToShelf(
+        deleteFromShelf,
+        // eslint-disable-next-line no-underscore-dangle
+        '',
+        bookIsbn,
+        '',
+        token,
+        refreshToken
+      ));
+    } else {
+      navigation.push('AddToShelf',
+        {
+          shelf: shelves.find(({ _id }: any) => _id === value),
+          deleteFromShelf,
+          bookIsbn,
+          logo
+        });
+    }
   }
 
   const menus = (
@@ -145,7 +165,7 @@ export default function AddBookToUser({
               />
             ))}
             <MenuOption
-              value=""
+              value="delete"
               text="Delete from shelf"
               style={styles.menuOption}
             />
@@ -156,11 +176,11 @@ export default function AddBookToUser({
       <View style={styles.shelfLocationContainer}>
         <Text style={styles.shelfLocationText}>
           Row:
-          {shelfLocation[0]}
+          {shelfLocation[0] + 1}
         </Text>
         <Text style={styles.shelfLocationText}>
           Col:
-          {shelfLocation[1]}
+          {shelfLocation[1] + 1}
         </Text>
       </View>
       )}

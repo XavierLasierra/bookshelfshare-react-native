@@ -15,5 +15,8 @@ export default StyleSheet.create({
     borderColor: stylesConstants.colors.shelfShadow,
     borderBottomWidth: 5,
     borderRightWidth: 5
+  },
+  activeShelf: {
+    backgroundColor: stylesConstants.colors.activeShelf
   }
 });

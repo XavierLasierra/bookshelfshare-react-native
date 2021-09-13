@@ -62,6 +62,7 @@ export default function BookDetail({
             // eslint-disable-next-line no-underscore-dangle
             userId={userData._id}
             navigation={navigation}
+            logo={logo}
           />
           <View style={styles.topContainer}>
             <Image
