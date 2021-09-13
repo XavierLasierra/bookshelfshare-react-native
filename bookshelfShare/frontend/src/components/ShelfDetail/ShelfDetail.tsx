@@ -9,13 +9,13 @@ import Header from '../Header/Header';
 import { clearCurrentShelf } from '../../redux/actions/currentShelf.creator';
 import logoSelector from '../../utils/logoSelector';
 
-import SearchIcon from '../../assets/searchIcon.svg';
 import stylesConstants from '../../styles/styles.constants';
 import styles from './shelfDetail.styles';
 import globalStyles from '../../styles/global.styles';
 import ShelfSimulation from '../ShelfSimulation/ShelfSimulation';
 import ShelfBooksList from '../ShelfBooksList/ShelfBooksList';
 import sortShelfData from '../../utils/sortShelfData';
+import { bookShelfListFilter, bookShelfLocationFilter } from '../../utils/bookFilter';
 
 interface Props {
     route: Route,
@@ -41,18 +41,30 @@ export default function ShelfDetail(
   const { results, shelf } = useSelector((store: any) => store.currentShelf);
   const [isShelf, setIsShelf] = useState(true);
   const [shelfData, setShelfData] = useState([]);
+  const [filter, setFilter] = useState('');
+  const [filteredList, setFilteredList] = useState();
 
   useEffect(() => {
     setShelfData(sortShelfData(shelf));
+    setFilteredList(shelf.books);
   }, [shelf]);
 
   useEffect(() => () => {
     dispatch(clearCurrentShelf());
   }, []);
 
+  function handleFilter(text: string) {
+    if (isShelf) {
+      setIsShelf(false);
+    }
+    setFilteredList(bookShelfListFilter(text, shelf.books));
+    setFilter(text);
+  }
+
   function handleShelfPage() {
     if (!isShelf) {
       setIsShelf(true);
+      handleFilter('');
     }
   }
 
@@ -63,21 +75,21 @@ export default function ShelfDetail(
   }
 
   function handleShelfClick(location: number[]) {
-    console.log(location);
+    setIsShelf(false);
+    setFilteredList(bookShelfLocationFilter(location, shelf.books));
   }
 
   const bookShelf = (
     <>
       <Text style={styles.shelfName}>{shelf.name}</Text>
-      <View style={globalStyles.thinInputContainer}>
+      <View style={[globalStyles.thinInputContainer, styles.inputContainer]}>
         <TextInput
           style={globalStyles.thinInput}
           placeholder={`Search in ${shelf.name}`}
           maxLength={25}
+          onChangeText={handleFilter}
+          value={filter}
         />
-        <TouchableOpacity>
-          <SearchIcon width={35} height={35} />
-        </TouchableOpacity>
       </View>
       <View style={globalStyles.toggleContainer}>
         <TouchableOpacity
@@ -102,7 +114,14 @@ export default function ShelfDetail(
               clickCallback={handleShelfClick}
             />
           )
-          : <ShelfBooksList shelfData={shelf} logo={logo} navigation={navigation} />}
+          : (
+            <ShelfBooksList
+              shelfData={filteredList}
+              logo={logo}
+              navigation={navigation}
+              shelfName={shelf.name}
+            />
+          )}
 
       </View>
     </>

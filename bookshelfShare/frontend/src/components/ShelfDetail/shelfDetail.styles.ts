@@ -14,5 +14,8 @@ export default StyleSheet.create({
   },
   activityIndicator: {
     marginTop: 40
+  },
+  inputContainer: {
+    justifyContent: 'center'
   }
 });
