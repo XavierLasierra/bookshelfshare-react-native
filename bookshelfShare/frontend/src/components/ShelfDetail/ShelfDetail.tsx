@@ -62,6 +62,10 @@ export default function ShelfDetail(
     }
   }
 
+  function handleShelfClick(location: number[]) {
+    console.log(location);
+  }
+
   const bookShelf = (
     <>
       <Text style={styles.shelfName}>{shelf.name}</Text>
@@ -91,8 +95,14 @@ export default function ShelfDetail(
       </View>
       <View>
         {isShelf
-          ? <ShelfSimulation shelfSize={shelf.shelf} shelfData={shelfData} />
-          : <ShelfBooksList />}
+          ? (
+            <ShelfSimulation
+              shelfSize={shelf.shelf}
+              shelfData={shelfData}
+              clickCallback={handleShelfClick}
+            />
+          )
+          : <ShelfBooksList shelfData={shelf} logo={logo} navigation={navigation} />}
 
       </View>
     </>
