@@ -23,16 +23,18 @@ export default function ShelfSimulation({ shelfSize }: any) {
 
   return (
     <View style={styles.shelfFlexContainer}>
-      <View style={[styles.shelfOutsideOutline, { height: calculateHeight() }]}>
-        {shelfSize.map((columns: number, index: number) => (
-          <View
-            style={[styles.rowContainer, { height: `${100 / shelfSize.length}%`, width: '100%' }]}
+      <View style={styles.shadowTop}>
+        <View style={[styles.shelfOutsideOutline, { height: calculateHeight() }]}>
+          {shelfSize.map((columns: number, index: number) => (
+            <View
+              style={[styles.rowContainer, { height: `${100 / shelfSize.length}%`, width: '100%' }]}
             // eslint-disable-next-line react/no-array-index-key
-            key={`row-${index}`}
-          >
-            {renderColumns(columns, index)}
-          </View>
-        ))}
+              key={`row-${index}`}
+            >
+              {renderColumns(columns, index)}
+            </View>
+          ))}
+        </View>
       </View>
     </View>
   );

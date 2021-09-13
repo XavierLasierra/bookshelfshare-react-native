@@ -13,5 +13,11 @@ export default StyleSheet.create({
     borderWidth: 6,
     borderColor: stylesConstants.colors.shelfOutline,
     elevation: 10
+  },
+  shadowTop: {
+    borderTopWidth: 10,
+    borderColor: stylesConstants.colors.shelfShadow,
+    borderRadius: 15,
+    backgroundColor: stylesConstants.colors.shelfOutline
   }
 });
