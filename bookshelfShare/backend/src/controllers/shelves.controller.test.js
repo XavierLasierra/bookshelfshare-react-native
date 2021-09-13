@@ -10,7 +10,7 @@ const {
 const { getBooksDataFromList } = require('../services/bookDataGetter');
 const List = require('../models/shelf.model');
 
-jest.mock('../models/list.model');
+jest.mock('../models/shelf.model');
 jest.mock('../services/bookDataGetter');
 
 describe('Given a getLists function', () => {
@@ -30,7 +30,9 @@ describe('Given a getLists function', () => {
 
     describe('And find is resolved', () => {
       test('Then should call res.json', async () => {
-        List.find.mockResolvedValue([]);
+        List.find.mockReturnValue({
+          populate: jest.fn().mockResolvedValue([])
+        });
 
         await getLists(req, res);
 
@@ -39,7 +41,9 @@ describe('Given a getLists function', () => {
     });
     describe('And find is rejected', () => {
       beforeEach(async () => {
-        List.find.mockRejectedValue(new Error('Server error'));
+        List.find.mockReturnValue({
+          populate: jest.fn().mockRejectedValue(new Error('Server error'))
+        });
 
         await getLists(req, res);
       });

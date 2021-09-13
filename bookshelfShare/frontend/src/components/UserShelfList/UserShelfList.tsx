@@ -25,7 +25,12 @@ export default function UserShelfList({ navigation }: any) {
 
   function renderShelves({ item }: any) {
     return (
-      <ShelfListElement shelf={item} loggedUserId={loggedUserId} />
+      <ShelfListElement
+        shelf={item}
+        loggedUserId={loggedUserId}
+        navigation={navigation}
+        logo="ShelfIcon"
+      />
     );
   }
 
@@ -49,6 +54,7 @@ export default function UserShelfList({ navigation }: any) {
           <TextInput
             style={globalStyles.thinInput}
             placeholder="Search in all your shelves"
+            maxLength={25}
           />
           <TouchableOpacity>
             <SearchIcon width={35} height={35} />

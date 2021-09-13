@@ -9,8 +9,7 @@ const shelfSchema = mongoose.Schema({
       bookIsbn: String,
       customInformation: {
         notes: String,
-        column: Number,
-        row: Number
+        location: [Number]
       }
     }
   ]

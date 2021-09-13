@@ -6,6 +6,7 @@ import UsersList from '../../components/UsersList/UsersList';
 import OtherUserProfile from '../../components/OtherUserProfile/OtherUserProfile';
 import BookResults from '../../components/BookResults/BookResults';
 import BookDetail from '../../components/BookDetail/BookDetail';
+import AddToShelf from '../../components/AddToShelf/AddToShelf';
 
 export default function FollowingNavigator() {
   const Stack = createStackNavigator();
@@ -38,6 +39,10 @@ export default function FollowingNavigator() {
       <Stack.Screen
         name="BookDetail"
         component={BookDetail}
+      />
+      <Stack.Screen
+        name="AddToShelf"
+        component={AddToShelf}
       />
     </Stack.Navigator>
   );

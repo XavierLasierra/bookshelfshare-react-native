@@ -3,6 +3,9 @@ import { createStackNavigator, CardStyleInterpolators } from '@react-navigation/
 
 import UserShelfList from '../../components/UserShelfList/UserShelfList';
 import NewShelf from '../../components/NewShelf/NewShelf';
+import ShelfDetail from '../../components/ShelfDetail/ShelfDetail';
+import BookDetail from '../../components/BookDetail/BookDetail';
+import AddToShelf from '../../components/AddToShelf/AddToShelf';
 
 export default function ShelfNavigator() {
   const Stack = createStackNavigator();
@@ -23,6 +26,18 @@ export default function ShelfNavigator() {
       <Stack.Screen
         name="NewShelf"
         component={NewShelf}
+      />
+      <Stack.Screen
+        name="ShelfDetail"
+        component={ShelfDetail}
+      />
+      <Stack.Screen
+        name="BookDetail"
+        component={BookDetail}
+      />
+      <Stack.Screen
+        name="AddToShelf"
+        component={AddToShelf}
       />
     </Stack.Navigator>
   );

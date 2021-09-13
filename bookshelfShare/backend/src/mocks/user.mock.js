@@ -10,5 +10,5 @@ module.exports = {
     wishlist: []
   },
   followers: [],
-  following: []
+  following: ['1']
 };

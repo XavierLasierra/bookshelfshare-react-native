@@ -93,20 +93,20 @@ export default function BookSearch({ navigation, isbnFromCamera }: Props) {
         <Text style={globalStyles.title}>
           Book Search
         </Text>
-        <View style={styles.toggleContainer}>
+        <View style={globalStyles.toggleContainer}>
           <TouchableOpacity
-            style={[styles.toggle, isISBN && styles.toggleActive]}
+            style={[globalStyles.toggle, isISBN && globalStyles.toggleActive]}
             onPress={handleISBNPage}
             testID="isbnPageButton"
           >
-            <Text style={styles.toggleText}>ISBN</Text>
+            <Text style={globalStyles.toggleText}>ISBN</Text>
           </TouchableOpacity>
           <TouchableOpacity
-            style={[styles.toggle, !isISBN && styles.toggleActive]}
+            style={[globalStyles.toggle, !isISBN && globalStyles.toggleActive]}
             onPress={handleOtherPage}
             testID="otherPageButton"
           >
-            <Text style={styles.toggleText}>Other</Text>
+            <Text style={globalStyles.toggleText}>Other</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.formContainer}>

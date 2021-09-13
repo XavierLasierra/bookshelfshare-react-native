@@ -129,5 +129,21 @@ export default StyleSheet.create({
     borderRadius: 10,
     borderWidth: 1,
     borderColor: stylesConstants.colors.secondary
+  },
+  toggleContainer: {
+    flexDirection: 'row',
+    marginTop: 10
+  },
+  toggle: {
+    alignItems: 'center',
+    paddingVertical: 10,
+    width: 150,
+    backgroundColor: stylesConstants.colors.white
+  },
+  toggleActive: {
+    backgroundColor: stylesConstants.colors.secondary
+  },
+  toggleText: {
+    fontSize: stylesConstants.fontSize.big
   }
 });

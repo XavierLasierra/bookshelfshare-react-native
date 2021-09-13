@@ -53,6 +53,12 @@ function notificationsReducer(notification = [], action: Action): string[] {
     case notificationsActions.CREATE_SHELF_ERROR:
       newNotification = ['Could not create new shelf'];
       break;
+    case notificationsActions.LOAD_CURRENT_SHELF_ERROR:
+      newNotification = ['Could not get shelf data'];
+      break;
+    case notificationsActions.ADD_TO_SHELF_ERROR:
+      newNotification = ['Could not modify shelf'];
+      break;
     default:
       break;
   }
