@@ -82,6 +82,7 @@ exports[`Given a Login component When it is rendered Then should match the snaps
         email
       </Text>
       <TextInput
+        maxLength={25}
         onChangeText={[Function]}
         onFocus={[Function]}
         style={
@@ -128,6 +129,7 @@ exports[`Given a Login component When it is rendered Then should match the snaps
         password
       </Text>
       <TextInput
+        maxLength={25}
         onChangeText={[Function]}
         onFocus={[Function]}
         secureTextEntry={true}

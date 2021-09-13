@@ -105,7 +105,7 @@ exports[`Given a BookSearch component When it is rendered And isbnFromCamera is 
             "alignItems": "center",
             "backgroundColor": "#ECECEC",
             "opacity": 1,
-            "paddingVertical": 15,
+            "paddingVertical": 10,
             "width": 150,
           }
         }
@@ -136,7 +136,7 @@ exports[`Given a BookSearch component When it is rendered And isbnFromCamera is 
             "alignItems": "center",
             "backgroundColor": "#FFFFFF",
             "opacity": 1,
-            "paddingVertical": 15,
+            "paddingVertical": 10,
             "width": 150,
           }
         }
@@ -190,6 +190,8 @@ exports[`Given a BookSearch component When it is rendered And isbnFromCamera is 
           ISBN
         </Text>
         <TextInput
+          keyboardType="number-pad"
+          maxLength={13}
           onChangeText={[Function]}
           style={
             Object {
@@ -354,7 +356,7 @@ exports[`Given a BookSearch component When it is rendered And isbnFromCamera is 
             "alignItems": "center",
             "backgroundColor": "#FFFFFF",
             "opacity": 1,
-            "paddingVertical": 15,
+            "paddingVertical": 10,
             "width": 150,
           }
         }
@@ -385,7 +387,7 @@ exports[`Given a BookSearch component When it is rendered And isbnFromCamera is 
             "alignItems": "center",
             "backgroundColor": "#ECECEC",
             "opacity": 1,
-            "paddingVertical": 15,
+            "paddingVertical": 10,
             "width": 150,
           }
         }
@@ -439,6 +441,7 @@ exports[`Given a BookSearch component When it is rendered And isbnFromCamera is 
           author
         </Text>
         <TextInput
+          maxLength={25}
           onChangeText={[Function]}
           style={
             Object {
@@ -484,6 +487,7 @@ exports[`Given a BookSearch component When it is rendered And isbnFromCamera is 
           title
         </Text>
         <TextInput
+          maxLength={25}
           onChangeText={[Function]}
           style={
             Object {
@@ -529,6 +533,7 @@ exports[`Given a BookSearch component When it is rendered And isbnFromCamera is 
           publisher
         </Text>
         <TextInput
+          maxLength={25}
           onChangeText={[Function]}
           style={
             Object {
@@ -693,7 +698,7 @@ exports[`Given a BookSearch component When it is rendered And isbnFromCamera is 
             "alignItems": "center",
             "backgroundColor": "#FFFFFF",
             "opacity": 1,
-            "paddingVertical": 15,
+            "paddingVertical": 10,
             "width": 150,
           }
         }
@@ -724,7 +729,7 @@ exports[`Given a BookSearch component When it is rendered And isbnFromCamera is 
             "alignItems": "center",
             "backgroundColor": "#ECECEC",
             "opacity": 1,
-            "paddingVertical": 15,
+            "paddingVertical": 10,
             "width": 150,
           }
         }
@@ -778,6 +783,7 @@ exports[`Given a BookSearch component When it is rendered And isbnFromCamera is 
           author
         </Text>
         <TextInput
+          maxLength={25}
           onChangeText={[Function]}
           style={
             Object {
@@ -823,6 +829,7 @@ exports[`Given a BookSearch component When it is rendered And isbnFromCamera is 
           title
         </Text>
         <TextInput
+          maxLength={25}
           onChangeText={[Function]}
           style={
             Object {
@@ -868,6 +875,7 @@ exports[`Given a BookSearch component When it is rendered And isbnFromCamera is 
           publisher
         </Text>
         <TextInput
+          maxLength={25}
           onChangeText={[Function]}
           style={
             Object {
@@ -1034,7 +1042,7 @@ exports[`Given a BookSearch component When it is rendered And isbnFromCamera is 
             "alignItems": "center",
             "backgroundColor": "#ECECEC",
             "opacity": 1,
-            "paddingVertical": 15,
+            "paddingVertical": 10,
             "width": 150,
           }
         }
@@ -1067,7 +1075,7 @@ exports[`Given a BookSearch component When it is rendered And isbnFromCamera is 
             "alignItems": "center",
             "backgroundColor": "#FFFFFF",
             "opacity": 1,
-            "paddingVertical": 15,
+            "paddingVertical": 10,
             "width": 150,
           }
         }
@@ -1121,6 +1129,8 @@ exports[`Given a BookSearch component When it is rendered And isbnFromCamera is 
           ISBN
         </Text>
         <TextInput
+          keyboardType="number-pad"
+          maxLength={13}
           onChangeText={[Function]}
           style={
             Object {
@@ -1289,7 +1299,7 @@ exports[`Given a BookSearch component When it is rendered And isbnFromCamera is 
             "alignItems": "center",
             "backgroundColor": "#ECECEC",
             "opacity": 1,
-            "paddingVertical": 15,
+            "paddingVertical": 10,
             "width": 150,
           }
         }
@@ -1322,7 +1332,7 @@ exports[`Given a BookSearch component When it is rendered And isbnFromCamera is 
             "alignItems": "center",
             "backgroundColor": "#FFFFFF",
             "opacity": 1,
-            "paddingVertical": 15,
+            "paddingVertical": 10,
             "width": 150,
           }
         }
@@ -1376,6 +1386,8 @@ exports[`Given a BookSearch component When it is rendered And isbnFromCamera is 
           ISBN
         </Text>
         <TextInput
+          keyboardType="number-pad"
+          maxLength={13}
           onChangeText={[Function]}
           style={
             Object {

@@ -203,64 +203,66 @@ exports[`Given an BookDetail component When it is rendered And ratings are loade
                 </View>
               </View>
               <View>
-                <View
-                  collapsable={false}
-                >
+                <View>
                   <View
-                    accessible={true}
-                    focusable={true}
-                    onClick={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
+                    collapsable={false}
                   >
                     <View
-                      ctx={
-                        Object {
-                          "menuActions": Object {
-                            "_getOpenedMenu": [Function],
-                            "_notify": [Function],
-                            "closeMenu": [Function],
-                            "isMenuOpen": [Function],
-                            "openMenu": [Function],
-                            "toggleMenu": [Function],
-                          },
-                          "menuRegistry": Object {
-                            "getAll": [Function],
-                            "getMenu": [Function],
-                            "setOptionsCustomStyles": [Function],
-                            "subscribe": [Function],
-                            "unsubscribe": [Function],
-                            "updateLayoutInfo": [Function],
-                          },
-                        }
-                      }
-                      style={
-                        Array [
-                          undefined,
-                          undefined,
-                        ]
-                      }
+                      accessible={true}
+                      focusable={true}
+                      onClick={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
                     >
-                      <Text
-                        style={
+                      <View
+                        ctx={
                           Object {
-                            "backgroundColor": "#FFFFFF",
-                            "borderColor": "#ECECEC",
-                            "borderRadius": 10,
-                            "borderWidth": 1,
-                            "height": 40,
-                            "lineHeight": 40,
-                            "textAlign": "center",
-                            "width": 150,
+                            "menuActions": Object {
+                              "_getOpenedMenu": [Function],
+                              "_notify": [Function],
+                              "closeMenu": [Function],
+                              "isMenuOpen": [Function],
+                              "openMenu": [Function],
+                              "toggleMenu": [Function],
+                            },
+                            "menuRegistry": Object {
+                              "getAll": [Function],
+                              "getMenu": [Function],
+                              "setOptionsCustomStyles": [Function],
+                              "subscribe": [Function],
+                              "unsubscribe": [Function],
+                              "updateLayoutInfo": [Function],
+                            },
                           }
                         }
+                        style={
+                          Array [
+                            undefined,
+                            undefined,
+                          ]
+                        }
                       >
-                        Add to shelf
-                      </Text>
+                        <Text
+                          style={
+                            Object {
+                              "backgroundColor": "#FFFFFF",
+                              "borderColor": "#ECECEC",
+                              "borderRadius": 10,
+                              "borderWidth": 1,
+                              "height": 40,
+                              "lineHeight": 40,
+                              "textAlign": "center",
+                              "width": 150,
+                            }
+                          }
+                        >
+                          Add to shelf
+                        </Text>
+                      </View>
                     </View>
                   </View>
                 </View>
@@ -792,34 +794,6 @@ exports[`Given an BookDetail component When it is rendered And ratings are loade
               >
                 Winston Smith is a worker at the Ministry of Truth, where he falsifies records for the party. Secretly subversive, he and his colleague Julia try to free themselves from political slavery but the price of freedom is betrayal.
               </Text>
-            </View>
-            <View>
-              <Text
-                style={
-                  Object {
-                    "fontSize": 16,
-                    "fontWeight": "bold",
-                    "marginTop": 5,
-                  }
-                }
-              >
-                Notes:
-              </Text>
-              <TextInput
-                editable={false}
-                maxLength={200}
-                multiline={true}
-                style={
-                  Object {
-                    "backgroundColor": "#FFFFFF",
-                    "fontSize": 16,
-                    "height": 100,
-                    "padding": 10,
-                    "textAlignVertical": "top",
-                  }
-                }
-                value="Add book to a list/shelf to add notes"
-              />
             </View>
             <View>
               <View>
@@ -3522,64 +3496,66 @@ exports[`Given an BookDetail component When it is rendered And ratings are not l
                 </View>
               </View>
               <View>
-                <View
-                  collapsable={false}
-                >
+                <View>
                   <View
-                    accessible={true}
-                    focusable={true}
-                    onClick={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
+                    collapsable={false}
                   >
                     <View
-                      ctx={
-                        Object {
-                          "menuActions": Object {
-                            "_getOpenedMenu": [Function],
-                            "_notify": [Function],
-                            "closeMenu": [Function],
-                            "isMenuOpen": [Function],
-                            "openMenu": [Function],
-                            "toggleMenu": [Function],
-                          },
-                          "menuRegistry": Object {
-                            "getAll": [Function],
-                            "getMenu": [Function],
-                            "setOptionsCustomStyles": [Function],
-                            "subscribe": [Function],
-                            "unsubscribe": [Function],
-                            "updateLayoutInfo": [Function],
-                          },
-                        }
-                      }
-                      style={
-                        Array [
-                          undefined,
-                          undefined,
-                        ]
-                      }
+                      accessible={true}
+                      focusable={true}
+                      onClick={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
                     >
-                      <Text
-                        style={
+                      <View
+                        ctx={
                           Object {
-                            "backgroundColor": "#FFFFFF",
-                            "borderColor": "#ECECEC",
-                            "borderRadius": 10,
-                            "borderWidth": 1,
-                            "height": 40,
-                            "lineHeight": 40,
-                            "textAlign": "center",
-                            "width": 150,
+                            "menuActions": Object {
+                              "_getOpenedMenu": [Function],
+                              "_notify": [Function],
+                              "closeMenu": [Function],
+                              "isMenuOpen": [Function],
+                              "openMenu": [Function],
+                              "toggleMenu": [Function],
+                            },
+                            "menuRegistry": Object {
+                              "getAll": [Function],
+                              "getMenu": [Function],
+                              "setOptionsCustomStyles": [Function],
+                              "subscribe": [Function],
+                              "unsubscribe": [Function],
+                              "updateLayoutInfo": [Function],
+                            },
                           }
                         }
+                        style={
+                          Array [
+                            undefined,
+                            undefined,
+                          ]
+                        }
                       >
-                        Add to shelf
-                      </Text>
+                        <Text
+                          style={
+                            Object {
+                              "backgroundColor": "#FFFFFF",
+                              "borderColor": "#ECECEC",
+                              "borderRadius": 10,
+                              "borderWidth": 1,
+                              "height": 40,
+                              "lineHeight": 40,
+                              "textAlign": "center",
+                              "width": 150,
+                            }
+                          }
+                        >
+                          Add to shelf
+                        </Text>
+                      </View>
                     </View>
                   </View>
                 </View>
@@ -4356,64 +4332,66 @@ exports[`Given an BookDetail component When it is rendered And the book rendered
                 </View>
               </View>
               <View>
-                <View
-                  collapsable={false}
-                >
+                <View>
                   <View
-                    accessible={true}
-                    focusable={true}
-                    onClick={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
+                    collapsable={false}
                   >
                     <View
-                      ctx={
-                        Object {
-                          "menuActions": Object {
-                            "_getOpenedMenu": [Function],
-                            "_notify": [Function],
-                            "closeMenu": [Function],
-                            "isMenuOpen": [Function],
-                            "openMenu": [Function],
-                            "toggleMenu": [Function],
-                          },
-                          "menuRegistry": Object {
-                            "getAll": [Function],
-                            "getMenu": [Function],
-                            "setOptionsCustomStyles": [Function],
-                            "subscribe": [Function],
-                            "unsubscribe": [Function],
-                            "updateLayoutInfo": [Function],
-                          },
-                        }
-                      }
-                      style={
-                        Array [
-                          undefined,
-                          undefined,
-                        ]
-                      }
+                      accessible={true}
+                      focusable={true}
+                      onClick={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
                     >
-                      <Text
-                        style={
+                      <View
+                        ctx={
                           Object {
-                            "backgroundColor": "#FFFFFF",
-                            "borderColor": "#ECECEC",
-                            "borderRadius": 10,
-                            "borderWidth": 1,
-                            "height": 40,
-                            "lineHeight": 40,
-                            "textAlign": "center",
-                            "width": 150,
+                            "menuActions": Object {
+                              "_getOpenedMenu": [Function],
+                              "_notify": [Function],
+                              "closeMenu": [Function],
+                              "isMenuOpen": [Function],
+                              "openMenu": [Function],
+                              "toggleMenu": [Function],
+                            },
+                            "menuRegistry": Object {
+                              "getAll": [Function],
+                              "getMenu": [Function],
+                              "setOptionsCustomStyles": [Function],
+                              "subscribe": [Function],
+                              "unsubscribe": [Function],
+                              "updateLayoutInfo": [Function],
+                            },
                           }
                         }
+                        style={
+                          Array [
+                            undefined,
+                            undefined,
+                          ]
+                        }
                       >
-                        Add to shelf
-                      </Text>
+                        <Text
+                          style={
+                            Object {
+                              "backgroundColor": "#FFFFFF",
+                              "borderColor": "#ECECEC",
+                              "borderRadius": 10,
+                              "borderWidth": 1,
+                              "height": 40,
+                              "lineHeight": 40,
+                              "textAlign": "center",
+                              "width": 150,
+                            }
+                          }
+                        >
+                          Add to shelf
+                        </Text>
+                      </View>
                     </View>
                   </View>
                 </View>
