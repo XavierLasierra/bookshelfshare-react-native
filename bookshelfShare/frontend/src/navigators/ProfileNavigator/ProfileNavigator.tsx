@@ -6,6 +6,7 @@ import BookResults from '../../components/BookResults/BookResults';
 import BookDetail from '../../components/BookDetail/BookDetail';
 import UsersList from '../../components/UsersList/UsersList';
 import OtherUserProfile from '../../components/OtherUserProfile/OtherUserProfile';
+import AddToShelf from '../../components/AddToShelf/AddToShelf';
 
 export default function ProfileNavigator() {
   const Stack = createStackNavigator();
@@ -38,6 +39,10 @@ export default function ProfileNavigator() {
       <Stack.Screen
         name="OtherUserProfile"
         component={OtherUserProfile}
+      />
+      <Stack.Screen
+        name="AddToShelf"
+        component={AddToShelf}
       />
     </Stack.Navigator>
   );

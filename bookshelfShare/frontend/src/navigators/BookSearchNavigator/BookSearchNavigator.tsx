@@ -4,6 +4,7 @@ import { createStackNavigator, CardStyleInterpolators } from '@react-navigation/
 import BookSearch from '../../components/BookSearch/BookSearch';
 import BookResults from '../../components/BookResults/BookResults';
 import BookDetail from '../../components/BookDetail/BookDetail';
+import AddToShelf from '../../components/AddToShelf/AddToShelf';
 
 interface Props {
     route: Route
@@ -45,6 +46,10 @@ export default function BookSearchNavigator(
       <Stack.Screen
         name="BookDetail"
         component={BookDetail}
+      />
+      <Stack.Screen
+        name="AddToShelf"
+        component={AddToShelf}
       />
     </Stack.Navigator>
   );

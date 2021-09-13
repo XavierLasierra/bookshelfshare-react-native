@@ -10,7 +10,7 @@ import stylesConstants from '../../styles/styles.constants';
 import styles from './addBookToUser.styles';
 
 export default function AddBookToUser({
-  bookIsbn, token, refreshToken, userId
+  bookIsbn, token, refreshToken, userId, navigation
 }: any) {
   const dispatch = useDispatch();
   const books = useSelector((store: any) => store.userBooks);
@@ -21,7 +21,6 @@ export default function AddBookToUser({
   const [deleteFromShelf, setDeleteFromShelf] = useState('');
   const [shelfLocation, setShelfLocation] = useState();
   const [isLoading, setIsLoading] = useState(false);
-  const [isLoadingShelf, setIsLoadingShelf] = useState(false);
 
   function findInUserBooks() {
     if (books.read.includes(bookIsbn)) {
@@ -78,7 +77,11 @@ export default function AddBookToUser({
   }
 
   function handleShelfSelect(value: string) {
-    setIsLoadingShelf(true);
+    navigation.push('AddToShelf',
+      {
+        shelf: shelves.find(({ _id }: any) => _id === value),
+        deleteFromShelf
+      });
   }
 
   const menus = (
@@ -130,13 +133,7 @@ export default function AddBookToUser({
           renderer={renderers.NotAnimatedContextMenu}
         >
           <MenuTrigger>
-            {isLoadingShelf
-              ? (
-                <View style={styles.activityIndicatorContainer}>
-                  <ActivityIndicator size="small" color={stylesConstants.colors.dark} />
-                </View>
-              )
-              : <Text style={styles.markButton}>{markShelfName}</Text>}
+            <Text style={styles.markButton}>{markShelfName}</Text>
           </MenuTrigger>
           <MenuOptions>
             {shelves.map(({ _id, name }: any) => (
