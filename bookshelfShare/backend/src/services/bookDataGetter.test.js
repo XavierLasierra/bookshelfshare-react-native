@@ -1,7 +1,8 @@
 const axios = require('axios');
-const { getBooksDataFromArray } = require('./bookDataGetter');
+const { getBooksDataFromArray, getBooksDataFromList } = require('./bookDataGetter');
 const Book = require('../classes/book.class');
 const googleBooksMock = require('../mocks/googleBooks.mock');
+const bookListMock = require('../mocks/bookList.mock');
 
 jest.mock('axios');
 
@@ -49,6 +50,29 @@ describe('Given a getBooksDataFromArray function', () => {
 
           expect(bookData.message).not.toBe(null);
         });
+      });
+    });
+  });
+});
+
+describe('Given a getBooksDataFromList function', () => {
+  describe('When it is triggered', () => {
+    describe('And axios is resolved', () => {
+      test('Then should return an object with a property bookData', async () => {
+        axios.get.mockResolvedValue({ data: {}, status: 200 });
+        const listData = await getBooksDataFromList(bookListMock);
+
+        expect(listData.books[0].bookData).not.toBe(undefined);
+      });
+    });
+
+    describe('And axios is rejected', () => {
+      test('Then should return an error', async () => {
+        axios.get.mockRejectedValue(new Error());
+
+        const bookData = await getBooksDataFromList(bookListMock);
+
+        expect(bookData.message).not.toBe(null);
       });
     });
   });

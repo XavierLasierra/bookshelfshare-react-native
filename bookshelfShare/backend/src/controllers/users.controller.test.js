@@ -3,7 +3,9 @@ const {
   getOneUserById,
   deleteOneUserById,
   updateOneUserById,
-  updateUserBooks
+  updateUserBooks,
+  addUserFollowing,
+  deleteUserFollowing
 } = require('./users.controller');
 const User = require('../models/user.model');
 const userMock = require('../mocks/user.mock');
@@ -326,6 +328,228 @@ describe('Given an updateUserBooks function', () => {
       test('Then should call res.status with 500', async () => {
         expect(res.status).toHaveBeenCalledWith(500);
       });
+      test('Then should call res.send with an error with a message Server error', async () => {
+        expect(res.send.mock.calls[0][0].message).toBe('Server error');
+      });
+    });
+  });
+});
+
+describe('Given a addUserFollowing function', () => {
+  describe('When it is triggered', () => {
+    let req;
+    let res;
+    beforeEach(() => {
+      req = {
+        params: {
+          userId: '3'
+        },
+        body: {
+          followingId: '2'
+        }
+      };
+      res = {
+        json: jest.fn(),
+        send: jest.fn(),
+        status: jest.fn(),
+        sendStatus: jest.fn()
+      };
+    });
+
+    describe('And foundUser findById is resolved', () => {
+      describe('And the user exists', () => {
+        beforeEach(() => {
+          User.findById.mockReturnValueOnce({
+            select: jest.fn().mockResolvedValue({
+              ...userMock,
+              save: jest.fn(),
+              populate: jest.fn()
+            })
+          });
+        });
+        describe('And followingUser findById is resolved', () => {
+          describe('And followingUser exists', () => {
+            describe('And foundUser.following does not include body.followingId', () => {
+              test('Then res.json should have been called', async () => {
+                User.findById.mockResolvedValueOnce({
+                  ...userMock,
+                  save: jest.fn()
+                });
+
+                await addUserFollowing(req, res);
+                expect(res.json).toHaveBeenCalled();
+              });
+            });
+            describe('And foundUser.following does include body.followingId', () => {
+              test('Then res.sendStatus should have been called with 409', async () => {
+                req.body.followingId = '1';
+                User.findById.mockResolvedValueOnce({
+                  ...userMock,
+                  save: jest.fn()
+                });
+
+                await addUserFollowing(req, res);
+                expect(res.sendStatus).toHaveBeenCalledWith(409);
+              });
+            });
+          });
+
+          describe('And followingUser is undefined', () => {
+            test('Then res.sendStatus should have been called with 409', async () => {
+              req.body.followingId = '1';
+              User.findById.mockResolvedValueOnce(undefined);
+
+              await addUserFollowing(req, res);
+              expect(res.sendStatus).toHaveBeenCalledWith(404);
+            });
+          });
+        });
+        describe('And followingUser findById is rejected', () => {
+          beforeEach(async () => {
+            User.findById.mockRejectedValue(new Error('Server error'));
+
+            await addUserFollowing(req, res);
+          });
+
+          test('Then should call res.send with 500', () => {
+            expect(res.status).toHaveBeenCalledWith(500);
+          });
+
+          test('Then should call res.send with an error with a message Server error', async () => {
+            expect(res.send.mock.calls[0][0].message).toBe('Server error');
+          });
+        });
+      });
+
+      describe('And the user is undefined', () => {
+        test('Then should call res.sendStatus with 404', async () => {
+          User.findById.mockReturnValueOnce({
+            select: jest.fn().mockResolvedValue(undefined)
+          });
+
+          await addUserFollowing(req, res);
+          expect(res.sendStatus).toHaveBeenCalledWith(404);
+        });
+      });
+    });
+    describe('And findById is rejected', () => {
+      beforeEach(async () => {
+        User.findById.mockReturnValueOnce({
+          select: jest.fn().mockRejectedValue(new Error('Server error'))
+        });
+
+        await addUserFollowing(req, res);
+      });
+
+      test('Then should call res.send with 500', () => {
+        expect(res.status).toHaveBeenCalledWith(500);
+      });
+
+      test('Then should call res.send with an error with a message Server error', async () => {
+        expect(res.send.mock.calls[0][0].message).toBe('Server error');
+      });
+    });
+  });
+});
+
+//
+
+describe('Given a deleteUserFollowing function', () => {
+  describe('When it is triggered', () => {
+    let req;
+    let res;
+    beforeEach(() => {
+      req = {
+        params: {
+          userId: '3'
+        },
+        body: {
+          followingId: '2'
+        }
+      };
+      res = {
+        json: jest.fn(),
+        send: jest.fn(),
+        status: jest.fn(),
+        sendStatus: jest.fn()
+      };
+    });
+
+    describe('And foundUser findById is resolved', () => {
+      describe('And the user exists', () => {
+        beforeEach(() => {
+          User.findById.mockReturnValueOnce({
+            select: jest.fn().mockResolvedValue({
+              ...userMock,
+              save: jest.fn(),
+              populate: jest.fn()
+            })
+          });
+        });
+        describe('And followingUser findById is resolved', () => {
+          describe('And followingUser exists', () => {
+            test('Then res.json should have been called', async () => {
+              User.findById.mockResolvedValueOnce({
+                ...userMock,
+                save: jest.fn()
+              });
+
+              await deleteUserFollowing(req, res);
+              expect(res.json).toHaveBeenCalled();
+            });
+          });
+
+          describe('And followingUser is undefined', () => {
+            test('Then res.sendStatus should have been called with 409', async () => {
+              req.body.followingId = '1';
+              User.findById.mockResolvedValueOnce(undefined);
+
+              await deleteUserFollowing(req, res);
+              expect(res.sendStatus).toHaveBeenCalledWith(404);
+            });
+          });
+        });
+        describe('And followingUser findById is rejected', () => {
+          beforeEach(async () => {
+            User.findById.mockRejectedValue(new Error('Server error'));
+
+            await deleteUserFollowing(req, res);
+          });
+
+          test('Then should call res.send with 500', () => {
+            expect(res.status).toHaveBeenCalledWith(500);
+          });
+
+          test('Then should call res.send with an error with a message Server error', async () => {
+            expect(res.send.mock.calls[0][0].message).toBe('Server error');
+          });
+        });
+      });
+
+      describe('And the user is undefined', () => {
+        test('Then should call res.sendStatus with 404', async () => {
+          User.findById.mockReturnValueOnce({
+            select: jest.fn().mockResolvedValue(undefined)
+          });
+
+          await deleteUserFollowing(req, res);
+          expect(res.sendStatus).toHaveBeenCalledWith(404);
+        });
+      });
+    });
+    describe('And findById is rejected', () => {
+      beforeEach(async () => {
+        User.findById.mockReturnValueOnce({
+          select: jest.fn().mockRejectedValue(new Error('Server error'))
+        });
+
+        await deleteUserFollowing(req, res);
+      });
+
+      test('Then should call res.send with 500', () => {
+        expect(res.status).toHaveBeenCalledWith(500);
+      });
+
       test('Then should call res.send with an error with a message Server error', async () => {
         expect(res.send.mock.calls[0][0].message).toBe('Server error');
       });
