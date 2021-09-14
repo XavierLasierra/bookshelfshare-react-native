@@ -1,3 +1,5 @@
+import bookDetailsMock from './bookDetails.mock';
+
 export default {
   _id: '1',
   name: 'Shelf',
@@ -5,6 +7,7 @@ export default {
   books: [
     {
       bookIsbn: '1',
+      bookData: bookDetailsMock[0],
       customInformation: {
         location: [0, 0]
       }
