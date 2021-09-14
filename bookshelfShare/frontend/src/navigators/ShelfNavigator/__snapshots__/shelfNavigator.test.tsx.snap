@@ -309,6 +309,7 @@ exports[`Given a ShelfNavigator component When it is rendered Then should match 
                                       "padding": 30,
                                     }
                                   }
+                                  testID="newShelfButton"
                                 >
                                   <View
                                     style={
@@ -397,6 +398,7 @@ exports[`Given a ShelfNavigator component When it is rendered Then should match 
                                         "padding": 30,
                                       }
                                     }
+                                    testID="newShelfButton"
                                   >
                                     <View
                                       style={

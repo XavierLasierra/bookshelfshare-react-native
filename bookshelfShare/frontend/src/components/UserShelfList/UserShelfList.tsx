@@ -38,6 +38,7 @@ export default function UserShelfList({ navigation }: any) {
     <TouchableOpacity
       style={styles.addShelfButton}
       onPress={handleNewShelfPage}
+      testID="newShelfButton"
     >
       <View style={[globalStyles.circularButton, styles.addShelfCircle]}>
         <Text style={styles.addShelfCircleText}>+</Text>
