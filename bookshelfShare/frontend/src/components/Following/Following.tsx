@@ -32,6 +32,7 @@ export default function Following({ navigation }: any) {
           <TouchableOpacity
             style={[globalStyles.circularButton]}
             onPress={handleFollowingUsersPage}
+            testID="followingUsersPageButton"
           >
             <FollowingIcon width={40} height={40} />
           </TouchableOpacity>
