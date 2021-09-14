@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Given a BookListFilter component When it is rendered Then should match the snapshot 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "paddingVertical": 10,
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "fontSize": 20,
+        "fontWeight": "bold",
+        "marginBottom": 10,
+        "textAlign": "center",
+      }
+    }
+  >
+    TO READ
+  </Text>
+  <View
+    style={
+      Object {
+        "height": 50,
+        "width": 300,
+      }
+    }
+  >
+    <TextInput
+      maxLength={25}
+      onChangeText={[Function]}
+      placeholder="Filter by title/author/publisher/isbn"
+      style={
+        Object {
+          "backgroundColor": "#FFFFFF",
+          "borderColor": "#ECECEC",
+          "borderRadius": 10,
+          "borderWidth": 1,
+          "fontSize": 16,
+          "height": "100%",
+          "paddingHorizontal": 20,
+        }
+      }
+      testID="filterInput"
+      value=""
+    />
+  </View>
+</View>
+`;
