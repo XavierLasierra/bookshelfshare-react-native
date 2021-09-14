@@ -341,6 +341,7 @@ exports[`Given a ProfileNavigator component When it is rendered Then should matc
                                           "width": 160,
                                         }
                                       }
+                                      testID="followersButton"
                                     >
                                       <IconMock
                                         height={25}
@@ -385,6 +386,7 @@ exports[`Given a ProfileNavigator component When it is rendered Then should matc
                                           "width": 160,
                                         }
                                       }
+                                      testID="followingButton"
                                     >
                                       <IconMock
                                         height={25}

@@ -63,6 +63,7 @@ export default function Profile({ navigation }: any) {
               <TouchableOpacity
                 style={styles.socialButton}
                 onPress={() => handleUserListPage(followers)}
+                testID="followersButton"
               >
                 <ProfileIcon width={25} height={25} />
                 <Text style={styles.buttonText}>
@@ -74,6 +75,7 @@ export default function Profile({ navigation }: any) {
               <TouchableOpacity
                 style={styles.socialButton}
                 onPress={() => handleUserListPage(following)}
+                testID="followingButton"
               >
                 <ProfileIcon width={25} height={25} />
                 <Text style={styles.buttonText}>
