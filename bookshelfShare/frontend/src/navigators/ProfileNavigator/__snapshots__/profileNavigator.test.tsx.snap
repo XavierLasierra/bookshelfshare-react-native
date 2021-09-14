@@ -441,9 +441,9 @@ exports[`Given a ProfileNavigator component When it is rendered Then should matc
                                         }
                                       }
                                     >
-                                      0
+                                      1
                                        
-                                      books
+                                      book
                                        
                                       currently reading
                                     </Text>
@@ -485,9 +485,9 @@ exports[`Given a ProfileNavigator component When it is rendered Then should matc
                                         }
                                       }
                                     >
-                                      0
+                                      1
                                        
-                                      books
+                                      book
                                        
                                       read
                                     </Text>
@@ -529,9 +529,9 @@ exports[`Given a ProfileNavigator component When it is rendered Then should matc
                                         }
                                       }
                                     >
-                                      0
+                                      1
                                        
-                                      books
+                                      book
                                        
                                       to read
                                     </Text>
@@ -573,9 +573,9 @@ exports[`Given a ProfileNavigator component When it is rendered Then should matc
                                         }
                                       }
                                     >
-                                      0
+                                      1
                                        
-                                      books
+                                      book
                                        
                                       on wishlist
                                     </Text>
