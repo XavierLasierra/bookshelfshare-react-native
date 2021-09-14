@@ -49,7 +49,6 @@ exports[`Given an AddPopUp component When it is rendered Then should match the s
           onResponderTerminate={[Function]}
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
-          testID="openMenuButton"
         >
           <View
             ctx={

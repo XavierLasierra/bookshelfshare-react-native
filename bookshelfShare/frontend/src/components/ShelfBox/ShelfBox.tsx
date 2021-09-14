@@ -13,6 +13,7 @@ export default function ShelfBox({
           styles.shelfInside,
           JSON.stringify(activeShelf) === JSON.stringify([row, column]) && styles.activeShelf]}
         onPress={() => clickCallback([row, column])}
+        testID={`shelf-${row}-${column}`}
       >
         <Text style={styles.numberOfBooksText}>{numberOfBooks}</Text>
         <Text style={styles.numberOfBooksText}>

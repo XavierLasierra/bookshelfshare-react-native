@@ -279,7 +279,6 @@ exports[`Given a PagesNavigator component When it is rendered Then should match 
               onResponderTerminate={[Function]}
               onResponderTerminationRequest={[Function]}
               onStartShouldSetResponder={[Function]}
-              testID="openMenuButton"
             >
               <View
                 ctx={

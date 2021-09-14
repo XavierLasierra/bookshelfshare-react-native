@@ -46,7 +46,7 @@ export default function AddToShelf({
   }, [shelves]);
 
   function handleAddToShelf() {
-    if (Number.isNaN(location[0]) || Number.isNaN(location[1])) {
+    if (Number.isNaN(location[0])) {
       setInvalidShelf(true);
     } else {
       setIsLoading(true);
@@ -95,7 +95,7 @@ export default function AddToShelf({
               <ActivityIndicator testID="loadingIndicator" size="large" color={stylesConstants.colors.white} />
             </TouchableOpacity>
           )}
-        {invalidShelf && <Text style={globalStyles.invalid}>Select a shelf to add it</Text>}
+        {invalidShelf && <Text testID="invalidShelf" style={globalStyles.invalid}>Select a shelf to add it</Text>}
       </View>
     </SafeAreaView>
   );

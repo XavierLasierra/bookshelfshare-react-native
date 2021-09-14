@@ -465,7 +465,6 @@ exports[`Given a MainNavigator component When it is rendered And the user is aut
                                         onResponderTerminate={[Function]}
                                         onResponderTerminationRequest={[Function]}
                                         onStartShouldSetResponder={[Function]}
-                                        testID="openMenuButton"
                                       >
                                         <View
                                           ctx={
