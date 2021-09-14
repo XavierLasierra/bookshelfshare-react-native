@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Given a ShelfBookElement component When it is rendered Then should match the snapshot 1`] = `
+exports[`Given a ShelfBooksList component When it is rendered Then should match the snapshot 1`] = `
 Array [
   <RCTScrollView
     data={

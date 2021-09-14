@@ -7,7 +7,7 @@ const navigation = {
   push: jest.fn()
 };
 
-describe('Given a ShelfBookElement component', () => {
+describe('Given a ShelfBooksList component', () => {
   describe('When it is rendered', () => {
     test('Then should match the snapshot', () => {
       const screen = render(<ShelfBooksList
