@@ -91,18 +91,21 @@ export default function UsersList({ navigation, route: { params: { logo, followi
               value={emailSearch}
               onChangeText={handleEmailInputChange}
               maxLength={25}
+              testID="searchInput"
             />
             <TouchableOpacity
               onPress={handleUserSearch}
+              testID="searchButton"
             >
               <SearchIcon width={35} height={35} />
             </TouchableOpacity>
           </View>
-          {isSearching
+          {(isSearching && results)
           && (
           <TouchableOpacity
             onPress={handleClearSearch}
             style={styles.clearSearchButton}
+            testID="clearSearchButton"
           >
             <Text style={styles.clearSearchButtonText}>Clear search</Text>
           </TouchableOpacity>
@@ -112,7 +115,7 @@ export default function UsersList({ navigation, route: { params: { logo, followi
         <View style={styles.resultsContainer}>
           {results
             ? usersResults
-            : <ActivityIndicator size="large" color={stylesConstants.colors.dark} />}
+            : <ActivityIndicator testID="activityIndicator" size="large" color={stylesConstants.colors.dark} />}
         </View>
       </View>
     </SafeAreaView>
