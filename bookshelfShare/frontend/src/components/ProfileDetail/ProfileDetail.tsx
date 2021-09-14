@@ -11,6 +11,7 @@ export default function ProfileDetail({ handleBookResultsPage, userBooks, shelve
       <TouchableOpacity
         style={styles.profileButton}
         onPress={() => handleBookResultsPage('currently reading', userBooks.reading)}
+        testID="readingButton"
       >
         <BookStackIcon width={40} height={40} />
         <Text style={styles.buttonText}>
@@ -24,6 +25,7 @@ export default function ProfileDetail({ handleBookResultsPage, userBooks, shelve
       <TouchableOpacity
         style={styles.profileButton}
         onPress={() => handleBookResultsPage('read', userBooks.read)}
+        testID="readButton"
       >
         <BookStackIcon width={40} height={40} />
         <Text style={styles.buttonText}>
@@ -37,6 +39,7 @@ export default function ProfileDetail({ handleBookResultsPage, userBooks, shelve
       <TouchableOpacity
         style={styles.profileButton}
         onPress={() => handleBookResultsPage('to read', userBooks.toRead)}
+        testID="toReadButton"
       >
         <BookStackIcon width={40} height={40} />
         <Text style={styles.buttonText}>
@@ -50,6 +53,7 @@ export default function ProfileDetail({ handleBookResultsPage, userBooks, shelve
       <TouchableOpacity
         style={styles.profileButton}
         onPress={() => handleBookResultsPage('whislist', userBooks.wishlist)}
+        testID="wishlistButton"
       >
         <BookStackIcon width={40} height={40} />
         <Text style={styles.buttonText}>

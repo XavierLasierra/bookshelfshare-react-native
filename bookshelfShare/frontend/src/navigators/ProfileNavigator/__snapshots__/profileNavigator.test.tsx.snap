@@ -428,6 +428,7 @@ exports[`Given a ProfileNavigator component When it is rendered Then should matc
                                         "opacity": 1,
                                       }
                                     }
+                                    testID="readingButton"
                                   >
                                     <IconMock
                                       height={40}
@@ -472,6 +473,7 @@ exports[`Given a ProfileNavigator component When it is rendered Then should matc
                                         "opacity": 1,
                                       }
                                     }
+                                    testID="readButton"
                                   >
                                     <IconMock
                                       height={40}
@@ -516,6 +518,7 @@ exports[`Given a ProfileNavigator component When it is rendered Then should matc
                                         "opacity": 1,
                                       }
                                     }
+                                    testID="toReadButton"
                                   >
                                     <IconMock
                                       height={40}
@@ -560,6 +563,7 @@ exports[`Given a ProfileNavigator component When it is rendered Then should matc
                                         "opacity": 1,
                                       }
                                     }
+                                    testID="wishlistButton"
                                   >
                                     <IconMock
                                       height={40}
