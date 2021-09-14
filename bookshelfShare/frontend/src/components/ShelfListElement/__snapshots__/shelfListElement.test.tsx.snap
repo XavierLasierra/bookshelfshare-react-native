@@ -1,0 +1,211 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Given a ShelfListElement component When it is rendered And the shelf has 0 books Then should match the snapshot 1`] = `
+<View
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  nativeID="animatedComponent"
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#F9CB83",
+      "borderRadius": 10,
+      "flexDirection": "row",
+      "justifyContent": "space-between",
+      "marginVertical": 10,
+      "opacity": 1,
+      "paddingHorizontal": 20,
+      "paddingVertical": 10,
+    }
+  }
+  testID="shelfDetailPageButton"
+>
+  <IconMock
+    height={35}
+    width={35}
+  />
+  <Text
+    style={
+      Object {
+        "fontSize": 16,
+        "fontWeight": "bold",
+        "letterSpacing": 1,
+        "width": 150,
+      }
+    }
+  >
+    Shelf
+  </Text>
+  <View
+    style={
+      Object {
+        "height": 65,
+        "justifyContent": "space-between",
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row-reverse",
+          "justifyContent": "flex-end",
+        }
+      }
+    >
+      <Image
+        source={
+          Object {
+            "uri": "photo",
+          }
+        }
+        style={
+          Object {
+            "borderRadius": 100,
+            "height": 30,
+            "width": 30,
+          }
+        }
+      />
+      <Text
+        style={
+          Object {
+            "fontSize": 16,
+            "marginRight": 5,
+          }
+        }
+      >
+         
+        +
+        3
+      </Text>
+    </View>
+    <Text
+      style={
+        Object {
+          "fontSize": 12,
+          "fontWeight": "bold",
+          "textAlign": "right",
+        }
+      }
+    >
+      0
+       
+      books
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`Given a ShelfListElement component When it is rendered And the shelf has 1 book Then should match the snapshot 1`] = `
+<View
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  nativeID="animatedComponent"
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#F9CB83",
+      "borderRadius": 10,
+      "flexDirection": "row",
+      "justifyContent": "space-between",
+      "marginVertical": 10,
+      "opacity": 1,
+      "paddingHorizontal": 20,
+      "paddingVertical": 10,
+    }
+  }
+  testID="shelfDetailPageButton"
+>
+  <IconMock
+    height={35}
+    width={35}
+  />
+  <Text
+    style={
+      Object {
+        "fontSize": 16,
+        "fontWeight": "bold",
+        "letterSpacing": 1,
+        "width": 150,
+      }
+    }
+  >
+    Shelf
+  </Text>
+  <View
+    style={
+      Object {
+        "height": 65,
+        "justifyContent": "space-between",
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row-reverse",
+          "justifyContent": "flex-end",
+        }
+      }
+    >
+      <Image
+        source={
+          Object {
+            "uri": "photo",
+          }
+        }
+        style={
+          Object {
+            "borderRadius": 100,
+            "height": 30,
+            "width": 30,
+          }
+        }
+      />
+      <Text
+        style={
+          Object {
+            "fontSize": 16,
+            "marginRight": 5,
+          }
+        }
+      >
+         
+        +
+        3
+      </Text>
+    </View>
+    <Text
+      style={
+        Object {
+          "fontSize": 12,
+          "fontWeight": "bold",
+          "textAlign": "right",
+        }
+      }
+    >
+      1
+       
+      book
+    </Text>
+  </View>
+</View>
+`;

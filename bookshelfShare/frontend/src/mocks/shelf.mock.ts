@@ -2,6 +2,21 @@ import bookDetailsMock from './bookDetails.mock';
 
 export default {
   _id: '1',
+  users: [
+    {
+      _id: '1',
+      photo: 'photo'
+    }, {
+      _id: '2',
+      photo: 'photo'
+    }, {
+      _id: '3',
+      photo: 'photo'
+    }, {
+      _id: '4',
+      photo: 'photo'
+    }
+  ],
   name: 'Shelf',
   shelf: [2, 2],
   books: [
