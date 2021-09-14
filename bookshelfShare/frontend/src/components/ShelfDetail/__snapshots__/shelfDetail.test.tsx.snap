@@ -1,0 +1,3209 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Given a ShelfDetail component When it is rendered And shelf is loaded And you click listPageButton And you click again Then should match the snapshot 1`] = `
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
+>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "left": 20,
+        "opacity": 1,
+        "position": "absolute",
+        "top": 20,
+        "zIndex": 1,
+      }
+    }
+    testID="backButton"
+  >
+    <IconMock
+      height={30}
+      style={
+        Object {
+          "transform": Array [
+            Object {
+              "rotateZ": "180deg",
+            },
+          ],
+        }
+      }
+      width={30}
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "flex-end",
+        "backgroundColor": "#F5F5F5",
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#D9D8C4",
+          "borderBottomLeftRadius": 25,
+          "justifyContent": "center",
+          "padding": 10,
+          "width": "100%",
+        }
+      }
+    >
+      <IconMock
+        height={45}
+        width={45}
+      />
+    </View>
+    <View
+      style={
+        Object {
+          "height": 0,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "#D9D8C4",
+            "height": 20,
+            "width": 20,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "#F5F5F5",
+              "borderTopRightRadius": 25,
+              "height": 20,
+              "width": 20,
+            }
+          }
+        />
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "paddingHorizontal": 30,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#3E3C37",
+          "fontSize": 20,
+          "fontWeight": "bold",
+          "paddingTop": 10,
+        }
+      }
+    >
+      Shelf
+    </Text>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+            "paddingVertical": 10,
+            "width": "100%",
+          },
+          Object {
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
+      <TextInput
+        maxLength={25}
+        onChangeText={[Function]}
+        placeholder="Search in Shelf"
+        style={
+          Object {
+            "backgroundColor": "#FFFFFF",
+            "borderColor": "#ECECEC",
+            "borderRadius": 10,
+            "borderWidth": 1,
+            "fontSize": 16,
+            "height": "100%",
+            "paddingHorizontal": 20,
+            "width": "85%",
+          }
+        }
+        testID="filterInput"
+        value=""
+      />
+    </View>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "marginTop": 10,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#FFFFFF",
+            "opacity": 1,
+            "paddingVertical": 10,
+            "width": 150,
+          }
+        }
+        testID="shelfPageButton"
+      >
+        <Text
+          style={
+            Object {
+              "fontSize": 20,
+            }
+          }
+        >
+          Shelf
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#ECECEC",
+            "opacity": 1,
+            "paddingVertical": 10,
+            "width": 150,
+          }
+        }
+        testID="listPageButton"
+      >
+        <Text
+          style={
+            Object {
+              "fontSize": 20,
+            }
+          }
+        >
+          List
+        </Text>
+      </View>
+    </View>
+    <View>
+      <RCTScrollView
+        data={
+          Array [
+            Object {
+              "bookData": Object {
+                "authors": Array [
+                  "George Orwell",
+                ],
+                "categories": Array [
+                  "London (England)",
+                ],
+                "description": "Winston Smith is a worker at the Ministry of Truth, where he falsifies records for the party. Secretly subversive, he and his colleague Julia try to free themselves from political slavery but the price of freedom is betrayal.",
+                "format": "BOOK",
+                "images": Object {
+                  "smallThumbnail": "smallThumbnail1",
+                  "thumbnail": "thumbnail1",
+                },
+                "isbn": Object {
+                  "ISBN10": "0451524934",
+                  "ISBN13": "9780451524935",
+                },
+                "language": "en",
+                "pageCount": 190,
+                "publishedDate": "2009",
+                "publisher": "No publisher found",
+                "subtitle": "A Novel",
+                "title": "1984",
+              },
+              "bookIsbn": "1",
+              "customInformation": Object {
+                "location": Array [
+                  0,
+                  0,
+                ],
+              },
+            },
+          ]
+        }
+        getItem={[Function]}
+        getItemCount={[Function]}
+        keyExtractor={[Function]}
+        onContentSizeChange={[Function]}
+        onLayout={[Function]}
+        onMomentumScrollBegin={[Function]}
+        onMomentumScrollEnd={[Function]}
+        onScroll={[Function]}
+        onScrollBeginDrag={[Function]}
+        onScrollEndDrag={[Function]}
+        removeClippedSubviews={false}
+        renderItem={[Function]}
+        scrollEventThrottle={50}
+        showsVerticalScrollIndicator={false}
+        stickyHeaderIndices={Array []}
+        viewabilityConfigCallbackPairs={Array []}
+      >
+        <View>
+          <View
+            onLayout={[Function]}
+            style={null}
+          >
+            <View
+              accessible={true}
+              collapsable={false}
+              focusable={true}
+              nativeID="animatedComponent"
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "marginVertical": 10,
+                  "opacity": 1,
+                }
+              }
+              testID="bookDetailButton"
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 16,
+                    "fontWeight": "bold",
+                  }
+                }
+              >
+                Row:
+                 
+                1
+                 
+                Column:
+                 
+                1
+                 
+                -
+                 
+                Shelf
+              </Text>
+              <View
+                style={
+                  Object {
+                    "flexDirection": "row",
+                  }
+                }
+              >
+                <Image
+                  source={
+                    Object {
+                      "uri": "thumbnail1",
+                    }
+                  }
+                  style={
+                    Object {
+                      "borderBottomLeftRadius": 10,
+                      "borderTopLeftRadius": 10,
+                      "height": 150,
+                      "overflow": "hidden",
+                      "width": 100,
+                    }
+                  }
+                />
+                <View
+                  style={
+                    Object {
+                      "backgroundColor": "#FFFFFF",
+                      "borderBottomRightRadius": 10,
+                      "borderTopRightRadius": 10,
+                      "height": 150,
+                      "justifyContent": "space-between",
+                      "padding": 10,
+                      "width": 210,
+                    }
+                  }
+                >
+                  <View>
+                    <Text
+                      style={
+                        Object {
+                          "fontSize": 16,
+                          "fontWeight": "bold",
+                          "width": 175,
+                        }
+                      }
+                    >
+                      1984
+                    </Text>
+                    <Text>
+                      George Orwell
+                    </Text>
+                    <Text>
+                      No publisher found
+                    </Text>
+                  </View>
+                  <Text>
+                    ISBN13 -
+                     
+                    9780451524935
+                  </Text>
+                </View>
+              </View>
+            </View>
+          </View>
+        </View>
+      </RCTScrollView>
+      <View
+        style={
+          Object {
+            "height": 620,
+          }
+        }
+      />
+    </View>
+  </View>
+</RCTSafeAreaView>
+`;
+
+exports[`Given a ShelfDetail component When it is rendered And shelf is loaded And you click listPageButton And you click shelfPageButton Then should match the snapshot 1`] = `
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
+>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "left": 20,
+        "opacity": 1,
+        "position": "absolute",
+        "top": 20,
+        "zIndex": 1,
+      }
+    }
+    testID="backButton"
+  >
+    <IconMock
+      height={30}
+      style={
+        Object {
+          "transform": Array [
+            Object {
+              "rotateZ": "180deg",
+            },
+          ],
+        }
+      }
+      width={30}
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "flex-end",
+        "backgroundColor": "#F5F5F5",
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#D9D8C4",
+          "borderBottomLeftRadius": 25,
+          "justifyContent": "center",
+          "padding": 10,
+          "width": "100%",
+        }
+      }
+    >
+      <IconMock
+        height={45}
+        width={45}
+      />
+    </View>
+    <View
+      style={
+        Object {
+          "height": 0,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "#D9D8C4",
+            "height": 20,
+            "width": 20,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "#F5F5F5",
+              "borderTopRightRadius": 25,
+              "height": 20,
+              "width": 20,
+            }
+          }
+        />
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "paddingHorizontal": 30,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#3E3C37",
+          "fontSize": 20,
+          "fontWeight": "bold",
+          "paddingTop": 10,
+        }
+      }
+    >
+      Shelf
+    </Text>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+            "paddingVertical": 10,
+            "width": "100%",
+          },
+          Object {
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
+      <TextInput
+        maxLength={25}
+        onChangeText={[Function]}
+        placeholder="Search in Shelf"
+        style={
+          Object {
+            "backgroundColor": "#FFFFFF",
+            "borderColor": "#ECECEC",
+            "borderRadius": 10,
+            "borderWidth": 1,
+            "fontSize": 16,
+            "height": "100%",
+            "paddingHorizontal": 20,
+            "width": "85%",
+          }
+        }
+        testID="filterInput"
+        value=""
+      />
+    </View>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "marginTop": 10,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#ECECEC",
+            "opacity": 1,
+            "paddingVertical": 10,
+            "width": 150,
+          }
+        }
+        testID="shelfPageButton"
+      >
+        <Text
+          style={
+            Object {
+              "fontSize": 20,
+            }
+          }
+        >
+          Shelf
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#FFFFFF",
+            "opacity": 1,
+            "paddingVertical": 10,
+            "width": 150,
+          }
+        }
+        testID="listPageButton"
+      >
+        <Text
+          style={
+            Object {
+              "fontSize": 20,
+            }
+          }
+        >
+          List
+        </Text>
+      </View>
+    </View>
+    <View>
+      <View
+        style={
+          Object {
+            "height": 450,
+            "justifyContent": "center",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "#958472",
+              "borderColor": "#2F2406",
+              "borderRadius": 15,
+              "borderTopWidth": 10,
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "borderColor": "#958472",
+                  "borderWidth": 6,
+                  "elevation": 10,
+                },
+                Object {
+                  "height": 400,
+                },
+              ]
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "flexDirection": "row",
+                  },
+                  Object {
+                    "height": "50%",
+                    "width": "100%",
+                  },
+                ]
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#958472",
+                      "height": "100%",
+                      "justifyContent": "center",
+                    },
+                    Object {
+                      "width": "50%",
+                    },
+                  ]
+                }
+              >
+                <View
+                  accessible={true}
+                  collapsable={false}
+                  focusable={true}
+                  nativeID="animatedComponent"
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#4D3C2A",
+                      "borderBottomWidth": 5,
+                      "borderColor": "#2F2406",
+                      "borderRightWidth": 5,
+                      "height": "90%",
+                      "justifyContent": "center",
+                      "opacity": 1,
+                      "width": "90%",
+                    }
+                  }
+                  testID="shelf-0-0"
+                >
+                  <Text
+                    style={
+                      Object {
+                        "color": "#FFFFFF",
+                        "fontSize": 16,
+                        "fontWeight": "bold",
+                      }
+                    }
+                  >
+                    1
+                  </Text>
+                  <Text
+                    style={
+                      Object {
+                        "color": "#FFFFFF",
+                        "fontSize": 16,
+                        "fontWeight": "bold",
+                      }
+                    }
+                  >
+                    book
+                  </Text>
+                </View>
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#958472",
+                      "height": "100%",
+                      "justifyContent": "center",
+                    },
+                    Object {
+                      "width": "50%",
+                    },
+                  ]
+                }
+              >
+                <View
+                  accessible={true}
+                  collapsable={false}
+                  focusable={true}
+                  nativeID="animatedComponent"
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#4D3C2A",
+                      "borderBottomWidth": 5,
+                      "borderColor": "#2F2406",
+                      "borderRightWidth": 5,
+                      "height": "90%",
+                      "justifyContent": "center",
+                      "opacity": 1,
+                      "width": "90%",
+                    }
+                  }
+                  testID="shelf-0-1"
+                >
+                  <Text
+                    style={
+                      Object {
+                        "color": "#FFFFFF",
+                        "fontSize": 16,
+                        "fontWeight": "bold",
+                      }
+                    }
+                  >
+                    0
+                  </Text>
+                  <Text
+                    style={
+                      Object {
+                        "color": "#FFFFFF",
+                        "fontSize": 16,
+                        "fontWeight": "bold",
+                      }
+                    }
+                  >
+                    books
+                  </Text>
+                </View>
+              </View>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "flexDirection": "row",
+                  },
+                  Object {
+                    "height": "50%",
+                    "width": "100%",
+                  },
+                ]
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#958472",
+                      "height": "100%",
+                      "justifyContent": "center",
+                    },
+                    Object {
+                      "width": "50%",
+                    },
+                  ]
+                }
+              >
+                <View
+                  accessible={true}
+                  collapsable={false}
+                  focusable={true}
+                  nativeID="animatedComponent"
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#4D3C2A",
+                      "borderBottomWidth": 5,
+                      "borderColor": "#2F2406",
+                      "borderRightWidth": 5,
+                      "height": "90%",
+                      "justifyContent": "center",
+                      "opacity": 1,
+                      "width": "90%",
+                    }
+                  }
+                  testID="shelf-1-0"
+                >
+                  <Text
+                    style={
+                      Object {
+                        "color": "#FFFFFF",
+                        "fontSize": 16,
+                        "fontWeight": "bold",
+                      }
+                    }
+                  >
+                    0
+                  </Text>
+                  <Text
+                    style={
+                      Object {
+                        "color": "#FFFFFF",
+                        "fontSize": 16,
+                        "fontWeight": "bold",
+                      }
+                    }
+                  >
+                    books
+                  </Text>
+                </View>
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#958472",
+                      "height": "100%",
+                      "justifyContent": "center",
+                    },
+                    Object {
+                      "width": "50%",
+                    },
+                  ]
+                }
+              >
+                <View
+                  accessible={true}
+                  collapsable={false}
+                  focusable={true}
+                  nativeID="animatedComponent"
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#4D3C2A",
+                      "borderBottomWidth": 5,
+                      "borderColor": "#2F2406",
+                      "borderRightWidth": 5,
+                      "height": "90%",
+                      "justifyContent": "center",
+                      "opacity": 1,
+                      "width": "90%",
+                    }
+                  }
+                  testID="shelf-1-1"
+                >
+                  <Text
+                    style={
+                      Object {
+                        "color": "#FFFFFF",
+                        "fontSize": 16,
+                        "fontWeight": "bold",
+                      }
+                    }
+                  >
+                    0
+                  </Text>
+                  <Text
+                    style={
+                      Object {
+                        "color": "#FFFFFF",
+                        "fontSize": 16,
+                        "fontWeight": "bold",
+                      }
+                    }
+                  >
+                    books
+                  </Text>
+                </View>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</RCTSafeAreaView>
+`;
+
+exports[`Given a ShelfDetail component When it is rendered And shelf is loaded And you click listPageButton Then should match the snapshot 1`] = `
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
+>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "left": 20,
+        "opacity": 1,
+        "position": "absolute",
+        "top": 20,
+        "zIndex": 1,
+      }
+    }
+    testID="backButton"
+  >
+    <IconMock
+      height={30}
+      style={
+        Object {
+          "transform": Array [
+            Object {
+              "rotateZ": "180deg",
+            },
+          ],
+        }
+      }
+      width={30}
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "flex-end",
+        "backgroundColor": "#F5F5F5",
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#D9D8C4",
+          "borderBottomLeftRadius": 25,
+          "justifyContent": "center",
+          "padding": 10,
+          "width": "100%",
+        }
+      }
+    >
+      <IconMock
+        height={45}
+        width={45}
+      />
+    </View>
+    <View
+      style={
+        Object {
+          "height": 0,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "#D9D8C4",
+            "height": 20,
+            "width": 20,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "#F5F5F5",
+              "borderTopRightRadius": 25,
+              "height": 20,
+              "width": 20,
+            }
+          }
+        />
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "paddingHorizontal": 30,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#3E3C37",
+          "fontSize": 20,
+          "fontWeight": "bold",
+          "paddingTop": 10,
+        }
+      }
+    >
+      Shelf
+    </Text>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+            "paddingVertical": 10,
+            "width": "100%",
+          },
+          Object {
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
+      <TextInput
+        maxLength={25}
+        onChangeText={[Function]}
+        placeholder="Search in Shelf"
+        style={
+          Object {
+            "backgroundColor": "#FFFFFF",
+            "borderColor": "#ECECEC",
+            "borderRadius": 10,
+            "borderWidth": 1,
+            "fontSize": 16,
+            "height": "100%",
+            "paddingHorizontal": 20,
+            "width": "85%",
+          }
+        }
+        testID="filterInput"
+        value=""
+      />
+    </View>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "marginTop": 10,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#FFFFFF",
+            "opacity": 1,
+            "paddingVertical": 10,
+            "width": 150,
+          }
+        }
+        testID="shelfPageButton"
+      >
+        <Text
+          style={
+            Object {
+              "fontSize": 20,
+            }
+          }
+        >
+          Shelf
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#ECECEC",
+            "opacity": 1,
+            "paddingVertical": 10,
+            "width": 150,
+          }
+        }
+        testID="listPageButton"
+      >
+        <Text
+          style={
+            Object {
+              "fontSize": 20,
+            }
+          }
+        >
+          List
+        </Text>
+      </View>
+    </View>
+    <View>
+      <RCTScrollView
+        data={
+          Array [
+            Object {
+              "bookData": Object {
+                "authors": Array [
+                  "George Orwell",
+                ],
+                "categories": Array [
+                  "London (England)",
+                ],
+                "description": "Winston Smith is a worker at the Ministry of Truth, where he falsifies records for the party. Secretly subversive, he and his colleague Julia try to free themselves from political slavery but the price of freedom is betrayal.",
+                "format": "BOOK",
+                "images": Object {
+                  "smallThumbnail": "smallThumbnail1",
+                  "thumbnail": "thumbnail1",
+                },
+                "isbn": Object {
+                  "ISBN10": "0451524934",
+                  "ISBN13": "9780451524935",
+                },
+                "language": "en",
+                "pageCount": 190,
+                "publishedDate": "2009",
+                "publisher": "No publisher found",
+                "subtitle": "A Novel",
+                "title": "1984",
+              },
+              "bookIsbn": "1",
+              "customInformation": Object {
+                "location": Array [
+                  0,
+                  0,
+                ],
+              },
+            },
+          ]
+        }
+        getItem={[Function]}
+        getItemCount={[Function]}
+        keyExtractor={[Function]}
+        onContentSizeChange={[Function]}
+        onLayout={[Function]}
+        onMomentumScrollBegin={[Function]}
+        onMomentumScrollEnd={[Function]}
+        onScroll={[Function]}
+        onScrollBeginDrag={[Function]}
+        onScrollEndDrag={[Function]}
+        removeClippedSubviews={false}
+        renderItem={[Function]}
+        scrollEventThrottle={50}
+        showsVerticalScrollIndicator={false}
+        stickyHeaderIndices={Array []}
+        viewabilityConfigCallbackPairs={Array []}
+      >
+        <View>
+          <View
+            onLayout={[Function]}
+            style={null}
+          >
+            <View
+              accessible={true}
+              collapsable={false}
+              focusable={true}
+              nativeID="animatedComponent"
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "marginVertical": 10,
+                  "opacity": 1,
+                }
+              }
+              testID="bookDetailButton"
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 16,
+                    "fontWeight": "bold",
+                  }
+                }
+              >
+                Row:
+                 
+                1
+                 
+                Column:
+                 
+                1
+                 
+                -
+                 
+                Shelf
+              </Text>
+              <View
+                style={
+                  Object {
+                    "flexDirection": "row",
+                  }
+                }
+              >
+                <Image
+                  source={
+                    Object {
+                      "uri": "thumbnail1",
+                    }
+                  }
+                  style={
+                    Object {
+                      "borderBottomLeftRadius": 10,
+                      "borderTopLeftRadius": 10,
+                      "height": 150,
+                      "overflow": "hidden",
+                      "width": 100,
+                    }
+                  }
+                />
+                <View
+                  style={
+                    Object {
+                      "backgroundColor": "#FFFFFF",
+                      "borderBottomRightRadius": 10,
+                      "borderTopRightRadius": 10,
+                      "height": 150,
+                      "justifyContent": "space-between",
+                      "padding": 10,
+                      "width": 210,
+                    }
+                  }
+                >
+                  <View>
+                    <Text
+                      style={
+                        Object {
+                          "fontSize": 16,
+                          "fontWeight": "bold",
+                          "width": 175,
+                        }
+                      }
+                    >
+                      1984
+                    </Text>
+                    <Text>
+                      George Orwell
+                    </Text>
+                    <Text>
+                      No publisher found
+                    </Text>
+                  </View>
+                  <Text>
+                    ISBN13 -
+                     
+                    9780451524935
+                  </Text>
+                </View>
+              </View>
+            </View>
+          </View>
+        </View>
+      </RCTScrollView>
+      <View
+        style={
+          Object {
+            "height": 620,
+          }
+        }
+      />
+    </View>
+  </View>
+</RCTSafeAreaView>
+`;
+
+exports[`Given a ShelfDetail component When it is rendered And shelf is loaded And you click on one shelfBox Then should match the snapshot 1`] = `
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
+>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "left": 20,
+        "opacity": 1,
+        "position": "absolute",
+        "top": 20,
+        "zIndex": 1,
+      }
+    }
+    testID="backButton"
+  >
+    <IconMock
+      height={30}
+      style={
+        Object {
+          "transform": Array [
+            Object {
+              "rotateZ": "180deg",
+            },
+          ],
+        }
+      }
+      width={30}
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "flex-end",
+        "backgroundColor": "#F5F5F5",
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#D9D8C4",
+          "borderBottomLeftRadius": 25,
+          "justifyContent": "center",
+          "padding": 10,
+          "width": "100%",
+        }
+      }
+    >
+      <IconMock
+        height={45}
+        width={45}
+      />
+    </View>
+    <View
+      style={
+        Object {
+          "height": 0,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "#D9D8C4",
+            "height": 20,
+            "width": 20,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "#F5F5F5",
+              "borderTopRightRadius": 25,
+              "height": 20,
+              "width": 20,
+            }
+          }
+        />
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "paddingHorizontal": 30,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#3E3C37",
+          "fontSize": 20,
+          "fontWeight": "bold",
+          "paddingTop": 10,
+        }
+      }
+    >
+      Shelf
+    </Text>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+            "paddingVertical": 10,
+            "width": "100%",
+          },
+          Object {
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
+      <TextInput
+        maxLength={25}
+        onChangeText={[Function]}
+        placeholder="Search in Shelf"
+        style={
+          Object {
+            "backgroundColor": "#FFFFFF",
+            "borderColor": "#ECECEC",
+            "borderRadius": 10,
+            "borderWidth": 1,
+            "fontSize": 16,
+            "height": "100%",
+            "paddingHorizontal": 20,
+            "width": "85%",
+          }
+        }
+        testID="filterInput"
+        value=""
+      />
+    </View>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "marginTop": 10,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#FFFFFF",
+            "opacity": 1,
+            "paddingVertical": 10,
+            "width": 150,
+          }
+        }
+        testID="shelfPageButton"
+      >
+        <Text
+          style={
+            Object {
+              "fontSize": 20,
+            }
+          }
+        >
+          Shelf
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#ECECEC",
+            "opacity": 1,
+            "paddingVertical": 10,
+            "width": 150,
+          }
+        }
+        testID="listPageButton"
+      >
+        <Text
+          style={
+            Object {
+              "fontSize": 20,
+            }
+          }
+        >
+          List
+        </Text>
+      </View>
+    </View>
+    <View>
+      <RCTScrollView
+        data={
+          Array [
+            Object {
+              "bookData": Object {
+                "authors": Array [
+                  "George Orwell",
+                ],
+                "categories": Array [
+                  "London (England)",
+                ],
+                "description": "Winston Smith is a worker at the Ministry of Truth, where he falsifies records for the party. Secretly subversive, he and his colleague Julia try to free themselves from political slavery but the price of freedom is betrayal.",
+                "format": "BOOK",
+                "images": Object {
+                  "smallThumbnail": "smallThumbnail1",
+                  "thumbnail": "thumbnail1",
+                },
+                "isbn": Object {
+                  "ISBN10": "0451524934",
+                  "ISBN13": "9780451524935",
+                },
+                "language": "en",
+                "pageCount": 190,
+                "publishedDate": "2009",
+                "publisher": "No publisher found",
+                "subtitle": "A Novel",
+                "title": "1984",
+              },
+              "bookIsbn": "1",
+              "customInformation": Object {
+                "location": Array [
+                  0,
+                  0,
+                ],
+              },
+            },
+          ]
+        }
+        getItem={[Function]}
+        getItemCount={[Function]}
+        keyExtractor={[Function]}
+        onContentSizeChange={[Function]}
+        onLayout={[Function]}
+        onMomentumScrollBegin={[Function]}
+        onMomentumScrollEnd={[Function]}
+        onScroll={[Function]}
+        onScrollBeginDrag={[Function]}
+        onScrollEndDrag={[Function]}
+        removeClippedSubviews={false}
+        renderItem={[Function]}
+        scrollEventThrottle={50}
+        showsVerticalScrollIndicator={false}
+        stickyHeaderIndices={Array []}
+        viewabilityConfigCallbackPairs={Array []}
+      >
+        <View>
+          <View
+            onLayout={[Function]}
+            style={null}
+          >
+            <View
+              accessible={true}
+              collapsable={false}
+              focusable={true}
+              nativeID="animatedComponent"
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "marginVertical": 10,
+                  "opacity": 1,
+                }
+              }
+              testID="bookDetailButton"
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 16,
+                    "fontWeight": "bold",
+                  }
+                }
+              >
+                Row:
+                 
+                1
+                 
+                Column:
+                 
+                1
+                 
+                -
+                 
+                Shelf
+              </Text>
+              <View
+                style={
+                  Object {
+                    "flexDirection": "row",
+                  }
+                }
+              >
+                <Image
+                  source={
+                    Object {
+                      "uri": "thumbnail1",
+                    }
+                  }
+                  style={
+                    Object {
+                      "borderBottomLeftRadius": 10,
+                      "borderTopLeftRadius": 10,
+                      "height": 150,
+                      "overflow": "hidden",
+                      "width": 100,
+                    }
+                  }
+                />
+                <View
+                  style={
+                    Object {
+                      "backgroundColor": "#FFFFFF",
+                      "borderBottomRightRadius": 10,
+                      "borderTopRightRadius": 10,
+                      "height": 150,
+                      "justifyContent": "space-between",
+                      "padding": 10,
+                      "width": 210,
+                    }
+                  }
+                >
+                  <View>
+                    <Text
+                      style={
+                        Object {
+                          "fontSize": 16,
+                          "fontWeight": "bold",
+                          "width": 175,
+                        }
+                      }
+                    >
+                      1984
+                    </Text>
+                    <Text>
+                      George Orwell
+                    </Text>
+                    <Text>
+                      No publisher found
+                    </Text>
+                  </View>
+                  <Text>
+                    ISBN13 -
+                     
+                    9780451524935
+                  </Text>
+                </View>
+              </View>
+            </View>
+          </View>
+        </View>
+      </RCTScrollView>
+      <View
+        style={
+          Object {
+            "height": 620,
+          }
+        }
+      />
+    </View>
+  </View>
+</RCTSafeAreaView>
+`;
+
+exports[`Given a ShelfDetail component When it is rendered And shelf is loaded And you click shelfPageButton Then should match the snapshot 1`] = `
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
+>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "left": 20,
+        "opacity": 1,
+        "position": "absolute",
+        "top": 20,
+        "zIndex": 1,
+      }
+    }
+    testID="backButton"
+  >
+    <IconMock
+      height={30}
+      style={
+        Object {
+          "transform": Array [
+            Object {
+              "rotateZ": "180deg",
+            },
+          ],
+        }
+      }
+      width={30}
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "flex-end",
+        "backgroundColor": "#F5F5F5",
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#D9D8C4",
+          "borderBottomLeftRadius": 25,
+          "justifyContent": "center",
+          "padding": 10,
+          "width": "100%",
+        }
+      }
+    >
+      <IconMock
+        height={45}
+        width={45}
+      />
+    </View>
+    <View
+      style={
+        Object {
+          "height": 0,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "#D9D8C4",
+            "height": 20,
+            "width": 20,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "#F5F5F5",
+              "borderTopRightRadius": 25,
+              "height": 20,
+              "width": 20,
+            }
+          }
+        />
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "paddingHorizontal": 30,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#3E3C37",
+          "fontSize": 20,
+          "fontWeight": "bold",
+          "paddingTop": 10,
+        }
+      }
+    >
+      Shelf
+    </Text>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+            "paddingVertical": 10,
+            "width": "100%",
+          },
+          Object {
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
+      <TextInput
+        maxLength={25}
+        onChangeText={[Function]}
+        placeholder="Search in Shelf"
+        style={
+          Object {
+            "backgroundColor": "#FFFFFF",
+            "borderColor": "#ECECEC",
+            "borderRadius": 10,
+            "borderWidth": 1,
+            "fontSize": 16,
+            "height": "100%",
+            "paddingHorizontal": 20,
+            "width": "85%",
+          }
+        }
+        testID="filterInput"
+        value=""
+      />
+    </View>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "marginTop": 10,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#ECECEC",
+            "opacity": 1,
+            "paddingVertical": 10,
+            "width": 150,
+          }
+        }
+        testID="shelfPageButton"
+      >
+        <Text
+          style={
+            Object {
+              "fontSize": 20,
+            }
+          }
+        >
+          Shelf
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#FFFFFF",
+            "opacity": 1,
+            "paddingVertical": 10,
+            "width": 150,
+          }
+        }
+        testID="listPageButton"
+      >
+        <Text
+          style={
+            Object {
+              "fontSize": 20,
+            }
+          }
+        >
+          List
+        </Text>
+      </View>
+    </View>
+    <View>
+      <View
+        style={
+          Object {
+            "height": 450,
+            "justifyContent": "center",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "#958472",
+              "borderColor": "#2F2406",
+              "borderRadius": 15,
+              "borderTopWidth": 10,
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "borderColor": "#958472",
+                  "borderWidth": 6,
+                  "elevation": 10,
+                },
+                Object {
+                  "height": 400,
+                },
+              ]
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "flexDirection": "row",
+                  },
+                  Object {
+                    "height": "50%",
+                    "width": "100%",
+                  },
+                ]
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#958472",
+                      "height": "100%",
+                      "justifyContent": "center",
+                    },
+                    Object {
+                      "width": "50%",
+                    },
+                  ]
+                }
+              >
+                <View
+                  accessible={true}
+                  focusable={true}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#4D3C2A",
+                      "borderBottomWidth": 5,
+                      "borderColor": "#2F2406",
+                      "borderRightWidth": 5,
+                      "height": "90%",
+                      "justifyContent": "center",
+                      "opacity": 1,
+                      "width": "90%",
+                    }
+                  }
+                  testID="shelf-0-0"
+                >
+                  <Text
+                    style={
+                      Object {
+                        "color": "#FFFFFF",
+                        "fontSize": 16,
+                        "fontWeight": "bold",
+                      }
+                    }
+                  >
+                    1
+                  </Text>
+                  <Text
+                    style={
+                      Object {
+                        "color": "#FFFFFF",
+                        "fontSize": 16,
+                        "fontWeight": "bold",
+                      }
+                    }
+                  >
+                    book
+                  </Text>
+                </View>
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#958472",
+                      "height": "100%",
+                      "justifyContent": "center",
+                    },
+                    Object {
+                      "width": "50%",
+                    },
+                  ]
+                }
+              >
+                <View
+                  accessible={true}
+                  focusable={true}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#4D3C2A",
+                      "borderBottomWidth": 5,
+                      "borderColor": "#2F2406",
+                      "borderRightWidth": 5,
+                      "height": "90%",
+                      "justifyContent": "center",
+                      "opacity": 1,
+                      "width": "90%",
+                    }
+                  }
+                  testID="shelf-0-1"
+                >
+                  <Text
+                    style={
+                      Object {
+                        "color": "#FFFFFF",
+                        "fontSize": 16,
+                        "fontWeight": "bold",
+                      }
+                    }
+                  >
+                    0
+                  </Text>
+                  <Text
+                    style={
+                      Object {
+                        "color": "#FFFFFF",
+                        "fontSize": 16,
+                        "fontWeight": "bold",
+                      }
+                    }
+                  >
+                    books
+                  </Text>
+                </View>
+              </View>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "flexDirection": "row",
+                  },
+                  Object {
+                    "height": "50%",
+                    "width": "100%",
+                  },
+                ]
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#958472",
+                      "height": "100%",
+                      "justifyContent": "center",
+                    },
+                    Object {
+                      "width": "50%",
+                    },
+                  ]
+                }
+              >
+                <View
+                  accessible={true}
+                  focusable={true}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#4D3C2A",
+                      "borderBottomWidth": 5,
+                      "borderColor": "#2F2406",
+                      "borderRightWidth": 5,
+                      "height": "90%",
+                      "justifyContent": "center",
+                      "opacity": 1,
+                      "width": "90%",
+                    }
+                  }
+                  testID="shelf-1-0"
+                >
+                  <Text
+                    style={
+                      Object {
+                        "color": "#FFFFFF",
+                        "fontSize": 16,
+                        "fontWeight": "bold",
+                      }
+                    }
+                  >
+                    0
+                  </Text>
+                  <Text
+                    style={
+                      Object {
+                        "color": "#FFFFFF",
+                        "fontSize": 16,
+                        "fontWeight": "bold",
+                      }
+                    }
+                  >
+                    books
+                  </Text>
+                </View>
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#958472",
+                      "height": "100%",
+                      "justifyContent": "center",
+                    },
+                    Object {
+                      "width": "50%",
+                    },
+                  ]
+                }
+              >
+                <View
+                  accessible={true}
+                  focusable={true}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#4D3C2A",
+                      "borderBottomWidth": 5,
+                      "borderColor": "#2F2406",
+                      "borderRightWidth": 5,
+                      "height": "90%",
+                      "justifyContent": "center",
+                      "opacity": 1,
+                      "width": "90%",
+                    }
+                  }
+                  testID="shelf-1-1"
+                >
+                  <Text
+                    style={
+                      Object {
+                        "color": "#FFFFFF",
+                        "fontSize": 16,
+                        "fontWeight": "bold",
+                      }
+                    }
+                  >
+                    0
+                  </Text>
+                  <Text
+                    style={
+                      Object {
+                        "color": "#FFFFFF",
+                        "fontSize": 16,
+                        "fontWeight": "bold",
+                      }
+                    }
+                  >
+                    books
+                  </Text>
+                </View>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</RCTSafeAreaView>
+`;
+
+exports[`Given a ShelfDetail component When it is rendered And shelf is loaded And you type in filterInput Then should match the snapshot 1`] = `
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
+>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "left": 20,
+        "opacity": 1,
+        "position": "absolute",
+        "top": 20,
+        "zIndex": 1,
+      }
+    }
+    testID="backButton"
+  >
+    <IconMock
+      height={30}
+      style={
+        Object {
+          "transform": Array [
+            Object {
+              "rotateZ": "180deg",
+            },
+          ],
+        }
+      }
+      width={30}
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "flex-end",
+        "backgroundColor": "#F5F5F5",
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#D9D8C4",
+          "borderBottomLeftRadius": 25,
+          "justifyContent": "center",
+          "padding": 10,
+          "width": "100%",
+        }
+      }
+    >
+      <IconMock
+        height={45}
+        width={45}
+      />
+    </View>
+    <View
+      style={
+        Object {
+          "height": 0,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "#D9D8C4",
+            "height": 20,
+            "width": 20,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "#F5F5F5",
+              "borderTopRightRadius": 25,
+              "height": 20,
+              "width": 20,
+            }
+          }
+        />
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "paddingHorizontal": 30,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#3E3C37",
+          "fontSize": 20,
+          "fontWeight": "bold",
+          "paddingTop": 10,
+        }
+      }
+    >
+      Shelf
+    </Text>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+            "paddingVertical": 10,
+            "width": "100%",
+          },
+          Object {
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
+      <TextInput
+        maxLength={25}
+        onChangeText={[Function]}
+        placeholder="Search in Shelf"
+        style={
+          Object {
+            "backgroundColor": "#FFFFFF",
+            "borderColor": "#ECECEC",
+            "borderRadius": 10,
+            "borderWidth": 1,
+            "fontSize": 16,
+            "height": "100%",
+            "paddingHorizontal": 20,
+            "width": "85%",
+          }
+        }
+        testID="filterInput"
+        value="a"
+      />
+    </View>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "marginTop": 10,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#FFFFFF",
+            "opacity": 1,
+            "paddingVertical": 10,
+            "width": 150,
+          }
+        }
+        testID="shelfPageButton"
+      >
+        <Text
+          style={
+            Object {
+              "fontSize": 20,
+            }
+          }
+        >
+          Shelf
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#ECECEC",
+            "opacity": 1,
+            "paddingVertical": 10,
+            "width": 150,
+          }
+        }
+        testID="listPageButton"
+      >
+        <Text
+          style={
+            Object {
+              "fontSize": 20,
+            }
+          }
+        >
+          List
+        </Text>
+      </View>
+    </View>
+    <View>
+      <RCTScrollView
+        data={Array []}
+        getItem={[Function]}
+        getItemCount={[Function]}
+        keyExtractor={[Function]}
+        onContentSizeChange={[Function]}
+        onLayout={[Function]}
+        onMomentumScrollBegin={[Function]}
+        onMomentumScrollEnd={[Function]}
+        onScroll={[Function]}
+        onScrollBeginDrag={[Function]}
+        onScrollEndDrag={[Function]}
+        removeClippedSubviews={false}
+        renderItem={[Function]}
+        scrollEventThrottle={50}
+        showsVerticalScrollIndicator={false}
+        stickyHeaderIndices={Array []}
+        viewabilityConfigCallbackPairs={Array []}
+      >
+        <View />
+      </RCTScrollView>
+      <View
+        style={
+          Object {
+            "height": 620,
+          }
+        }
+      />
+    </View>
+  </View>
+</RCTSafeAreaView>
+`;
+
+exports[`Given a ShelfDetail component When it is rendered And shelf is loaded Then should match the snapshot 1`] = `
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
+>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "left": 20,
+        "opacity": 1,
+        "position": "absolute",
+        "top": 20,
+        "zIndex": 1,
+      }
+    }
+    testID="backButton"
+  >
+    <IconMock
+      height={30}
+      style={
+        Object {
+          "transform": Array [
+            Object {
+              "rotateZ": "180deg",
+            },
+          ],
+        }
+      }
+      width={30}
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "flex-end",
+        "backgroundColor": "#F5F5F5",
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#D9D8C4",
+          "borderBottomLeftRadius": 25,
+          "justifyContent": "center",
+          "padding": 10,
+          "width": "100%",
+        }
+      }
+    >
+      <IconMock
+        height={45}
+        width={45}
+      />
+    </View>
+    <View
+      style={
+        Object {
+          "height": 0,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "#D9D8C4",
+            "height": 20,
+            "width": 20,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "#F5F5F5",
+              "borderTopRightRadius": 25,
+              "height": 20,
+              "width": 20,
+            }
+          }
+        />
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "paddingHorizontal": 30,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#3E3C37",
+          "fontSize": 20,
+          "fontWeight": "bold",
+          "paddingTop": 10,
+        }
+      }
+    >
+      Shelf
+    </Text>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+            "paddingVertical": 10,
+            "width": "100%",
+          },
+          Object {
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
+      <TextInput
+        maxLength={25}
+        onChangeText={[Function]}
+        placeholder="Search in Shelf"
+        style={
+          Object {
+            "backgroundColor": "#FFFFFF",
+            "borderColor": "#ECECEC",
+            "borderRadius": 10,
+            "borderWidth": 1,
+            "fontSize": 16,
+            "height": "100%",
+            "paddingHorizontal": 20,
+            "width": "85%",
+          }
+        }
+        testID="filterInput"
+        value=""
+      />
+    </View>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "marginTop": 10,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#ECECEC",
+            "opacity": 1,
+            "paddingVertical": 10,
+            "width": 150,
+          }
+        }
+        testID="shelfPageButton"
+      >
+        <Text
+          style={
+            Object {
+              "fontSize": 20,
+            }
+          }
+        >
+          Shelf
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#FFFFFF",
+            "opacity": 1,
+            "paddingVertical": 10,
+            "width": 150,
+          }
+        }
+        testID="listPageButton"
+      >
+        <Text
+          style={
+            Object {
+              "fontSize": 20,
+            }
+          }
+        >
+          List
+        </Text>
+      </View>
+    </View>
+    <View>
+      <View
+        style={
+          Object {
+            "height": 450,
+            "justifyContent": "center",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "#958472",
+              "borderColor": "#2F2406",
+              "borderRadius": 15,
+              "borderTopWidth": 10,
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "borderColor": "#958472",
+                  "borderWidth": 6,
+                  "elevation": 10,
+                },
+                Object {
+                  "height": 400,
+                },
+              ]
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "flexDirection": "row",
+                  },
+                  Object {
+                    "height": "50%",
+                    "width": "100%",
+                  },
+                ]
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#958472",
+                      "height": "100%",
+                      "justifyContent": "center",
+                    },
+                    Object {
+                      "width": "50%",
+                    },
+                  ]
+                }
+              >
+                <View
+                  accessible={true}
+                  focusable={true}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#4D3C2A",
+                      "borderBottomWidth": 5,
+                      "borderColor": "#2F2406",
+                      "borderRightWidth": 5,
+                      "height": "90%",
+                      "justifyContent": "center",
+                      "opacity": 1,
+                      "width": "90%",
+                    }
+                  }
+                  testID="shelf-0-0"
+                >
+                  <Text
+                    style={
+                      Object {
+                        "color": "#FFFFFF",
+                        "fontSize": 16,
+                        "fontWeight": "bold",
+                      }
+                    }
+                  >
+                    1
+                  </Text>
+                  <Text
+                    style={
+                      Object {
+                        "color": "#FFFFFF",
+                        "fontSize": 16,
+                        "fontWeight": "bold",
+                      }
+                    }
+                  >
+                    book
+                  </Text>
+                </View>
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#958472",
+                      "height": "100%",
+                      "justifyContent": "center",
+                    },
+                    Object {
+                      "width": "50%",
+                    },
+                  ]
+                }
+              >
+                <View
+                  accessible={true}
+                  focusable={true}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#4D3C2A",
+                      "borderBottomWidth": 5,
+                      "borderColor": "#2F2406",
+                      "borderRightWidth": 5,
+                      "height": "90%",
+                      "justifyContent": "center",
+                      "opacity": 1,
+                      "width": "90%",
+                    }
+                  }
+                  testID="shelf-0-1"
+                >
+                  <Text
+                    style={
+                      Object {
+                        "color": "#FFFFFF",
+                        "fontSize": 16,
+                        "fontWeight": "bold",
+                      }
+                    }
+                  >
+                    0
+                  </Text>
+                  <Text
+                    style={
+                      Object {
+                        "color": "#FFFFFF",
+                        "fontSize": 16,
+                        "fontWeight": "bold",
+                      }
+                    }
+                  >
+                    books
+                  </Text>
+                </View>
+              </View>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "flexDirection": "row",
+                  },
+                  Object {
+                    "height": "50%",
+                    "width": "100%",
+                  },
+                ]
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#958472",
+                      "height": "100%",
+                      "justifyContent": "center",
+                    },
+                    Object {
+                      "width": "50%",
+                    },
+                  ]
+                }
+              >
+                <View
+                  accessible={true}
+                  focusable={true}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#4D3C2A",
+                      "borderBottomWidth": 5,
+                      "borderColor": "#2F2406",
+                      "borderRightWidth": 5,
+                      "height": "90%",
+                      "justifyContent": "center",
+                      "opacity": 1,
+                      "width": "90%",
+                    }
+                  }
+                  testID="shelf-1-0"
+                >
+                  <Text
+                    style={
+                      Object {
+                        "color": "#FFFFFF",
+                        "fontSize": 16,
+                        "fontWeight": "bold",
+                      }
+                    }
+                  >
+                    0
+                  </Text>
+                  <Text
+                    style={
+                      Object {
+                        "color": "#FFFFFF",
+                        "fontSize": 16,
+                        "fontWeight": "bold",
+                      }
+                    }
+                  >
+                    books
+                  </Text>
+                </View>
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#958472",
+                      "height": "100%",
+                      "justifyContent": "center",
+                    },
+                    Object {
+                      "width": "50%",
+                    },
+                  ]
+                }
+              >
+                <View
+                  accessible={true}
+                  focusable={true}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#4D3C2A",
+                      "borderBottomWidth": 5,
+                      "borderColor": "#2F2406",
+                      "borderRightWidth": 5,
+                      "height": "90%",
+                      "justifyContent": "center",
+                      "opacity": 1,
+                      "width": "90%",
+                    }
+                  }
+                  testID="shelf-1-1"
+                >
+                  <Text
+                    style={
+                      Object {
+                        "color": "#FFFFFF",
+                        "fontSize": 16,
+                        "fontWeight": "bold",
+                      }
+                    }
+                  >
+                    0
+                  </Text>
+                  <Text
+                    style={
+                      Object {
+                        "color": "#FFFFFF",
+                        "fontSize": 16,
+                        "fontWeight": "bold",
+                      }
+                    }
+                  >
+                    books
+                  </Text>
+                </View>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</RCTSafeAreaView>
+`;
+
+exports[`Given a ShelfDetail component When it is rendered And shelf is not loaded Then should match the snapshot 1`] = `
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
+>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "left": 20,
+        "opacity": 1,
+        "position": "absolute",
+        "top": 20,
+        "zIndex": 1,
+      }
+    }
+    testID="backButton"
+  >
+    <IconMock
+      height={30}
+      style={
+        Object {
+          "transform": Array [
+            Object {
+              "rotateZ": "180deg",
+            },
+          ],
+        }
+      }
+      width={30}
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "flex-end",
+        "backgroundColor": "#F5F5F5",
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#D9D8C4",
+          "borderBottomLeftRadius": 25,
+          "justifyContent": "center",
+          "padding": 10,
+          "width": "100%",
+        }
+      }
+    >
+      <IconMock
+        height={45}
+        width={45}
+      />
+    </View>
+    <View
+      style={
+        Object {
+          "height": 0,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "#D9D8C4",
+            "height": 20,
+            "width": 20,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "#F5F5F5",
+              "borderTopRightRadius": 25,
+              "height": 20,
+              "width": 20,
+            }
+          }
+        />
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "paddingHorizontal": 30,
+      }
+    }
+  >
+    <ActivityIndicator
+      color="#3E3C37"
+      size="large"
+      style={
+        Object {
+          "marginTop": 40,
+        }
+      }
+    />
+  </View>
+</RCTSafeAreaView>
+`;
