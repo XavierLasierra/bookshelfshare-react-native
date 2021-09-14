@@ -12,7 +12,6 @@ const navigation = {
 const route = {
   params: {
     shelf: shelfMock
-
   }
 };
 
