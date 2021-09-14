@@ -42,6 +42,7 @@ describe('Given a Rating component', () => {
       describe('And there is a rating from the user logged', () => {
         let screen: any;
         beforeEach(() => {
+          (saveRating as jest.Mock).mockReturnValue({ type: '' });
           screen = render(
             // eslint-disable-next-line no-underscore-dangle
             <Rating ratings={ratingsMock.ratings} isbn={ratingsMock.bookIsbn} token="token" refreshToken="refreshToken" userId={loggedUserMock.user._id} />
@@ -63,7 +64,6 @@ describe('Given a Rating component', () => {
 
           describe('And you click on saveButton', () => {
             beforeEach(() => {
-              (saveRating as jest.Mock).mockReturnValue({ type: '' });
               const saveButton = screen.getByTestId('saveButton');
               fireEvent.press(saveButton);
             });

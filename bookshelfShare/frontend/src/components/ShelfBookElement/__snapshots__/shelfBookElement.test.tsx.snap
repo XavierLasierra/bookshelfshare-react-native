@@ -1,0 +1,219 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Given a ShelfBookElement component When it is rendered And bookData has no tumbnail and 3 authors Then should match the snapshot 1`] = `
+<View
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  nativeID="animatedComponent"
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "marginVertical": 10,
+      "opacity": 1,
+    }
+  }
+  testID="bookDetailButton"
+>
+  <Text
+    style={
+      Object {
+        "fontSize": 16,
+        "fontWeight": "bold",
+      }
+    }
+  >
+    Row:
+     
+    1
+     
+    Column:
+     
+    1
+     
+    -
+     
+    My shelf
+  </Text>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+      }
+    }
+  >
+    <Image
+      source={
+        Object {
+          "uri": "smallThumbnail2",
+        }
+      }
+      style={
+        Object {
+          "borderBottomLeftRadius": 10,
+          "borderTopLeftRadius": 10,
+          "height": 150,
+          "overflow": "hidden",
+          "width": 100,
+        }
+      }
+    />
+    <View
+      style={
+        Object {
+          "backgroundColor": "#FFFFFF",
+          "borderBottomRightRadius": 10,
+          "borderTopRightRadius": 10,
+          "height": 150,
+          "justifyContent": "space-between",
+          "padding": 10,
+          "width": 210,
+        }
+      }
+    >
+      <View>
+        <Text
+          style={
+            Object {
+              "fontSize": 16,
+              "fontWeight": "bold",
+              "width": 175,
+            }
+          }
+        >
+          1984
+        </Text>
+        <Text>
+          George Orwell
+        </Text>
+        <Text>
+          Another author
+        </Text>
+        <Text>
+          ...
+        </Text>
+        <Text>
+          No publisher found
+        </Text>
+      </View>
+      <Text>
+        ISBN13 -
+         
+        9780451524935
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Given a ShelfBookElement component When it is rendered And bookData has tumbnail and less than 3 authors Then should match the snapshot 1`] = `
+<View
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  nativeID="animatedComponent"
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "marginVertical": 10,
+      "opacity": 1,
+    }
+  }
+  testID="bookDetailButton"
+>
+  <Text
+    style={
+      Object {
+        "fontSize": 16,
+        "fontWeight": "bold",
+      }
+    }
+  >
+    Row:
+     
+    1
+     
+    Column:
+     
+    1
+     
+    -
+     
+    My shelf
+  </Text>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+      }
+    }
+  >
+    <Image
+      source={
+        Object {
+          "uri": "thumbnail1",
+        }
+      }
+      style={
+        Object {
+          "borderBottomLeftRadius": 10,
+          "borderTopLeftRadius": 10,
+          "height": 150,
+          "overflow": "hidden",
+          "width": 100,
+        }
+      }
+    />
+    <View
+      style={
+        Object {
+          "backgroundColor": "#FFFFFF",
+          "borderBottomRightRadius": 10,
+          "borderTopRightRadius": 10,
+          "height": 150,
+          "justifyContent": "space-between",
+          "padding": 10,
+          "width": 210,
+        }
+      }
+    >
+      <View>
+        <Text
+          style={
+            Object {
+              "fontSize": 16,
+              "fontWeight": "bold",
+              "width": 175,
+            }
+          }
+        >
+          1984
+        </Text>
+        <Text>
+          George Orwell
+        </Text>
+        <Text>
+          No publisher found
+        </Text>
+      </View>
+      <Text>
+        ISBN13 -
+         
+        9780451524935
+      </Text>
+    </View>
+  </View>
+</View>
+`;
