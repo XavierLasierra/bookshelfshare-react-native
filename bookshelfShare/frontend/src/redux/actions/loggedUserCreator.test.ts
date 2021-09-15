@@ -83,10 +83,10 @@ describe('Given a registerUser function', () => {
       });
     });
     describe('And axios.post is rejected', () => {
-      describe('And the error status is 500', () => {
+      describe('And the error status is 401', () => {
         test('Then dispatch should have been called with type REGISTER_ERROR', async () => {
           const dispatch = jest.fn();
-          (axios.post as jest.Mock).mockRejectedValue({ response: { status: 500 } });
+          (axios.post as jest.Mock).mockRejectedValue({ response: { status: 401 } });
           await registerUser({ username: 'username', email: 'email', password: 'password' })(dispatch);
 
           expect(dispatch).toHaveBeenCalledWith({
@@ -94,7 +94,7 @@ describe('Given a registerUser function', () => {
           });
         });
       });
-      describe('And the error status is not 500', () => {
+      describe('And the error status is not 401', () => {
         test('Then dispatch should have been called with type SERVER_ERROR', async () => {
           const dispatch = jest.fn();
           (axios.post as jest.Mock).mockRejectedValue({ response: {} });

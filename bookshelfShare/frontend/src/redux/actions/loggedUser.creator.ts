@@ -64,7 +64,7 @@ export function registerUser(userInfo: RegisterInformation) {
         type: notificationsActions.REGISTER_USER
       });
     } catch (error: any) {
-      if (error?.response?.status === 500) {
+      if (error?.response?.status === 401) {
         dispatch({
           type: notificationsActions.REGISTER_ERROR
         });
