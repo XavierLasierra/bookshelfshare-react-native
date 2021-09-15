@@ -31,7 +31,7 @@ Launches the test runner in the interactive watch mode.
 ### In the frontend directory, you can run:
 
 #### `yarn android`
-Runs the app in (http://localhost:5000).
+Runs the app in an android emulator. See https://reactnative.dev/docs/0.61/enviroment-setup.
 
 #### `yarn test`
 Launches the test runner in the interactive watch mode.
