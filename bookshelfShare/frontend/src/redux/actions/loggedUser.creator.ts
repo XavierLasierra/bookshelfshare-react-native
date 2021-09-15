@@ -59,12 +59,10 @@ export function loginUser(userInfo: LoginInformation) {
 export function registerUser(userInfo: RegisterInformation) {
   return async (dispatch: Dispatch) => {
     try {
-      const { data } = await axios.post(BOOKSS_API.concat('/auth/register'), userInfo);
-      if (data) {
-        dispatch({
-          type: notificationsActions.REGISTER_USER
-        });
-      }
+      await axios.post(BOOKSS_API.concat('/auth/register'), userInfo);
+      dispatch({
+        type: notificationsActions.REGISTER_USER
+      });
     } catch (error: any) {
       if (error?.response?.status === 500) {
         dispatch({
