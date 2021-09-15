@@ -19,8 +19,8 @@ passport.use(
           if (userExists.length > 0) throw new Error('User already registered');
 
           done(null, { email, password: hash });
-        } catch (error) {
-          done(error);
+        } catch ({ message }) {
+          done(null, false, { message });
         }
       });
     }

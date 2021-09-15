@@ -198,7 +198,7 @@ exports[`Given a BookElementSearch component When it is rendered And the book ha
             }
           }
         >
-          1984
+          Title
         </Text>
         <Text>
           EN
@@ -211,7 +211,7 @@ exports[`Given a BookElementSearch component When it is rendered And the book ha
           }
         }
       >
-        George Orwell
+        Orwell
       </Text>
       <Text
         style={
@@ -239,7 +239,7 @@ exports[`Given a BookElementSearch component When it is rendered And the book ha
           }
         }
       >
-        No publisher found
+        Debolsillo
       </Text>
     </View>
     <View>
@@ -253,7 +253,7 @@ exports[`Given a BookElementSearch component When it is rendered And the book ha
       >
         ISBN13 -
          
-        9780451524935
+        4567765432123
       </Text>
       <Text
         style={
@@ -265,7 +265,7 @@ exports[`Given a BookElementSearch component When it is rendered And the book ha
       >
         ISBN10 -
          
-        0451524934
+        0123456789
       </Text>
     </View>
   </View>

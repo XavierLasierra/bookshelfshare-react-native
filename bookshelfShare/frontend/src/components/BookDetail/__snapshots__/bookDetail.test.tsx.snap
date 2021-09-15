@@ -4438,7 +4438,7 @@ exports[`Given an BookDetail component When it is rendered And the book rendered
                       }
                     }
                   >
-                    1984
+                    Title
                   </Text>
                   <Text
                     style={
@@ -4448,7 +4448,7 @@ exports[`Given an BookDetail component When it is rendered And the book rendered
                       }
                     }
                   >
-                    A Novel
+                    Subtitle
                   </Text>
                   <Text
                     style={
@@ -4457,7 +4457,7 @@ exports[`Given an BookDetail component When it is rendered And the book rendered
                       }
                     }
                   >
-                    George Orwell
+                    Orwell
                   </Text>
                   <Text
                     style={
@@ -4495,7 +4495,7 @@ exports[`Given an BookDetail component When it is rendered And the book rendered
                       }
                     }
                   >
-                    No publisher found
+                    Debolsillo
                   </Text>
                   <Text
                     style={
@@ -4504,7 +4504,7 @@ exports[`Given an BookDetail component When it is rendered And the book rendered
                       }
                     }
                   >
-                    2009
+                    date
                   </Text>
                 </View>
                 <View
@@ -4787,7 +4787,7 @@ exports[`Given an BookDetail component When it is rendered And the book rendered
                     }
                   }
                 >
-                  0451524934
+                  0123456789
                 </Text>
               </View>
               <View
@@ -4815,7 +4815,7 @@ exports[`Given an BookDetail component When it is rendered And the book rendered
                     }
                   }
                 >
-                  9780451524935
+                  4567765432123
                 </Text>
               </View>
               <View

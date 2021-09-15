@@ -16,7 +16,10 @@ describe('Given a ShelfListElement component', () => {
       let screen: any;
       beforeEach(() => {
         (loadCurrentShelf as jest.Mock).mockReturnValue({ type: '' });
-        screen = render(<ShelfListElement shelf={shelfMock} navigation={navigation} />);
+        screen = render(<ShelfListElement
+          shelf={{ ...shelfMock, books: shelfMock.books[0] }}
+          navigation={navigation}
+        />);
       });
       test('Then should match the snapshot', () => {
         expect(screen).toMatchSnapshot();

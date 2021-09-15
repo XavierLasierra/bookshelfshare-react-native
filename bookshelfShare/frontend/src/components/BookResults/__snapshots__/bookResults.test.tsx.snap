@@ -369,7 +369,7 @@ exports[`Given a BookResults component When it is rendered And there are book re
           },
           Object {
             "authors": Array [
-              "George Orwell",
+              "Orwell",
               "Another author",
               "Last author",
             ],
@@ -384,15 +384,15 @@ exports[`Given a BookResults component When it is rendered And there are book re
               "smallThumbnail": "smallThumbnail2",
             },
             "isbn": Object {
-              "ISBN10": "0451524934",
-              "ISBN13": "9780451524935",
+              "ISBN10": "0123456789",
+              "ISBN13": "4567765432123",
             },
             "language": "en",
             "pageCount": 190,
-            "publishedDate": "2009",
-            "publisher": "No publisher found",
-            "subtitle": "A Novel",
-            "title": "1984",
+            "publishedDate": "date",
+            "publisher": "Debolsillo",
+            "subtitle": "Subtitle",
+            "title": "Title",
           },
         ]
       }
@@ -617,7 +617,7 @@ exports[`Given a BookResults component When it is rendered And there are book re
                       }
                     }
                   >
-                    1984
+                    Title
                   </Text>
                   <Text>
                     EN
@@ -630,7 +630,7 @@ exports[`Given a BookResults component When it is rendered And there are book re
                     }
                   }
                 >
-                  George Orwell
+                  Orwell
                 </Text>
                 <Text
                   style={
@@ -658,7 +658,7 @@ exports[`Given a BookResults component When it is rendered And there are book re
                     }
                   }
                 >
-                  No publisher found
+                  Debolsillo
                 </Text>
               </View>
               <View>
@@ -672,7 +672,7 @@ exports[`Given a BookResults component When it is rendered And there are book re
                 >
                   ISBN13 -
                    
-                  9780451524935
+                  4567765432123
                 </Text>
                 <Text
                   style={
@@ -684,7 +684,7 @@ exports[`Given a BookResults component When it is rendered And there are book re
                 >
                   ISBN10 -
                    
-                  0451524934
+                  0123456789
                 </Text>
               </View>
             </View>

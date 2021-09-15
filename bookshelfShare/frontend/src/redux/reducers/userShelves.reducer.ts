@@ -6,7 +6,7 @@ interface Action {
     data: any
 }
 
-function userShelvesReducer(shelves = [], action: Action): any {
+function userShelvesReducer(shelves:any = [], action: Action): any {
   let newShelves: any = shelves;
   switch (action.type) {
     case userShelvesActions.LOAD_USER_SHELVES:
