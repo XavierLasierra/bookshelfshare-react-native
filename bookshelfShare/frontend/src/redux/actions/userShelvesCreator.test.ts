@@ -1,6 +1,6 @@
 import axios from 'axios';
 import notificationsActions from './notifications.actions';
-import { loadUserShelves, createShelf } from './userShelves.creator';
+import { loadUserShelves, createShelf, addToShelf } from './userShelves.creator';
 import refreshUserToken from './tokens.creator';
 import userShelvesActions from './userShelves.actions';
 
@@ -161,6 +161,105 @@ describe('Given a createShelf function', () => {
           await createShelf({}, 'token', 'refreshToken')(dispatch);
 
           expect(dispatch).toHaveBeenCalledWith({ type: notificationsActions.SERVER_ERROR });
+        });
+      });
+    });
+  });
+});
+
+describe('Given a addToShelf function', () => {
+  describe('When it is triggered', () => {
+    describe('And deleteFrom and addTo is undefined', () => {
+      test('Then dispatch should have not been called', async () => {
+        const dispatch = jest.fn();
+        await addToShelf('', '', 'bookIsbn', {}, 'token', 'refreshToken')(dispatch);
+
+        expect(dispatch).not.toHaveBeenCalled();
+      });
+    });
+    describe('And deleteFrom and addTo is defined', () => {
+      describe('And axios.put is resolved', () => {
+        let dispatch: any;
+        beforeEach(async () => {
+          dispatch = jest.fn();
+          (axios.put as jest.Mock).mockResolvedValue({ data: {} });
+          await addToShelf('deleteFrom', 'addTo', 'bookIsbn', {}, 'token', 'refreshToken')(dispatch);
+        });
+        test('Then dispatch should have been called once with type DELETE_BOOK_FROM_SHELF and the data axios is resolved with', async () => {
+          expect(dispatch.mock.calls[0][0]).toEqual({
+            type: userShelvesActions.DELETE_BOOK_FROM_SHELF,
+            data: {}
+          });
+        });
+
+        test('Then dispatch should have been called once with type ADD_BOOK_TO_SHELF and the data axios is resolved with', async () => {
+          expect(dispatch.mock.calls[1][0]).toEqual({
+            type: userShelvesActions.ADD_BOOK_TO_SHELF,
+            data: {}
+          });
+        });
+      });
+      describe('And axios.put is rejected', () => {
+        describe('And the error status is 401', () => {
+          let dispatch: any;
+          beforeEach(() => {
+            dispatch = jest.fn();
+            (axios.put as jest.Mock).mockRejectedValue({ response: { status: 401 } });
+          });
+          describe('And refreshUserToken is resolved', () => {
+            describe('And newToken is false', () => {
+              test('Then dispatch should have been called with type SERVER_ERROR', async () => {
+                (refreshUserToken as jest.Mock).mockResolvedValue(false);
+
+                await addToShelf('deleteFrom', 'addTo', 'bookIsbn', {}, 'token', 'refreshToken')(dispatch);
+
+                expect(dispatch).toHaveBeenCalledWith({
+                  type: notificationsActions.SERVER_ERROR
+                });
+              });
+            });
+
+            describe('And there is a newToken', () => {
+              test('Then dispatch should have been called with addToShelf', async () => {
+                (refreshUserToken as jest.Mock).mockResolvedValue('newToken');
+
+                await addToShelf('deleteFrom', 'addTo', 'bookIsbn', {}, 'token', 'refreshToken')(dispatch);
+
+                expect(dispatch).toHaveBeenCalled();
+              });
+            });
+          });
+          describe('And refreshUserToken is rejected', () => {
+            test('Then dispatch should have been called with type SERVER_ERROR', async () => {
+              (refreshUserToken as jest.Mock).mockRejectedValue(new Error());
+
+              await addToShelf('deleteFrom', 'addTo', 'bookIsbn', {}, 'token', 'refreshToken')(dispatch);
+
+              expect(dispatch).toHaveBeenCalledWith({
+                type: notificationsActions.SERVER_ERROR
+              });
+            });
+          });
+        });
+        describe('And the error status is 500', () => {
+          test('Then dispatch should have been called with type ADD_TO_SHELF_ERROR', async () => {
+            const dispatch = jest.fn();
+            (axios.put as jest.Mock).mockRejectedValue({ response: { status: 500 } });
+            await addToShelf('deleteFrom', 'addTo', 'bookIsbn', {}, 'token', 'refreshToken')(dispatch);
+
+            expect(dispatch).toHaveBeenCalledWith({
+              type: notificationsActions.ADD_TO_SHELF_ERROR
+            });
+          });
+        });
+        describe('And the error status is not 401 or 500', () => {
+          test('Then dispatch should have been called with type SERVER_ERROR', async () => {
+            const dispatch = jest.fn();
+            (axios.put as jest.Mock).mockRejectedValue({ response: {} });
+            await addToShelf('deleteFrom', 'addTo', 'bookIsbn', {}, 'token', 'refreshToken')(dispatch);
+
+            expect(dispatch).toHaveBeenCalledWith({ type: notificationsActions.SERVER_ERROR });
+          });
         });
       });
     });
