@@ -1,0 +1,819 @@
+{
+	"info": {
+		"_postman_id": "1ac5bdc5-44d1-4191-9b53-2a0fe05c9fa5",
+		"name": "bookshelfShare",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"Xavi\",\r\n    \"email\": \"a@a.com\",\r\n    \"password\": \"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"c@a.com\",\r\n    \"password\": \"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh Token",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYxMjNiNmEwY2UwYzhkMGM3ODYxYTQ3YyIsImVtYWlsIjoiYXVAZW1haWwuY29tIn0sImlhdCI6MTYyOTczNTI1NH0.He3tkOU3khx07dQDFr2Ggbiyb2t9vm13BKkuXE5KgAw",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYxMjRhYjUyOGRmMGQ3NGY0MDljZjkxNyIsImVtYWlsIjoiZW1haWxAZW1haWwuY29tIn0sImlhdCI6MTYyOTc5NzAzMX0.f9mcydL1RgL3gk3mFdvbOckMjoIYYSUeji087tJd06M\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/auth/refreshToken",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"auth",
+								"refreshToken"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYxMmNjNWQxODFiNTkyNTM5ZjQ2MDgzMSIsImVtYWlsIjoieGxwMTk5OEBnbWFpbC5jb20ifSwiaWF0IjoxNjMwMzM5NjQ4fQ.nOfiImTuFHYBnEifiq3U1JudAZiyyyCwVOEycUgsv2Q\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/auth/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Books",
+			"item": [
+				{
+					"name": "Books by ISBN",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYxMmNjNWQxODFiNTkyNTM5ZjQ2MDgzMSIsImVtYWlsIjoieGxwMTk5OEBnbWFpbC5jb20ifSwiaWF0IjoxNjMwMzMyODE3fQ.loo8BElE71kH4s3vvw1m4IxHQTGqoRxh6lBUxse8hB8",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/api/books/search?isbn=0451524934",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"books",
+								"search"
+							],
+							"query": [
+								{
+									"key": "isbn",
+									"value": "0451524934"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Books by other",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYxMmNjNWQxODFiNTkyNTM5ZjQ2MDgzMSIsImVtYWlsIjoieGxwMTk5OEBnbWFpbC5jb20ifSwiaWF0IjoxNjMwMzMyODE3fQ.loo8BElE71kH4s3vvw1m4IxHQTGqoRxh6lBUxse8hB8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/api/books/search?inauthor=orwell&intitle=1984",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"books",
+								"search"
+							],
+							"query": [
+								{
+									"key": "inauthor",
+									"value": "orwell"
+								},
+								{
+									"key": "intitle",
+									"value": "1984"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create/Update rating book",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYxMmNjNWQxODFiNTkyNTM5ZjQ2MDgzMSIsImVtYWlsIjoieGxwMTk5OEBnbWFpbC5jb20ifSwiaWF0IjoxNjMwMzMyODE3fQ.loo8BElE71kH4s3vvw1m4IxHQTGqoRxh6lBUxse8hB8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user\": \"612d10e9f586fcd4a97a4f40\",\r\n    \"rating\": 5,\r\n    \"review\": \"b222st book\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/books/rating/123456789",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"books",
+								"rating",
+								"123456789"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get book data from isbn array",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYxMmNjNWQxODFiNTkyNTM5ZjQ2MDgzMSIsImVtYWlsIjoieGxwMTk5OEBnbWFpbC5jb20ifSwiaWF0IjoxNjMwMzMyODE3fQ.loo8BElE71kH4s3vvw1m4IxHQTGqoRxh6lBUxse8hB8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\"9788401423215\"]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/books/getData",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"books",
+								"getData"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get book ratings",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYxMmNjNWQxODFiNTkyNTM5ZjQ2MDgzMSIsImVtYWlsIjoieGxwMTk5OEBnbWFpbC5jb20ifSwiaWF0IjoxNjMwMzMyODE3fQ.loo8BElE71kH4s3vvw1m4IxHQTGqoRxh6lBUxse8hB8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/api/books/rating/123456789",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"books",
+								"rating",
+								"123456789"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Shelves",
+			"item": [
+				{
+					"name": "Get all shelves",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYxMmNjNWQxODFiNTkyNTM5ZjQ2MDgzMSIsImVtYWlsIjoieGxwMTk5OEBnbWFpbC5jb20ifSwiaWF0IjoxNjMwMzM5NjQ4fQ.nOfiImTuFHYBnEifiq3U1JudAZiyyyCwVOEycUgsv2Q",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/shelves",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"shelves"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Shelf",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYxMmNjNWQxODFiNTkyNTM5ZjQ2MDgzMSIsImVtYWlsIjoieGxwMTk5OEBnbWFpbC5jb20ifSwiaWF0IjoxNjMwMzM5NjQ4fQ.nOfiImTuFHYBnEifiq3U1JudAZiyyyCwVOEycUgsv2Q",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"users\": [\"6138fbe9e4034a7cc193e228\"],\r\n    \"name\": \"Shelf2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/shelves",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"shelves"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get shelf by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYxMmNjNWQxODFiNTkyNTM5ZjQ2MDgzMSIsImVtYWlsIjoieGxwMTk5OEBnbWFpbC5jb20ifSwiaWF0IjoxNjMwMzM5NjQ4fQ.nOfiImTuFHYBnEifiq3U1JudAZiyyyCwVOEycUgsv2Q",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/shelves/613b686a108bc745e47763cd",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"shelves",
+								"613b686a108bc745e47763cd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete user form shelf/ Delete shelf",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYxMmNjNWQxODFiNTkyNTM5ZjQ2MDgzMSIsImVtYWlsIjoieGxwMTk5OEBnbWFpbC5jb20ifSwiaWF0IjoxNjMwMzM5NjQ4fQ.nOfiImTuFHYBnEifiq3U1JudAZiyyyCwVOEycUgsv2Q",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user\": \"612ddcd6bbe3b5196085f511\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/shelves/613b683b108bc745e47763c6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"shelves",
+								"613b683b108bc745e47763c6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update information from list",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYxMmNjNWQxODFiNTkyNTM5ZjQ2MDgzMSIsImVtYWlsIjoieGxwMTk5OEBnbWFpbC5jb20ifSwiaWF0IjoxNjMwMzM5NjQ4fQ.nOfiImTuFHYBnEifiq3U1JudAZiyyyCwVOEycUgsv2Q",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Barcelona shelf\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/shelves/613b686a108bc745e47763cd",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"shelves",
+								"613b686a108bc745e47763cd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add user to shelf",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYxMmNjNWQxODFiNTkyNTM5ZjQ2MDgzMSIsImVtYWlsIjoieGxwMTk5OEBnbWFpbC5jb20ifSwiaWF0IjoxNjMwMzM5NjQ4fQ.nOfiImTuFHYBnEifiq3U1JudAZiyyyCwVOEycUgsv2Q",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user\": \"613a563fc29c76a46282b42d\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/shelves/addUser/613b686a108bc745e47763cd",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"shelves",
+								"addUser",
+								"613b686a108bc745e47763cd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add/Delete/Update custom information from book in a shelf",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYxMmNjNWQxODFiNTkyNTM5ZjQ2MDgzMSIsImVtYWlsIjoieGxwMTk5OEBnbWFpbC5jb20ifSwiaWF0IjoxNjMwMzM5NjQ4fQ.nOfiImTuFHYBnEifiq3U1JudAZiyyyCwVOEycUgsv2Q",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"actionType\": \"ADD\",\r\n    \"bookIsbn\": \"9788466357548\",\r\n    \"customInformation\": {\r\n        \"notes\": \"JAJ\",\r\n        \"location\": [1,2]\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/shelves/book/613cfa5d649bb5e37578b943",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"shelves",
+								"book",
+								"613cfa5d649bb5e37578b943"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Get all users",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYxMmNjNWQxODFiNTkyNTM5ZjQ2MDgzMSIsImVtYWlsIjoieGxwMTk5OEBnbWFpbC5jb20ifSwiaWF0IjoxNjMwMzM5NjQ4fQ.nOfiImTuFHYBnEifiq3U1JudAZiyyyCwVOEycUgsv2Q",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/api/users?email",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"users"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get user by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYxMmNjNWQxODFiNTkyNTM5ZjQ2MDgzMSIsImVtYWlsIjoieGxwMTk5OEBnbWFpbC5jb20ifSwiaWF0IjoxNjMwMzM5NjQ4fQ.nOfiImTuFHYBnEifiq3U1JudAZiyyyCwVOEycUgsv2Q",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/api/users/612d10e9f586fcd4a97a4f40",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"users",
+								"612d10e9f586fcd4a97a4f40"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete user by id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYxMmNjNWQxODFiNTkyNTM5ZjQ2MDgzMSIsImVtYWlsIjoieGxwMTk5OEBnbWFpbC5jb20ifSwiaWF0IjoxNjMwMzM5NjQ4fQ.nOfiImTuFHYBnEifiq3U1JudAZiyyyCwVOEycUgsv2Q",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/api/users/612cc5d181b592539f460831",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"users",
+								"612cc5d181b592539f460831"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update user by id",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYxMmNjNWQxODFiNTkyNTM5ZjQ2MDgzMSIsImVtYWlsIjoieGxwMTk5OEBnbWFpbC5jb20ifSwiaWF0IjoxNjMwMzM5NjQ4fQ.nOfiImTuFHYBnEifiq3U1JudAZiyyyCwVOEycUgsv2Q",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"Xavier Lasierra\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/users/612d10e9f586fcd4a97a4f40",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"users",
+								"612d10e9f586fcd4a97a4f40"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update user books by user id",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYxMmNjNWQxODFiNTkyNTM5ZjQ2MDgzMSIsImVtYWlsIjoieGxwMTk5OEBnbWFpbC5jb20ifSwiaWF0IjoxNjMwMzM5NjQ4fQ.nOfiImTuFHYBnEifiq3U1JudAZiyyyCwVOEycUgsv2Q",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bookIsbn\": \"12345\",\r\n    \"deleteFrom\": \"read\",\r\n    \"addTo\": \"current\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/users/books/6138fbe9e4034a7cc193e228",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"users",
+								"books",
+								"6138fbe9e4034a7cc193e228"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add following user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYxMmNjNWQxODFiNTkyNTM5ZjQ2MDgzMSIsImVtYWlsIjoieGxwMTk5OEBnbWFpbC5jb20ifSwiaWF0IjoxNjMwMzM5NjQ4fQ.nOfiImTuFHYBnEifiq3U1JudAZiyyyCwVOEycUgsv2Q",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"followingId\": \"613a0ac33cfd1dc5d3be307a\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/users/following/6138fbe9e4034a7cc193e228",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"users",
+								"following",
+								"6138fbe9e4034a7cc193e228"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete following user",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYxMmNjNWQxODFiNTkyNTM5ZjQ2MDgzMSIsImVtYWlsIjoieGxwMTk5OEBnbWFpbC5jb20ifSwiaWF0IjoxNjMwMzM5NjQ4fQ.nOfiImTuFHYBnEifiq3U1JudAZiyyyCwVOEycUgsv2Q",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"followingId\": \"613a0ac33cfd1dc5d3be307a\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/users/following/6138fbe9e4034a7cc193e228",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"users",
+								"following",
+								"6138fbe9e4034a7cc193e228"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
