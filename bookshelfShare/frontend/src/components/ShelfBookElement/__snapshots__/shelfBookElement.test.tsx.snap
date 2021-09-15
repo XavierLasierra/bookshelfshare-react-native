@@ -87,10 +87,10 @@ exports[`Given a ShelfBookElement component When it is rendered And bookData has
             }
           }
         >
-          1984
+          Title
         </Text>
         <Text>
-          George Orwell
+          Orwell
         </Text>
         <Text>
           Another author
@@ -99,13 +99,13 @@ exports[`Given a ShelfBookElement component When it is rendered And bookData has
           ...
         </Text>
         <Text>
-          No publisher found
+          Debolsillo
         </Text>
       </View>
       <Text>
         ISBN13 -
          
-        9780451524935
+        4567765432123
       </Text>
     </View>
   </View>

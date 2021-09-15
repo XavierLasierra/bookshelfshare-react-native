@@ -218,6 +218,42 @@ exports[`Given a UserShelfList component When it is rendered Then should match t
                   ],
                 },
               },
+              Object {
+                "bookData": Object {
+                  "authors": Array [
+                    "Orwell",
+                    "Another author",
+                    "Last author",
+                  ],
+                  "categories": Array [
+                    "London (England)",
+                    "Fiction",
+                    "Another",
+                  ],
+                  "description": "Winston Smith is a worker at the Ministry of Truth, where he falsifies records for the party. Secretly subversive, he and his colleague Julia try to free themselves from political slavery but the price of freedom is betrayal.",
+                  "format": "BOOK",
+                  "images": Object {
+                    "smallThumbnail": "smallThumbnail2",
+                  },
+                  "isbn": Object {
+                    "ISBN10": "0123456789",
+                    "ISBN13": "4567765432123",
+                  },
+                  "language": "en",
+                  "pageCount": 190,
+                  "publishedDate": "date",
+                  "publisher": "Debolsillo",
+                  "subtitle": "Subtitle",
+                  "title": "Title",
+                },
+                "bookIsbn": "2",
+                "customInformation": Object {
+                  "location": Array [
+                    0,
+                    0,
+                  ],
+                },
+              },
             ],
             "name": "Shelf",
             "shelf": Array [
@@ -363,9 +399,9 @@ exports[`Given a UserShelfList component When it is rendered Then should match t
                   }
                 }
               >
-                1
+                2
                  
-                book
+                books
               </Text>
             </View>
           </View>

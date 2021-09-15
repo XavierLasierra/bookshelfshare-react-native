@@ -15,7 +15,7 @@ describe('Given a searchBooks function', () => {
       test('Then dispatch should have been called with type LOAD_BOOKS and the data axios is resolved with', async () => {
         const dispatch = jest.fn();
         (axios.get as jest.Mock).mockResolvedValue({ data: {} });
-        await searchBooks({}, 'token', 'refreshToken')(dispatch);
+        await searchBooks({ isbn: '', inauthor: 'author' }, 'token', 'refreshToken')(dispatch);
 
         expect(dispatch).toHaveBeenCalledWith({
           type: booksActions.LOAD_BOOKS,

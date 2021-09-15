@@ -26,6 +26,13 @@ export default {
       customInformation: {
         location: [0, 0]
       }
+    },
+    {
+      bookIsbn: '2',
+      bookData: bookDetailsMock[1],
+      customInformation: {
+        location: [0, 0]
+      }
     }
   ]
 };

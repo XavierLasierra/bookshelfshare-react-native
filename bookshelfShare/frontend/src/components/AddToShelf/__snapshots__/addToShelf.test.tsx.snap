@@ -217,7 +217,7 @@ exports[`Given an AddToShelf component When it is rendered And isbn is Not found
                       }
                     }
                   >
-                    1
+                    2
                   </Text>
                   <Text
                     style={
@@ -228,7 +228,7 @@ exports[`Given an AddToShelf component When it is rendered And isbn is Not found
                       }
                     }
                   >
-                    book
+                    books
                   </Text>
                 </View>
               </View>

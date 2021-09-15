@@ -38,6 +38,42 @@ Array [
             ],
           },
         },
+        Object {
+          "bookData": Object {
+            "authors": Array [
+              "Orwell",
+              "Another author",
+              "Last author",
+            ],
+            "categories": Array [
+              "London (England)",
+              "Fiction",
+              "Another",
+            ],
+            "description": "Winston Smith is a worker at the Ministry of Truth, where he falsifies records for the party. Secretly subversive, he and his colleague Julia try to free themselves from political slavery but the price of freedom is betrayal.",
+            "format": "BOOK",
+            "images": Object {
+              "smallThumbnail": "smallThumbnail2",
+            },
+            "isbn": Object {
+              "ISBN10": "0123456789",
+              "ISBN13": "4567765432123",
+            },
+            "language": "en",
+            "pageCount": 190,
+            "publishedDate": "date",
+            "publisher": "Debolsillo",
+            "subtitle": "Subtitle",
+            "title": "Title",
+          },
+          "bookIsbn": "2",
+          "customInformation": Object {
+            "location": Array [
+              0,
+              0,
+            ],
+          },
+        },
       ]
     }
     getItem={[Function]}
@@ -161,6 +197,120 @@ Array [
                 ISBN13 -
                  
                 9780451524935
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          nativeID="animatedComponent"
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "marginVertical": 10,
+              "opacity": 1,
+            }
+          }
+          testID="bookDetailButton"
+        >
+          <Text
+            style={
+              Object {
+                "fontSize": 16,
+                "fontWeight": "bold",
+              }
+            }
+          >
+            Row:
+             
+            1
+             
+            Column:
+             
+            1
+             
+            -
+             
+            My shelf
+          </Text>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
+          >
+            <Image
+              source={
+                Object {
+                  "uri": "smallThumbnail2",
+                }
+              }
+              style={
+                Object {
+                  "borderBottomLeftRadius": 10,
+                  "borderTopLeftRadius": 10,
+                  "height": 150,
+                  "overflow": "hidden",
+                  "width": 100,
+                }
+              }
+            />
+            <View
+              style={
+                Object {
+                  "backgroundColor": "#FFFFFF",
+                  "borderBottomRightRadius": 10,
+                  "borderTopRightRadius": 10,
+                  "height": 150,
+                  "justifyContent": "space-between",
+                  "padding": 10,
+                  "width": 210,
+                }
+              }
+            >
+              <View>
+                <Text
+                  style={
+                    Object {
+                      "fontSize": 16,
+                      "fontWeight": "bold",
+                      "width": 175,
+                    }
+                  }
+                >
+                  Title
+                </Text>
+                <Text>
+                  Orwell
+                </Text>
+                <Text>
+                  Another author
+                </Text>
+                <Text>
+                  ...
+                </Text>
+                <Text>
+                  Debolsillo
+                </Text>
+              </View>
+              <Text>
+                ISBN13 -
+                 
+                4567765432123
               </Text>
             </View>
           </View>
