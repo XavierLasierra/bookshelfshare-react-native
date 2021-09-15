@@ -10,7 +10,7 @@ jest.mock('./tokens.creator');
 describe('Given a loadUserShelves function', () => {
   describe('When it is triggered', () => {
     describe('And axios.get is resolved', () => {
-      test('Then dispatch should have been called with type LOAD_CURRENT_SHELF and the data axios is resolved with', async () => {
+      test('Then dispatch should have been called with type LOAD_USER_SHELVES and the data axios is resolved with', async () => {
         const dispatch = jest.fn();
         (axios.get as jest.Mock).mockResolvedValue({ data: {} });
         await loadUserShelves('1', 'token', 'refreshToken')(dispatch);
@@ -90,7 +90,7 @@ describe('Given a loadUserShelves function', () => {
 describe('Given a createShelf function', () => {
   describe('When it is triggered', () => {
     describe('And axios.post is resolved', () => {
-      test('Then dispatch should have been called with type LOAD_CURRENT_SHELF and the data axios is resolved with', async () => {
+      test('Then dispatch should have been called with type ADD_NEW_SHELF and the data axios is resolved with', async () => {
         const dispatch = jest.fn();
         (axios.post as jest.Mock).mockResolvedValue({ data: {} });
         await createShelf({}, 'token', 'refreshToken')(dispatch);
