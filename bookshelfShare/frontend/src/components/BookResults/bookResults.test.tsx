@@ -15,7 +15,8 @@ describe('Given a BookResults component', () => {
             inauthor: '',
             intitle: '',
             inpublisher: ''
-          }
+          },
+          logo: 'logo'
         }
       };
       test('Then should match the snapshot', () => {
@@ -31,7 +32,8 @@ describe('Given a BookResults component', () => {
             inauthor: 'author',
             intitle: '',
             inpublisher: 'publisher'
-          }
+          },
+          logo: 'logo'
         }
       };
       test('Then should match the snapshot', () => {
@@ -54,7 +56,33 @@ describe('Given a BookResults component', () => {
             inauthor: 'author',
             intitle: 'title',
             inpublisher: 'publisher'
+          },
+          logo: 'logo'
+        }
+      };
+      test('Then should match the snapshot', () => {
+        const initialState = {
+          books: {
+            books: bookDetailsMock,
+            results: true
           }
+        };
+        const screen = render(<BookResults navigation={navigation} route={route} />, initialState);
+        expect(screen).toMatchSnapshot();
+      });
+    });
+
+    describe('And listName is not undefined', () => {
+      const route = {
+        params: {
+          searchInformation: {
+            isbn: '',
+            inauthor: 'author',
+            intitle: 'title',
+            inpublisher: 'publisher'
+          },
+          logo: 'logo',
+          listName: 'my list'
         }
       };
       test('Then should match the snapshot', () => {
