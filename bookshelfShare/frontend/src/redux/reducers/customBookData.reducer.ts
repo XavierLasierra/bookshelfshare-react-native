@@ -4,7 +4,7 @@ import notificationsActions from '../actions/notifications.actions';
 
 interface Action {
     type: string,
-    data: any
+    data?: any
 }
 
 function customBookDataReducer(customBookData = initialState, action: Action): any[] {

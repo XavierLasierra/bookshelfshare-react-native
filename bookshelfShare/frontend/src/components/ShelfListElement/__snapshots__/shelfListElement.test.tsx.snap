@@ -202,7 +202,6 @@ exports[`Given a ShelfListElement component When it is rendered And the shelf ha
         }
       }
     >
-      2
        
       books
     </Text>
