@@ -22,8 +22,8 @@ interface Route {
   params: Params
 }
 interface Params {
-  searchInformation: SearchInformation,
-  listName: string,
+  searchInformation?: SearchInformation,
+  listName?: string,
   logo: string
 }
 interface SearchInformation {

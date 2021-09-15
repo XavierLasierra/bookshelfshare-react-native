@@ -17,7 +17,7 @@ describe('Given a ShelfListElement component', () => {
       beforeEach(() => {
         (loadCurrentShelf as jest.Mock).mockReturnValue({ type: '' });
         screen = render(<ShelfListElement
-          shelf={{ ...shelfMock, books: shelfMock.books[0] }}
+          shelf={{ ...shelfMock, books: ['book'] }}
           navigation={navigation}
         />);
       });
