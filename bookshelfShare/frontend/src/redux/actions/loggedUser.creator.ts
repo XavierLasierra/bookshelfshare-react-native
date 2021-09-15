@@ -197,7 +197,7 @@ export function addUserFollowing(
         }
       } else if (error?.response?.status === 500) {
         dispatch({
-          type: notificationsActions.ISBN_ERROR
+          type: notificationsActions.ADD_DELETE_FOLLOWING_ERROR
         });
       } else {
         dispatch({
@@ -238,7 +238,7 @@ export function deleteUserFollowing(
         }
       } else if (error?.response?.status === 500) {
         dispatch({
-          type: notificationsActions.ISBN_ERROR
+          type: notificationsActions.ADD_DELETE_FOLLOWING_ERROR
         });
       } else {
         dispatch({

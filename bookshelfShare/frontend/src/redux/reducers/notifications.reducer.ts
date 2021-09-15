@@ -59,6 +59,9 @@ function notificationsReducer(notification = [], action: Action): string[] {
     case notificationsActions.ADD_TO_SHELF_ERROR:
       newNotification = ['Could not modify shelf'];
       break;
+    case notificationsActions.ADD_DELETE_FOLLOWING_ERROR:
+      newNotification = ['Could not add/delete following user'];
+      break;
     default:
       break;
   }
