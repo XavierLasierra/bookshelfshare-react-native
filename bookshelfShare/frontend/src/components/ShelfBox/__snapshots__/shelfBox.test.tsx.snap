@@ -1,0 +1,208 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Given a ShelfBox component When it is rendered And activeShelf is different from [row,column] And numberOfBooks 2 Then should match the snapshot 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#958472",
+        "height": "100%",
+        "justifyContent": "center",
+      },
+      Object {
+        "width": 100,
+      },
+    ]
+  }
+>
+  <View
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    nativeID="animatedComponent"
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#4D3C2A",
+        "borderBottomWidth": 5,
+        "borderColor": "#2F2406",
+        "borderRightWidth": 5,
+        "height": "90%",
+        "justifyContent": "center",
+        "opacity": 1,
+        "width": "90%",
+      }
+    }
+    testID="shelf-0-0"
+  >
+    <Text
+      style={
+        Object {
+          "color": "#FFFFFF",
+          "fontSize": 16,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      2
+    </Text>
+    <Text
+      style={
+        Object {
+          "color": "#FFFFFF",
+          "fontSize": 16,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      books
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`Given a ShelfBox component When it is rendered And activeShelf is different from [row,column] And numberOfBooks is 1 Then should match the snapshot 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#958472",
+        "height": "100%",
+        "justifyContent": "center",
+      },
+      Object {
+        "width": 100,
+      },
+    ]
+  }
+>
+  <View
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    nativeID="animatedComponent"
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#4D3C2A",
+        "borderBottomWidth": 5,
+        "borderColor": "#2F2406",
+        "borderRightWidth": 5,
+        "height": "90%",
+        "justifyContent": "center",
+        "opacity": 1,
+        "width": "90%",
+      }
+    }
+    testID="shelf-0-0"
+  >
+    <Text
+      style={
+        Object {
+          "color": "#FFFFFF",
+          "fontSize": 16,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      1
+    </Text>
+    <Text
+      style={
+        Object {
+          "color": "#FFFFFF",
+          "fontSize": 16,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      book
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`Given a ShelfBox component When it is rendered And activeShelf is equal to [row,column] Then should match the snapshot 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#958472",
+        "height": "100%",
+        "justifyContent": "center",
+      },
+      Object {
+        "width": 100,
+      },
+    ]
+  }
+>
+  <View
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    nativeID="animatedComponent"
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#BF7B54",
+        "borderBottomWidth": 5,
+        "borderColor": "#2F2406",
+        "borderRightWidth": 5,
+        "height": "90%",
+        "justifyContent": "center",
+        "opacity": 1,
+        "width": "90%",
+      }
+    }
+    testID="shelf-0-0"
+  >
+    <Text
+      style={
+        Object {
+          "color": "#FFFFFF",
+          "fontSize": 16,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      1
+    </Text>
+    <Text
+      style={
+        Object {
+          "color": "#FFFFFF",
+          "fontSize": 16,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      book
+    </Text>
+  </View>
+</View>
+`;

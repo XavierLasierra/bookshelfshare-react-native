@@ -9,12 +9,15 @@ const navigation = {
 
 describe('Given an AddPopUp component', () => {
   describe('When it is rendered', () => {
-    test('Then should match the snapshot', () => {
-      const screen = render(
+    let screen: any;
+    beforeEach(() => {
+      screen = render(
         <MenuProvider>
           <AddPopUp navigation={navigation} />
         </MenuProvider>
       );
+    });
+    test('Then should match the snapshot', () => {
       expect(screen).toMatchSnapshot();
     });
   });

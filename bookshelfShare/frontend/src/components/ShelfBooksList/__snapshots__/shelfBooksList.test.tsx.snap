@@ -1,0 +1,179 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Given a ShelfBooksList component When it is rendered Then should match the snapshot 1`] = `
+Array [
+  <RCTScrollView
+    data={
+      Array [
+        Object {
+          "bookData": Object {
+            "authors": Array [
+              "George Orwell",
+            ],
+            "categories": Array [
+              "London (England)",
+            ],
+            "description": "Winston Smith is a worker at the Ministry of Truth, where he falsifies records for the party. Secretly subversive, he and his colleague Julia try to free themselves from political slavery but the price of freedom is betrayal.",
+            "format": "BOOK",
+            "images": Object {
+              "smallThumbnail": "smallThumbnail1",
+              "thumbnail": "thumbnail1",
+            },
+            "isbn": Object {
+              "ISBN10": "0451524934",
+              "ISBN13": "9780451524935",
+            },
+            "language": "en",
+            "pageCount": 190,
+            "publishedDate": "2009",
+            "publisher": "No publisher found",
+            "subtitle": "A Novel",
+            "title": "1984",
+          },
+          "bookIsbn": "1",
+          "customInformation": Object {
+            "location": Array [
+              0,
+              0,
+            ],
+          },
+        },
+      ]
+    }
+    getItem={[Function]}
+    getItemCount={[Function]}
+    keyExtractor={[Function]}
+    onContentSizeChange={[Function]}
+    onLayout={[Function]}
+    onMomentumScrollBegin={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    showsVerticalScrollIndicator={false}
+    stickyHeaderIndices={Array []}
+    viewabilityConfigCallbackPairs={Array []}
+  >
+    <View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          nativeID="animatedComponent"
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "marginVertical": 10,
+              "opacity": 1,
+            }
+          }
+          testID="bookDetailButton"
+        >
+          <Text
+            style={
+              Object {
+                "fontSize": 16,
+                "fontWeight": "bold",
+              }
+            }
+          >
+            Row:
+             
+            1
+             
+            Column:
+             
+            1
+             
+            -
+             
+            My shelf
+          </Text>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
+          >
+            <Image
+              source={
+                Object {
+                  "uri": "thumbnail1",
+                }
+              }
+              style={
+                Object {
+                  "borderBottomLeftRadius": 10,
+                  "borderTopLeftRadius": 10,
+                  "height": 150,
+                  "overflow": "hidden",
+                  "width": 100,
+                }
+              }
+            />
+            <View
+              style={
+                Object {
+                  "backgroundColor": "#FFFFFF",
+                  "borderBottomRightRadius": 10,
+                  "borderTopRightRadius": 10,
+                  "height": 150,
+                  "justifyContent": "space-between",
+                  "padding": 10,
+                  "width": 210,
+                }
+              }
+            >
+              <View>
+                <Text
+                  style={
+                    Object {
+                      "fontSize": 16,
+                      "fontWeight": "bold",
+                      "width": 175,
+                    }
+                  }
+                >
+                  1984
+                </Text>
+                <Text>
+                  George Orwell
+                </Text>
+                <Text>
+                  No publisher found
+                </Text>
+              </View>
+              <Text>
+                ISBN13 -
+                 
+                9780451524935
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>,
+  <View
+    style={
+      Object {
+        "height": 620,
+      }
+    }
+  />,
+]
+`;

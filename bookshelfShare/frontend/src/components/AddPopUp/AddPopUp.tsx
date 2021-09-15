@@ -29,14 +29,19 @@ export default function AddPopUp({ navigation }: any) {
   }
 
   return (
-    <Menu style={styles.addButton} renderer={renderers.Popover}>
-      <MenuTrigger testID="openMenuButton">
+    <Menu
+      style={styles.addButton}
+      renderer={renderers.Popover}
+    >
+      <MenuTrigger>
         <Text style={styles.addButtonText}>+</Text>
       </MenuTrigger>
       <MenuOptions
         optionsContainerStyle={styles.popUp}
+        testID="menuOptions"
       >
         <MenuOption
+          key="scanPage"
           style={[globalStyles.button, styles.popUpButton]}
           onSelect={handleClickScan}
         >
@@ -44,6 +49,7 @@ export default function AddPopUp({ navigation }: any) {
           <Text style={globalStyles.buttonText}>Scan</Text>
         </MenuOption>
         <MenuOption
+          key="searchPage"
           style={[globalStyles.button, styles.popUpButton]}
           onSelect={handleClickSearch}
         >

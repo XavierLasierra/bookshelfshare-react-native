@@ -8,45 +8,9 @@ export default StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between'
   },
-  markButtonContainer: {
-    width: 200
-  },
-  markButton: {
-    height: 40,
-    width: 150,
-    backgroundColor: stylesConstants.colors.white,
-    borderRadius: 10,
-    borderWidth: 1,
-    borderColor: stylesConstants.colors.secondary,
-    textAlign: 'center',
-    lineHeight: 40
-  },
-  menuOption: {
-    minHeight: 40,
-    justifyContent: 'center'
-  },
-  activityIndicatorContainer: {
-    backgroundColor: stylesConstants.colors.white,
-    borderRadius: 10,
-    borderWidth: 1,
-    borderColor: stylesConstants.colors.secondary,
-    height: 40,
-    width: 150,
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
   canNotSaveText: {
     textAlign: 'center',
     fontSize: stylesConstants.fontSize.small,
     width: '100%'
-  },
-  shelfLocationContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingHorizontal: 20
-  },
-  shelfLocationText: {
-    fontSize: stylesConstants.fontSize.mid,
-    fontWeight: '500'
   }
 });

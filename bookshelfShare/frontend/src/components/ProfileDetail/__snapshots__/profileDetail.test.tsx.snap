@@ -1,0 +1,228 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Given a ProfileDetail component When it is rendered Then should match the snapshot 1`] = `
+Array [
+  <View
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    nativeID="animatedComponent"
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "borderBottomWidth": 2,
+        "borderColor": "#ECECEC",
+        "borderTopWidth": 2,
+        "flexDirection": "row",
+        "height": 50,
+        "marginBottom": 15,
+        "opacity": 1,
+      }
+    }
+    testID="readingButton"
+  >
+    <IconMock
+      height={40}
+      width={40}
+    />
+    <Text
+      style={
+        Object {
+          "fontSize": 16,
+          "marginLeft": 15,
+        }
+      }
+    >
+      1
+       
+      book
+       
+      currently reading
+    </Text>
+  </View>,
+  <View
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    nativeID="animatedComponent"
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "borderBottomWidth": 2,
+        "borderColor": "#ECECEC",
+        "borderTopWidth": 2,
+        "flexDirection": "row",
+        "height": 50,
+        "marginBottom": 15,
+        "opacity": 1,
+      }
+    }
+    testID="readButton"
+  >
+    <IconMock
+      height={40}
+      width={40}
+    />
+    <Text
+      style={
+        Object {
+          "fontSize": 16,
+          "marginLeft": 15,
+        }
+      }
+    >
+      1
+       
+      book
+       
+      read
+    </Text>
+  </View>,
+  <View
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    nativeID="animatedComponent"
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "borderBottomWidth": 2,
+        "borderColor": "#ECECEC",
+        "borderTopWidth": 2,
+        "flexDirection": "row",
+        "height": 50,
+        "marginBottom": 15,
+        "opacity": 1,
+      }
+    }
+    testID="toReadButton"
+  >
+    <IconMock
+      height={40}
+      width={40}
+    />
+    <Text
+      style={
+        Object {
+          "fontSize": 16,
+          "marginLeft": 15,
+        }
+      }
+    >
+      1
+       
+      book
+       
+      to read
+    </Text>
+  </View>,
+  <View
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    nativeID="animatedComponent"
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "borderBottomWidth": 2,
+        "borderColor": "#ECECEC",
+        "borderTopWidth": 2,
+        "flexDirection": "row",
+        "height": 50,
+        "marginBottom": 15,
+        "opacity": 1,
+      }
+    }
+    testID="wishlistButton"
+  >
+    <IconMock
+      height={40}
+      width={40}
+    />
+    <Text
+      style={
+        Object {
+          "fontSize": 16,
+          "marginLeft": 15,
+        }
+      }
+    >
+      1
+       
+      book
+       
+      on wishlist
+    </Text>
+  </View>,
+  <View
+    accessible={true}
+    collapsable={false}
+    focusable={false}
+    nativeID="animatedComponent"
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "borderBottomWidth": 2,
+        "borderColor": "#ECECEC",
+        "borderTopWidth": 2,
+        "flexDirection": "row",
+        "height": 50,
+        "marginBottom": 15,
+        "opacity": 1,
+      }
+    }
+  >
+    <IconMock
+      height={35}
+      width={40}
+    />
+    <Text
+      style={
+        Object {
+          "fontSize": 16,
+          "marginLeft": 15,
+        }
+      }
+    >
+      1
+       
+      shelf
+    </Text>
+  </View>,
+]
+`;

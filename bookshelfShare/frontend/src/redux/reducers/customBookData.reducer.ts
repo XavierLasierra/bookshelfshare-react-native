@@ -13,7 +13,6 @@ function customBookDataReducer(customBookData = initialState, action: Action): a
     case booksActions.LOAD_RATINGS:
     case booksActions.UPDATE_RATINGS:
       newCustomData = {
-        ...newCustomData,
         isLoaded: true,
         ratings: action.data.ratings
       };
@@ -24,7 +23,6 @@ function customBookDataReducer(customBookData = initialState, action: Action): a
     case notificationsActions.LOAD_RATINGS_ERROR:
     case notificationsActions.SAVE_RATING_ERROR:
       newCustomData = {
-        ...newCustomData,
         ratings: [],
         isLoaded: true
       };

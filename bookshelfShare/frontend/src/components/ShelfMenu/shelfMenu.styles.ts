@@ -2,11 +2,13 @@ import { StyleSheet } from 'react-native';
 import stylesConstants from '../../styles/styles.constants';
 
 export default StyleSheet.create({
-  notesInput: {
-    backgroundColor: stylesConstants.colors.white,
-    height: 100,
-    textAlignVertical: 'top',
+  shelfLocationContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingHorizontal: 20
+  },
+  shelfLocationText: {
     fontSize: stylesConstants.fontSize.mid,
-    padding: stylesConstants.padding.small
+    fontWeight: '500'
   }
 });

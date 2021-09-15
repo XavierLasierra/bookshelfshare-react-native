@@ -47,6 +47,7 @@ export default function UserElement({
       <TouchableOpacity
         style={[styles.userElementContainer, isFollowed && styles.userElementFollowedContainer]}
         onPress={handleUserDetail}
+        testID="userDetailButton"
       >
         <Image
           source={{ uri: user.photo }}
@@ -62,6 +63,7 @@ export default function UserElement({
               <TouchableOpacity
                 onPress={() => handleDeleteFollowing(user._id)}
                 disabled={isDisabled}
+                testID="deleteFollowingButton"
               >
                 <RedProfileIcon width={30} height={30} />
               </TouchableOpacity>
@@ -70,6 +72,7 @@ export default function UserElement({
               <TouchableOpacity
                 onPress={() => handleAddFollowing(user._id)}
                 disabled={isDisabled}
+                testID="addFollowingButton"
               >
                 <AddUserIcon width={30} height={30} />
               </TouchableOpacity>

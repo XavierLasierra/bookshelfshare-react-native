@@ -6,7 +6,6 @@ import { AirbnbRating } from 'react-native-ratings';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Header from '../Header/Header';
-import Notes from '../Notes/Notes';
 import Rating from '../Rating/Rating';
 import AddBookToUser from '../AddBookToUser/AddBookToUser';
 
@@ -28,7 +27,7 @@ export default function BookDetail({
 }: any) {
   const dispatch = useDispatch();
   const { token, refreshToken } = useSelector((store: any) => store.tokens);
-  const { ratings, list, isLoaded } = useSelector((store: any) => store.customBookData);
+  const { ratings, isLoaded } = useSelector((store: any) => store.customBookData);
   const { userData } = useSelector((store: any) => store.loggedUser);
   const [rating, setRating] = useState(0);
   const [ratingNumber, setRatingNumber] = useState(0);
@@ -127,17 +126,14 @@ export default function BookDetail({
           </View>
           {isLoaded
             ? (
-              <>
-                <Notes list={list} />
-                <Rating
-                  ratings={ratings}
-                  isbn={bookData.isbn.ISBN13}
-                  token={token}
-                  refreshToken={refreshToken}
+              <Rating
+                ratings={ratings}
+                isbn={bookData.isbn.ISBN13}
+                token={token}
+                refreshToken={refreshToken}
                   // eslint-disable-next-line no-underscore-dangle
-                  userId={userData._id}
-                />
-              </>
+                userId={userData._id}
+              />
             )
             : <ActivityIndicator size="large" color={stylesConstants.colors.dark} />}
 

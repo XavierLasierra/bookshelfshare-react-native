@@ -281,7 +281,7 @@ exports[`Given a BookSearchNavigator component When it is rendered Then should m
                                     "alignItems": "center",
                                     "backgroundColor": "#ECECEC",
                                     "opacity": 1,
-                                    "paddingVertical": 15,
+                                    "paddingVertical": 10,
                                     "width": 150,
                                   }
                                 }
@@ -314,7 +314,7 @@ exports[`Given a BookSearchNavigator component When it is rendered Then should m
                                     "alignItems": "center",
                                     "backgroundColor": "#FFFFFF",
                                     "opacity": 1,
-                                    "paddingVertical": 15,
+                                    "paddingVertical": 10,
                                     "width": 150,
                                   }
                                 }
@@ -368,6 +368,8 @@ exports[`Given a BookSearchNavigator component When it is rendered Then should m
                                   ISBN
                                 </Text>
                                 <TextInput
+                                  keyboardType="number-pad"
+                                  maxLength={13}
                                   onChangeText={[Function]}
                                   style={
                                     Object {

@@ -22,6 +22,7 @@ export default function BookListFilter({ listName, books, setFilteredBooks }: an
           value={filter}
           onChangeText={handleFilter}
           maxLength={25}
+          testID="filterInput"
         />
       </View>
     </View>

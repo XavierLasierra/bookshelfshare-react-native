@@ -1,0 +1,1017 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Given a Profile component When it is rendered And the user has exactly 1 follower Then should match the snapshot 1`] = `
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
+  style={
+    Object {
+      "backgroundColor": "#F5F5F5",
+      "minHeight": "100%",
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "flex-end",
+        "backgroundColor": "#F5F5F5",
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#D9D8C4",
+          "borderBottomLeftRadius": 25,
+          "justifyContent": "center",
+          "padding": 10,
+          "width": "100%",
+        }
+      }
+    >
+      <IconMock
+        height={45}
+        width={45}
+      />
+    </View>
+    <View
+      style={
+        Object {
+          "height": 0,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "#D9D8C4",
+            "height": 20,
+            "width": 20,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "#F5F5F5",
+              "borderTopRightRadius": 25,
+              "height": 20,
+              "width": 20,
+            }
+          }
+        />
+      </View>
+    </View>
+  </View>
+  <RCTScrollView>
+    <View>
+      <View
+        style={
+          Object {
+            "paddingHorizontal": 30,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "paddingVertical": 10,
+            }
+          }
+        >
+          <Image
+            source={
+              Object {
+                "uri": "photo",
+              }
+            }
+            style={
+              Object {
+                "borderRadius": 100,
+                "height": 125,
+                "marginRight": 30,
+                "width": 125,
+              }
+            }
+          />
+          <View
+            style={
+              Object {
+                "maxWidth": 200,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "fontSize": 20,
+                  "fontWeight": "bold",
+                  "marginBottom": 15,
+                }
+              }
+            >
+              Xavier Lasierra
+            </Text>
+            <Text
+              style={
+                Object {
+                  "fontSize": 16,
+                }
+              }
+            >
+              xlp1998@gmail.com
+            </Text>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "marginTop": 20,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+              }
+            }
+          >
+            <View
+              accessible={true}
+              collapsable={false}
+              focusable={true}
+              nativeID="animatedComponent"
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "alignItems": "center",
+                  "borderBottomWidth": 2,
+                  "borderColor": "#ECECEC",
+                  "borderTopWidth": 2,
+                  "flexDirection": "row",
+                  "height": 50,
+                  "marginBottom": 15,
+                  "opacity": 1,
+                  "paddingHorizontal": 10,
+                  "width": 160,
+                }
+              }
+              testID="followersButton"
+            >
+              <IconMock
+                height={25}
+                width={25}
+              />
+              <Text
+                style={
+                  Object {
+                    "fontSize": 16,
+                    "marginLeft": 15,
+                  }
+                }
+              >
+                1
+                 
+                follower
+              </Text>
+            </View>
+            <View
+              accessible={true}
+              collapsable={false}
+              focusable={true}
+              nativeID="animatedComponent"
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "alignItems": "center",
+                  "borderBottomWidth": 2,
+                  "borderColor": "#ECECEC",
+                  "borderTopWidth": 2,
+                  "flexDirection": "row",
+                  "height": 50,
+                  "marginBottom": 15,
+                  "opacity": 1,
+                  "paddingHorizontal": 10,
+                  "width": 160,
+                }
+              }
+              testID="followingButton"
+            >
+              <IconMock
+                height={25}
+                width={25}
+              />
+              <Text
+                style={
+                  Object {
+                    "fontSize": 16,
+                    "marginLeft": 15,
+                  }
+                }
+              >
+                1
+                 
+                following
+              </Text>
+            </View>
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            nativeID="animatedComponent"
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "borderBottomWidth": 2,
+                "borderColor": "#ECECEC",
+                "borderTopWidth": 2,
+                "flexDirection": "row",
+                "height": 50,
+                "marginBottom": 15,
+                "opacity": 1,
+              }
+            }
+            testID="readingButton"
+          >
+            <IconMock
+              height={40}
+              width={40}
+            />
+            <Text
+              style={
+                Object {
+                  "fontSize": 16,
+                  "marginLeft": 15,
+                }
+              }
+            >
+              1
+               
+              book
+               
+              currently reading
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            nativeID="animatedComponent"
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "borderBottomWidth": 2,
+                "borderColor": "#ECECEC",
+                "borderTopWidth": 2,
+                "flexDirection": "row",
+                "height": 50,
+                "marginBottom": 15,
+                "opacity": 1,
+              }
+            }
+            testID="readButton"
+          >
+            <IconMock
+              height={40}
+              width={40}
+            />
+            <Text
+              style={
+                Object {
+                  "fontSize": 16,
+                  "marginLeft": 15,
+                }
+              }
+            >
+              1
+               
+              book
+               
+              read
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            nativeID="animatedComponent"
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "borderBottomWidth": 2,
+                "borderColor": "#ECECEC",
+                "borderTopWidth": 2,
+                "flexDirection": "row",
+                "height": 50,
+                "marginBottom": 15,
+                "opacity": 1,
+              }
+            }
+            testID="toReadButton"
+          >
+            <IconMock
+              height={40}
+              width={40}
+            />
+            <Text
+              style={
+                Object {
+                  "fontSize": 16,
+                  "marginLeft": 15,
+                }
+              }
+            >
+              1
+               
+              book
+               
+              to read
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            nativeID="animatedComponent"
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "borderBottomWidth": 2,
+                "borderColor": "#ECECEC",
+                "borderTopWidth": 2,
+                "flexDirection": "row",
+                "height": 50,
+                "marginBottom": 15,
+                "opacity": 1,
+              }
+            }
+            testID="wishlistButton"
+          >
+            <IconMock
+              height={40}
+              width={40}
+            />
+            <Text
+              style={
+                Object {
+                  "fontSize": 16,
+                  "marginLeft": 15,
+                }
+              }
+            >
+              1
+               
+              book
+               
+              on wishlist
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={false}
+            nativeID="animatedComponent"
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "borderBottomWidth": 2,
+                "borderColor": "#ECECEC",
+                "borderTopWidth": 2,
+                "flexDirection": "row",
+                "height": 50,
+                "marginBottom": 15,
+                "opacity": 1,
+              }
+            }
+          >
+            <IconMock
+              height={35}
+              width={40}
+            />
+            <Text
+              style={
+                Object {
+                  "fontSize": 16,
+                  "marginLeft": 15,
+                }
+              }
+            >
+              0
+               
+              shelves
+            </Text>
+          </View>
+        </View>
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          nativeID="animatedComponent"
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#000000",
+              "borderRadius": 10,
+              "display": "flex",
+              "height": 70,
+              "justifyContent": "center",
+              "marginTop": 50,
+              "opacity": 1,
+              "width": "100%",
+            }
+          }
+          testID="logoutButton"
+        >
+          <Text
+            style={
+              Object {
+                "color": "#FFFFFF",
+                "fontSize": 20,
+                "fontWeight": "500",
+              }
+            }
+          >
+            Log out
+          </Text>
+        </View>
+      </View>
+      <View
+        style={
+          Object {
+            "height": 130,
+            "width": "100%",
+          }
+        }
+      />
+    </View>
+  </RCTScrollView>
+</RCTSafeAreaView>
+`;
+
+exports[`Given a Profile component When it is rendered And the user has no followers Then should match the snapshot 1`] = `
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
+  style={
+    Object {
+      "backgroundColor": "#F5F5F5",
+      "minHeight": "100%",
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "flex-end",
+        "backgroundColor": "#F5F5F5",
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#D9D8C4",
+          "borderBottomLeftRadius": 25,
+          "justifyContent": "center",
+          "padding": 10,
+          "width": "100%",
+        }
+      }
+    >
+      <IconMock
+        height={45}
+        width={45}
+      />
+    </View>
+    <View
+      style={
+        Object {
+          "height": 0,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "#D9D8C4",
+            "height": 20,
+            "width": 20,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "#F5F5F5",
+              "borderTopRightRadius": 25,
+              "height": 20,
+              "width": 20,
+            }
+          }
+        />
+      </View>
+    </View>
+  </View>
+  <RCTScrollView>
+    <View>
+      <View
+        style={
+          Object {
+            "paddingHorizontal": 30,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "paddingVertical": 10,
+            }
+          }
+        >
+          <Image
+            source={
+              Object {
+                "uri": "photo",
+              }
+            }
+            style={
+              Object {
+                "borderRadius": 100,
+                "height": 125,
+                "marginRight": 30,
+                "width": 125,
+              }
+            }
+          />
+          <View
+            style={
+              Object {
+                "maxWidth": 200,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "fontSize": 20,
+                  "fontWeight": "bold",
+                  "marginBottom": 15,
+                }
+              }
+            >
+              Xavier Lasierra
+            </Text>
+            <Text
+              style={
+                Object {
+                  "fontSize": 16,
+                }
+              }
+            >
+              xlp1998@gmail.com
+            </Text>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "marginTop": 20,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+              }
+            }
+          >
+            <View
+              accessible={true}
+              collapsable={false}
+              focusable={true}
+              nativeID="animatedComponent"
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "alignItems": "center",
+                  "borderBottomWidth": 2,
+                  "borderColor": "#ECECEC",
+                  "borderTopWidth": 2,
+                  "flexDirection": "row",
+                  "height": 50,
+                  "marginBottom": 15,
+                  "opacity": 1,
+                  "paddingHorizontal": 10,
+                  "width": 160,
+                }
+              }
+              testID="followersButton"
+            >
+              <IconMock
+                height={25}
+                width={25}
+              />
+              <Text
+                style={
+                  Object {
+                    "fontSize": 16,
+                    "marginLeft": 15,
+                  }
+                }
+              >
+                0
+                 
+                followers
+              </Text>
+            </View>
+            <View
+              accessible={true}
+              collapsable={false}
+              focusable={true}
+              nativeID="animatedComponent"
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "alignItems": "center",
+                  "borderBottomWidth": 2,
+                  "borderColor": "#ECECEC",
+                  "borderTopWidth": 2,
+                  "flexDirection": "row",
+                  "height": 50,
+                  "marginBottom": 15,
+                  "opacity": 1,
+                  "paddingHorizontal": 10,
+                  "width": 160,
+                }
+              }
+              testID="followingButton"
+            >
+              <IconMock
+                height={25}
+                width={25}
+              />
+              <Text
+                style={
+                  Object {
+                    "fontSize": 16,
+                    "marginLeft": 15,
+                  }
+                }
+              >
+                0
+                 
+                following
+              </Text>
+            </View>
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            nativeID="animatedComponent"
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "borderBottomWidth": 2,
+                "borderColor": "#ECECEC",
+                "borderTopWidth": 2,
+                "flexDirection": "row",
+                "height": 50,
+                "marginBottom": 15,
+                "opacity": 1,
+              }
+            }
+            testID="readingButton"
+          >
+            <IconMock
+              height={40}
+              width={40}
+            />
+            <Text
+              style={
+                Object {
+                  "fontSize": 16,
+                  "marginLeft": 15,
+                }
+              }
+            >
+              1
+               
+              book
+               
+              currently reading
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            nativeID="animatedComponent"
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "borderBottomWidth": 2,
+                "borderColor": "#ECECEC",
+                "borderTopWidth": 2,
+                "flexDirection": "row",
+                "height": 50,
+                "marginBottom": 15,
+                "opacity": 1,
+              }
+            }
+            testID="readButton"
+          >
+            <IconMock
+              height={40}
+              width={40}
+            />
+            <Text
+              style={
+                Object {
+                  "fontSize": 16,
+                  "marginLeft": 15,
+                }
+              }
+            >
+              1
+               
+              book
+               
+              read
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            nativeID="animatedComponent"
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "borderBottomWidth": 2,
+                "borderColor": "#ECECEC",
+                "borderTopWidth": 2,
+                "flexDirection": "row",
+                "height": 50,
+                "marginBottom": 15,
+                "opacity": 1,
+              }
+            }
+            testID="toReadButton"
+          >
+            <IconMock
+              height={40}
+              width={40}
+            />
+            <Text
+              style={
+                Object {
+                  "fontSize": 16,
+                  "marginLeft": 15,
+                }
+              }
+            >
+              1
+               
+              book
+               
+              to read
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            nativeID="animatedComponent"
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "borderBottomWidth": 2,
+                "borderColor": "#ECECEC",
+                "borderTopWidth": 2,
+                "flexDirection": "row",
+                "height": 50,
+                "marginBottom": 15,
+                "opacity": 1,
+              }
+            }
+            testID="wishlistButton"
+          >
+            <IconMock
+              height={40}
+              width={40}
+            />
+            <Text
+              style={
+                Object {
+                  "fontSize": 16,
+                  "marginLeft": 15,
+                }
+              }
+            >
+              1
+               
+              book
+               
+              on wishlist
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={false}
+            nativeID="animatedComponent"
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "borderBottomWidth": 2,
+                "borderColor": "#ECECEC",
+                "borderTopWidth": 2,
+                "flexDirection": "row",
+                "height": 50,
+                "marginBottom": 15,
+                "opacity": 1,
+              }
+            }
+          >
+            <IconMock
+              height={35}
+              width={40}
+            />
+            <Text
+              style={
+                Object {
+                  "fontSize": 16,
+                  "marginLeft": 15,
+                }
+              }
+            >
+              0
+               
+              shelves
+            </Text>
+          </View>
+        </View>
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          nativeID="animatedComponent"
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#000000",
+              "borderRadius": 10,
+              "display": "flex",
+              "height": 70,
+              "justifyContent": "center",
+              "marginTop": 50,
+              "opacity": 1,
+              "width": "100%",
+            }
+          }
+          testID="logoutButton"
+        >
+          <Text
+            style={
+              Object {
+                "color": "#FFFFFF",
+                "fontSize": 20,
+                "fontWeight": "500",
+              }
+            }
+          >
+            Log out
+          </Text>
+        </View>
+      </View>
+      <View
+        style={
+          Object {
+            "height": 130,
+            "width": "100%",
+          }
+        }
+      />
+    </View>
+  </RCTScrollView>
+</RCTSafeAreaView>
+`;

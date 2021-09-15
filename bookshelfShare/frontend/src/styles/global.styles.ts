@@ -145,5 +145,19 @@ export default StyleSheet.create({
   },
   toggleText: {
     fontSize: stylesConstants.fontSize.big
+  },
+  markButton: {
+    height: 40,
+    width: 150,
+    backgroundColor: stylesConstants.colors.white,
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: stylesConstants.colors.secondary,
+    textAlign: 'center',
+    lineHeight: 40
+  },
+  menuOption: {
+    minHeight: 40,
+    justifyContent: 'center'
   }
 });

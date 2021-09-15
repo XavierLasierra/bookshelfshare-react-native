@@ -27,6 +27,7 @@ export default function ShelfListElement({
     <TouchableOpacity
       style={styles.shelfContainer}
       onPress={handleShelfDetailPage}
+      testID="shelfDetailPageButton"
     >
       <ShelfIcon width={35} height={35} />
       <Text style={styles.shelfName}>{shelf.name}</Text>

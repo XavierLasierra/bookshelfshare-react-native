@@ -1,0 +1,261 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Given a ShelfMenu component When it is rendered And shelves does not include bookIsbn Then should match the snapshot 1`] = `
+<View
+  onLayout={[Function]}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "flex": 1,
+        },
+        undefined,
+        undefined,
+        undefined,
+      ]
+    }
+  >
+    <View>
+      <View>
+        <View
+          collapsable={false}
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+          >
+            <View
+              ctx={
+                Object {
+                  "menuActions": Object {
+                    "_getOpenedMenu": [Function],
+                    "_notify": [Function],
+                    "closeMenu": [Function],
+                    "isMenuOpen": [Function],
+                    "openMenu": [Function],
+                    "toggleMenu": [Function],
+                  },
+                  "menuRegistry": Object {
+                    "getAll": [Function],
+                    "getMenu": [Function],
+                    "setOptionsCustomStyles": [Function],
+                    "subscribe": [Function],
+                    "unsubscribe": [Function],
+                    "updateLayoutInfo": [Function],
+                  },
+                }
+              }
+              style={
+                Array [
+                  undefined,
+                  undefined,
+                ]
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "backgroundColor": "#FFFFFF",
+                    "borderColor": "#ECECEC",
+                    "borderRadius": 10,
+                    "borderWidth": 1,
+                    "height": 40,
+                    "lineHeight": 40,
+                    "textAlign": "center",
+                    "width": 150,
+                  }
+                }
+              >
+                Add to shelf
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    pointerEvents="box-none"
+    style={
+      Object {
+        "bottom": 0,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      collapsable={false}
+      onLayout={[Function]}
+      pointerEvents="box-none"
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    />
+  </RCTSafeAreaView>
+</View>
+`;
+
+exports[`Given a ShelfMenu component When it is rendered And shelves does not include bookIsbn Then should match the snapshot 2`] = `
+<View
+  onLayout={[Function]}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "flex": 1,
+        },
+        undefined,
+        undefined,
+        undefined,
+      ]
+    }
+  >
+    <View>
+      <View>
+        <View
+          collapsable={false}
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+          >
+            <View
+              ctx={
+                Object {
+                  "menuActions": Object {
+                    "_getOpenedMenu": [Function],
+                    "_notify": [Function],
+                    "closeMenu": [Function],
+                    "isMenuOpen": [Function],
+                    "openMenu": [Function],
+                    "toggleMenu": [Function],
+                  },
+                  "menuRegistry": Object {
+                    "getAll": [Function],
+                    "getMenu": [Function],
+                    "setOptionsCustomStyles": [Function],
+                    "subscribe": [Function],
+                    "unsubscribe": [Function],
+                    "updateLayoutInfo": [Function],
+                  },
+                }
+              }
+              style={
+                Array [
+                  undefined,
+                  undefined,
+                ]
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "backgroundColor": "#FFFFFF",
+                    "borderColor": "#ECECEC",
+                    "borderRadius": 10,
+                    "borderWidth": 1,
+                    "height": 40,
+                    "lineHeight": 40,
+                    "textAlign": "center",
+                    "width": 150,
+                  }
+                }
+              >
+                Shelf
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+            "paddingHorizontal": 20,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "fontSize": 16,
+              "fontWeight": "500",
+            }
+          }
+        >
+          Row:
+          1
+        </Text>
+        <Text
+          style={
+            Object {
+              "fontSize": 16,
+              "fontWeight": "500",
+            }
+          }
+        >
+          Col:
+          1
+        </Text>
+      </View>
+    </View>
+  </View>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    pointerEvents="box-none"
+    style={
+      Object {
+        "bottom": 0,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      collapsable={false}
+      onLayout={[Function]}
+      pointerEvents="box-none"
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    />
+  </RCTSafeAreaView>
+</View>
+`;

@@ -78,6 +78,7 @@ export default function OtherUserProfile({ navigation, route: { params: { logo }
               <TouchableOpacity
                 onPress={handleDeleteFollowing}
                 disabled={isDisabled}
+                testID="deleteFollowingButton"
               >
                 <RedProfileIcon width={35} height={35} />
               </TouchableOpacity>
@@ -86,6 +87,7 @@ export default function OtherUserProfile({ navigation, route: { params: { logo }
               <TouchableOpacity
                 onPress={handleAddFollowing}
                 disabled={isDisabled}
+                testID="addFollowingButton"
               >
                 <AddUserIcon width={35} height={35} />
               </TouchableOpacity>

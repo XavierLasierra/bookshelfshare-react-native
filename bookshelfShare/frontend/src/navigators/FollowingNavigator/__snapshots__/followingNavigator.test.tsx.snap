@@ -281,6 +281,7 @@ exports[`Given a FollowingNavigator component When it is rendered Then should ma
                                     "width": 60,
                                   }
                                 }
+                                testID="followingUsersPageButton"
                               >
                                 <IconMock
                                   height={40}

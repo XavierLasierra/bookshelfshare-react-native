@@ -89,18 +89,21 @@ export default function ShelfDetail(
           maxLength={25}
           onChangeText={handleFilter}
           value={filter}
+          testID="filterInput"
         />
       </View>
       <View style={globalStyles.toggleContainer}>
         <TouchableOpacity
           style={[globalStyles.toggle, isShelf && globalStyles.toggleActive]}
           onPress={handleShelfPage}
+          testID="shelfPageButton"
         >
           <Text style={globalStyles.toggleText}>Shelf</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={[globalStyles.toggle, !isShelf && globalStyles.toggleActive]}
           onPress={handleListPage}
+          testID="listPageButton"
         >
           <Text style={globalStyles.toggleText}>List</Text>
         </TouchableOpacity>

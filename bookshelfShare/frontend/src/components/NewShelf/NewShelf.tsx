@@ -37,7 +37,7 @@ export default function NewShelf({ navigation, route: { params: { loggedUserId }
   function handleShelfCreation() {
     if (!name) {
       setInvalidShelfName(true);
-    } else if (+columns > 6 || +rows > 6 || +columns <= 0 || +rows <= 0) {
+    } else if (+rows > 6 || +columns > 6 || +rows <= 0 || +columns <= 0) {
       setInvalidShelf(true);
     } else {
       setIsCreating(true);
@@ -93,7 +93,10 @@ export default function NewShelf({ navigation, route: { params: { loggedUserId }
               onFocus={handleNameFocus}
             />
             {invalidShelfName && (
-            <Text style={globalStyles.invalid}>
+            <Text
+              style={globalStyles.invalid}
+              testID="invalidShelfName"
+            >
               Select a name for your shelf
             </Text>
             )}
@@ -125,7 +128,10 @@ export default function NewShelf({ navigation, route: { params: { loggedUserId }
             </View>
           </View>
           {invalidShelf && (
-          <Text style={globalStyles.invalid}>
+          <Text
+            style={globalStyles.invalid}
+            testID="invalidShelfSize"
+          >
             Shelfs must have at least 1 and no more than 6 columns/rows
           </Text>
           )}
@@ -135,7 +141,7 @@ export default function NewShelf({ navigation, route: { params: { loggedUserId }
             testID="createButton"
           >
             {isCreating
-              ? <ActivityIndicator size="small" color={stylesConstants.colors.white} />
+              ? <ActivityIndicator testID="activityIndicator" size="small" color={stylesConstants.colors.white} />
               : <Text style={globalStyles.buttonText}>Create</Text>}
           </TouchableOpacity>
         </View>

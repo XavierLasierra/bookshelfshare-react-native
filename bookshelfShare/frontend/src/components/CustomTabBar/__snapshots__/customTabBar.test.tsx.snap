@@ -138,7 +138,6 @@ exports[`Given a CustomTabBar component When it is rendered And state.index is 0
             onResponderTerminate={[Function]}
             onResponderTerminationRequest={[Function]}
             onStartShouldSetResponder={[Function]}
-            testID="openMenuButton"
           >
             <View
               ctx={
@@ -429,7 +428,6 @@ exports[`Given a CustomTabBar component When it is rendered And state.index is 1
             onResponderTerminate={[Function]}
             onResponderTerminationRequest={[Function]}
             onStartShouldSetResponder={[Function]}
-            testID="openMenuButton"
           >
             <View
               ctx={
@@ -718,7 +716,6 @@ exports[`Given a CustomTabBar component When it is rendered And state.index is 2
             onResponderTerminate={[Function]}
             onResponderTerminationRequest={[Function]}
             onStartShouldSetResponder={[Function]}
-            testID="openMenuButton"
           >
             <View
               ctx={
@@ -1009,7 +1006,6 @@ exports[`Given a CustomTabBar component When it is rendered And state.index is 3
             onResponderTerminate={[Function]}
             onResponderTerminationRequest={[Function]}
             onStartShouldSetResponder={[Function]}
-            testID="openMenuButton"
           >
             <View
               ctx={

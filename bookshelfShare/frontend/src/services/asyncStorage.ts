@@ -15,8 +15,8 @@ export async function getSavedData() {
     if (!userData) throw new Error('User not logged');
 
     return JSON.parse(userData);
-  } catch (error) {
-    return '';
+  } catch ({ message }) {
+    return message;
   }
 }
 

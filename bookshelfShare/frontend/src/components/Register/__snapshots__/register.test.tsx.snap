@@ -119,6 +119,7 @@ exports[`Given a Register component When it is rendered Then screen should match
         username
       </Text>
       <TextInput
+        maxLength={25}
         onChangeText={[Function]}
         onFocus={[Function]}
         style={
@@ -165,6 +166,7 @@ exports[`Given a Register component When it is rendered Then screen should match
         email
       </Text>
       <TextInput
+        maxLength={25}
         onChangeText={[Function]}
         onFocus={[Function]}
         style={
@@ -211,6 +213,7 @@ exports[`Given a Register component When it is rendered Then screen should match
         password
       </Text>
       <TextInput
+        maxLength={25}
         onChangeText={[Function]}
         onFocus={[Function]}
         secureTextEntry={true}
@@ -258,6 +261,7 @@ exports[`Given a Register component When it is rendered Then screen should match
         repeat password
       </Text>
       <TextInput
+        maxLength={25}
         onChangeText={[Function]}
         onFocus={[Function]}
         secureTextEntry={true}
