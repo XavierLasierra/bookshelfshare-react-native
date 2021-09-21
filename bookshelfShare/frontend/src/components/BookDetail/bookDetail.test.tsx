@@ -8,15 +8,12 @@ import booksActions from '../../redux/actions/books.actions';
 import ratingsMock from '../../mocks/ratings.mock';
 import loggedUserMock from '../../mocks/loggedUser.mock';
 import userBooksMock from '../../mocks/userBooks.mock';
+import navigationMock from '../../mocks/navigation.mock';
 
 jest.mock('../../redux/actions/books.creator', () => ({
   ...jest.requireActual('../../redux/actions/books.creator'),
   getRatings: jest.fn()
 }));
-
-const navigation = {
-  push: jest.fn()
-};
 
 describe('Given an BookDetail component', () => {
   describe('When it is rendered', () => {
@@ -34,7 +31,7 @@ describe('Given an BookDetail component', () => {
         };
         const screen = render(
           <MenuProvider>
-            <BookDetail navigation={navigation} route={route} />
+            <BookDetail navigation={navigationMock} route={route} />
           </MenuProvider>,
           initialState
         );
@@ -60,7 +57,7 @@ describe('Given an BookDetail component', () => {
         };
         screen = render(
           <MenuProvider>
-            <BookDetail navigation={navigation} route={route} />
+            <BookDetail navigation={navigationMock} route={route} />
           </MenuProvider>,
           initialState
         );
@@ -88,7 +85,7 @@ describe('Given an BookDetail component', () => {
         };
         const screen = render(
           <MenuProvider>
-            <BookDetail navigation={navigation} route={route} />
+            <BookDetail navigation={navigationMock} route={route} />
           </MenuProvider>,
           initialState
         );

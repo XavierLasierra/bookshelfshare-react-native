@@ -15,6 +15,7 @@ import styles from './bookDetail.styles';
 import stylesConstants from '../../styles/styles.constants';
 import globalStyles from '../../styles/global.styles';
 import logoSelector from '../../utils/logoSelector';
+import { BookDetailProps, UserRating, Store } from '../../types/interfaces';
 
 export default function BookDetail({
   navigation,
@@ -24,11 +25,11 @@ export default function BookDetail({
       logo
     }
   }
-}: any) {
+}: BookDetailProps) {
   const dispatch = useDispatch();
-  const { token, refreshToken } = useSelector((store: any) => store.tokens);
-  const { ratings, isLoaded } = useSelector((store: any) => store.customBookData);
-  const { userData } = useSelector((store: any) => store.loggedUser);
+  const { token, refreshToken } = useSelector((store: Store) => store.tokens);
+  const { ratings, isLoaded } = useSelector((store: Store) => store.customBookData);
+  const { userData } = useSelector((store: Store) => store.loggedUser);
   const [rating, setRating] = useState(0);
   const [ratingNumber, setRatingNumber] = useState(0);
 
@@ -43,7 +44,7 @@ export default function BookDetail({
     if (ratings.length > 0) {
       const numberUsersRating = ratings.length;
       const usersRating = ratings
-        .reduce((acc: number, review: any) => acc + review.rating, 0) / numberUsersRating;
+        .reduce((acc: number, review: UserRating) => acc + review.rating, 0) / numberUsersRating;
       setRating(Math.round(usersRating));
       setRatingNumber(numberUsersRating);
     }
@@ -104,8 +105,8 @@ export default function BookDetail({
             </View>
             <View style={styles.textContainer}>
               <Text style={globalStyles.titleText}>Categories:</Text>
-              {bookData.categories.map((categorie: string, index: number) => (index < 2
-            && <Text key={categorie} style={globalStyles.text}>{categorie}</Text>))}
+              {bookData.categories.map((category: string, index: number) => (index < 2
+            && <Text key={category} style={globalStyles.text}>{category}</Text>))}
               {bookData.categories.length >= 3 && <Text style={globalStyles.text}>...</Text>}
             </View>
             <View style={styles.textContainer}>

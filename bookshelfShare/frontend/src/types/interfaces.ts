@@ -38,9 +38,22 @@ interface TokensState {
     refreshToken: string
 }
 
+export interface UserRating {
+    rating: number,
+    user: string,
+    review: string
+}
+
+interface CustomBookDataState {
+    isLoaded: boolean,
+    ratings: UserRating[]
+}
+
 export interface Store {
     tokens: TokensState,
-    userShelves: any
+    userShelves: any,
+    customBookData: CustomBookDataState,
+    loggedUser: any
 }
 
 export interface BarCode {
@@ -50,4 +63,9 @@ export interface BarCode {
 
 export interface BarCodeScannerProps {
     navigation: Navigation
+}
+
+export interface BookDetailProps {
+    navigation: Navigation,
+    route: Route
 }
