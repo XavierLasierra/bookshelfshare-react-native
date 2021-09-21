@@ -2,10 +2,7 @@ import React from 'react';
 import { MenuProvider } from 'react-native-popup-menu';
 import AddPopUp from './AddPopUp';
 import { render } from '../../utils/test.utils';
-
-const navigation = {
-  push: jest.fn()
-};
+import navigationMock from '../../mocks/navigation.mock';
 
 describe('Given an AddPopUp component', () => {
   describe('When it is rendered', () => {
@@ -13,7 +10,7 @@ describe('Given an AddPopUp component', () => {
     beforeEach(() => {
       screen = render(
         <MenuProvider>
-          <AddPopUp navigation={navigation} />
+          <AddPopUp navigation={navigationMock} />
         </MenuProvider>
       );
     });
