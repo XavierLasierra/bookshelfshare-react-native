@@ -6,7 +6,7 @@ interface NavigateArguments {
 }
 
 interface Navigation {
-    push: () => void,
+    push: (name: string, params: any) => void,
     navigate: (arg: NavigateArguments) => void,
     pop: () => void
 }
@@ -68,4 +68,41 @@ export interface BarCodeScannerProps {
 export interface BookDetailProps {
     navigation: Navigation,
     route: Route
+}
+
+interface IsbnObject {
+    ISBN13: string,
+    ISBN10: string
+}
+
+interface ImagesObject {
+    thumbnail?: string,
+    smallThumbnail: string
+}
+
+interface BookData {
+    title: string,
+    subtitle: string,
+    authors: string[],
+    publisher: string,
+    publishedDate: string,
+    language: string,
+    description: string,
+    isbn: IsbnObject,
+    pageCount: number | string,
+    format: string,
+    categories: string[],
+    images: ImagesObject
+}
+
+export interface BookElementSearchProps {
+    bookData: BookData,
+    navigation: Navigation,
+    logo: string
+}
+
+export interface BookListFilterProps {
+    listName: string,
+    books: BookData[],
+    setFilteredBooks: (books: BookData[]) => void
 }
