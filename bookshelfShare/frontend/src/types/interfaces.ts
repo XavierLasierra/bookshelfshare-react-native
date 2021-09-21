@@ -117,3 +117,8 @@ export interface IBookResultsProps {
     navigation: INavigation,
     route: IRoute
 }
+
+export interface IBookSearchProps {
+    navigation: INavigation,
+    isbnFromCamera: string
+}

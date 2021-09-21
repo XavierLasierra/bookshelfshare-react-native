@@ -5,6 +5,7 @@ import { render, fireEvent } from '../../utils/test.utils';
 import { searchBooks } from '../../redux/actions/books.creator';
 import booksActions from '../../redux/actions/books.actions';
 import bookDetailsMock from '../../mocks/bookDetails.mock';
+import navigationMock from '../../mocks/navigation.mock';
 
 jest.mock('../../redux/actions/books.creator', () => ({
   searchBooks: jest.fn()
@@ -21,6 +22,7 @@ describe('Given a BookSearch component', () => {
           data: bookDetailsMock
         });
         navigation = {
+          ...navigationMock,
           push: jest.fn()
         };
         screen = render(<BookSearch navigation={navigation} isbnFromCamera="" />);
@@ -182,6 +184,7 @@ describe('Given a BookSearch component', () => {
           data: bookDetailsMock
         });
         navigation = {
+          ...navigationMock,
           push: jest.fn()
         };
         render(<BookSearch navigation={navigation} isbnFromCamera={isbnFromCamera} />);

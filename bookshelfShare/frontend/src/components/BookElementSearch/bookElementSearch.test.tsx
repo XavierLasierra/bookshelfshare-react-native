@@ -28,7 +28,7 @@ describe('Given a BookElementSearch component', () => {
         test('Then should call navigation.push with BookDetail and the book data', () => {
           const bookDetailButton = screen.getByTestId('bookDetailButton');
           fireEvent.press(bookDetailButton);
-          expect(navigation.push).toHaveBeenCalledWith('BookDetail', { bookData: bookDetailsMock[0] });
+          expect(navigation.push).toHaveBeenCalledWith('BookDetail', { bookData: bookDetailsMock[0], logo: 'logo' });
         });
       });
     });
