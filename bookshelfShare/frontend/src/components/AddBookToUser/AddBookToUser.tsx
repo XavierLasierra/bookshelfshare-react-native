@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import { AddBookToUserProps } from '../../types/interfaces';
+import { IAddBookToUserProps } from '../../types/interfaces';
 
 import ListMenu from '../ListMenu/ListMenu';
 import ShelfMenu from '../ShelfMenu/ShelfMenu';
@@ -9,7 +9,7 @@ import styles from './addBookToUser.styles';
 
 export default function AddBookToUser({
   bookIsbn, token, refreshToken, userId, navigation, logo
-}: AddBookToUserProps) {
+}: IAddBookToUserProps) {
   const menus = (
     <>
       <ListMenu

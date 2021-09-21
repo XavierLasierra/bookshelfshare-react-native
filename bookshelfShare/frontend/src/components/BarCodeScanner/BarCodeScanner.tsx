@@ -4,7 +4,7 @@ import {
   View, SafeAreaView, Text, TouchableOpacity
 } from 'react-native';
 import { RNCamera } from 'react-native-camera';
-import { BarCode, BarCodeScannerProps } from '../../types/interfaces';
+import { IBarCode, IBarCodeScannerProps } from '../../types/interfaces';
 
 import Header from '../Header/Header';
 
@@ -13,8 +13,8 @@ import SearchIcon from '../../assets/searchIcon.svg';
 import globalStyles from '../../styles/global.styles';
 import styles from './barCodeScanner.styles';
 
-export default function BarCodeScanner({ navigation }: BarCodeScannerProps) {
-  function onBarCodeRead(scanResult: BarCode) {
+export default function BarCodeScanner({ navigation }: IBarCodeScannerProps) {
+  function onBarCodeRead(scanResult: IBarCode) {
     navigation.navigate({
       name: 'BookSearchNavigator',
       merge: true,

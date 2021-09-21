@@ -1,13 +1,14 @@
 import booksActions from '../actions/books.actions';
 import initialState from '../../constants/booksInitialState.constant';
 import notificationsActions from '../actions/notifications.actions';
+import { IBooksState } from '../../types/interfaces';
 
 interface Action {
     type: string,
     data?: any
 }
 
-function booksReducer(books = initialState, action: Action): any[] {
+function booksReducer(books = initialState, action: Action): IBooksState {
   let newBooks: any = books;
   switch (action.type) {
     case booksActions.LOAD_BOOKS:

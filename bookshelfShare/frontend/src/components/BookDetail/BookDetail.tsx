@@ -15,7 +15,7 @@ import styles from './bookDetail.styles';
 import stylesConstants from '../../styles/styles.constants';
 import globalStyles from '../../styles/global.styles';
 import logoSelector from '../../utils/logoSelector';
-import { BookDetailProps, UserRating, Store } from '../../types/interfaces';
+import { IBookDetailProps, IUserRating, IStore } from '../../types/interfaces';
 
 export default function BookDetail({
   navigation,
@@ -25,11 +25,11 @@ export default function BookDetail({
       logo
     }
   }
-}: BookDetailProps) {
+}: IBookDetailProps) {
   const dispatch = useDispatch();
-  const { token, refreshToken } = useSelector((store: Store) => store.tokens);
-  const { ratings, isLoaded } = useSelector((store: Store) => store.customBookData);
-  const { userData } = useSelector((store: Store) => store.loggedUser);
+  const { token, refreshToken } = useSelector((store: IStore) => store.tokens);
+  const { ratings, isLoaded } = useSelector((store: IStore) => store.customBookData);
+  const { userData } = useSelector((store: IStore) => store.loggedUser);
   const [rating, setRating] = useState(0);
   const [ratingNumber, setRatingNumber] = useState(0);
 
@@ -44,7 +44,7 @@ export default function BookDetail({
     if (ratings.length > 0) {
       const numberUsersRating = ratings.length;
       const usersRating = ratings
-        .reduce((acc: number, review: UserRating) => acc + review.rating, 0) / numberUsersRating;
+        .reduce((acc: number, review: IUserRating) => acc + review.rating, 0) / numberUsersRating;
       setRating(Math.round(usersRating));
       setRatingNumber(numberUsersRating);
     }

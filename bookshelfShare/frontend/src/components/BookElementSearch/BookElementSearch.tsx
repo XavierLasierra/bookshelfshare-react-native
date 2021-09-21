@@ -2,11 +2,11 @@ import React from 'react';
 import {
   View, Text, Image, TouchableOpacity
 } from 'react-native';
-import { BookElementSearchProps } from '../../types/interfaces';
+import { IBookElementSearchProps } from '../../types/interfaces';
 
 import styles from './bookElementSearch.styles';
 
-export default function BookElementSearch({ bookData, navigation, logo }: BookElementSearchProps) {
+export default function BookElementSearch({ bookData, navigation, logo }: IBookElementSearchProps) {
   function handleBookDetailPage() {
     navigation.push('BookDetail',
       {

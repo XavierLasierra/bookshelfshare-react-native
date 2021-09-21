@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
 import { Text, TextInput, View } from 'react-native';
-import { BookListFilterProps } from '../../types/interfaces';
+import { IBookListFilterProps } from '../../types/interfaces';
 
 import { bookFilter } from '../../utils/bookFilter';
 
 import styles from './bookListFilter.styles';
 
-export default function BookListFilter({ listName, books, setFilteredBooks }: BookListFilterProps) {
+export default function BookListFilter({
+  listName,
+  books,
+  setFilteredBooks
+}: IBookListFilterProps) {
   const [filter, setFilter] = useState('');
 
   function handleFilter(text: string) {

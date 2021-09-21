@@ -1,86 +1,92 @@
 /* eslint-disable no-unused-vars */
-interface NavigateArguments {
+interface INavigateArguments {
     name: string,
     merge: boolean,
     params?: any
 }
 
-interface Navigation {
+interface INavigation {
     push: (name: string, params: any) => void,
-    navigate: (arg: NavigateArguments) => void,
+    navigate: (arg: INavigateArguments) => void,
     pop: () => void
 }
 
-interface Route {
+interface IRoute {
     params: any
 }
 
-export interface AddBookToUserProps {
+export interface IAddBookToUserProps {
     bookIsbn: string,
     token: string,
     refreshToken: string,
     userId: string,
     logo: string,
-    navigation: Navigation
+    navigation: INavigation
 }
 
-export interface AddPopUpProps {
-    navigation: Navigation
+export interface IAddPopUpProps {
+    navigation: INavigation
 }
 
-export interface AddToShelfProps {
-    navigation: Navigation,
-    route: Route
+export interface IAddToShelfProps {
+    navigation: INavigation,
+    route: IRoute
 }
 
-interface TokensState {
+interface ITokensState {
     token: string,
     refreshToken: string
 }
 
-export interface UserRating {
+export interface IUserRating {
     rating: number,
     user: string,
     review: string
 }
 
-interface CustomBookDataState {
+interface ICustomBookDataState {
     isLoaded: boolean,
-    ratings: UserRating[]
+    ratings: IUserRating[]
 }
 
-export interface Store {
-    tokens: TokensState,
+export interface IBooksState {
+    results: boolean,
+    books: IBookData[]
+}
+
+export interface IStore {
+    tokens: ITokensState,
     userShelves: any,
-    customBookData: CustomBookDataState,
-    loggedUser: any
+    customBookData: ICustomBookDataState,
+    loggedUser: any,
+    books: IBooksState
 }
 
-export interface BarCode {
+export interface IBarCode {
     type: string,
     data: string
 }
 
-export interface BarCodeScannerProps {
-    navigation: Navigation
+export interface IBarCodeScannerProps {
+    navigation: INavigation
 }
 
-export interface BookDetailProps {
-    navigation: Navigation,
-    route: Route
+export interface IBookDetailProps {
+    navigation: INavigation,
+    route: IRoute
 }
 
-interface IsbnObject {
+interface IIsbnObject {
     ISBN13: string,
     ISBN10: string
 }
 
-interface ImagesObject {
+interface IImagesObject {
     thumbnail?: string,
     smallThumbnail: string
 }
 
-interface BookData {
+export interface IBookData {
     title: string,
     subtitle: string,
     authors: string[],
@@ -88,21 +94,26 @@ interface BookData {
     publishedDate: string,
     language: string,
     description: string,
-    isbn: IsbnObject,
+    isbn: IIsbnObject,
     pageCount: number | string,
     format: string,
     categories: string[],
-    images: ImagesObject
+    images: IImagesObject
 }
 
-export interface BookElementSearchProps {
-    bookData: BookData,
-    navigation: Navigation,
+export interface IBookElementSearchProps {
+    bookData: IBookData,
+    navigation: INavigation,
     logo: string
 }
 
-export interface BookListFilterProps {
+export interface IBookListFilterProps {
     listName: string,
-    books: BookData[],
-    setFilteredBooks: (books: BookData[]) => void
+    books: IBookData[],
+    setFilteredBooks: (books: IBookData[]) => void
+}
+
+export interface IBookResultsProps {
+    navigation: INavigation,
+    route: IRoute
 }

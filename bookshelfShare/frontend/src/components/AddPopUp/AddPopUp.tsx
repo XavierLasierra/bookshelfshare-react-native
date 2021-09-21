@@ -7,14 +7,14 @@ import {
   renderers,
   MenuOption
 } from 'react-native-popup-menu';
-import { AddPopUpProps } from '../../types/interfaces';
+import { IAddPopUpProps } from '../../types/interfaces';
 
 import BarCodeIcon from '../../assets/barCodeIcon.svg';
 import SearchIcon from '../../assets/whiteSearchIcon.svg';
 import styles from './addPopUp.styles';
 import globalStyles from '../../styles/global.styles';
 
-export default function AddPopUp({ navigation }: AddPopUpProps) {
+export default function AddPopUp({ navigation }: IAddPopUpProps) {
   function handleClickScan() {
     navigation.navigate({
       name: 'BarCodeScanner',

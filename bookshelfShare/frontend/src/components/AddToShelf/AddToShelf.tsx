@@ -3,7 +3,7 @@ import {
   View, SafeAreaView, Text, TouchableOpacity, ActivityIndicator
 } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
-import { AddToShelfProps, Store } from '../../types/interfaces';
+import { IAddToShelfProps, IStore } from '../../types/interfaces';
 
 import Header from '../Header/Header';
 import ShelfSimulation from '../ShelfSimulation/ShelfSimulation';
@@ -26,10 +26,10 @@ export default function AddToShelf({
       bookIsbn
     }
   }
-}: AddToShelfProps) {
+}: IAddToShelfProps) {
   const dispatch = useDispatch();
-  const { token, refreshToken } = useSelector((store: Store) => store.tokens);
-  const shelves = useSelector((store: Store) => store.userShelves);
+  const { token, refreshToken } = useSelector((store: IStore) => store.tokens);
+  const shelves = useSelector((store: IStore) => store.userShelves);
   const [isLoading, setIsLoading] = useState(false);
   const [location, setLocation] = useState([NaN, NaN]);
   const [invalidShelf, setInvalidShelf] = useState(false);
