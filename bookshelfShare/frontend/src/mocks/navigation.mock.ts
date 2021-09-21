@@ -1,5 +1,6 @@
 export default {
   push: () => {},
   navigate: () => {},
-  pop: () => {}
+  pop: () => {},
+  emit: () => ({ defaultPrevented: true })
 };

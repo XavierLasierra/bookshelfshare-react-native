@@ -5,10 +5,21 @@ interface INavigateArguments {
     params?: any
 }
 
+interface IEmitArguments {
+    type: string,
+    target: string,
+    canPreventDefault?: boolean
+}
+
+interface IEvent {
+    defaultPrevented: boolean
+}
+
 interface INavigation {
     push: (name: string, params: any) => void,
     navigate: (arg: INavigateArguments) => void,
-    pop: () => void
+    pop: () => void,
+    emit: (arg: IEmitArguments) => IEvent
 }
 
 interface IRoute {
@@ -121,4 +132,9 @@ export interface IBookResultsProps {
 export interface IBookSearchProps {
     navigation: INavigation,
     isbnFromCamera: string
+}
+
+export interface ICustomTabBarProps {
+    state: any,
+    navigation: INavigation
 }

@@ -2,11 +2,7 @@ import React from 'react';
 import { MenuProvider } from 'react-native-popup-menu';
 import CustomTabBar from './CustomTabBar';
 import { render, fireEvent } from '../../utils/test.utils';
-
-const navigation = {
-  navigate: jest.fn(),
-  emit: jest.fn().mockReturnValue({ defaultPrevented: false })
-};
+import navigationMock from '../../mocks/navigation.mock';
 
 describe('Given a CustomTabBar component', () => {
   describe('When it is rendered', () => {
@@ -24,7 +20,7 @@ describe('Given a CustomTabBar component', () => {
         test('Then should match the snapshot', () => {
           const screen = render(
             <MenuProvider>
-              <CustomTabBar state={state} navigation={navigation} />
+              <CustomTabBar state={state} navigation={navigationMock} />
             </MenuProvider>
           );
           expect(screen).toMatchSnapshot();
@@ -43,7 +39,13 @@ describe('Given a CustomTabBar component', () => {
         index: 0
       };
       let screen;
+      let navigation: any;
       beforeEach(() => {
+        navigation = {
+          ...navigationMock,
+          emit: jest.fn().mockReturnValue({ defaultPrevented: false }),
+          navigate: jest.fn()
+        };
         screen = render(
           <MenuProvider>
             <CustomTabBar state={state} navigation={navigation} />
@@ -74,7 +76,13 @@ describe('Given a CustomTabBar component', () => {
           index: 0
         };
         let screen;
+        let navigation: any;
         beforeEach(() => {
+          navigation = {
+            ...navigationMock,
+            emit: jest.fn().mockReturnValue({ defaultPrevented: false }),
+            navigate: jest.fn()
+          };
           screen = render(
             <MenuProvider>
               <CustomTabBar state={state} navigation={navigation} />
@@ -107,6 +115,11 @@ describe('Given a CustomTabBar component', () => {
         };
 
         test('Then should call navigation.emit', () => {
+          const navigation = {
+            ...navigationMock,
+            emit: jest.fn().mockReturnValue({ defaultPrevented: false }),
+            navigate: jest.fn()
+          };
           const screen = render(
             <MenuProvider>
               <CustomTabBar state={state} navigation={navigation} />

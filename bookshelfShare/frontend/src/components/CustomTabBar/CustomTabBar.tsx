@@ -1,14 +1,16 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
+import { ICustomTabBarProps } from '../../types/interfaces';
+
+import AddPopUp from '../AddPopUp/AddPopUp';
 
 import BookIcon from '../../assets/bookIcon.svg';
 import FollowingIcon from '../../assets/followingIcon.svg';
 import ShelfIcon from '../../assets/shelfIcon.svg';
 import ProfileIcon from '../../assets/profileIcon.svg';
 import styles from './customTabBar.styles';
-import AddPopUp from '../AddPopUp/AddPopUp';
 
-export default function CustomTabBar({ state, navigation }: any) {
+export default function CustomTabBar({ state, navigation }: ICustomTabBarProps) {
   function onPress(key: string, isFocused: boolean, name: string) {
     const event = navigation.emit({
       type: 'tabPress',
