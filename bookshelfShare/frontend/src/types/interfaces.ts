@@ -1,7 +1,8 @@
 /* eslint-disable no-unused-vars */
 interface NavigateArguments {
     name: string,
-    merge: boolean
+    merge: boolean,
+    params?: any
 }
 
 interface Navigation {
@@ -40,4 +41,13 @@ interface TokensState {
 export interface Store {
     tokens: TokensState,
     userShelves: any
+}
+
+export interface BarCode {
+    type: string,
+    data: string
+}
+
+export interface BarCodeScannerProps {
+    navigation: Navigation
 }
