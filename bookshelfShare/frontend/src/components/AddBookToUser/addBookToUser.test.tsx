@@ -5,6 +5,7 @@ import { render } from '../../utils/test.utils';
 import AddBookToUser from './AddBookToUser';
 
 import userBooksMock from '../../mocks/userBooks.mock';
+import navigationMock from '../../mocks/navigation.mock';
 
 describe('Given an AddBookToUser component', () => {
   describe('When it is rendered', () => {
@@ -17,7 +18,7 @@ describe('Given an AddBookToUser component', () => {
             refreshToken="refreshToken"
             userId="userId"
             logo="logo"
-            navigation={{ push: jest.fn() }}
+            navigation={navigationMock}
           />
         );
         expect(screen).toMatchSnapshot();
@@ -35,7 +36,7 @@ describe('Given an AddBookToUser component', () => {
               refreshToken="refreshToken"
               userId="userId"
               logo="logo"
-              navigation={{ push: jest.fn() }}
+              navigation={navigationMock}
             />
           </MenuProvider>,
           initialState
