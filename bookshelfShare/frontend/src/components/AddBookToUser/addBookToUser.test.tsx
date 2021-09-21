@@ -1,7 +1,9 @@
 import React from 'react';
 import { MenuProvider } from 'react-native-popup-menu';
-import AddBookToUser from './AddBookToUser';
 import { render } from '../../utils/test.utils';
+
+import AddBookToUser from './AddBookToUser';
+
 import userBooksMock from '../../mocks/userBooks.mock';
 
 describe('Given an AddBookToUser component', () => {
@@ -9,7 +11,14 @@ describe('Given an AddBookToUser component', () => {
     describe('And isbn is Not found', () => {
       test('Then should match the snapshot', () => {
         const screen = render(
-          <AddBookToUser bookIsbn="Not found" />
+          <AddBookToUser
+            bookIsbn="Not found"
+            token="token"
+            refreshToken="refreshToken"
+            userId="userId"
+            logo="logo"
+            navigation={{ push: jest.fn() }}
+          />
         );
         expect(screen).toMatchSnapshot();
       });
@@ -20,7 +29,14 @@ describe('Given an AddBookToUser component', () => {
         const initialState = { userBooks: userBooksMock };
         const screen = render(
           <MenuProvider>
-            <AddBookToUser bookIsbn="1234" />
+            <AddBookToUser
+              bookIsbn="1234"
+              token="token"
+              refreshToken="refreshToken"
+              userId="userId"
+              logo="logo"
+              navigation={{ push: jest.fn() }}
+            />
           </MenuProvider>,
           initialState
         );
