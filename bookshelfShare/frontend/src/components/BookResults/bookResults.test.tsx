@@ -2,8 +2,7 @@ import React from 'react';
 import BookResults from './BookResults';
 import { render } from '../../utils/test.utils';
 import bookDetailsMock from '../../mocks/bookDetails.mock';
-
-const navigation = {};
+import navigationMock from '../../mocks/navigation.mock';
 
 describe('Given a BookResults component', () => {
   describe('When it is rendered', () => {
@@ -20,7 +19,7 @@ describe('Given a BookResults component', () => {
         }
       };
       test('Then should match the snapshot', () => {
-        const screen = render(<BookResults navigation={navigation} route={route} />);
+        const screen = render(<BookResults navigation={navigationMock} route={route} />);
         expect(screen).toMatchSnapshot();
       });
     });
@@ -43,7 +42,10 @@ describe('Given a BookResults component', () => {
             results: true
           }
         };
-        const screen = render(<BookResults navigation={navigation} route={route} />, initialState);
+        const screen = render(<BookResults
+          navigation={navigationMock}
+          route={route}
+        />, initialState);
         expect(screen).toMatchSnapshot();
       });
     });
@@ -67,7 +69,10 @@ describe('Given a BookResults component', () => {
             results: true
           }
         };
-        const screen = render(<BookResults navigation={navigation} route={route} />, initialState);
+        const screen = render(<BookResults
+          navigation={navigationMock}
+          route={route}
+        />, initialState);
         expect(screen).toMatchSnapshot();
       });
     });
@@ -92,7 +97,10 @@ describe('Given a BookResults component', () => {
             results: true
           }
         };
-        const screen = render(<BookResults navigation={navigation} route={route} />, initialState);
+        const screen = render(<BookResults
+          navigation={navigationMock}
+          route={route}
+        />, initialState);
         expect(screen).toMatchSnapshot();
       });
     });

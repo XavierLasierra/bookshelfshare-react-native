@@ -13,25 +13,9 @@ import styles from './bookResults.styles';
 import logoSelector from '../../utils/logoSelector';
 import globalStyles from '../../styles/global.styles';
 import BookListFilter from '../BookListFilter/BookListFilter';
-
-interface Props {
-  route: Route,
-  navigation: any,
-}
-interface Route {
-  params: Params
-}
-interface Params {
-  searchInformation?: SearchInformation,
-  listName?: string,
-  logo: string
-}
-interface SearchInformation {
-  isbn: string,
-  inauthor: string,
-  intitle: string,
-  inpublisher: string,
-}
+import {
+  IBookData, IBookResultsProps, IStore
+} from '../../types/interfaces';
 
 export default function BookResults(
   {
@@ -42,11 +26,11 @@ export default function BookResults(
         logo
       }
     }
-  }: Props
+  }: IBookResultsProps
 ) {
   const dispatch = useDispatch();
-  const { books, results } = useSelector((store: any) => store.books);
-  const [filteredBooks, setFilterdBooks] = useState([]);
+  const { books, results } = useSelector((store: IStore) => store.books);
+  const [filteredBooks, setFilterdBooks] = useState<IBookData[]>([]);
 
   useEffect(() => () => {
     dispatch(clearBooks());
