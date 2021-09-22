@@ -3,26 +3,20 @@ import NewShelf from './NewShelf';
 import { render, fireEvent } from '../../utils/test.utils';
 import { createShelf } from '../../redux/actions/userShelves.creator';
 import userShelvesActions from '../../redux/actions/userShelves.actions';
+import navigationMock from '../../mocks/navigation.mock';
 
 jest.mock('../../redux/actions/userShelves.creator');
 
-const navigation = {
-  pop: jest.fn()
-};
-
-const route = {
-  params: {
-    loggedUserId: '1'
-  }
-};
-
 describe('Given a NewShelf component', () => {
   describe('When it is rendered', () => {
+    const route = {
+      params: { loggedUserId: '1' }
+    };
     let screen: any;
     beforeEach(() => {
       (createShelf as jest.Mock).mockReturnValue({ type: '' });
       screen = render(
-        <NewShelf navigation={navigation} route={route} />
+        <NewShelf navigation={navigationMock} route={route} />
       );
     });
     test('Then should match the snapshot', () => {
@@ -130,6 +124,10 @@ describe('Given a NewShelf component', () => {
         describe('And shelves update is resolved', () => {
           test('Then navigation.pop should have been called', () => {
             (createShelf as jest.Mock).mockReturnValue({ type: userShelvesActions.ADD_NEW_SHELF });
+            const navigation = {
+              ...navigationMock,
+              pop: jest.fn()
+            };
             const newScreen = render(
               <NewShelf navigation={navigation} route={route} />
             );

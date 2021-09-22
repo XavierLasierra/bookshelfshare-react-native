@@ -1,15 +1,17 @@
 import React from 'react';
 import Following from './Following';
 import { render, fireEvent } from '../../utils/test.utils';
-
-const navigation = {
-  push: jest.fn()
-};
+import navigationMock from '../../mocks/navigation.mock';
 
 describe('Given a Following component', () => {
   describe('When it is rendered', () => {
     let screen: any;
+    let navigation: any;
     beforeEach(() => {
+      navigation = {
+        ...navigationMock,
+        push: jest.fn()
+      };
       screen = render(<Following navigation={navigation} />);
     });
 

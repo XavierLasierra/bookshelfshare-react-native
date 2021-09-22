@@ -3,10 +3,7 @@ import Login from './Login';
 import { render, fireEvent } from '../../utils/test.utils';
 import { loginUser } from '../../redux/actions/loggedUser.creator';
 import notificationsActions from '../../redux/actions/notifications.actions';
-
-const navigation = {
-  push: jest.fn()
-};
+import navigationMock from '../../mocks/navigation.mock';
 
 jest.mock('../../redux/actions/loggedUser.creator', () => ({
   loginUser: jest.fn()
@@ -15,7 +12,12 @@ jest.mock('../../redux/actions/loggedUser.creator', () => ({
 describe('Given a Login component', () => {
   describe('When it is rendered', () => {
     let screen: any;
+    let navigation: any;
     beforeEach(() => {
+      navigation = {
+        ...navigationMock,
+        push: jest.fn()
+      };
       screen = render(<Login navigation={navigation} />);
     });
     test('Then should match the snapshot', () => {

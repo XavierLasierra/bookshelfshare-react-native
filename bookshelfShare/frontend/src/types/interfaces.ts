@@ -16,7 +16,7 @@ interface IEvent {
 }
 
 interface INavigation {
-    push: (name: string, params: any) => void,
+    push: (name: string, params?: any) => void,
     navigate: (arg: INavigateArguments) => void,
     pop: () => void,
     emit: (arg: IEmitArguments) => IEvent
@@ -70,7 +70,10 @@ export interface IStore {
     userShelves: any,
     customBookData: ICustomBookDataState,
     loggedUser: any,
-    books: IBooksState
+    books: IBooksState,
+    userSocials: any,
+    userBooks: any,
+    notifications: string[]
 }
 
 export interface IBarCode {
@@ -137,4 +140,34 @@ export interface IBookSearchProps {
 export interface ICustomTabBarProps {
     state: any,
     navigation: INavigation
+}
+
+export interface IFollowingProps {
+    navigation: INavigation
+}
+
+export interface IHeaderProps {
+    Logo: any,
+    BackButton?: boolean,
+    navigation?: INavigation
+}
+
+export interface IInitialLoadingProps {
+    navigation: INavigation
+}
+
+export interface IListMenuProps {
+    bookIsbn: string,
+    userId: string,
+    token: string,
+    refreshToken: string
+}
+
+export interface ILoginProps {
+    navigation: INavigation
+}
+
+export interface INewShelfProps {
+    navigation: INavigation,
+    route: IRoute
 }

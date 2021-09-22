@@ -4,6 +4,8 @@ import {
 } from 'react-native-popup-menu';
 import { View, Text, ActivityIndicator } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
+import { IListMenuProps, IStore } from '../../types/interfaces';
+
 import { updateUserBooks } from '../../redux/actions/loggedUser.creator';
 
 import stylesConstants from '../../styles/styles.constants';
@@ -12,9 +14,9 @@ import globalStyles from '../../styles/global.styles';
 
 export default function ListMenu({
   bookIsbn, userId, token, refreshToken
-}: any) {
+}: IListMenuProps) {
   const dispatch = useDispatch();
-  const books = useSelector((store: any) => store.userBooks);
+  const books = useSelector((store: IStore) => store.userBooks);
 
   const [isLoading, setIsLoading] = useState(false);
   const [markListName, setMarkListName] = useState('Mark as');
