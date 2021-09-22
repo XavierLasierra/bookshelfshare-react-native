@@ -4,6 +4,7 @@ import {
   View, Text, TextInput, TouchableOpacity, SafeAreaView, ActivityIndicator
 } from 'react-native';
 import { SharedElement } from 'react-navigation-shared-element';
+import { ILoginProps, IStore } from '../../types/interfaces';
 
 import { validateEmail } from '../../utils/validation.utils';
 import { loginUser } from '../../redux/actions/loggedUser.creator';
@@ -13,9 +14,9 @@ import globalStyles from '../../styles/global.styles';
 import styles from './login.styles';
 import stylesConstants from '../../styles/styles.constants';
 
-export default function Login({ navigation: { push } } : any) {
+export default function Login({ navigation: { push } } : ILoginProps) {
   const dispatch = useDispatch();
-  const notification = useSelector((store: any) => store.notifications);
+  const notification = useSelector((store: IStore) => store.notifications);
   const [userEmail, setUserEmail] = useState('');
   const [isValidEmail, setValidEmail] = useState(true);
   const [userPassword, setUserPassword] = useState('');

@@ -4,21 +4,19 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useDispatch, useSelector } from 'react-redux';
+import { IBookSearchProps, IStore } from '../../types/interfaces';
+
 import Header from '../Header/Header';
+
+import { searchBooks } from '../../redux/actions/books.creator';
 
 import SearchIcon from '../../assets/searchIcon.svg';
 import styles from './bookSearch.styles';
 import globalStyles from '../../styles/global.styles';
-import { searchBooks } from '../../redux/actions/books.creator';
 
-interface Props {
-  navigation: any,
-  isbnFromCamera: string
-}
-
-export default function BookSearch({ navigation, isbnFromCamera }: Props) {
+export default function BookSearch({ navigation, isbnFromCamera }: IBookSearchProps) {
   const dispatch = useDispatch();
-  const { token, refreshToken } = useSelector((store: any) => store.tokens);
+  const { token, refreshToken } = useSelector((store: IStore) => store.tokens);
   const [isISBN, setIsIsbn] = useState(true);
   const [isbn, setIsbn] = useState(isbnFromCamera);
   const [inauthor, setInauthor] = useState('');

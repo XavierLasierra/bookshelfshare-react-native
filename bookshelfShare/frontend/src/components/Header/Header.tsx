@@ -1,11 +1,12 @@
 import React from 'react';
 import { View, TouchableOpacity } from 'react-native';
+import { IHeaderProps } from '../../types/interfaces';
 
 import ArrowIcon from '../../assets/arrowIcon.svg';
 import globalStyles from '../../styles/global.styles';
 import styles from './header.styles';
 
-export default function Header({ Logo, BackButton, navigation }:any) {
+export default function Header({ Logo, BackButton, navigation }: IHeaderProps) {
   return (
     <>
       {BackButton && (

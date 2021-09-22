@@ -4,14 +4,11 @@ import { render } from '../../utils/test.utils';
 
 import { automaticLogin } from '../../redux/actions/loggedUser.creator';
 import loggedUserActions from '../../redux/actions/loggedUser.actions';
+import navigationMock from '../../mocks/navigation.mock';
 
 jest.mock('../../redux/actions/loggedUser.creator', () => ({
   automaticLogin: jest.fn()
 }));
-
-const navigation = {
-  push: jest.fn()
-};
 
 jest.useFakeTimers();
 
@@ -21,7 +18,7 @@ describe('Given a InitialLoading component', () => {
       (automaticLogin as jest.Mock).mockReturnValue({
         type: ''
       });
-      const screen = render(<InitialLoading navigation={navigation} />);
+      const screen = render(<InitialLoading navigation={navigationMock} />);
       expect(screen).toMatchSnapshot();
     });
 
@@ -30,6 +27,11 @@ describe('Given a InitialLoading component', () => {
         (automaticLogin as jest.Mock).mockReturnValue({
           type: loggedUserActions.USER_NOT_LOGGED
         });
+        const navigation = {
+          ...navigationMock,
+          push: jest.fn()
+        };
+
         render(<InitialLoading navigation={navigation} />);
         jest.runOnlyPendingTimers();
 
@@ -41,7 +43,7 @@ describe('Given a InitialLoading component', () => {
       test('Then automaticLogin should not be called', () => {
         (automaticLogin as jest.Mock).mockClear();
         const initialState = { loggedUser: { needsLogin: true } };
-        render(<InitialLoading navigation={navigation} />, initialState);
+        render(<InitialLoading navigation={navigationMock} />, initialState);
 
         expect(automaticLogin).not.toHaveBeenCalled();
       });

@@ -12,7 +12,7 @@ describe('Given a ListMenu component', () => {
       test('Then screen should match the snapshot', () => {
         const screen = render(
           <MenuProvider>
-            <ListMenu bookIsbn="0" />
+            <ListMenu bookIsbn="0" userId="1" token="token" refreshToken="refreshToken" />
           </MenuProvider>,
           initialState
         );
@@ -42,7 +42,7 @@ describe('Given a ListMenu component', () => {
         test('Then screen should match the snapshot', () => {
           const screen = render(
             <MenuProvider>
-              <ListMenu bookIsbn={bookIsbn} />
+              <ListMenu bookIsbn={bookIsbn} userId="1" token="token" refreshToken="refreshToken" />
             </MenuProvider>,
             initialState
           );

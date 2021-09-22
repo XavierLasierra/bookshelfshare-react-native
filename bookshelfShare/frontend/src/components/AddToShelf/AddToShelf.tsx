@@ -2,18 +2,19 @@ import React, { useEffect, useState } from 'react';
 import {
   View, SafeAreaView, Text, TouchableOpacity, ActivityIndicator
 } from 'react-native';
-
 import { useDispatch, useSelector } from 'react-redux';
+import { IAddToShelfProps, IStore } from '../../types/interfaces';
+
 import Header from '../Header/Header';
 import ShelfSimulation from '../ShelfSimulation/ShelfSimulation';
 
 import logoSelector from '../../utils/logoSelector';
+import { addToShelf } from '../../redux/actions/userShelves.creator';
+import sortShelfData from '../../utils/sortShelfData';
 
 import styles from './addToShelf.styles';
 import globalStyles from '../../styles/global.styles';
 import stylesConstants from '../../styles/styles.constants';
-import { addToShelf } from '../../redux/actions/userShelves.creator';
-import sortShelfData from '../../utils/sortShelfData';
 
 export default function AddToShelf({
   navigation,
@@ -25,10 +26,10 @@ export default function AddToShelf({
       bookIsbn
     }
   }
-}: any) {
+}: IAddToShelfProps) {
   const dispatch = useDispatch();
-  const { token, refreshToken } = useSelector((store: any) => store.tokens);
-  const shelves = useSelector((store: any) => store.userShelves);
+  const { token, refreshToken } = useSelector((store: IStore) => store.tokens);
+  const shelves = useSelector((store: IStore) => store.userShelves);
   const [isLoading, setIsLoading] = useState(false);
   const [location, setLocation] = useState([NaN, NaN]);
   const [invalidShelf, setInvalidShelf] = useState(false);

@@ -3,16 +3,19 @@ import {
   SafeAreaView, View, Text, TouchableOpacity
 } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
+import { IFollowingProps, IStore } from '../../types/interfaces';
+
 import Header from '../Header/Header';
+
+import { loadLocalUsers } from '../../redux/actions/usersList.creator';
 
 import FollowingIcon from '../../assets/followingIcon.svg';
 import globalStyles from '../../styles/global.styles';
 import styles from './following.styles';
-import { loadLocalUsers } from '../../redux/actions/usersList.creator';
 
-export default function Following({ navigation }: any) {
+export default function Following({ navigation }: IFollowingProps) {
   const dispatch = useDispatch();
-  const { following } = useSelector((store: any) => store.userSocials);
+  const { following } = useSelector((store: IStore) => store.userSocials);
 
   function handleFollowingUsersPage() {
     dispatch(loadLocalUsers(following));

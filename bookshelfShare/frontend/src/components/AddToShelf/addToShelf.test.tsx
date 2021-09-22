@@ -4,10 +4,7 @@ import { render, fireEvent } from '../../utils/test.utils';
 import shelfMock from '../../mocks/shelf.mock';
 import { addToShelf } from '../../redux/actions/userShelves.creator';
 import userShelvesActions from '../../redux/actions/userShelves.actions';
-
-const navigation = {
-  pop: jest.fn()
-};
+import navigationMock from '../../mocks/navigation.mock';
 
 const route = {
   params: {
@@ -25,7 +22,7 @@ describe('Given an AddToShelf component', () => {
         (addToShelf as jest.Mock).mockReturnValue({ type: '' });
 
         screen = render(
-          <AddToShelf navigation={navigation} route={route} />
+          <AddToShelf navigation={navigationMock} route={route} />
         );
       });
       test('Then should match the snapshot', () => {
@@ -65,6 +62,10 @@ describe('Given an AddToShelf component', () => {
               type: userShelvesActions.ADD_BOOK_TO_SHELF,
               data: shelfMock
             });
+            const navigation = {
+              ...navigationMock,
+              pop: jest.fn()
+            };
 
             screen = render(
               <AddToShelf navigation={navigation} route={route} />

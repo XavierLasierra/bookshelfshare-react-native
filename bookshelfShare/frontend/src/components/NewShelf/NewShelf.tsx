@@ -4,23 +4,24 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useDispatch, useSelector } from 'react-redux';
+import { INewShelfProps, IStore } from '../../types/interfaces';
+
 import Header from '../Header/Header';
+
+import { createShelf } from '../../redux/actions/userShelves.creator';
 
 import ShelfIcon from '../../assets/shelfIcon.svg';
 import styles from './newShelf.styles';
 import globalStyles from '../../styles/global.styles';
-import { createShelf } from '../../redux/actions/userShelves.creator';
 import stylesConstants from '../../styles/styles.constants';
 
-interface Props {
-  navigation: any,
-  route: any
-}
-
-export default function NewShelf({ navigation, route: { params: { loggedUserId } } }: Props) {
+export default function NewShelf({
+  navigation,
+  route: { params: { loggedUserId } }
+}: INewShelfProps) {
   const dispatch = useDispatch();
-  const { token, refreshToken } = useSelector((store: any) => store.tokens);
-  const shelves = useSelector((store: any) => store.userShelves);
+  const { token, refreshToken } = useSelector((store: IStore) => store.tokens);
+  const shelves = useSelector((store: IStore) => store.userShelves);
   const [name, setName] = useState('');
   const [rows, setRows] = useState('');
   const [columns, setColumns] = useState('');
