@@ -51,7 +51,7 @@ interface ITokensState {
 
 export interface IUserRating {
     rating: number,
-    user: string,
+    user: IUser,
     review: string
 }
 
@@ -60,9 +60,54 @@ interface ICustomBookDataState {
     ratings: IUserRating[]
 }
 
+export interface IUser {
+    _id: string,
+    username: string,
+    email: string,
+    photo: string,
+    followers?: IUser[],
+    following?: IUser[],
+    books?: {
+        read: string[],
+        reading: string[],
+        toRead: string[],
+        wishlist: string[]
+    }
+}
+
+export interface ICurrentUserState {
+    results: boolean,
+    user: IUser
+}
+
 export interface IBooksState {
     results: boolean,
     books: IBookData[]
+}
+
+export interface IUserBooksState {
+    reading: string[],
+    toRead: string[],
+    wishlist: string[],
+    read: string[],
+}
+
+interface ICustomInformation {
+    notes?: string,
+    location: number[]
+}
+
+interface IShelfBook {
+    bookIsbn: string,
+    customInformation: ICustomInformation
+    bookData?: IBookData
+}
+
+export interface IShelf {
+    users: IUser[],
+    name: string,
+    shelf: number[],
+    books: IShelfBook
 }
 
 export interface IStore {
@@ -72,8 +117,9 @@ export interface IStore {
     loggedUser: any,
     books: IBooksState,
     userSocials: any,
-    userBooks: any,
-    notifications: string[]
+    userBooks: IUserBooksState,
+    notifications: string[],
+    currentUser: any
 }
 
 export interface IBarCode {
@@ -170,4 +216,36 @@ export interface ILoginProps {
 export interface INewShelfProps {
     navigation: INavigation,
     route: IRoute
+}
+
+export interface IOtherUserProfileProps {
+    navigation: INavigation,
+    route: IRoute
+}
+
+export interface IProfileProps {
+    navigation: INavigation
+}
+
+export interface IProfileDetailProps {
+    handleBookResultsPage: (title: string, books: string[]) => void,
+    userBooks: IUserBooksState,
+    shelves: any
+}
+
+export interface IRatingProps {
+    ratings: IUserRating[],
+    isbn: string,
+    token: string,
+    refreshToken: string,
+    userId: string
+}
+
+export interface IRatingElementProps {
+    rating: IUserRating,
+    yours?: boolean
+}
+
+export interface IRegisterProps {
+    navigation: INavigation
 }

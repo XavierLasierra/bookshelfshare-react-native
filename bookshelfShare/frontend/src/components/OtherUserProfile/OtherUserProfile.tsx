@@ -12,6 +12,7 @@ import { addUserFollowing, deleteUserFollowing } from '../../redux/actions/logge
 import { getBooksData } from '../../redux/actions/books.creator';
 import { clearCurrentUser } from '../../redux/actions/currentUser.creator';
 import logoSelector from '../../utils/logoSelector';
+import { IOtherUserProfileProps, IStore, IUser } from '../../types/interfaces';
 
 import RedProfileIcon from '../../assets/redProfileIcon.svg';
 import AddUserIcon from '../../assets/addUserIcon.svg';
@@ -19,17 +20,20 @@ import globalStyles from '../../styles/global.styles';
 import styles from './otherUserProfile.styles';
 import stylesConstants from '../../styles/styles.constants';
 
-export default function OtherUserProfile({ navigation, route: { params: { logo } } }: any) {
+export default function OtherUserProfile({
+  navigation,
+  route: { params: { logo } }
+}: IOtherUserProfileProps) {
   const dispatch = useDispatch();
-  const { userData: { _id: loggedUserId } } = useSelector((store: any) => store.loggedUser);
-  const { following } = useSelector((store: any) => store.userSocials);
-  const { token, refreshToken } = useSelector((store: any) => store.tokens);
-  const { user, results } = useSelector((store: any) => store.currentUser);
+  const { userData: { _id: loggedUserId } } = useSelector((store: IStore) => store.loggedUser);
+  const { following } = useSelector((store: IStore) => store.userSocials);
+  const { token, refreshToken } = useSelector((store: IStore) => store.tokens);
+  const { user, results } = useSelector((store: IStore) => store.currentUser);
   const [isDisabled, setIsDisabled] = useState(false);
 
-  const isFollowed = following.some((followedUser: any) => followedUser._id === user._id);
+  const isFollowed = following.some((followedUser: IUser) => followedUser._id === user._id);
   const isFollower = user?.following
-  && user.following.some(({ _id: followingId }: any) => followingId === loggedUserId);
+  && user.following.some(({ _id: followingId }: IUser) => followingId === loggedUserId);
 
   useEffect(() => {
     setIsDisabled(false);

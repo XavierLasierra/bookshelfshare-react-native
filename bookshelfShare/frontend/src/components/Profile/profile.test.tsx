@@ -6,13 +6,10 @@ import userBooksMock from '../../mocks/userBooks.mock';
 import userSocialsMock from '../../mocks/userSocials.mock';
 import { logoutUser } from '../../redux/actions/loggedUser.creator';
 import { getBooksData } from '../../redux/actions/books.creator';
+import navigationMock from '../../mocks/navigation.mock';
 
 jest.mock('../../redux/actions/loggedUser.creator');
 jest.mock('../../redux/actions/books.creator');
-
-const navigation = {
-  push: jest.fn()
-};
 
 describe('Given a Profile component', () => {
   describe('When it is rendered', () => {
@@ -23,14 +20,16 @@ describe('Given a Profile component', () => {
           userBooks: userBooksMock
         };
         const screen = render(
-          <Profile navigation={navigation} />,
+          <Profile navigation={navigationMock} />,
           initialState
         );
         expect(screen).toMatchSnapshot();
       });
     });
+
     describe('And the user has exactly 1 follower', () => {
       let screen: any;
+      let navigation: any;
       beforeEach(() => {
         (logoutUser as jest.Mock).mockReturnValue({ type: '' });
         (getBooksData as jest.Mock).mockReturnValue({ type: '' });
@@ -39,6 +38,10 @@ describe('Given a Profile component', () => {
           loggedUser: { userData: loggedUserMock.user },
           userBooks: userBooksMock,
           userSocials: userSocialsMock
+        };
+        navigation = {
+          ...navigationMock,
+          push: jest.fn()
         };
         screen = render(
           <Profile navigation={navigation} />,

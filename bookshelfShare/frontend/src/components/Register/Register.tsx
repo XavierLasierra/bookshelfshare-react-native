@@ -5,8 +5,9 @@ import {
 import {
   SharedElement
 } from 'react-navigation-shared-element';
-
 import { useDispatch } from 'react-redux';
+import { IRegisterProps } from '../../types/interfaces';
+
 import { validateEmail, validatePassword } from '../../utils/validation.utils';
 import { registerUser } from '../../redux/actions/loggedUser.creator';
 
@@ -15,7 +16,7 @@ import ArrowIcon from '../../assets/arrowIcon.svg';
 import globalStyles from '../../styles/global.styles';
 import styles from './register.styles';
 
-export default function Register({ navigation: { pop } }:any) {
+export default function Register({ navigation: { pop } }: IRegisterProps) {
   const dispatch = useDispatch();
   const [username, setUsername] = useState('');
   const [isValidUsername, setValidUsername] = useState(true);

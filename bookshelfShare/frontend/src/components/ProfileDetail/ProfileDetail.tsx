@@ -1,11 +1,16 @@
 import React from 'react';
 import { TouchableOpacity, Text } from 'react-native';
+import { IProfileDetailProps } from '../../types/interfaces';
 
 import BookStackIcon from '../../assets/bookStackIcon.svg';
 import ShelfIcon from '../../assets/shelfIcon.svg';
 import styles from './profileDetail.styles';
 
-export default function ProfileDetail({ handleBookResultsPage, userBooks, shelves }: any) {
+export default function ProfileDetail({
+  handleBookResultsPage,
+  userBooks,
+  shelves
+}: IProfileDetailProps) {
   return (
     <>
       <TouchableOpacity

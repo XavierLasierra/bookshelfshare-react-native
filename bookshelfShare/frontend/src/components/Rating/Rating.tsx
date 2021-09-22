@@ -5,18 +5,21 @@ import {
 } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { AirbnbRating } from 'react-native-ratings';
+import { IRatingProps, IUserRating } from '../../types/interfaces';
+
+import UsersRatings from '../UsersRatings/UsersRatings';
+
+import { saveRating } from '../../redux/actions/books.creator';
 
 import EditIcon from '../../assets/editIcon.svg';
 import SaveIcon from '../../assets/saveIcon.svg';
 import styles from './rating.styles';
 import globalStyles from '../../styles/global.styles';
-import { saveRating } from '../../redux/actions/books.creator';
 import stylesConstants from '../../styles/styles.constants';
-import UsersRatings from '../UsersRatings/UsersRatings';
 
 export default function Rating({
   ratings, isbn, token, refreshToken, userId
-}:any) {
+}: IRatingProps) {
   const dispatch = useDispatch();
   const [userRating, setUserRating] = useState(0);
   const [userReview, setUserReview] = useState('');
@@ -25,7 +28,7 @@ export default function Rating({
   const [isSaving, setIsSaving] = useState(false);
 
   useEffect(() => {
-    const existingUserRating = ratings.find(({ user }: any) => user?._id === userId);
+    const existingUserRating = ratings.find(({ user }: IUserRating) => user?._id === userId);
     if (existingUserRating) {
       setUserRating(existingUserRating.rating);
       setUserReview(existingUserRating.review);

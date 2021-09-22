@@ -3,23 +3,26 @@ import {
   SafeAreaView, View, Image, Text, TouchableOpacity, ScrollView
 } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
+import { IProfileProps, IStore, IUser } from '../../types/interfaces';
+
 import Header from '../Header/Header';
+import ProfileDetail from '../ProfileDetail/ProfileDetail';
+
+import { logoutUser } from '../../redux/actions/loggedUser.creator';
+import { getBooksData } from '../../redux/actions/books.creator';
+import { loadLocalUsers } from '../../redux/actions/usersList.creator';
 
 import ProfileIcon from '../../assets/profileIcon.svg';
 import styles from './profile.styles';
 import globalStyles from '../../styles/global.styles';
-import { logoutUser } from '../../redux/actions/loggedUser.creator';
-import { getBooksData } from '../../redux/actions/books.creator';
-import { loadLocalUsers } from '../../redux/actions/usersList.creator';
-import ProfileDetail from '../ProfileDetail/ProfileDetail';
 
-export default function Profile({ navigation }: any) {
+export default function Profile({ navigation }: IProfileProps) {
   const dispatch = useDispatch();
-  const { userData } = useSelector((store: any) => store.loggedUser);
-  const userBooks = useSelector((store: any) => store.userBooks);
-  const { followers, following } = useSelector((store: any) => store.userSocials);
-  const { token, refreshToken } = useSelector((store: any) => store.tokens);
-  const shelves = useSelector((store: any) => store.userShelves);
+  const { userData } = useSelector((store: IStore) => store.loggedUser);
+  const userBooks = useSelector((store: IStore) => store.userBooks);
+  const { followers, following } = useSelector((store: IStore) => store.userSocials);
+  const { token, refreshToken } = useSelector((store: IStore) => store.tokens);
+  const shelves = useSelector((store: IStore) => store.userShelves);
 
   function handleLogout() {
     dispatch(logoutUser(refreshToken));
@@ -34,7 +37,7 @@ export default function Profile({ navigation }: any) {
       });
   }
 
-  function handleUserListPage(users: any) {
+  function handleUserListPage(users: IUser[]) {
     dispatch(loadLocalUsers(users));
     navigation.push('UsersList',
       {

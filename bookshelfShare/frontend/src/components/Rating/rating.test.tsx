@@ -15,7 +15,13 @@ describe('Given a Rating component', () => {
       describe('And there is not a rating from the user logged', () => {
         let screen: any;
         beforeEach(() => {
-          screen = render(<Rating ratings={ratingsMock.ratings} isbn={ratingsMock.bookIsbn} token="token" refreshToken="refreshToken" />);
+          screen = render(<Rating
+            ratings={ratingsMock.ratings}
+            isbn={ratingsMock.bookIsbn}
+            token="token"
+            refreshToken="refreshToken"
+            userId="userId"
+          />);
         });
         test('Then screen should match the snapshot', () => {
           expect(screen).toMatchSnapshot();
@@ -44,8 +50,14 @@ describe('Given a Rating component', () => {
         beforeEach(() => {
           (saveRating as jest.Mock).mockReturnValue({ type: '' });
           screen = render(
-            // eslint-disable-next-line no-underscore-dangle
-            <Rating ratings={ratingsMock.ratings} isbn={ratingsMock.bookIsbn} token="token" refreshToken="refreshToken" userId={loggedUserMock.user._id} />
+            <Rating
+              ratings={ratingsMock.ratings}
+              isbn={ratingsMock.bookIsbn}
+              token="token"
+              refreshToken="refreshToken"
+              // eslint-disable-next-line no-underscore-dangle
+              userId={loggedUserMock.user._id}
+            />
           );
         });
 
