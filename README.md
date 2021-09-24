@@ -20,7 +20,7 @@ This fullstack project is a library organizer app.
 
 Rename `.env.example` to `.env` and fill with the right data in backend and frontend. 
 
-### In the back directory, you can run:
+### In the backend directory, you can run:
 
 #### `yarn start`
 Runs the app in http://localhost:5000.
