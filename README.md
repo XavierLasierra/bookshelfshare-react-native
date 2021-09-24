@@ -10,6 +10,8 @@ This fullstack project is a library organizer app.
 * Typescript
 * MongoDB database
 * Express server
+* Bcrypt
+* JSON Web Token
 * Environment variables
 * SOLID
 * DRY
