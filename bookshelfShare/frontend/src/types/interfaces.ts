@@ -158,7 +158,8 @@ export interface IBookData {
     pageCount: number | string,
     format: string,
     categories: string[],
-    images: IImagesObject
+    images: IImagesObject,
+    _id: string
 }
 
 export interface IBookElementSearchProps {
@@ -248,4 +249,28 @@ export interface IRatingElementProps {
 
 export interface IRegisterProps {
     navigation: INavigation
+}
+
+export interface IShelfBookElement {
+    bookData: IBookData,
+    logo: string,
+    navigation: INavigation,
+    location: number[],
+    shelfName: string
+}
+
+export interface IShelfBooksList {
+    shelfData: any,
+    logo: string,
+    navigation: INavigation,
+    shelfName: string
+}
+
+interface IShelfBookItem {
+    customInformation: ICustomInformation,
+    bookData: IBookData
+}
+
+export interface IShelfBooksListElement {
+    item : IShelfBookItem
 }
