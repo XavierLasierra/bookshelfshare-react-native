@@ -1,11 +1,18 @@
 import React from 'react';
 import { FlatList, View } from 'react-native';
+import { IShelfBooksList, IShelfBooksListElement } from '../../types/interfaces';
+
 import ShelfBookElement from '../ShelfBookElement/ShelfBookElement';
 
 export default function ShelfBooksList({
   shelfData, logo, navigation, shelfName
-}: any) {
-  function renderListElement({ item: { customInformation: { location }, bookData } }: any) {
+}: IShelfBooksList) {
+  function renderListElement({
+    item: {
+      customInformation: { location },
+      bookData
+    }
+  }: IShelfBooksListElement) {
     return (
       <ShelfBookElement
         navigation={navigation}

@@ -2,11 +2,12 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import { AirbnbRating } from 'react-native-ratings';
-import globalStyles from '../../styles/global.styles';
+import { IRatingElementProps } from '../../types/interfaces';
 
+import globalStyles from '../../styles/global.styles';
 import styles from './ratingElement.styles';
 
-export default function RatingElement({ rating, yours }: any) {
+export default function RatingElement({ rating, yours }: IRatingElementProps) {
   return (
     <View testID="ratingElement" style={styles.ratingContainer} key={`userRating-${rating.user._id}`}>
       <View style={styles.nameRatingContainer}>

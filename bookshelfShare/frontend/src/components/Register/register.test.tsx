@@ -2,19 +2,21 @@ import React from 'react';
 import Register from './Register';
 import { render, fireEvent } from '../../utils/test.utils';
 import { registerUser } from '../../redux/actions/loggedUser.creator';
+import navigationMock from '../../mocks/navigation.mock';
 
 jest.mock('../../redux/actions/loggedUser.creator', () => ({
   registerUser: jest.fn()
 }));
 
-const navigation = {
-  pop: jest.fn()
-};
-
 describe('Given a Register component', () => {
   describe('When it is rendered', () => {
     let screen: any;
+    let navigation: any;
     beforeEach(() => {
+      navigation = {
+        ...navigationMock,
+        pop: jest.fn()
+      };
       screen = render(<Register navigation={navigation} />);
     });
     test('Then screen should match the snapshot', () => {

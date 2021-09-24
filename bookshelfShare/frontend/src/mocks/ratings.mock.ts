@@ -4,7 +4,9 @@ export default {
     {
       user: {
         _id: '1',
-        username: 'Xavi'
+        username: 'Xavi',
+        email: 'email@email.com',
+        photo: 'photo'
       },
       rating: 2,
       review: 'meh'
@@ -12,7 +14,9 @@ export default {
     {
       user: {
         _id: '2',
-        username: 'Juan Jose'
+        username: 'Juan Jose',
+        email: 'email@email.com',
+        photo: 'photo'
       },
       rating: 4,
       review: 'wow'
@@ -20,7 +24,9 @@ export default {
     {
       user: {
         _id: '3',
-        username: 'Frank'
+        username: 'Frank',
+        email: 'email@email.com',
+        photo: 'photo'
       },
       rating: 4,
       review: 'great'

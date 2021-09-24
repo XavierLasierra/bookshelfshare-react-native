@@ -2,12 +2,13 @@ import React from 'react';
 import {
   Text, TouchableOpacity, Image, View
 } from 'react-native';
+import { IShelfBookElement } from '../../types/interfaces';
 
 import styles from './shelfBookElement.styles';
 
 export default function ShelfBookElement({
   bookData, logo, navigation, location, shelfName
-}: any) {
+}: IShelfBookElement) {
   function handleBookDetailPage() {
     navigation.push('BookDetail',
       {

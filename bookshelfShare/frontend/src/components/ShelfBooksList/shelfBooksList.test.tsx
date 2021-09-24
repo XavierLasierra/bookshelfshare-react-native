@@ -2,10 +2,7 @@ import React from 'react';
 import ShelfBooksList from './ShelfBooksList';
 import { render } from '../../utils/test.utils';
 import shelfMock from '../../mocks/shelf.mock';
-
-const navigation = {
-  push: jest.fn()
-};
+import navigationMock from '../../mocks/navigation.mock';
 
 describe('Given a ShelfBooksList component', () => {
   describe('When it is rendered', () => {
@@ -13,7 +10,8 @@ describe('Given a ShelfBooksList component', () => {
       const screen = render(<ShelfBooksList
         shelfData={shelfMock.books}
         shelfName="My shelf"
-        navigation={navigation}
+        navigation={navigationMock}
+        logo="logo"
       />);
       expect(screen).toMatchSnapshot();
     });

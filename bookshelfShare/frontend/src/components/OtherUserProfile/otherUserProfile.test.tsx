@@ -7,29 +7,25 @@ import currentUserMock from '../../mocks/currentUser.mock';
 import { addUserFollowing, deleteUserFollowing } from '../../redux/actions/loggedUser.creator';
 import { getBooksData } from '../../redux/actions/books.creator';
 import loggedUserActions from '../../redux/actions/loggedUser.actions';
+import navigationMock from '../../mocks/navigation.mock';
 
 jest.mock('../../redux/actions/loggedUser.creator');
 jest.mock('../../redux/actions/books.creator');
 
-const navigation = {
-  push: jest.fn()
-};
-
-const route = {
-  params: {
-    logo: ''
-  }
-};
-
 describe('Given a OtherUserProfile component', () => {
   describe('When it is rendered', () => {
+    const route = {
+      params: {
+        logo: ''
+      }
+    };
     describe('And currentUser is loading', () => {
       test('Then should match the snapshot', () => {
         const initialState = {
           loggedUser: { userData: loggedUserMock.user }
         };
         const screen = render(
-          <OtherUserProfile navigation={navigation} route={route} />,
+          <OtherUserProfile navigation={navigationMock} route={route} />,
           initialState
         );
         expect(screen).toMatchSnapshot();
@@ -38,13 +34,17 @@ describe('Given a OtherUserProfile component', () => {
 
     describe('And currentUser is not followed / following you', () => {
       let screen: any;
+      let navigation: any;
       beforeEach(() => {
         (addUserFollowing as jest.Mock).mockReturnValue({
           type: loggedUserActions.UPDATE_USER_FOLLOWING,
           data: [...userSocialsMock.following, { _id: '2' }]
         });
-
         (getBooksData as jest.Mock).mockReturnValue({ type: '' });
+        navigation = {
+          ...navigationMock,
+          push: jest.fn()
+        };
 
         const initialState = {
           loggedUser: { userData: loggedUserMock.user },
@@ -101,7 +101,7 @@ describe('Given a OtherUserProfile component', () => {
           currentUser: currentUserMock[1]
         };
         screen = render(
-          <OtherUserProfile navigation={navigation} route={route} />,
+          <OtherUserProfile navigation={navigationMock} route={route} />,
           initialState
         );
       });
