@@ -1,4 +1,4 @@
-const jwt = require('jsonwebtoken');
+const jwt = require("jsonwebtoken");
 
 function verifyToken(err, user, res) {
   if (err) {
@@ -8,17 +8,15 @@ function verifyToken(err, user, res) {
   // eslint-disable-next-line no-underscore-dangle
   const data = { _id: user._id, email: user.email };
 
-  const token = jwt.sign(
-    { user: data },
-    process.env.JWT_SECRET,
-    { expiresIn: '1m' }
-  );
+  const token = jwt.sign({ user: data }, process.env.JWT_SECRET, {
+    expiresIn: "1m",
+  });
 
   return res.json({
-    token
+    token,
   });
 }
 
 module.exports = {
-  verifyToken
+  verifyToken,
 };

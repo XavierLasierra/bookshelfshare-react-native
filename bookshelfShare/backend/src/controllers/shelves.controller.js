@@ -1,9 +1,12 @@
-const List = require('../models/shelf.model');
-const { getBooksDataFromList } = require('../services/bookDataGetter');
+const List = require("../models/shelf.model");
+const { getBooksDataFromList } = require("../services/bookDataGetter");
 
 async function getLists({ query }, res) {
   try {
-    const foundLists = await List.find(query).populate({ path: 'users', select: 'photo' });
+    const foundLists = await List.find(query).populate({
+      path: "users",
+      select: "photo",
+    });
 
     res.json(foundLists);
   } catch (error) {
@@ -50,7 +53,9 @@ async function deleteListById({ params: { shelfId }, body: { user } }, res) {
     if (listToDelete.users.length <= 1) {
       listToDelete.delete();
     } else {
-      listToDelete.users = listToDelete.users.filter((userFromList) => `${userFromList}` !== user);
+      listToDelete.users = listToDelete.users.filter(
+        (userFromList) => `${userFromList}` !== user
+      );
       listToDelete.save();
     }
 
@@ -62,11 +67,9 @@ async function deleteListById({ params: { shelfId }, body: { user } }, res) {
 }
 async function updateListById({ params: { shelfId }, body }, res) {
   try {
-    const updatedList = await List.findByIdAndUpdate(
-      shelfId,
-      body,
-      { new: true }
-    );
+    const updatedList = await List.findByIdAndUpdate(shelfId, body, {
+      new: true,
+    });
 
     if (!updatedList) return res.sendStatus(404);
 
@@ -82,7 +85,8 @@ async function updateListUsers({ params: { shelfId }, body: { user } }, res) {
     const foundList = await List.findById(shelfId);
 
     if (!foundList) return res.sendStatus(404);
-    if (foundList.users.some((userFromList) => `${userFromList}` === user)) return res.sendStatus(409);
+    if (foundList.users.some((userFromList) => `${userFromList}` === user))
+      return res.sendStatus(409);
 
     foundList.users.push(user);
     foundList.save();
@@ -100,18 +104,22 @@ async function updateBooksFromList({ params: { shelfId }, body }, res) {
 
     if (!listToUpdate) return res.sendStatus(404);
 
-    if (body.actionType === 'ADD') {
-      const bookToUpdate = listToUpdate.books.find(({ bookIsbn }) => bookIsbn === body.bookIsbn);
+    if (body.actionType === "ADD") {
+      const bookToUpdate = listToUpdate.books.find(
+        ({ bookIsbn }) => bookIsbn === body.bookIsbn
+      );
       if (bookToUpdate) {
         bookToUpdate.customInformation = body.customInformation;
       } else {
         listToUpdate.books.push({
           bookIsbn: body.bookIsbn,
-          customInformation: body.customInformation
+          customInformation: body.customInformation,
         });
       }
-    } else if (body.actionType === 'DELETE') {
-      listToUpdate.books = listToUpdate.books.filter(({ bookIsbn }) => bookIsbn !== body.bookIsbn);
+    } else if (body.actionType === "DELETE") {
+      listToUpdate.books = listToUpdate.books.filter(
+        ({ bookIsbn }) => bookIsbn !== body.bookIsbn
+      );
     } else return res.sendStatus(400);
 
     listToUpdate.save();
@@ -130,5 +138,5 @@ module.exports = {
   deleteListById,
   updateListById,
   updateListUsers,
-  updateBooksFromList
+  updateBooksFromList,
 };

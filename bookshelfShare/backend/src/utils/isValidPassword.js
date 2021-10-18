@@ -1,4 +1,4 @@
-const bcrypt = require('bcrypt');
+const bcrypt = require("bcrypt");
 
 function isValidPassword(password) {
   return bcrypt.compareSync(password, this.password);

@@ -5,33 +5,33 @@ const {
   deleteListById,
   updateListById,
   updateListUsers,
-  updateBooksFromList
-} = require('./shelves.controller');
-const { getBooksDataFromList } = require('../services/bookDataGetter');
-const List = require('../models/shelf.model');
+  updateBooksFromList,
+} = require("./shelves.controller");
+const { getBooksDataFromList } = require("../services/bookDataGetter");
+const List = require("../models/shelf.model");
 
-jest.mock('../models/shelf.model');
-jest.mock('../services/bookDataGetter');
+jest.mock("../models/shelf.model");
+jest.mock("../services/bookDataGetter");
 
-describe('Given a getLists function', () => {
-  describe('When it is triggered', () => {
+describe("Given a getLists function", () => {
+  describe("When it is triggered", () => {
     let req;
     let res;
     beforeEach(() => {
       req = {
-        query: {}
+        query: {},
       };
       res = {
         json: jest.fn(),
         send: jest.fn(),
-        status: jest.fn()
+        status: jest.fn(),
       };
     });
 
-    describe('And find is resolved', () => {
-      test('Then should call res.json', async () => {
+    describe("And find is resolved", () => {
+      test("Then should call res.json", async () => {
         List.find.mockReturnValue({
-          populate: jest.fn().mockResolvedValue([])
+          populate: jest.fn().mockResolvedValue([]),
         });
 
         await getLists(req, res);
@@ -39,45 +39,45 @@ describe('Given a getLists function', () => {
         expect(res.json).toHaveBeenCalled();
       });
     });
-    describe('And find is rejected', () => {
+    describe("And find is rejected", () => {
       beforeEach(async () => {
         List.find.mockReturnValue({
-          populate: jest.fn().mockRejectedValue(new Error('Server error'))
+          populate: jest.fn().mockRejectedValue(new Error("Server error")),
         });
 
         await getLists(req, res);
       });
 
-      test('Then should call res.send with an error with a message Server error', () => {
-        expect(res.send.mock.calls[0][0].message).toBe('Server error');
+      test("Then should call res.send with an error with a message Server error", () => {
+        expect(res.send.mock.calls[0][0].message).toBe("Server error");
       });
 
-      test('Then should call res.status with 500', () => {
+      test("Then should call res.status with 500", () => {
         expect(res.status).toHaveBeenCalledWith(500);
       });
     });
   });
 });
 
-describe('Given a createList function', () => {
-  describe('When it is triggered', () => {
+describe("Given a createList function", () => {
+  describe("When it is triggered", () => {
     let req;
     let res;
     beforeEach(() => {
       req = {
-        query: {}
+        query: {},
       };
       res = {
         json: jest.fn(),
         send: jest.fn(),
         status: jest.fn(),
-        sendStatus: jest.fn()
+        sendStatus: jest.fn(),
       };
     });
 
-    describe('And List.findOne is resolved', () => {
-      describe('And there is already a List with the same List and name', () => {
-        test('Then should call res.sendStatus with 409', async () => {
+    describe("And List.findOne is resolved", () => {
+      describe("And there is already a List with the same List and name", () => {
+        test("Then should call res.sendStatus with 409", async () => {
           List.findOne.mockResolvedValue({});
 
           await createList(req, res);
@@ -86,12 +86,12 @@ describe('Given a createList function', () => {
         });
       });
 
-      describe('And there is not already a List with the same List and name', () => {
+      describe("And there is not already a List with the same List and name", () => {
         beforeEach(() => {
           List.findOne.mockResolvedValue(undefined);
         });
-        describe('And List.create is resolved', () => {
-          test('Then should call res.json', async () => {
+        describe("And List.create is resolved", () => {
+          test("Then should call res.json", async () => {
             List.create.mockResolvedValue({});
 
             await createList(req, res);
@@ -99,66 +99,66 @@ describe('Given a createList function', () => {
             expect(res.json).toHaveBeenCalled();
           });
         });
-        describe('And List.create is resolved', () => {
+        describe("And List.create is resolved", () => {
           beforeEach(async () => {
-            List.create.mockRejectedValue(new Error('Server error'));
+            List.create.mockRejectedValue(new Error("Server error"));
 
             await createList(req, res);
           });
 
-          test('Then should call res.status with 500', () => {
+          test("Then should call res.status with 500", () => {
             expect(res.status).toHaveBeenCalledWith(500);
           });
 
-          test('Then should call res.send with an error with a message Server error', () => {
-            expect(res.send.mock.calls[0][0].message).toBe('Server error');
+          test("Then should call res.send with an error with a message Server error", () => {
+            expect(res.send.mock.calls[0][0].message).toBe("Server error");
           });
         });
       });
     });
-    describe('And List.findOne is rejected', () => {
+    describe("And List.findOne is rejected", () => {
       beforeEach(async () => {
-        List.findOne.mockRejectedValue(new Error('Server error'));
+        List.findOne.mockRejectedValue(new Error("Server error"));
 
         await createList(req, res);
       });
 
-      test('Then should call res.status with 500', () => {
+      test("Then should call res.status with 500", () => {
         expect(res.status).toHaveBeenCalledWith(500);
       });
 
-      test('Then should call res.send with an error with a message Server error', () => {
-        expect(res.send.mock.calls[0][0].message).toBe('Server error');
+      test("Then should call res.send with an error with a message Server error", () => {
+        expect(res.send.mock.calls[0][0].message).toBe("Server error");
       });
     });
   });
 });
 
-describe('Given a getListById function', () => {
-  describe('When it is triggered', () => {
+describe("Given a getListById function", () => {
+  describe("When it is triggered", () => {
     let req;
     let res;
     beforeEach(() => {
       req = {
         params: {
-          shelfId: '1'
-        }
+          shelfId: "1",
+        },
       };
       res = {
         json: jest.fn(),
         send: jest.fn(),
         status: jest.fn(),
-        sendStatus: jest.fn()
+        sendStatus: jest.fn(),
       };
 
       getBooksDataFromList.mockResolvedValue({});
     });
 
-    describe('And findById is resolved', () => {
-      describe('And the list exists', () => {
-        test('Then should call res.send', async () => {
+    describe("And findById is resolved", () => {
+      describe("And the list exists", () => {
+        test("Then should call res.send", async () => {
           List.findById.mockResolvedValue({
-            toObject: jest.fn()
+            toObject: jest.fn(),
           });
 
           await getListById(req, res);
@@ -166,8 +166,8 @@ describe('Given a getListById function', () => {
         });
       });
 
-      describe('And the list is undefined', () => {
-        test('Then should call res.sendStatus with 404', async () => {
+      describe("And the list is undefined", () => {
+        test("Then should call res.sendStatus with 404", async () => {
           List.findById.mockResolvedValue(undefined);
 
           await getListById(req, res);
@@ -175,85 +175,85 @@ describe('Given a getListById function', () => {
         });
       });
     });
-    describe('And findById is rejected', () => {
+    describe("And findById is rejected", () => {
       beforeEach(async () => {
-        List.findById.mockRejectedValue(new Error('Server error'));
+        List.findById.mockRejectedValue(new Error("Server error"));
 
         await getListById(req, res);
       });
 
-      test('Then should call res.send with 500', () => {
+      test("Then should call res.send with 500", () => {
         expect(res.status).toHaveBeenCalledWith(500);
       });
 
-      test('Then should call res.send with an error with a message Server error', async () => {
-        expect(res.send.mock.calls[0][0].message).toBe('Server error');
+      test("Then should call res.send with an error with a message Server error", async () => {
+        expect(res.send.mock.calls[0][0].message).toBe("Server error");
       });
     });
   });
 });
 
-describe('Given a deleteListById function', () => {
-  describe('When it is triggered', () => {
+describe("Given a deleteListById function", () => {
+  describe("When it is triggered", () => {
     let req;
     let res;
     beforeEach(() => {
       req = {
         params: {
-          shelfId: '1'
+          shelfId: "1",
         },
         body: {
-          List: '1'
-        }
+          List: "1",
+        },
       };
       res = {
         sendStatus: jest.fn(),
         status: jest.fn(),
-        send: jest.fn()
+        send: jest.fn(),
       };
     });
-    describe('And List.findById is resolved', () => {
-      describe('And listToDelete exists', () => {
-        describe('And listToDelete has only 1 List', () => {
+    describe("And List.findById is resolved", () => {
+      describe("And listToDelete exists", () => {
+        describe("And listToDelete has only 1 List", () => {
           beforeEach(async () => {
             List.findById.mockResolvedValue({
-              users: ['1'],
-              delete: jest.fn()
+              users: ["1"],
+              delete: jest.fn(),
             });
 
             await deleteListById(req, res);
           });
-          test('Then listToDelete.delete should have been called', async () => {
+          test("Then listToDelete.delete should have been called", async () => {
             const listToDelete = await List.findById();
             expect(listToDelete.delete).toHaveBeenCalled();
           });
 
-          test('Then res.sendStatus should have been called with 200', () => {
+          test("Then res.sendStatus should have been called with 200", () => {
             expect(res.sendStatus).toHaveBeenCalledWith(200);
           });
         });
 
-        describe('And listToDelete has more than 1 List', () => {
+        describe("And listToDelete has more than 1 List", () => {
           beforeEach(async () => {
             List.findById.mockResolvedValue({
-              users: ['1', '2'],
-              save: jest.fn()
+              users: ["1", "2"],
+              save: jest.fn(),
             });
 
             await deleteListById(req, res);
           });
-          test('Then listToDelete.delete should have been called', async () => {
+          test("Then listToDelete.delete should have been called", async () => {
             const listToDelete = await List.findById();
             expect(listToDelete.save).toHaveBeenCalled();
           });
 
-          test('Then res.sendStatus should have been called with 200', () => {
+          test("Then res.sendStatus should have been called with 200", () => {
             expect(res.sendStatus).toHaveBeenCalledWith(200);
           });
         });
       });
-      describe('And listToDelete does not exist', () => {
-        test('Then should call res.sendStatus with 404', async () => {
+      describe("And listToDelete does not exist", () => {
+        test("Then should call res.sendStatus with 404", async () => {
           List.findById.mockResolvedValue(undefined);
 
           await deleteListById(req, res);
@@ -262,46 +262,46 @@ describe('Given a deleteListById function', () => {
         });
       });
     });
-    describe('And List.findById is rejected', () => {
+    describe("And List.findById is rejected", () => {
       beforeEach(async () => {
-        List.findById.mockRejectedValue(new Error('Server error'));
+        List.findById.mockRejectedValue(new Error("Server error"));
 
         await deleteListById(req, res);
       });
 
-      test('Then should call res.status with 500', () => {
+      test("Then should call res.status with 500", () => {
         expect(res.status).toHaveBeenCalledWith(500);
       });
 
-      test('Then should call res.send with an error with a message Server error', () => {
-        expect(res.send.mock.calls[0][0].message).toBe('Server error');
+      test("Then should call res.send with an error with a message Server error", () => {
+        expect(res.send.mock.calls[0][0].message).toBe("Server error");
       });
     });
   });
 });
 
-describe('Given an updateListById function', () => {
-  describe('When it is triggered', () => {
+describe("Given an updateListById function", () => {
+  describe("When it is triggered", () => {
     let req;
     let res;
     beforeEach(() => {
       req = {
         params: {
-          shelfId: '1'
+          shelfId: "1",
         },
-        body: {}
+        body: {},
       };
       res = {
         send: jest.fn(),
         status: jest.fn(),
         sendStatus: jest.fn(),
-        json: jest.fn()
+        json: jest.fn(),
       };
     });
 
-    describe('And findByIdAndUpdate is resolved', () => {
-      describe('And updatedList exists', () => {
-        test('Then should call res.json', async () => {
+    describe("And findByIdAndUpdate is resolved", () => {
+      describe("And updatedList exists", () => {
+        test("Then should call res.json", async () => {
           List.findByIdAndUpdate.mockResolvedValue({});
 
           await updateListById(req, res);
@@ -310,8 +310,8 @@ describe('Given an updateListById function', () => {
         });
       });
 
-      describe('And updatedList is undefined', () => {
-        test('Then should call res.sendStatus with 404', async () => {
+      describe("And updatedList is undefined", () => {
+        test("Then should call res.sendStatus with 404", async () => {
           List.findByIdAndUpdate.mockResolvedValue(undefined);
 
           await updateListById(req, res);
@@ -321,50 +321,50 @@ describe('Given an updateListById function', () => {
       });
     });
 
-    describe('And findByIdAndUpdate is rejected', () => {
+    describe("And findByIdAndUpdate is rejected", () => {
       beforeEach(async () => {
-        List.findByIdAndUpdate.mockRejectedValue(new Error('Server error'));
+        List.findByIdAndUpdate.mockRejectedValue(new Error("Server error"));
 
         await updateListById(req, res);
       });
 
-      test('Then should call res.status with 500', async () => {
+      test("Then should call res.status with 500", async () => {
         expect(res.status).toHaveBeenCalledWith(500);
       });
-      test('Then should call res.send with an error with a message Server error', async () => {
-        expect(res.send.mock.calls[0][0].message).toBe('Server error');
+      test("Then should call res.send with an error with a message Server error", async () => {
+        expect(res.send.mock.calls[0][0].message).toBe("Server error");
       });
     });
   });
 });
 
-describe('Given a updateListUsers function', () => {
-  describe('When it is triggered', () => {
+describe("Given a updateListUsers function", () => {
+  describe("When it is triggered", () => {
     let req;
     let res;
     beforeEach(() => {
       req = {
         params: {
-          shelfId: '1'
+          shelfId: "1",
         },
         body: {
-          user: '1'
-        }
+          user: "1",
+        },
       };
       res = {
         send: jest.fn(),
         status: jest.fn(),
         sendStatus: jest.fn(),
-        json: jest.fn()
+        json: jest.fn(),
       };
     });
 
-    describe('And findById is resolved', () => {
-      describe('And foundList exists', () => {
-        describe('And foundList has already the same user', () => {
-          test('Then should call res.sendStatus with 409', async () => {
+    describe("And findById is resolved", () => {
+      describe("And foundList exists", () => {
+        describe("And foundList has already the same user", () => {
+          test("Then should call res.sendStatus with 409", async () => {
             List.findById.mockResolvedValue({
-              users: ['1']
+              users: ["1"],
             });
 
             await updateListUsers(req, res);
@@ -373,20 +373,20 @@ describe('Given a updateListUsers function', () => {
           });
         });
 
-        describe('And foundList does not already have the same user', () => {
+        describe("And foundList does not already have the same user", () => {
           beforeEach(() => {
             List.findById.mockResolvedValue({
-              users: ['2'],
-              save: jest.fn()
+              users: ["2"],
+              save: jest.fn(),
             });
           });
-          test('Then res.json should have been called', async () => {
+          test("Then res.json should have been called", async () => {
             await updateListUsers(req, res);
 
             expect(res.json).toHaveBeenCalled();
           });
 
-          test('Then foundList.users length should have been increased 1', async () => {
+          test("Then foundList.users length should have been increased 1", async () => {
             const foundList = await List.findById();
             const initialLength = foundList.users.length;
 
@@ -397,8 +397,8 @@ describe('Given a updateListUsers function', () => {
         });
       });
 
-      describe('And foundList is undefined', () => {
-        test('Then should call res.sendStatus with 404', async () => {
+      describe("And foundList is undefined", () => {
+        test("Then should call res.sendStatus with 404", async () => {
           List.findById.mockResolvedValue(undefined);
 
           await updateListUsers(req, res);
@@ -408,63 +408,63 @@ describe('Given a updateListUsers function', () => {
       });
     });
 
-    describe('And findById is rejected', () => {
+    describe("And findById is rejected", () => {
       beforeEach(async () => {
-        List.findById.mockRejectedValue(new Error('Server error'));
+        List.findById.mockRejectedValue(new Error("Server error"));
 
         await updateListUsers(req, res);
       });
 
-      test('Then should call res.status with 500', async () => {
+      test("Then should call res.status with 500", async () => {
         expect(res.status).toHaveBeenCalledWith(500);
       });
-      test('Then should call res.send with an error with a message Server error', async () => {
-        expect(res.send.mock.calls[0][0].message).toBe('Server error');
+      test("Then should call res.send with an error with a message Server error", async () => {
+        expect(res.send.mock.calls[0][0].message).toBe("Server error");
       });
     });
   });
 });
 
-describe('Given a updateBooksFromList function', () => {
-  describe('When it is triggered', () => {
+describe("Given a updateBooksFromList function", () => {
+  describe("When it is triggered", () => {
     let req;
     let res;
     beforeEach(() => {
       req = {
         params: {
-          shelfId: '1'
+          shelfId: "1",
         },
-        body: {}
+        body: {},
       };
       res = {
         send: jest.fn(),
         status: jest.fn(),
         sendStatus: jest.fn(),
-        json: jest.fn()
+        json: jest.fn(),
       };
     });
-    describe('And List.findById is resolved', () => {
-      describe('And listToUpdate exists', () => {
-        describe('And body.actionType is ADD', () => {
-          describe('And listToUpdate contains the bookIsbn to include', () => {
+    describe("And List.findById is resolved", () => {
+      describe("And listToUpdate exists", () => {
+        describe("And body.actionType is ADD", () => {
+          describe("And listToUpdate contains the bookIsbn to include", () => {
             beforeEach(() => {
               req.body = {
-                actionType: 'ADD',
-                bookIsbn: '5',
-                customInformation: { notes: 'no' }
+                actionType: "ADD",
+                bookIsbn: "5",
+                customInformation: { notes: "no" },
               };
               List.findById.mockResolvedValue({
                 books: [
                   {
-                    bookIsbn: '5',
-                    customInformation: { notes: 'yes' }
-                  }
+                    bookIsbn: "5",
+                    customInformation: { notes: "yes" },
+                  },
                 ],
-                save: jest.fn()
+                save: jest.fn(),
               });
             });
 
-            test('Then listToUpdate.books length should not change', async () => {
+            test("Then listToUpdate.books length should not change", async () => {
               const listToUpdate = await List.findById();
               const initialLength = listToUpdate.books.length;
 
@@ -473,38 +473,42 @@ describe('Given a updateBooksFromList function', () => {
               expect(listToUpdate.books.length - initialLength).toBe(0);
             });
 
-            test('Then the listToUpdate book should change its custom information', async () => {
+            test("Then the listToUpdate book should change its custom information", async () => {
               const listToUpdate = await List.findById();
-              const initialCustomInformation = listToUpdate.books
-                .find(({ bookIsbn }) => bookIsbn === req.body.bookIsbn).customInformation;
+              const initialCustomInformation = listToUpdate.books.find(
+                ({ bookIsbn }) => bookIsbn === req.body.bookIsbn
+              ).customInformation;
 
               await updateBooksFromList(req, res);
 
-              const finalCustomInformation = listToUpdate.books
-                .find(({ bookIsbn }) => bookIsbn === req.body.bookIsbn).customInformation;
+              const finalCustomInformation = listToUpdate.books.find(
+                ({ bookIsbn }) => bookIsbn === req.body.bookIsbn
+              ).customInformation;
 
-              expect(finalCustomInformation).not.toEqual(initialCustomInformation);
+              expect(finalCustomInformation).not.toEqual(
+                initialCustomInformation
+              );
             });
 
-            test('Then res.json should have been called', async () => {
+            test("Then res.json should have been called", async () => {
               await updateBooksFromList(req, res);
 
               expect(res.json).toHaveBeenCalled();
             });
           });
-          describe('And listToUpdate does not contain the bookIsbn to include', () => {
+          describe("And listToUpdate does not contain the bookIsbn to include", () => {
             beforeEach(() => {
               req.body = {
-                actionType: 'ADD',
-                bookIsbn: '5'
+                actionType: "ADD",
+                bookIsbn: "5",
               };
               List.findById.mockResolvedValue({
                 books: [],
-                save: jest.fn()
+                save: jest.fn(),
               });
             });
 
-            test('Then listToUpdate.books length should increase one', async () => {
+            test("Then listToUpdate.books length should increase one", async () => {
               const listToUpdate = await List.findById();
               const initialLength = listToUpdate.books.length;
 
@@ -513,30 +517,27 @@ describe('Given a updateBooksFromList function', () => {
               expect(listToUpdate.books.length - initialLength).toBe(1);
             });
 
-            test('Then res.json should have been called', async () => {
+            test("Then res.json should have been called", async () => {
               await updateBooksFromList(req, res);
 
               expect(res.json).toHaveBeenCalled();
             });
           });
         });
-        describe('And body.actionType is DELETE', () => {
-          describe('And body.bookIsbn is in listToUpdate.books', () => {
+        describe("And body.actionType is DELETE", () => {
+          describe("And body.bookIsbn is in listToUpdate.books", () => {
             beforeEach(() => {
               req.body = {
-                actionType: 'DELETE',
-                bookIsbn: '1'
+                actionType: "DELETE",
+                bookIsbn: "1",
               };
               List.findById.mockResolvedValue({
-                books: [
-                  { bookIsbn: '1' },
-                  { bookIsbn: '2' }
-                ],
-                save: jest.fn()
+                books: [{ bookIsbn: "1" }, { bookIsbn: "2" }],
+                save: jest.fn(),
               });
             });
 
-            test('Then listToUpdate.books length should have decreased 1', async () => {
+            test("Then listToUpdate.books length should have decreased 1", async () => {
               const listToUpdate = await List.findById();
               const initialLength = listToUpdate.books.length;
 
@@ -545,17 +546,17 @@ describe('Given a updateBooksFromList function', () => {
               expect(listToUpdate.books.length - initialLength).toBe(-1);
             });
 
-            test('Then res.json should have been called', async () => {
+            test("Then res.json should have been called", async () => {
               await updateBooksFromList(req, res);
 
               expect(res.json).toHaveBeenCalled();
             });
           });
         });
-        describe('And actionType is different from ADD and DELETE', () => {
-          test('Then should call res.sendStatus with 400', async () => {
+        describe("And actionType is different from ADD and DELETE", () => {
+          test("Then should call res.sendStatus with 400", async () => {
             req.body = {
-              actionType: ''
+              actionType: "",
             };
             List.findById.mockResolvedValue({});
 
@@ -565,8 +566,8 @@ describe('Given a updateBooksFromList function', () => {
           });
         });
       });
-      describe('And listToUpdate is undefined', () => {
-        test('Then should call res.sendStatus with 404', async () => {
+      describe("And listToUpdate is undefined", () => {
+        test("Then should call res.sendStatus with 404", async () => {
           List.findById.mockResolvedValue(undefined);
 
           await updateBooksFromList(req, res);
@@ -575,18 +576,18 @@ describe('Given a updateBooksFromList function', () => {
         });
       });
     });
-    describe('And List.findById is rejected', () => {
+    describe("And List.findById is rejected", () => {
       beforeEach(async () => {
-        List.findById.mockRejectedValue(new Error('Server error'));
+        List.findById.mockRejectedValue(new Error("Server error"));
 
         await updateBooksFromList(req, res);
       });
 
-      test('Then should call res.status with 500', async () => {
+      test("Then should call res.status with 500", async () => {
         expect(res.status).toHaveBeenCalledWith(500);
       });
-      test('Then should call res.send with an error with a message Server error', async () => {
-        expect(res.send.mock.calls[0][0].message).toBe('Server error');
+      test("Then should call res.send with an error with a message Server error", async () => {
+        expect(res.send.mock.calls[0][0].message).toBe("Server error");
       });
     });
   });
