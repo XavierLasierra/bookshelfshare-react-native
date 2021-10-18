@@ -1,19 +1,26 @@
-const axios = require('axios');
-const BookClass = require('../classes/book.class');
-const Book = require('../models/book.model');
-const { getBooksDataFromArray } = require('../services/bookDataGetter');
+const axios = require("axios");
+const BookClass = require("../classes/book.class");
+const Book = require("../models/book.model");
+const { getBooksDataFromArray } = require("../services/bookDataGetter");
 
 function createGoogleSearchUrl(query) {
   const queryEntries = Object.entries(query);
-  const url = queryEntries
-    .reduce((acc, queryElement, index) => `${acc}${queryElement[0]}:${queryElement[1]}${index < queryEntries.length - 1 ? '+' : ''}`, process.env.GOOGLE_API_URL);
+  const url = queryEntries.reduce(
+    (acc, queryElement, index) =>
+      `${acc}${queryElement[0]}:${queryElement[1]}${
+        index < queryEntries.length - 1 ? "+" : ""
+      }`,
+    process.env.GOOGLE_API_URL
+  );
   return `${url}&key=${process.env.GOOGLE_API_KEY}`;
 }
 
 async function getBooks({ query }, res) {
   try {
     const url = createGoogleSearchUrl(query);
-    const { data: { items } } = await axios.get(url);
+    const {
+      data: { items },
+    } = await axios.get(url);
 
     const foundBooks = items.map((book) => new BookClass(book));
 
@@ -26,7 +33,10 @@ async function getBooks({ query }, res) {
 
 async function getBookRating({ params: { bookIsbn } }, res) {
   try {
-    const foundBook = await Book.findOne({ bookIsbn }).populate({ path: 'ratings.user', select: 'username' });
+    const foundBook = await Book.findOne({ bookIsbn }).populate({
+      path: "ratings.user",
+      select: "username",
+    });
     if (!foundBook) return res.json({ ratings: [] });
 
     return res.json(foundBook);
@@ -43,7 +53,9 @@ async function addUpdateBookRating({ params: { bookIsbn }, body }, res) {
       foundBook = await Book.create({ bookIsbn });
     }
 
-    const foundRating = foundBook.ratings.find((rating) => `${rating.user}` === body.user);
+    const foundRating = foundBook.ratings.find(
+      (rating) => `${rating.user}` === body.user
+    );
     if (foundRating) {
       foundRating.user = body.user;
       foundRating.rating = body.rating;
@@ -52,11 +64,11 @@ async function addUpdateBookRating({ params: { bookIsbn }, body }, res) {
       foundBook.ratings.push({
         user: body.user,
         rating: body.rating,
-        review: body.review
+        review: body.review,
       });
     }
     const updatedBook = await foundBook.save();
-    await updatedBook.populate({ path: 'ratings.user', select: 'username' });
+    await updatedBook.populate({ path: "ratings.user", select: "username" });
     res.json(updatedBook);
   } catch (error) {
     res.status(500);
@@ -79,5 +91,5 @@ module.exports = {
   createGoogleSearchUrl,
   getBookRating,
   addUpdateBookRating,
-  getBookDataFromIsbn
+  getBookDataFromIsbn,
 };

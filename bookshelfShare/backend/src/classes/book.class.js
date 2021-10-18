@@ -1,4 +1,4 @@
-const defaultBook = require('../constants/defaultBook');
+const defaultBook = require("../constants/defaultBook");
 
 class Book {
   constructor({ volumeInfo }) {
@@ -10,15 +10,29 @@ class Book {
     this.language = volumeInfo?.language || defaultBook.language;
     this.description = volumeInfo?.description || defaultBook.description;
     this.isbn = {
-      ISBN13: (volumeInfo?.industryIdentifiers && volumeInfo.industryIdentifiers.reduce((acc, isbn) => (isbn.type === 'ISBN_13' ? isbn.identifier : acc), '')) || defaultBook.isbn.ISBN13,
-      ISBN10: (volumeInfo?.industryIdentifiers && volumeInfo?.industryIdentifiers.reduce((acc, isbn) => (isbn.type === 'ISBN_10' ? isbn.identifier : acc), '')) || defaultBook.isbn.ISBN10
+      ISBN13:
+        (volumeInfo?.industryIdentifiers &&
+          volumeInfo.industryIdentifiers.reduce(
+            (acc, isbn) => (isbn.type === "ISBN_13" ? isbn.identifier : acc),
+            ""
+          )) ||
+        defaultBook.isbn.ISBN13,
+      ISBN10:
+        (volumeInfo?.industryIdentifiers &&
+          volumeInfo?.industryIdentifiers.reduce(
+            (acc, isbn) => (isbn.type === "ISBN_10" ? isbn.identifier : acc),
+            ""
+          )) ||
+        defaultBook.isbn.ISBN10,
     };
     this.pageCount = volumeInfo?.pageCount || defaultBook.pageCount;
     this.format = volumeInfo?.printType || defaultBook.format;
     this.categories = volumeInfo?.categories || defaultBook.categories;
     this.images = {
       thumbnail: volumeInfo?.imageLinks?.thumbnail,
-      smallThumbnail: volumeInfo?.imageLinks?.smallThumbnail || defaultBook.images.smallThumbnail
+      smallThumbnail:
+        volumeInfo?.imageLinks?.smallThumbnail ||
+        defaultBook.images.smallThumbnail,
     };
   }
 }

@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
-const defaultPhoto = require('../constants/defaultProfileImage');
-const { isValidPassword } = require('../utils/isValidPassword');
+const mongoose = require("mongoose");
+const defaultPhoto = require("../constants/defaultProfileImage");
+const { isValidPassword } = require("../utils/isValidPassword");
 
 const userSchema = mongoose.Schema({
   username: String,
@@ -9,22 +9,22 @@ const userSchema = mongoose.Schema({
   photo: { type: String, default: defaultPhoto },
   activity: [
     {
-      bookId: { type: mongoose.Schema.Types.ObjectId, ref: 'Book' },
+      bookId: { type: mongoose.Schema.Types.ObjectId, ref: "Book" },
       title: String,
       rating: Number,
-      description: String
-    }
+      description: String,
+    },
   ],
   books: {
     read: [String],
     toRead: [String],
     wishlist: [String],
-    reading: [String]
+    reading: [String],
   },
-  following: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
-  followers: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }]
+  following: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
+  followers: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
 });
 
 userSchema.methods.isValidPassword = isValidPassword;
 
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model("User", userSchema);

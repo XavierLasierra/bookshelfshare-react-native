@@ -1,7 +1,7 @@
 /* eslint-disable no-underscore-dangle */
-const jwt = require('jsonwebtoken');
-const User = require('../models/user.model');
-const { verifyToken } = require('../utils/verifyToken');
+const jwt = require("jsonwebtoken");
+const User = require("../models/user.model");
+const { verifyToken } = require("../utils/verifyToken");
 
 let refreshTokens = [];
 
@@ -19,15 +19,10 @@ async function registerUser({ user, body: { username } }, res) {
 
 function loginUser({ user }, res) {
   const data = { _id: user._id, email: user.email };
-  const token = jwt.sign(
-    { user: data },
-    process.env.JWT_SECRET,
-    { expiresIn: '1m' }
-  );
-  const refreshToken = jwt.sign(
-    { user: data },
-    process.env.JWT_SECRET
-  );
+  const token = jwt.sign({ user: data }, process.env.JWT_SECRET, {
+    expiresIn: "1m",
+  });
+  const refreshToken = jwt.sign({ user: data }, process.env.JWT_SECRET);
 
   refreshTokens.push(refreshToken);
 
@@ -37,7 +32,7 @@ function loginUser({ user }, res) {
   res.json({
     user: returnUser,
     token,
-    refreshToken
+    refreshToken,
   });
 }
 
@@ -50,10 +45,8 @@ function refreshUserToken({ body: { refreshToken } }, res) {
     return res.sendStatus(403);
   }
 
-  return jwt.verify(
-    refreshToken,
-    process.env.JWT_SECRET,
-    (err, { user }) => verifyToken(err, user, res)
+  return jwt.verify(refreshToken, process.env.JWT_SECRET, (err, { user }) =>
+    verifyToken(err, user, res)
   );
 }
 
@@ -64,7 +57,7 @@ function logoutUser({ body: { refreshToken } }, res) {
 
   refreshTokens = refreshTokens.filter((current) => current !== refreshToken);
 
-  return res.send('Logout successful');
+  return res.send("Logout successful");
 }
 
 module.exports = {
@@ -72,5 +65,5 @@ module.exports = {
   loginUser,
   refreshUserToken,
   logoutUser,
-  verifyToken
+  verifyToken,
 };

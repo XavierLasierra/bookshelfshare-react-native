@@ -1,12 +1,9 @@
-const { connect } = require('mongoose');
-const debug = require('debug')('booksSApi:ddbbConfig');
+const { connect } = require("mongoose");
+const debug = require("debug")("booksSApi:ddbbConfig");
 
-connect(
-  process.env.DDBB_URI,
-  {
-    useUnifiedTopology: true,
-    useNewUrlParser: true
-  }
-)
-  .then(() => debug('Database connection established'))
+connect(process.env.DDBB_URI, {
+  useUnifiedTopology: true,
+  useNewUrlParser: true,
+})
+  .then(() => debug("Database connection established"))
   .catch(({ message }) => debug(message));

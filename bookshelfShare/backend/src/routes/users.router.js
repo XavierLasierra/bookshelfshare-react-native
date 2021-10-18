@@ -1,5 +1,5 @@
-const { Router } = require('express');
-const passport = require('passport');
+const { Router } = require("express");
+const passport = require("passport");
 const {
   getUsers,
   getOneUserById,
@@ -7,30 +7,30 @@ const {
   updateOneUserById,
   updateUserBooks,
   addUserFollowing,
-  deleteUserFollowing
-} = require('../controllers/users.controller');
+  deleteUserFollowing,
+} = require("../controllers/users.controller");
 
 const usersRouter = new Router();
 
 usersRouter
-  .route('/following/:userId')
-  .all(passport.authenticate('jwt', { session: false }))
+  .route("/following/:userId")
+  .all(passport.authenticate("jwt", { session: false }))
   .post(addUserFollowing)
   .put(deleteUserFollowing);
 
 usersRouter
-  .route('/books/:userId')
-  .all(passport.authenticate('jwt', { session: false }))
+  .route("/books/:userId")
+  .all(passport.authenticate("jwt", { session: false }))
   .put(updateUserBooks);
 
 usersRouter
-  .route('/')
-  .all(passport.authenticate('jwt', { session: false }))
+  .route("/")
+  .all(passport.authenticate("jwt", { session: false }))
   .get(getUsers);
 
 usersRouter
-  .route('/:userId')
-  .all(passport.authenticate('jwt', { session: false }))
+  .route("/:userId")
+  .all(passport.authenticate("jwt", { session: false }))
   .get(getOneUserById)
   .delete(deleteOneUserById)
   .put(updateOneUserById);

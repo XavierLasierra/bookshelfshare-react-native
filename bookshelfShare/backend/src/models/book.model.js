@@ -1,15 +1,14 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const bookSchema = mongoose.Schema({
   bookIsbn: String,
   ratings: [
     {
-      user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+      user: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
       rating: Number,
-      review: String
-    }
-  ]
-
+      review: String,
+    },
+  ],
 });
 
-module.exports = mongoose.model('Book', bookSchema);
+module.exports = mongoose.model("Book", bookSchema);
