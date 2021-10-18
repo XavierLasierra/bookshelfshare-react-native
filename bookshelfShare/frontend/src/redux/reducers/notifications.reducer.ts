@@ -2,7 +2,7 @@ import notificationsActions from '../actions/notifications.actions';
 import booksActions from '../actions/books.actions';
 
 interface Action {
-    type: string
+  type: string;
 }
 
 function notificationsReducer(notification = [], action: Action): string[] {

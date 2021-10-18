@@ -9,7 +9,7 @@ function userListReducer(users = initialState, action: any): any {
     case usersListActions.LOAD_USERS_LIST:
       newUsers = {
         results: true,
-        users: action.data
+        users: action.data,
       };
       break;
     case usersListActions.CLEAR_USERS_LIST:
@@ -18,7 +18,7 @@ function userListReducer(users = initialState, action: any): any {
     case notificationsActions.LOAD_USER_LIST_ERROR:
       newUsers = {
         results: true,
-        users: []
+        users: [],
       };
       break;
     default:

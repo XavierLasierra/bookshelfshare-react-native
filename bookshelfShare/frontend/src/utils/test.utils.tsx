@@ -1,19 +1,17 @@
 import React from 'react';
-import { render } from '@testing-library/react-native';
-import { Provider } from 'react-redux';
+import {render} from '@testing-library/react-native';
+import {Provider} from 'react-redux';
 
 import configureStore from '../redux/store';
 
 const customRender = (ui: any, initialState?: any, options?: any) => {
-  const AllTheProviders = ({ children }: any) => (
-    <Provider store={configureStore(initialState)}>
-      { children }
-    </Provider>
+  const AllTheProviders = ({children}: any) => (
+    <Provider store={configureStore(initialState)}>{children}</Provider>
   );
 
   return render(ui, {
     wrapper: AllTheProviders,
-    ...options
+    ...options,
   });
 };
 
@@ -21,4 +19,4 @@ const customRender = (ui: any, initialState?: any, options?: any) => {
 export * from '@testing-library/react-native';
 
 // override render method
-export { customRender as render };
+export {customRender as render};

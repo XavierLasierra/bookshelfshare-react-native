@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 import stylesConstants from '../../styles/styles.constants';
 
 export default StyleSheet.create({
@@ -12,29 +12,28 @@ export default StyleSheet.create({
     borderWidth: 1,
     borderColor: stylesConstants.colors.secondary,
     marginVertical: 10,
-    width: 325
+    width: 325,
   },
   nameFollowContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    width: 200
+    width: 200,
   },
   userElementFollowedContainer: {
-    backgroundColor: stylesConstants.colors.follow
+    backgroundColor: stylesConstants.colors.follow,
   },
   userPhoto: {
     width: 75,
     height: 75,
-    borderRadius: 100
+    borderRadius: 100,
   },
-  userInformationContainer: {
-  },
+  userInformationContainer: {},
   userName: {
     fontSize: stylesConstants.fontSize.mid,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
   },
   userEmail: {
-    fontSize: stylesConstants.fontSize.mid
-  }
+    fontSize: stylesConstants.fontSize.mid,
+  },
 });

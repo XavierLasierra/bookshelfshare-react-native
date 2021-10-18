@@ -1,15 +1,15 @@
 import React from 'react';
 import AddToShelf from './AddToShelf';
-import { render, fireEvent } from '../../utils/test.utils';
+import {render, fireEvent} from '../../utils/test.utils';
 import shelfMock from '../../mocks/shelf.mock';
-import { addToShelf } from '../../redux/actions/userShelves.creator';
+import {addToShelf} from '../../redux/actions/userShelves.creator';
 import userShelvesActions from '../../redux/actions/userShelves.actions';
 import navigationMock from '../../mocks/navigation.mock';
 
 const route = {
   params: {
-    shelf: shelfMock
-  }
+    shelf: shelfMock,
+  },
 };
 
 jest.mock('../../redux/actions/userShelves.creator');
@@ -19,10 +19,10 @@ describe('Given an AddToShelf component', () => {
     describe('And isbn is Not found', () => {
       let screen: any;
       beforeEach(() => {
-        (addToShelf as jest.Mock).mockReturnValue({ type: '' });
+        (addToShelf as jest.Mock).mockReturnValue({type: ''});
 
         screen = render(
-          <AddToShelf navigation={navigationMock} route={route} />
+          <AddToShelf navigation={navigationMock} route={route} />,
         );
       });
       test('Then should match the snapshot', () => {
@@ -60,15 +60,15 @@ describe('Given an AddToShelf component', () => {
           test('Then should call navigation.pop', () => {
             (addToShelf as jest.Mock).mockReturnValue({
               type: userShelvesActions.ADD_BOOK_TO_SHELF,
-              data: shelfMock
+              data: shelfMock,
             });
             const navigation = {
               ...navigationMock,
-              pop: jest.fn()
+              pop: jest.fn(),
             };
 
             screen = render(
-              <AddToShelf navigation={navigation} route={route} />
+              <AddToShelf navigation={navigation} route={route} />,
             );
 
             const shelfButton = screen.getByTestId('shelf-0-0');

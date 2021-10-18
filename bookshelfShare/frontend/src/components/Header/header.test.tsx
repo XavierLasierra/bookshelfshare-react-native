@@ -1,13 +1,15 @@
 import React from 'react';
 import Header from './Header';
-import { render, fireEvent } from '../../utils/test.utils';
+import {render, fireEvent} from '../../utils/test.utils';
 import navigationMock from '../../mocks/navigation.mock';
 
 describe('Given a Header component', () => {
   describe('When it is rendered', () => {
     describe('And the prop BackButton is false', () => {
       test('Then should match the snapshot', () => {
-        const screen = render(<Header Logo="Logo" navigation={navigationMock} />);
+        const screen = render(
+          <Header Logo="Logo" navigation={navigationMock} />,
+        );
         expect(screen).toMatchSnapshot();
       });
     });
@@ -18,9 +20,11 @@ describe('Given a Header component', () => {
       beforeEach(() => {
         navigation = {
           ...navigationMock,
-          pop: jest.fn()
+          pop: jest.fn(),
         };
-        screen = render(<Header Logo="Logo" BackButton navigation={navigation} />);
+        screen = render(
+          <Header Logo="Logo" BackButton navigation={navigation} />,
+        );
       });
       test('Then should match the snapshot', () => {
         expect(screen).toMatchSnapshot();

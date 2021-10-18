@@ -3,18 +3,21 @@ import booksActions from '../actions/books.actions';
 import notificationsActions from '../actions/notifications.actions';
 
 interface Action {
-    type: string,
-    data?: any
+  type: string;
+  data?: any;
 }
 
-function customBookDataReducer(customBookData = initialState, action: Action): any[] {
+function customBookDataReducer(
+  customBookData = initialState,
+  action: Action,
+): any[] {
   let newCustomData: any = customBookData;
   switch (action.type) {
     case booksActions.LOAD_RATINGS:
     case booksActions.UPDATE_RATINGS:
       newCustomData = {
         isLoaded: true,
-        ratings: action.data.ratings
+        ratings: action.data.ratings,
       };
       break;
     case booksActions.CLEAR_BOOK:
@@ -24,7 +27,7 @@ function customBookDataReducer(customBookData = initialState, action: Action): a
     case notificationsActions.SAVE_RATING_ERROR:
       newCustomData = {
         ratings: [],
-        isLoaded: true
+        isLoaded: true,
       };
       break;
     default:

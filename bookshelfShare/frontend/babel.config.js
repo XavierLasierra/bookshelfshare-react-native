@@ -9,8 +9,8 @@ module.exports = {
         blacklist: null,
         whitelist: ['BOOKSS_API'],
         safe: false,
-        allowUndefined: true
-      }
-    ]
-  ]
+        allowUndefined: true,
+      },
+    ],
+  ],
 };

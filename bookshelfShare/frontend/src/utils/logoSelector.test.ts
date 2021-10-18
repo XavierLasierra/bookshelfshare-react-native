@@ -10,25 +10,25 @@ describe('Given a logoSelector function', () => {
     [
       {
         param: 'SearchIcon',
-        result: SearchIcon
+        result: SearchIcon,
       },
       {
         param: 'BookIcon',
-        result: BookIcon
+        result: BookIcon,
       },
       {
         param: 'ProfileIcon',
-        result: ProfileIcon
+        result: ProfileIcon,
       },
       {
         param: 'FollowingIcon',
-        result: FollowingIcon
+        result: FollowingIcon,
       },
       {
         param: 'ShelfIcon',
-        result: ShelfIcon
-      }
-    ].forEach(({ param, result }) => {
+        result: ShelfIcon,
+      },
+    ].forEach(({param, result}) => {
       describe(`And it is called with ${param}`, () => {
         test(`Then should return svg ${param}`, () => {
           const returnedValue = logoSelector(param);

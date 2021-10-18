@@ -1,13 +1,23 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import {
-  SafeAreaView, TouchableOpacity, FlatList, Text, View, ActivityIndicator, TextInput
+  SafeAreaView,
+  TouchableOpacity,
+  FlatList,
+  Text,
+  View,
+  ActivityIndicator,
+  TextInput,
 } from 'react-native';
-import { useDispatch, useSelector } from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 
 import Header from '../Header/Header';
 import UserElement from '../UserElement/UserElement';
 
-import { clearUsersList, getUsers, loadLocalUsers } from '../../redux/actions/usersList.creator';
+import {
+  clearUsersList,
+  getUsers,
+  loadLocalUsers,
+} from '../../redux/actions/usersList.creator';
 import logoSelector from '../../utils/logoSelector';
 
 import SearchIcon from '../../assets/searchIcon.svg';
@@ -15,20 +25,30 @@ import stylesConstants from '../../styles/styles.constants';
 import styles from './usersList.styles';
 import globalStyles from '../../styles/global.styles';
 
-export default function UsersList({ navigation, route: { params: { logo, followingPage } } }: any) {
+export default function UsersList({
+  navigation,
+  route: {
+    params: {logo, followingPage},
+  },
+}: any) {
   const dispatch = useDispatch();
-  const { userData: { _id: loggedUserId } } = useSelector((store: any) => store.loggedUser);
-  const { users, results } = useSelector((store: any) => store.usersList);
-  const { following } = useSelector((store: any) => store.userSocials);
-  const { token, refreshToken } = useSelector((store: any) => store.tokens);
+  const {
+    userData: {_id: loggedUserId},
+  } = useSelector((store: any) => store.loggedUser);
+  const {users, results} = useSelector((store: any) => store.usersList);
+  const {following} = useSelector((store: any) => store.userSocials);
+  const {token, refreshToken} = useSelector((store: any) => store.tokens);
   const [emailSearch, setEmailSearch] = useState('');
   const [isSearching, setIsSearching] = useState(false);
 
-  useEffect(() => () => {
-    dispatch(clearUsersList());
-  }, []);
+  useEffect(
+    () => () => {
+      dispatch(clearUsersList());
+    },
+    [],
+  );
 
-  function renderUser({ item }: any) {
+  function renderUser({item}: any) {
     return (
       <UserElement
         navigation={navigation}
@@ -63,8 +83,8 @@ export default function UsersList({ navigation, route: { params: { logo, followi
     }
   }
 
-  const usersResults = users.length > 0
-    ? (
+  const usersResults =
+    users.length > 0 ? (
       <>
         <FlatList
           showsVerticalScrollIndicator={false}
@@ -73,49 +93,52 @@ export default function UsersList({ navigation, route: { params: { logo, followi
           keyExtractor={(item, index) => `user-${index}`}
           ListFooterComponent={() => <View style={styles.marginBottom} />}
         />
-
       </>
-    )
-    : <Text>0 users</Text>;
+    ) : (
+      <Text>0 users</Text>
+    );
 
   return (
     <SafeAreaView>
       <Header Logo={logoSelector(logo)} BackButton navigation={navigation} />
       <View style={styles.usersListContainer}>
         {followingPage && (
-        <View>
-          <View style={globalStyles.thinInputContainer}>
-            <TextInput
-              style={globalStyles.thinInput}
-              placeholder="Search new users by email/name"
-              value={emailSearch}
-              onChangeText={handleEmailInputChange}
-              maxLength={25}
-              testID="searchInput"
-            />
-            <TouchableOpacity
-              onPress={handleUserSearch}
-              testID="searchButton"
-            >
-              <SearchIcon width={35} height={35} />
-            </TouchableOpacity>
+          <View>
+            <View style={globalStyles.thinInputContainer}>
+              <TextInput
+                style={globalStyles.thinInput}
+                placeholder="Search new users by email/name"
+                value={emailSearch}
+                onChangeText={handleEmailInputChange}
+                maxLength={25}
+                testID="searchInput"
+              />
+              <TouchableOpacity
+                onPress={handleUserSearch}
+                testID="searchButton">
+                <SearchIcon width={35} height={35} />
+              </TouchableOpacity>
+            </View>
+            {isSearching && results && (
+              <TouchableOpacity
+                onPress={handleClearSearch}
+                style={styles.clearSearchButton}
+                testID="clearSearchButton">
+                <Text style={styles.clearSearchButtonText}>Clear search</Text>
+              </TouchableOpacity>
+            )}
           </View>
-          {(isSearching && results)
-          && (
-          <TouchableOpacity
-            onPress={handleClearSearch}
-            style={styles.clearSearchButton}
-            testID="clearSearchButton"
-          >
-            <Text style={styles.clearSearchButtonText}>Clear search</Text>
-          </TouchableOpacity>
-          )}
-        </View>
         )}
         <View style={styles.resultsContainer}>
-          {results
-            ? usersResults
-            : <ActivityIndicator testID="activityIndicator" size="large" color={stylesConstants.colors.dark} />}
+          {results ? (
+            usersResults
+          ) : (
+            <ActivityIndicator
+              testID="activityIndicator"
+              size="large"
+              color={stylesConstants.colors.dark}
+            />
+          )}
         </View>
       </View>
     </SafeAreaView>

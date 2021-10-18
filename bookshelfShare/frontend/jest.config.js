@@ -1,20 +1,9 @@
 module.exports = {
-  setupFilesAfterEnv: [
-    '<rootDir>/setup-tests.js'
-  ],
+  setupFilesAfterEnv: ['<rootDir>/setup-tests.js'],
   preset: 'react-native',
-  transformIgnorePatterns: [
-    'node_modules/?!(react-navigation-shared-element)'
-  ],
-  moduleFileExtensions: [
-    'ts',
-    'tsx',
-    'js',
-    'jsx',
-    'json',
-    'node'
-  ],
+  transformIgnorePatterns: ['node_modules/?!(react-navigation-shared-element)'],
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   moduleNameMapper: {
-    '\\.svg': '<rootDir>/__mocks__/svgrMock.js'
-  }
+    '\\.svg': '<rootDir>/__mocks__/svgrMock.js',
+  },
 };

@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 import stylesConstants from '../../styles/styles.constants';
 
 export default StyleSheet.create({
@@ -6,16 +6,15 @@ export default StyleSheet.create({
     fontSize: stylesConstants.fontSize.big,
     fontWeight: 'bold',
     marginBottom: 10,
-    textAlign: 'center'
+    textAlign: 'center',
   },
   inputContainer: {
     width: 300,
-    height: 50
+    height: 50,
   },
   bookListFilterContainer: {
     alignItems: 'center',
-    paddingVertical: stylesConstants.padding.small
-
+    paddingVertical: stylesConstants.padding.small,
   },
   input: {
     height: '100%',
@@ -24,6 +23,6 @@ export default StyleSheet.create({
     backgroundColor: stylesConstants.colors.white,
     borderRadius: 10,
     borderWidth: 1,
-    borderColor: stylesConstants.colors.secondary
-  }
+    borderColor: stylesConstants.colors.secondary,
+  },
 });

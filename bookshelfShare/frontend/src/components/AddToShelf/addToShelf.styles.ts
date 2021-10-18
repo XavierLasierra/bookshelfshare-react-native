@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 import stylesConstants from '../../styles/styles.constants';
 
 export default StyleSheet.create({
@@ -6,16 +6,15 @@ export default StyleSheet.create({
     fontSize: stylesConstants.fontSize.big,
     fontWeight: 'bold',
     textAlign: 'center',
-    paddingVertical: 10
+    paddingVertical: 10,
   },
   currentShelfContainer: {
-    alignItems: 'center'
+    alignItems: 'center',
   },
   addToShelfContainer: {
-    paddingHorizontal: stylesConstants.padding.normal
-
+    paddingHorizontal: stylesConstants.padding.normal,
   },
   addToShelfButton: {
-    marginTop: 10
-  }
+    marginTop: 10,
+  },
 });

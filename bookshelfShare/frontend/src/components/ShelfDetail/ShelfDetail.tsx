@@ -1,12 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import {
-  ActivityIndicator, SafeAreaView, Text, TextInput, View, TouchableOpacity
+  ActivityIndicator,
+  SafeAreaView,
+  Text,
+  TextInput,
+  View,
+  TouchableOpacity,
 } from 'react-native';
-import { useDispatch, useSelector } from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 
 import Header from '../Header/Header';
 
-import { clearCurrentShelf } from '../../redux/actions/currentShelf.creator';
+import {clearCurrentShelf} from '../../redux/actions/currentShelf.creator';
 import logoSelector from '../../utils/logoSelector';
 
 import stylesConstants from '../../styles/styles.constants';
@@ -15,30 +20,30 @@ import globalStyles from '../../styles/global.styles';
 import ShelfSimulation from '../ShelfSimulation/ShelfSimulation';
 import ShelfBooksList from '../ShelfBooksList/ShelfBooksList';
 import sortShelfData from '../../utils/sortShelfData';
-import { bookShelfListFilter, bookShelfLocationFilter } from '../../utils/bookFilter';
+import {
+  bookShelfListFilter,
+  bookShelfLocationFilter,
+} from '../../utils/bookFilter';
 
 interface Props {
-    route: Route,
-    navigation: any,
-  }
-  interface Route {
-    params: Params
-  }
-  interface Params {
-    logo: string
-  }
+  route: Route;
+  navigation: any;
+}
+interface Route {
+  params: Params;
+}
+interface Params {
+  logo: string;
+}
 
-export default function ShelfDetail(
-  {
-    navigation, route: {
-      params: {
-        logo
-      }
-    }
-  }: Props
-) {
+export default function ShelfDetail({
+  navigation,
+  route: {
+    params: {logo},
+  },
+}: Props) {
   const dispatch = useDispatch();
-  const { results, shelf } = useSelector((store: any) => store.currentShelf);
+  const {results, shelf} = useSelector((store: any) => store.currentShelf);
   const [isShelf, setIsShelf] = useState(true);
   const [shelfData, setShelfData] = useState([]);
   const [filter, setFilter] = useState('');
@@ -49,9 +54,12 @@ export default function ShelfDetail(
     setFilteredList(shelf.books);
   }, [shelf]);
 
-  useEffect(() => () => {
-    dispatch(clearCurrentShelf());
-  }, []);
+  useEffect(
+    () => () => {
+      dispatch(clearCurrentShelf());
+    },
+    [],
+  );
 
   function handleFilter(text: string) {
     if (isShelf) {
@@ -96,36 +104,31 @@ export default function ShelfDetail(
         <TouchableOpacity
           style={[globalStyles.toggle, isShelf && globalStyles.toggleActive]}
           onPress={handleShelfPage}
-          testID="shelfPageButton"
-        >
+          testID="shelfPageButton">
           <Text style={globalStyles.toggleText}>Shelf</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={[globalStyles.toggle, !isShelf && globalStyles.toggleActive]}
           onPress={handleListPage}
-          testID="listPageButton"
-        >
+          testID="listPageButton">
           <Text style={globalStyles.toggleText}>List</Text>
         </TouchableOpacity>
       </View>
       <View>
-        {isShelf
-          ? (
-            <ShelfSimulation
-              shelfSize={shelf.shelf}
-              shelfData={shelfData}
-              clickCallback={handleShelfClick}
-            />
-          )
-          : (
-            <ShelfBooksList
-              shelfData={filteredList}
-              logo={logo}
-              navigation={navigation}
-              shelfName={shelf.name}
-            />
-          )}
-
+        {isShelf ? (
+          <ShelfSimulation
+            shelfSize={shelf.shelf}
+            shelfData={shelfData}
+            clickCallback={handleShelfClick}
+          />
+        ) : (
+          <ShelfBooksList
+            shelfData={filteredList}
+            logo={logo}
+            navigation={navigation}
+            shelfName={shelf.name}
+          />
+        )}
       </View>
     </>
   );
@@ -134,9 +137,15 @@ export default function ShelfDetail(
     <SafeAreaView>
       <Header Logo={logoSelector(logo)} BackButton navigation={navigation} />
       <View style={styles.currentShelfContainer}>
-        {results
-          ? bookShelf
-          : <ActivityIndicator style={styles.activityIndicator} size="large" color={stylesConstants.colors.mainText} />}
+        {results ? (
+          bookShelf
+        ) : (
+          <ActivityIndicator
+            style={styles.activityIndicator}
+            size="large"
+            color={stylesConstants.colors.mainText}
+          />
+        )}
       </View>
     </SafeAreaView>
   );

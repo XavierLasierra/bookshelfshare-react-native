@@ -1,12 +1,12 @@
 import React from 'react';
 import Rating from './Rating';
-import { render, fireEvent } from '../../utils/test.utils';
+import {render, fireEvent} from '../../utils/test.utils';
 import ratingsMock from '../../mocks/ratings.mock';
 import loggedUserMock from '../../mocks/loggedUser.mock';
-import { saveRating } from '../../redux/actions/books.creator';
+import {saveRating} from '../../redux/actions/books.creator';
 
 jest.mock('../../redux/actions/books.creator', () => ({
-  saveRating: jest.fn()
+  saveRating: jest.fn(),
 }));
 
 describe('Given a Rating component', () => {
@@ -15,13 +15,15 @@ describe('Given a Rating component', () => {
       describe('And there is not a rating from the user logged', () => {
         let screen: any;
         beforeEach(() => {
-          screen = render(<Rating
-            ratings={ratingsMock.ratings}
-            isbn={ratingsMock.bookIsbn}
-            token="token"
-            refreshToken="refreshToken"
-            userId="userId"
-          />);
+          screen = render(
+            <Rating
+              ratings={ratingsMock.ratings}
+              isbn={ratingsMock.bookIsbn}
+              token="token"
+              refreshToken="refreshToken"
+              userId="userId"
+            />,
+          );
         });
         test('Then screen should match the snapshot', () => {
           expect(screen).toMatchSnapshot();
@@ -48,7 +50,7 @@ describe('Given a Rating component', () => {
       describe('And there is a rating from the user logged', () => {
         let screen: any;
         beforeEach(() => {
-          (saveRating as jest.Mock).mockReturnValue({ type: '' });
+          (saveRating as jest.Mock).mockReturnValue({type: ''});
           screen = render(
             <Rating
               ratings={ratingsMock.ratings}
@@ -57,7 +59,7 @@ describe('Given a Rating component', () => {
               refreshToken="refreshToken"
               // eslint-disable-next-line no-underscore-dangle
               userId={loggedUserMock.user._id}
-            />
+            />,
           );
         });
 

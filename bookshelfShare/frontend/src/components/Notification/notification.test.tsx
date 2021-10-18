@@ -1,6 +1,6 @@
 import React from 'react';
 import Notification from './Notification';
-import { render, fireEvent } from '../../utils/test.utils';
+import {render, fireEvent} from '../../utils/test.utils';
 
 jest.mock('react-native', () => {
   const reactNativeMock = jest.requireActual('react-native');
@@ -8,8 +8,8 @@ jest.mock('react-native', () => {
   reactNativeMock.Animated.timing = (value: any, config: any) => ({
     start: (callback: any) => {
       value.setValue(config.toValue);
-      callback({ finished: true });
-    }
+      callback({finished: true});
+    },
   });
 
   return reactNativeMock;
@@ -26,7 +26,7 @@ describe('Given a Notification component', () => {
     describe('And there is a notification in store', () => {
       let screen: any;
       beforeEach(() => {
-        const initialState = { notifications: ['Hi'] };
+        const initialState = {notifications: ['Hi']};
         screen = render(<Notification />, initialState);
       });
       test('Then should match the snapshot', () => {

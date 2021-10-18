@@ -1,4 +1,4 @@
 export default {
   results: false,
-  books: []
+  books: [],
 };

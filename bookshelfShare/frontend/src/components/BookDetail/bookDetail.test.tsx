@@ -1,9 +1,9 @@
 import React from 'react';
-import { MenuProvider } from 'react-native-popup-menu';
+import {MenuProvider} from 'react-native-popup-menu';
 import BookDetail from './BookDetail';
-import { render } from '../../utils/test.utils';
+import {render} from '../../utils/test.utils';
 import bookDetailMock from '../../mocks/bookDetails.mock';
-import { getRatings } from '../../redux/actions/books.creator';
+import {getRatings} from '../../redux/actions/books.creator';
 import booksActions from '../../redux/actions/books.actions';
 import ratingsMock from '../../mocks/ratings.mock';
 import loggedUserMock from '../../mocks/loggedUser.mock';
@@ -12,7 +12,7 @@ import navigationMock from '../../mocks/navigation.mock';
 
 jest.mock('../../redux/actions/books.creator', () => ({
   ...jest.requireActual('../../redux/actions/books.creator'),
-  getRatings: jest.fn()
+  getRatings: jest.fn(),
 }));
 
 describe('Given an BookDetail component', () => {
@@ -21,19 +21,19 @@ describe('Given an BookDetail component', () => {
       test('Then should match the snapshot', () => {
         const route = {
           params: {
-            bookData: bookDetailMock[0]
-          }
+            bookData: bookDetailMock[0],
+          },
         };
-        (getRatings as jest.Mock).mockReturnValue({ type: '' });
+        (getRatings as jest.Mock).mockReturnValue({type: ''});
         const initialState = {
-          loggedUser: { userData: loggedUserMock.user },
-          userBooks: userBooksMock
+          loggedUser: {userData: loggedUserMock.user},
+          userBooks: userBooksMock,
         };
         const screen = render(
           <MenuProvider>
             <BookDetail navigation={navigationMock} route={route} />
           </MenuProvider>,
-          initialState
+          initialState,
         );
         expect(screen).toMatchSnapshot();
       });
@@ -44,22 +44,22 @@ describe('Given an BookDetail component', () => {
       beforeEach(() => {
         const route = {
           params: {
-            bookData: bookDetailMock[0]
-          }
+            bookData: bookDetailMock[0],
+          },
         };
         (getRatings as jest.Mock).mockReturnValue({
           type: booksActions.LOAD_RATINGS,
-          data: ratingsMock
+          data: ratingsMock,
         });
         const initialState = {
-          loggedUser: { userData: loggedUserMock.user },
-          userBooks: userBooksMock
+          loggedUser: {userData: loggedUserMock.user},
+          userBooks: userBooksMock,
         };
         screen = render(
           <MenuProvider>
             <BookDetail navigation={navigationMock} route={route} />
           </MenuProvider>,
-          initialState
+          initialState,
         );
       });
       test('Then should match the snapshot', () => {
@@ -75,19 +75,19 @@ describe('Given an BookDetail component', () => {
       test('Then should match the snapshot', () => {
         const route = {
           params: {
-            bookData: bookDetailMock[1]
-          }
+            bookData: bookDetailMock[1],
+          },
         };
-        (getRatings as jest.Mock).mockReturnValue({ type: '' });
+        (getRatings as jest.Mock).mockReturnValue({type: ''});
         const initialState = {
-          loggedUser: { userData: loggedUserMock.user },
-          userBooks: userBooksMock
+          loggedUser: {userData: loggedUserMock.user},
+          userBooks: userBooksMock,
         };
         const screen = render(
           <MenuProvider>
             <BookDetail navigation={navigationMock} route={route} />
           </MenuProvider>,
-          initialState
+          initialState,
         );
         expect(screen).toMatchSnapshot();
       });

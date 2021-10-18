@@ -1,5 +1,5 @@
 import bookDetailsMock from '../mocks/bookDetails.mock';
-import { bookFilter, bookShelfListFilter } from './bookFilter';
+import {bookFilter, bookShelfListFilter} from './bookFilter';
 
 describe('Given a bookFilter function', () => {
   describe('When it is triggered', () => {
@@ -38,29 +38,32 @@ describe('Given a bookFilter function', () => {
 
 describe('Given a bookShelfListFilter function', () => {
   describe('When it is triggered', () => {
-    const bookshelfBooks = [{ bookData: bookDetailsMock[0] }, { bookData: bookDetailsMock[1] }];
+    const bookshelfBooks = [
+      {bookData: bookDetailsMock[0]},
+      {bookData: bookDetailsMock[1]},
+    ];
     describe('And you search Debolsillo', () => {
       test('Then should return booksDetailMock[1]', () => {
         const result = bookShelfListFilter('Debolsillo', bookshelfBooks);
-        expect(result).toEqual([{ bookData: bookDetailsMock[1] }]);
+        expect(result).toEqual([{bookData: bookDetailsMock[1]}]);
       });
     });
     describe('And you search 1984', () => {
       test('Then should return booksDetailMock[0]', () => {
         const result = bookShelfListFilter('1984', bookshelfBooks);
-        expect(result).toEqual([{ bookData: bookDetailsMock[0] }]);
+        expect(result).toEqual([{bookData: bookDetailsMock[0]}]);
       });
     });
     describe('And you search 9780451524935', () => {
       test('Then should return booksDetailMock[0]', () => {
         const result = bookShelfListFilter('9780451524935', bookshelfBooks);
-        expect(result).toEqual([{ bookData: bookDetailsMock[0] }]);
+        expect(result).toEqual([{bookData: bookDetailsMock[0]}]);
       });
     });
     describe('And you search 0123456789', () => {
       test('Then should return booksDetailMock[1]', () => {
         const result = bookShelfListFilter('0123456789', bookshelfBooks);
-        expect(result).toEqual([{ bookData: bookDetailsMock[1] }]);
+        expect(result).toEqual([{bookData: bookDetailsMock[1]}]);
       });
     });
     describe('And you search Orwell', () => {

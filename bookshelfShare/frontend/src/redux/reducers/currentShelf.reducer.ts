@@ -3,8 +3,8 @@ import initialState from '../../constants/currentShelfInitialState.constant';
 import notificationsActions from '../actions/notifications.actions';
 
 interface Action {
-    type: string,
-    data: any
+  type: string;
+  data: any;
 }
 
 function currentShelfReducer(shelf = initialState, action: Action): any {
@@ -13,7 +13,7 @@ function currentShelfReducer(shelf = initialState, action: Action): any {
     case currentShelfActions.LOAD_CURRENT_SHELF:
       newCurrentShelf = {
         results: true,
-        shelf: action.data
+        shelf: action.data,
       };
       break;
     case currentShelfActions.CLEAR_CURRENT_SHELF:
@@ -22,7 +22,7 @@ function currentShelfReducer(shelf = initialState, action: Action): any {
     case notificationsActions.LOAD_CURRENT_SHELF_ERROR:
       newCurrentShelf = {
         results: true,
-        shelf: {}
+        shelf: {},
       };
       break;
     default:

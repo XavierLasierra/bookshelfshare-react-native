@@ -6,30 +6,30 @@ export default {
         _id: '1',
         username: 'Xavi',
         email: 'email@email.com',
-        photo: 'photo'
+        photo: 'photo',
       },
       rating: 2,
-      review: 'meh'
+      review: 'meh',
     },
     {
       user: {
         _id: '2',
         username: 'Juan Jose',
         email: 'email@email.com',
-        photo: 'photo'
+        photo: 'photo',
       },
       rating: 4,
-      review: 'wow'
+      review: 'wow',
     },
     {
       user: {
         _id: '3',
         username: 'Frank',
         email: 'email@email.com',
-        photo: 'photo'
+        photo: 'photo',
       },
       rating: 4,
-      review: 'great'
-    }
-  ]
+      review: 'great',
+    },
+  ],
 };

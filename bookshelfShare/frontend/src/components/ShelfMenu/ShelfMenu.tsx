@@ -1,17 +1,25 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import {
-  Menu, MenuOptions, MenuTrigger, MenuOption, renderers
+  Menu,
+  MenuOptions,
+  MenuTrigger,
+  MenuOption,
+  renderers,
 } from 'react-native-popup-menu';
-import { View, Text } from 'react-native';
-import { useDispatch, useSelector } from 'react-redux';
+import {View, Text} from 'react-native';
+import {useDispatch, useSelector} from 'react-redux';
 
-import { addToShelf } from '../../redux/actions/userShelves.creator';
+import {addToShelf} from '../../redux/actions/userShelves.creator';
 
 import styles from './shelfMenu.styles';
 import globalStyles from '../../styles/global.styles';
 
 export default function ShelfMenu({
-  navigation, logo, bookIsbn, token, refreshToken
+  navigation,
+  logo,
+  bookIsbn,
+  token,
+  refreshToken,
 }: any) {
   const dispatch = useDispatch();
   const shelves = useSelector((store: any) => store.userShelves);
@@ -24,8 +32,9 @@ export default function ShelfMenu({
     setDeleteFromShelf('');
     setShelfLocation(null);
     shelves.forEach((shelf: any) => {
-      const foundBook = shelf.books
-        .find(({ bookIsbn: shelfBookIsbn }: any) => shelfBookIsbn === bookIsbn);
+      const foundBook = shelf.books.find(
+        ({bookIsbn: shelfBookIsbn}: any) => shelfBookIsbn === bookIsbn,
+      );
       if (foundBook) {
         // eslint-disable-next-line no-underscore-dangle
         setDeleteFromShelf(shelf._id);
@@ -42,21 +51,22 @@ export default function ShelfMenu({
 
   function handleShelfSelect(value: string) {
     return value === 'delete'
-      ? dispatch(addToShelf(
-        deleteFromShelf,
-        // eslint-disable-next-line no-underscore-dangle
-        '',
-        bookIsbn,
-        '',
-        token,
-        refreshToken
-      ))
-      : navigation.push('AddToShelf',
-        {
-          shelf: shelves.find(({ _id }: any) => _id === value),
+      ? dispatch(
+          addToShelf(
+            deleteFromShelf,
+            // eslint-disable-next-line no-underscore-dangle
+            '',
+            bookIsbn,
+            '',
+            token,
+            refreshToken,
+          ),
+        )
+      : navigation.push('AddToShelf', {
+          shelf: shelves.find(({_id}: any) => _id === value),
           deleteFromShelf,
           bookIsbn,
-          logo
+          logo,
         });
   }
 
@@ -64,13 +74,12 @@ export default function ShelfMenu({
     <View>
       <Menu
         onSelect={handleShelfSelect}
-        renderer={renderers.NotAnimatedContextMenu}
-      >
+        renderer={renderers.NotAnimatedContextMenu}>
         <MenuTrigger>
           <Text style={globalStyles.markButton}>{markShelfName}</Text>
         </MenuTrigger>
         <MenuOptions>
-          {shelves.map(({ _id, name }: any) => (
+          {shelves.map(({_id, name}: any) => (
             <MenuOption
               key={_id}
               value={_id}
@@ -86,16 +95,16 @@ export default function ShelfMenu({
         </MenuOptions>
       </Menu>
       {shelfLocation && (
-      <View style={styles.shelfLocationContainer}>
-        <Text style={styles.shelfLocationText}>
-          Row:
-          {shelfLocation[0] + 1}
-        </Text>
-        <Text style={styles.shelfLocationText}>
-          Col:
-          {shelfLocation[1] + 1}
-        </Text>
-      </View>
+        <View style={styles.shelfLocationContainer}>
+          <Text style={styles.shelfLocationText}>
+            Row:
+            {shelfLocation[0] + 1}
+          </Text>
+          <Text style={styles.shelfLocationText}>
+            Col:
+            {shelfLocation[1] + 1}
+          </Text>
+        </View>
       )}
     </View>
   );

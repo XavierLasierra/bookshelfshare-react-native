@@ -1,7 +1,7 @@
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
+import {NavigationContainer} from '@react-navigation/native';
 import FollowingNavigator from './FollowingNavigator';
-import { render } from '../../utils/test.utils';
+import {render} from '../../utils/test.utils';
 
 jest.useFakeTimers();
 
@@ -11,7 +11,7 @@ describe('Given a FollowingNavigator component', () => {
       const screen = render(
         <NavigationContainer>
           <FollowingNavigator />
-        </NavigationContainer>
+        </NavigationContainer>,
       );
       expect(screen).toMatchSnapshot();
     });

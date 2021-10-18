@@ -3,8 +3,8 @@ import currentUserActions from '../actions/currentUser.actions';
 import notificationsActions from '../actions/notifications.actions';
 
 interface Action {
-    type: string,
-    data?: any
+  type: string;
+  data?: any;
 }
 
 function currentUserReducer(currentUser = initialState, action: Action): any {
@@ -13,13 +13,13 @@ function currentUserReducer(currentUser = initialState, action: Action): any {
     case currentUserActions.LOAD_OTHER_USER:
       newCurrentUser = {
         results: true,
-        user: action.data
+        user: action.data,
       };
       break;
     case notificationsActions.LOAD_USER_ERROR:
       newCurrentUser = {
         results: true,
-        user: {}
+        user: {},
       };
       break;
     case currentUserActions.CLEAR_OTHER_USER:

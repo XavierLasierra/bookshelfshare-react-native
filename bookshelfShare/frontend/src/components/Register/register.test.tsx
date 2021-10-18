@@ -1,11 +1,11 @@
 import React from 'react';
 import Register from './Register';
-import { render, fireEvent } from '../../utils/test.utils';
-import { registerUser } from '../../redux/actions/loggedUser.creator';
+import {render, fireEvent} from '../../utils/test.utils';
+import {registerUser} from '../../redux/actions/loggedUser.creator';
 import navigationMock from '../../mocks/navigation.mock';
 
 jest.mock('../../redux/actions/loggedUser.creator', () => ({
-  registerUser: jest.fn()
+  registerUser: jest.fn(),
 }));
 
 describe('Given a Register component', () => {
@@ -15,7 +15,7 @@ describe('Given a Register component', () => {
     beforeEach(() => {
       navigation = {
         ...navigationMock,
-        pop: jest.fn()
+        pop: jest.fn(),
       };
       screen = render(<Register navigation={navigation} />);
     });
@@ -122,7 +122,9 @@ describe('Given a Register component', () => {
 
         describe('And you focus on passwordRepeatInput', () => {
           test('Then should not render a Text with testId invalidPasswordRepeat', () => {
-            const passwordRepeatInput = screen.getByTestId('passwordRepeatInput');
+            const passwordRepeatInput = screen.getByTestId(
+              'passwordRepeatInput',
+            );
             fireEvent(passwordRepeatInput, 'focus');
             expect(screen.queryByTestId('invalidPasswordRepeat')).toBe(null);
           });
@@ -136,7 +138,7 @@ describe('Given a Register component', () => {
         const email = 'juan@email.com';
         const password = 'Aa111111';
         beforeEach(() => {
-          (registerUser as jest.Mock).mockReturnValue({ type: '' });
+          (registerUser as jest.Mock).mockReturnValue({type: ''});
 
           const usernameInput = screen.getByTestId('usernameInput');
           const emailInput = screen.getByTestId('emailInput');
@@ -152,7 +154,11 @@ describe('Given a Register component', () => {
         });
 
         test('Then should call registerUser with the username, email and password typed', () => {
-          expect(registerUser).toHaveBeenCalledWith({ username, email, password });
+          expect(registerUser).toHaveBeenCalledWith({
+            username,
+            email,
+            password,
+          });
         });
 
         test('Then should call navigation.pop', () => {

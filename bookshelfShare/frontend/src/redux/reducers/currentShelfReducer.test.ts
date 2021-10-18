@@ -9,18 +9,18 @@ describe('Given a currentShelfReducer function', () => {
       test('Then should return an object with results true and shelf data', () => {
         const result = currentShelfReducer(initialState, {
           type: currentShelfActions.LOAD_CURRENT_SHELF,
-          data: 'data'
+          data: 'data',
         });
-        expect(result).toEqual({ results: true, shelf: 'data' });
+        expect(result).toEqual({results: true, shelf: 'data'});
       });
     });
     describe('And its called with an action with a type LOAD_CURRENT_SHELF_ERROR', () => {
       test('Then should return an object with results true and books []', () => {
         const result = currentShelfReducer(initialState, {
           type: notificationsActions.LOAD_CURRENT_SHELF_ERROR,
-          data: 'data'
+          data: 'data',
         });
-        expect(result).toEqual({ results: true, shelf: {} });
+        expect(result).toEqual({results: true, shelf: {}});
       });
     });
   });

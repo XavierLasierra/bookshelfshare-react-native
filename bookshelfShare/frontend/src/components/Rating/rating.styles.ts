@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 import stylesConstants from '../../styles/styles.constants';
 
 export default StyleSheet.create({
@@ -7,17 +7,17 @@ export default StyleSheet.create({
     height: 100,
     textAlignVertical: 'top',
     fontSize: stylesConstants.fontSize.mid,
-    padding: stylesConstants.padding.small
+    padding: stylesConstants.padding.small,
   },
   topContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     marginTop: 20,
-    marginBottom: 10
+    marginBottom: 10,
   },
   activityIndicator: {
     height: 30,
-    width: 30
-  }
+    width: 30,
+  },
 });

@@ -1,20 +1,22 @@
 import React from 'react';
 import ShelfDetail from './ShelfDetail';
-import { render, fireEvent } from '../../utils/test.utils';
+import {render, fireEvent} from '../../utils/test.utils';
 import shelfMock from '../../mocks/shelf.mock';
 
 const navigation = {};
 const route = {
   params: {
-    logo: ''
-  }
+    logo: '',
+  },
 };
 
 describe('Given a ShelfDetail component', () => {
   describe('When it is rendered', () => {
     describe('And shelf is not loaded', () => {
       test('Then should match the snapshot', () => {
-        const screen = render(<ShelfDetail navigation={navigation} route={route} />);
+        const screen = render(
+          <ShelfDetail navigation={navigation} route={route} />,
+        );
 
         expect(screen).toMatchSnapshot();
       });
@@ -22,10 +24,10 @@ describe('Given a ShelfDetail component', () => {
     describe('And shelf is loaded', () => {
       let screen: any;
       beforeEach(() => {
-        const initialState = { currentShelf: { shelf: shelfMock, results: true } };
+        const initialState = {currentShelf: {shelf: shelfMock, results: true}};
         screen = render(
           <ShelfDetail navigation={navigation} route={route} />,
-          initialState
+          initialState,
         );
       });
       test('Then should match the snapshot', () => {

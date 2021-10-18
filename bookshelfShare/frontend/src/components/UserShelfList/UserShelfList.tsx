@@ -1,8 +1,13 @@
 import React from 'react';
 import {
-  FlatList, SafeAreaView, TextInput, TouchableOpacity, View, Text
+  FlatList,
+  SafeAreaView,
+  TextInput,
+  TouchableOpacity,
+  View,
+  Text,
 } from 'react-native';
-import { useSelector } from 'react-redux';
+import {useSelector} from 'react-redux';
 
 import Header from '../Header/Header';
 import ShelfListElement from '../ShelfListElement/ShelfListElement';
@@ -12,18 +17,19 @@ import ShelfIcon from '../../assets/shelfIcon.svg';
 import globalStyles from '../../styles/global.styles';
 import styles from './userShelfList.styles';
 
-export default function UserShelfList({ navigation }: any) {
-  const userShelves = useSelector((store:any) => store.userShelves);
-  const { userData: { _id: loggedUserId } } = useSelector((store: any) => store.loggedUser);
+export default function UserShelfList({navigation}: any) {
+  const userShelves = useSelector((store: any) => store.userShelves);
+  const {
+    userData: {_id: loggedUserId},
+  } = useSelector((store: any) => store.loggedUser);
 
   function handleNewShelfPage() {
-    navigation.push('NewShelf',
-      {
-        loggedUserId
-      });
+    navigation.push('NewShelf', {
+      loggedUserId,
+    });
   }
 
-  function renderShelves({ item }: any) {
+  function renderShelves({item}: any) {
     return (
       <ShelfListElement
         shelf={item}
@@ -38,8 +44,7 @@ export default function UserShelfList({ navigation }: any) {
     <TouchableOpacity
       style={styles.addShelfButton}
       onPress={handleNewShelfPage}
-      testID="newShelfButton"
-    >
+      testID="newShelfButton">
       <View style={[globalStyles.circularButton, styles.addShelfCircle]}>
         <Text style={styles.addShelfCircleText}>+</Text>
       </View>

@@ -1,14 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import {
-  Text, TouchableOpacity, View, TextInput, ActivityIndicator
+  Text,
+  TouchableOpacity,
+  View,
+  TextInput,
+  ActivityIndicator,
 } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { useDispatch, useSelector } from 'react-redux';
-import { INewShelfProps, IStore } from '../../types/interfaces';
+import {SafeAreaView} from 'react-native-safe-area-context';
+import {useDispatch, useSelector} from 'react-redux';
+import {INewShelfProps, IStore} from '../../types/interfaces';
 
 import Header from '../Header/Header';
 
-import { createShelf } from '../../redux/actions/userShelves.creator';
+import {createShelf} from '../../redux/actions/userShelves.creator';
 
 import ShelfIcon from '../../assets/shelfIcon.svg';
 import styles from './newShelf.styles';
@@ -17,10 +21,12 @@ import stylesConstants from '../../styles/styles.constants';
 
 export default function NewShelf({
   navigation,
-  route: { params: { loggedUserId } }
+  route: {
+    params: {loggedUserId},
+  },
 }: INewShelfProps) {
   const dispatch = useDispatch();
-  const { token, refreshToken } = useSelector((store: IStore) => store.tokens);
+  const {token, refreshToken} = useSelector((store: IStore) => store.tokens);
   const shelves = useSelector((store: IStore) => store.userShelves);
   const [name, setName] = useState('');
   const [rows, setRows] = useState('');
@@ -45,7 +51,7 @@ export default function NewShelf({
       const shelvesInformation = {
         name,
         users: [loggedUserId],
-        shelf: new Array(+rows).fill(+columns)
+        shelf: new Array(+rows).fill(+columns),
       };
       dispatch(createShelf(shelvesInformation, token, refreshToken));
     }
@@ -79,9 +85,7 @@ export default function NewShelf({
     <SafeAreaView style={globalStyles.mainContainer}>
       <Header Logo={ShelfIcon} BackButton navigation={navigation} />
       <View style={styles.createShelfContainer}>
-        <Text style={globalStyles.title}>
-          New shelf
-        </Text>
+        <Text style={globalStyles.title}>New shelf</Text>
         <View style={styles.formContainer}>
           <View style={globalStyles.inputContainer}>
             <Text style={globalStyles.inputLabel}>name</Text>
@@ -94,16 +98,14 @@ export default function NewShelf({
               onFocus={handleNameFocus}
             />
             {invalidShelfName && (
-            <Text
-              style={globalStyles.invalid}
-              testID="invalidShelfName"
-            >
-              Select a name for your shelf
-            </Text>
+              <Text style={globalStyles.invalid} testID="invalidShelfName">
+                Select a name for your shelf
+              </Text>
             )}
           </View>
           <View style={styles.shelfSizeContainer}>
-            <View style={[globalStyles.inputContainer, styles.smallInputContainer]}>
+            <View
+              style={[globalStyles.inputContainer, styles.smallInputContainer]}>
               <Text style={globalStyles.inputLabel}>rows</Text>
               <TextInput
                 style={globalStyles.input}
@@ -115,7 +117,8 @@ export default function NewShelf({
                 onFocus={handleRowColumnFocus}
               />
             </View>
-            <View style={[globalStyles.inputContainer, styles.smallInputContainer]}>
+            <View
+              style={[globalStyles.inputContainer, styles.smallInputContainer]}>
               <Text style={globalStyles.inputLabel}>columns</Text>
               <TextInput
                 style={globalStyles.input}
@@ -129,21 +132,23 @@ export default function NewShelf({
             </View>
           </View>
           {invalidShelf && (
-          <Text
-            style={globalStyles.invalid}
-            testID="invalidShelfSize"
-          >
-            Shelfs must have at least 1 and no more than 6 columns/rows
-          </Text>
+            <Text style={globalStyles.invalid} testID="invalidShelfSize">
+              Shelfs must have at least 1 and no more than 6 columns/rows
+            </Text>
           )}
           <TouchableOpacity
             style={[globalStyles.button, styles.createButton]}
             onPress={handleShelfCreation}
-            testID="createButton"
-          >
-            {isCreating
-              ? <ActivityIndicator testID="activityIndicator" size="small" color={stylesConstants.colors.white} />
-              : <Text style={globalStyles.buttonText}>Create</Text>}
+            testID="createButton">
+            {isCreating ? (
+              <ActivityIndicator
+                testID="activityIndicator"
+                size="small"
+                color={stylesConstants.colors.white}
+              />
+            ) : (
+              <Text style={globalStyles.buttonText}>Create</Text>
+            )}
           </TouchableOpacity>
         </View>
       </View>

@@ -1,7 +1,7 @@
 import React from 'react';
-import { MenuProvider } from 'react-native-popup-menu';
+import {MenuProvider} from 'react-native-popup-menu';
 import AddPopUp from './AddPopUp';
-import { render } from '../../utils/test.utils';
+import {render} from '../../utils/test.utils';
 import navigationMock from '../../mocks/navigation.mock';
 
 describe('Given an AddPopUp component', () => {
@@ -11,7 +11,7 @@ describe('Given an AddPopUp component', () => {
       screen = render(
         <MenuProvider>
           <AddPopUp navigation={navigationMock} />
-        </MenuProvider>
+        </MenuProvider>,
       );
     });
     test('Then should match the snapshot', () => {

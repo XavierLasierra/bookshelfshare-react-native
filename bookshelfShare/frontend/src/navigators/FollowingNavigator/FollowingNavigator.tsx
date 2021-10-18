@@ -1,5 +1,8 @@
 import React from 'react';
-import { createStackNavigator, CardStyleInterpolators } from '@react-navigation/stack';
+import {
+  createStackNavigator,
+  CardStyleInterpolators,
+} from '@react-navigation/stack';
 
 import Following from '../../components/Following/Following';
 import UsersList from '../../components/UsersList/UsersList';
@@ -17,33 +20,14 @@ export default function FollowingNavigator() {
         headerShown: false,
         cardShadowEnabled: false,
         cardOverlayEnabled: false,
-        cardStyleInterpolator: CardStyleInterpolators.forFadeFromCenter
-      }}
-    >
-      <Stack.Screen
-        name="Following"
-        component={Following}
-      />
-      <Stack.Screen
-        name="UsersList"
-        component={UsersList}
-      />
-      <Stack.Screen
-        name="OtherUserProfile"
-        component={OtherUserProfile}
-      />
-      <Stack.Screen
-        name="BookResults"
-        component={BookResults}
-      />
-      <Stack.Screen
-        name="BookDetail"
-        component={BookDetail}
-      />
-      <Stack.Screen
-        name="AddToShelf"
-        component={AddToShelf}
-      />
+        cardStyleInterpolator: CardStyleInterpolators.forFadeFromCenter,
+      }}>
+      <Stack.Screen name="Following" component={Following} />
+      <Stack.Screen name="UsersList" component={UsersList} />
+      <Stack.Screen name="OtherUserProfile" component={OtherUserProfile} />
+      <Stack.Screen name="BookResults" component={BookResults} />
+      <Stack.Screen name="BookDetail" component={BookDetail} />
+      <Stack.Screen name="AddToShelf" component={AddToShelf} />
     </Stack.Navigator>
   );
 }

@@ -1,14 +1,14 @@
 import React from 'react';
 import BookSearch from './BookSearch';
-import { render, fireEvent } from '../../utils/test.utils';
+import {render, fireEvent} from '../../utils/test.utils';
 
-import { searchBooks } from '../../redux/actions/books.creator';
+import {searchBooks} from '../../redux/actions/books.creator';
 import booksActions from '../../redux/actions/books.actions';
 import bookDetailsMock from '../../mocks/bookDetails.mock';
 import navigationMock from '../../mocks/navigation.mock';
 
 jest.mock('../../redux/actions/books.creator', () => ({
-  searchBooks: jest.fn()
+  searchBooks: jest.fn(),
 }));
 
 describe('Given a BookSearch component', () => {
@@ -19,13 +19,15 @@ describe('Given a BookSearch component', () => {
       beforeEach(() => {
         (searchBooks as jest.Mock).mockReturnValue({
           type: booksActions.LOAD_BOOKS,
-          data: bookDetailsMock
+          data: bookDetailsMock,
         });
         navigation = {
           ...navigationMock,
-          push: jest.fn()
+          push: jest.fn(),
         };
-        screen = render(<BookSearch navigation={navigation} isbnFromCamera="" />);
+        screen = render(
+          <BookSearch navigation={navigation} isbnFromCamera="" />,
+        );
       });
       describe('And you stay on ISBN page', () => {
         test('Then should match the snapshot', () => {
@@ -62,9 +64,9 @@ describe('Given a BookSearch component', () => {
                   isbn: isbnChange,
                   inauthor: '',
                   intitle: '',
-                  inpublisher: ''
+                  inpublisher: '',
                 },
-                logo: 'SearchIcon'
+                logo: 'SearchIcon',
               });
             });
           });
@@ -149,9 +151,9 @@ describe('Given a BookSearch component', () => {
                   isbn: '',
                   inauthor: '',
                   intitle: '',
-                  inpublisher: publisherChange
+                  inpublisher: publisherChange,
                 },
-                logo: 'SearchIcon'
+                logo: 'SearchIcon',
               });
             });
           });
@@ -181,13 +183,18 @@ describe('Given a BookSearch component', () => {
       beforeEach(() => {
         (searchBooks as jest.Mock).mockReturnValue({
           type: booksActions.LOAD_BOOKS,
-          data: bookDetailsMock
+          data: bookDetailsMock,
         });
         navigation = {
           ...navigationMock,
-          push: jest.fn()
+          push: jest.fn(),
         };
-        render(<BookSearch navigation={navigation} isbnFromCamera={isbnFromCamera} />);
+        render(
+          <BookSearch
+            navigation={navigation}
+            isbnFromCamera={isbnFromCamera}
+          />,
+        );
       });
       test('Then searchBooks should be called', () => {
         expect(searchBooks).toHaveBeenCalled();
@@ -199,9 +206,9 @@ describe('Given a BookSearch component', () => {
             isbn: isbnFromCamera,
             inauthor: '',
             intitle: '',
-            inpublisher: ''
+            inpublisher: '',
           },
-          logo: 'SearchIcon'
+          logo: 'SearchIcon',
         });
       });
     });

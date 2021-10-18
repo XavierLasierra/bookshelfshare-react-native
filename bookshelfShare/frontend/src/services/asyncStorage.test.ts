@@ -1,10 +1,10 @@
 import AsyncStorage from '@react-native-community/async-storage';
-import { storeToken, getSavedData, clearStorage } from './asyncStorage';
+import {storeToken, getSavedData, clearStorage} from './asyncStorage';
 
 jest.mock('@react-native-community/async-storage', () => ({
   setItem: jest.fn(),
   getItem: jest.fn(),
-  clear: jest.fn()
+  clear: jest.fn(),
 }));
 
 describe('Given a storeToken function', () => {
@@ -15,7 +15,10 @@ describe('Given a storeToken function', () => {
       (AsyncStorage.setItem as jest.Mock).mockResolvedValue({});
       await storeToken(refreshToken, userId);
 
-      expect(AsyncStorage.setItem).toHaveBeenCalledWith('userData', JSON.stringify({ refreshToken, userId }));
+      expect(AsyncStorage.setItem).toHaveBeenCalledWith(
+        'userData',
+        JSON.stringify({refreshToken, userId}),
+      );
     });
     describe('And AsyncStorage.setItem is resolved', () => {
       test('Then should return true', async () => {
@@ -27,7 +30,9 @@ describe('Given a storeToken function', () => {
     });
     describe('And AsyncStorage.setItem is resolved', () => {
       test('Then should return and error with a message Async Storage Error', async () => {
-        (AsyncStorage.setItem as jest.Mock).mockRejectedValue(new Error('Async Storage Error'));
+        (AsyncStorage.setItem as jest.Mock).mockRejectedValue(
+          new Error('Async Storage Error'),
+        );
         const result: any = await storeToken(refreshToken, userId);
 
         expect(result.message).toBe('Async Storage Error');
@@ -41,8 +46,10 @@ describe('Given a getSaveData function', () => {
     describe('And AsyncStorage.getItem is resolved', () => {
       describe('And there is userData', () => {
         test('Then should return the userData found parsed', async () => {
-          const expectedValue = { refreshToken: 'refreshToken' };
-          (AsyncStorage.getItem as jest.Mock).mockResolvedValue(JSON.stringify(expectedValue));
+          const expectedValue = {refreshToken: 'refreshToken'};
+          (AsyncStorage.getItem as jest.Mock).mockResolvedValue(
+            JSON.stringify(expectedValue),
+          );
           const result: any = await getSavedData();
 
           expect(result).toEqual(expectedValue);
@@ -61,7 +68,9 @@ describe('Given a getSaveData function', () => {
 
     describe('And AsyncStorage.getItem is rejected', () => {
       test('Then should return Async Storage Error', async () => {
-        (AsyncStorage.getItem as jest.Mock).mockRejectedValue(new Error('Async Storage Error'));
+        (AsyncStorage.getItem as jest.Mock).mockRejectedValue(
+          new Error('Async Storage Error'),
+        );
         const result: any = await getSavedData();
 
         expect(result).toBe('Async Storage Error');
@@ -82,7 +91,9 @@ describe('Given a clearStorage function', () => {
     });
     describe('And AsyncStorage.clear is rejected', () => {
       test('Then should return an error with a message Async Storage Error', async () => {
-        (AsyncStorage.clear as jest.Mock).mockRejectedValue(new Error('Async Storage Error'));
+        (AsyncStorage.clear as jest.Mock).mockRejectedValue(
+          new Error('Async Storage Error'),
+        );
         const result: any = await clearStorage();
 
         expect(result.message).toBe('Async Storage Error');

@@ -1,6 +1,6 @@
 import React from 'react';
 import BarCodeScanner from './BarCodeScanner';
-import { render } from '../../utils/test.utils';
+import {render} from '../../utils/test.utils';
 import navigationMock from '../../mocks/navigation.mock';
 
 describe('Given an BarCodeScanner component', () => {

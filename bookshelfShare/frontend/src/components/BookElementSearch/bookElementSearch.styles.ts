@@ -1,18 +1,18 @@
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 import stylesConstants from '../../styles/styles.constants';
 
 export default StyleSheet.create({
   container: {
     flexDirection: 'row',
     marginVertical: 10,
-    alignItems: 'center'
+    alignItems: 'center',
   },
   bookImage: {
     width: 125,
     height: 200,
     overflow: 'hidden',
     borderTopLeftRadius: 10,
-    borderBottomLeftRadius: 10
+    borderBottomLeftRadius: 10,
   },
   informationContainer: {
     backgroundColor: stylesConstants.colors.white,
@@ -21,27 +21,27 @@ export default StyleSheet.create({
     padding: stylesConstants.padding.small,
     borderTopRightRadius: 10,
     borderBottomRightRadius: 10,
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
   },
   titleLanguageContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    maxHeight: 75
+    maxHeight: 75,
   },
   bookTitle: {
     width: 175,
     fontWeight: 'bold',
-    fontSize: stylesConstants.fontSize.mid
+    fontSize: stylesConstants.fontSize.mid,
   },
   bookAuthor: {
-    fontSize: stylesConstants.fontSize.small
+    fontSize: stylesConstants.fontSize.small,
   },
   bookPublisher: {
     fontSize: stylesConstants.fontSize.small,
-    color: stylesConstants.colors.mainText
+    color: stylesConstants.colors.mainText,
   },
   bookIsbn: {
     fontSize: stylesConstants.fontSize.small,
-    color: stylesConstants.colors.mainText
-  }
+    color: stylesConstants.colors.mainText,
+  },
 });

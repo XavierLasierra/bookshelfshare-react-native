@@ -1,7 +1,7 @@
 import React from 'react';
 import NewShelf from './NewShelf';
-import { render, fireEvent } from '../../utils/test.utils';
-import { createShelf } from '../../redux/actions/userShelves.creator';
+import {render, fireEvent} from '../../utils/test.utils';
+import {createShelf} from '../../redux/actions/userShelves.creator';
 import userShelvesActions from '../../redux/actions/userShelves.actions';
 import navigationMock from '../../mocks/navigation.mock';
 
@@ -10,14 +10,12 @@ jest.mock('../../redux/actions/userShelves.creator');
 describe('Given a NewShelf component', () => {
   describe('When it is rendered', () => {
     const route = {
-      params: { loggedUserId: '1' }
+      params: {loggedUserId: '1'},
     };
     let screen: any;
     beforeEach(() => {
-      (createShelf as jest.Mock).mockReturnValue({ type: '' });
-      screen = render(
-        <NewShelf navigation={navigationMock} route={route} />
-      );
+      (createShelf as jest.Mock).mockReturnValue({type: ''});
+      screen = render(<NewShelf navigation={navigationMock} route={route} />);
     });
     test('Then should match the snapshot', () => {
       expect(screen).toMatchSnapshot();
@@ -114,7 +112,11 @@ describe('Given a NewShelf component', () => {
           });
 
           test('Then should call createShelf with the first parameter containing shelvesInfomation', () => {
-            expect((createShelf as jest.Mock).mock.calls[0][0]).toEqual({ name: 'name', users: ['1'], shelf: [3, 3] });
+            expect((createShelf as jest.Mock).mock.calls[0][0]).toEqual({
+              name: 'name',
+              users: ['1'],
+              shelf: [3, 3],
+            });
           });
 
           test('Then should render an ActivityIndicator with testId activityIndicator', () => {
@@ -123,13 +125,15 @@ describe('Given a NewShelf component', () => {
         });
         describe('And shelves update is resolved', () => {
           test('Then navigation.pop should have been called', () => {
-            (createShelf as jest.Mock).mockReturnValue({ type: userShelvesActions.ADD_NEW_SHELF });
+            (createShelf as jest.Mock).mockReturnValue({
+              type: userShelvesActions.ADD_NEW_SHELF,
+            });
             const navigation = {
               ...navigationMock,
-              pop: jest.fn()
+              pop: jest.fn(),
             };
             const newScreen = render(
-              <NewShelf navigation={navigation} route={route} />
+              <NewShelf navigation={navigation} route={route} />,
             );
 
             const nameInput = newScreen.getByTestId('nameInput');

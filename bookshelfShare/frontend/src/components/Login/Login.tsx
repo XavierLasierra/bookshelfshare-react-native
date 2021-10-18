@@ -1,20 +1,25 @@
-import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, {useState, useEffect} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 import {
-  View, Text, TextInput, TouchableOpacity, SafeAreaView, ActivityIndicator
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  SafeAreaView,
+  ActivityIndicator,
 } from 'react-native';
-import { SharedElement } from 'react-navigation-shared-element';
-import { ILoginProps, IStore } from '../../types/interfaces';
+import {SharedElement} from 'react-navigation-shared-element';
+import {ILoginProps, IStore} from '../../types/interfaces';
 
-import { validateEmail } from '../../utils/validation.utils';
-import { loginUser } from '../../redux/actions/loggedUser.creator';
+import {validateEmail} from '../../utils/validation.utils';
+import {loginUser} from '../../redux/actions/loggedUser.creator';
 
 import BookIcon from '../../assets/bookIcon.svg';
 import globalStyles from '../../styles/global.styles';
 import styles from './login.styles';
 import stylesConstants from '../../styles/styles.constants';
 
-export default function Login({ navigation: { push } } : ILoginProps) {
+export default function Login({navigation: {push}}: ILoginProps) {
   const dispatch = useDispatch();
   const notification = useSelector((store: IStore) => store.notifications);
   const [userEmail, setUserEmail] = useState('');
@@ -47,10 +52,12 @@ export default function Login({ navigation: { push } } : ILoginProps) {
     if (validateEmail(userEmail)) {
       if (userPassword) {
         setIsLoading(true);
-        dispatch(loginUser({
-          email: userEmail,
-          password: userPassword
-        }));
+        dispatch(
+          loginUser({
+            email: userEmail,
+            password: userPassword,
+          }),
+        );
       } else {
         setValidPassword(false);
       }
@@ -67,14 +74,13 @@ export default function Login({ navigation: { push } } : ILoginProps) {
     <SafeAreaView style={globalStyles.authenticationContainer}>
       <View style={styles.topContainer}>
         <SharedElement id="mainIcon">
-          <BookIcon
-            width={50}
-            height={50}
-          />
+          <BookIcon width={50} height={50} />
         </SharedElement>
       </View>
       <View style={styles.loginContainer}>
-        <Text testID="loginTitle" style={globalStyles.title}>Log in</Text>
+        <Text testID="loginTitle" style={globalStyles.title}>
+          Log in
+        </Text>
         <View style={globalStyles.inputContainer}>
           <Text style={globalStyles.inputLabel}>email</Text>
           <TextInput
@@ -85,7 +91,11 @@ export default function Login({ navigation: { push } } : ILoginProps) {
             onChangeText={handleEmailChange}
             maxLength={25}
           />
-          {!isValidEmail && <Text testID="invalidEmail" style={globalStyles.invalid}>Invalid email</Text>}
+          {!isValidEmail && (
+            <Text testID="invalidEmail" style={globalStyles.invalid}>
+              Invalid email
+            </Text>
+          )}
         </View>
         <View style={globalStyles.inputContainer}>
           <Text style={globalStyles.inputLabel}>password</Text>
@@ -98,35 +108,38 @@ export default function Login({ navigation: { push } } : ILoginProps) {
             onChangeText={handlePasswordChange}
             maxLength={25}
           />
-          {!isValidPassword && <Text testID="invalidPassword" style={globalStyles.invalid}>Type your password</Text>}
-        </View>
-        {!isLoading
-          ? (
-            <TouchableOpacity
-              style={[globalStyles.button, styles.loginButton]}
-              onPress={handleLogin}
-              testID="loginButton"
-            >
-              <Text style={globalStyles.buttonText}>Log in</Text>
-            </TouchableOpacity>
-          )
-          : (
-            <TouchableOpacity
-              style={[globalStyles.button, styles.loginButton]}
-              testID="loginButton"
-              disabled
-            >
-              <ActivityIndicator testID="loadingIndicator" size="large" color={stylesConstants.colors.white} />
-            </TouchableOpacity>
+          {!isValidPassword && (
+            <Text testID="invalidPassword" style={globalStyles.invalid}>
+              Type your password
+            </Text>
           )}
+        </View>
+        {!isLoading ? (
+          <TouchableOpacity
+            style={[globalStyles.button, styles.loginButton]}
+            onPress={handleLogin}
+            testID="loginButton">
+            <Text style={globalStyles.buttonText}>Log in</Text>
+          </TouchableOpacity>
+        ) : (
+          <TouchableOpacity
+            style={[globalStyles.button, styles.loginButton]}
+            testID="loginButton"
+            disabled>
+            <ActivityIndicator
+              testID="loadingIndicator"
+              size="large"
+              color={stylesConstants.colors.white}
+            />
+          </TouchableOpacity>
+        )}
 
         <View style={styles.signUpTextContainer}>
           <Text style={styles.signUpText}>Don&quot;t have an account?</Text>
           <Text
             style={styles.signUpButton}
             onPress={handleRegisterNavigation}
-            testID="signUpButton"
-          >
+            testID="signUpButton">
             Sign up
           </Text>
         </View>

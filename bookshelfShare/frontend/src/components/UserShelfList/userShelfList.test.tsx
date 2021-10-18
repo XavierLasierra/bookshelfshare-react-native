@@ -1,11 +1,11 @@
 import React from 'react';
 import UserShelfList from './UserShelfList';
-import { render, fireEvent } from '../../utils/test.utils';
+import {render, fireEvent} from '../../utils/test.utils';
 import loggedUserMock from '../../mocks/loggedUser.mock';
 import shelfMock from '../../mocks/shelf.mock';
 
 const navigation = {
-  push: jest.fn()
+  push: jest.fn(),
 };
 
 describe('Given a UserShelfList component', () => {
@@ -13,13 +13,10 @@ describe('Given a UserShelfList component', () => {
     let screen: any;
     beforeEach(() => {
       const initialState = {
-        loggedUser: { userData: loggedUserMock.user },
-        userShelves: [shelfMock]
+        loggedUser: {userData: loggedUserMock.user},
+        userShelves: [shelfMock],
       };
-      screen = render(
-        <UserShelfList navigation={navigation} />,
-        initialState
-      );
+      screen = render(<UserShelfList navigation={navigation} />, initialState);
     });
     test('Then should match the snapshot', () => {
       expect(screen).toMatchSnapshot();

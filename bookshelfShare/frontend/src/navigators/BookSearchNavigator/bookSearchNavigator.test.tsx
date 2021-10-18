@@ -1,16 +1,16 @@
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
+import {NavigationContainer} from '@react-navigation/native';
 import BookSearchNavigator from './BookSearchNavigator';
-import { render } from '../../utils/test.utils';
+import {render} from '../../utils/test.utils';
 
 jest.useFakeTimers();
 
 const route: any = {
-  params: {}
+  params: {},
 };
 
 const navigation = {
-  setParams: jest.fn()
+  setParams: jest.fn(),
 };
 
 describe('Given a BookSearchNavigator component', () => {
@@ -19,7 +19,7 @@ describe('Given a BookSearchNavigator component', () => {
       const screen = render(
         <NavigationContainer>
           <BookSearchNavigator route={route} navigation={navigation} />
-        </NavigationContainer>
+        </NavigationContainer>,
       );
       expect(screen).toMatchSnapshot();
     });
@@ -29,7 +29,7 @@ describe('Given a BookSearchNavigator component', () => {
         render(
           <NavigationContainer>
             <BookSearchNavigator route={route} navigation={navigation} />
-          </NavigationContainer>
+          </NavigationContainer>,
         );
         expect(navigation.setParams).not.toHaveBeenCalled();
       });
@@ -41,7 +41,7 @@ describe('Given a BookSearchNavigator component', () => {
         render(
           <NavigationContainer>
             <BookSearchNavigator route={route} navigation={navigation} />
-          </NavigationContainer>
+          </NavigationContainer>,
         );
         expect(navigation.setParams).toHaveBeenCalled();
       });
