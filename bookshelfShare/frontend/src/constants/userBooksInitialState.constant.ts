@@ -1,5 +1,5 @@
 export default {
   read: [],
   reading: [],
-  wishlist: []
+  wishlist: [],
 };

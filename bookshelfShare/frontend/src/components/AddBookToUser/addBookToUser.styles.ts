@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 import stylesConstants from '../../styles/styles.constants';
 
 export default StyleSheet.create({
@@ -6,11 +6,11 @@ export default StyleSheet.create({
     paddingHorizontal: stylesConstants.padding.small,
     paddingBottom: stylesConstants.padding.mid,
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
   },
   canNotSaveText: {
     textAlign: 'center',
     fontSize: stylesConstants.fontSize.small,
-    width: '100%'
-  }
+    width: '100%',
+  },
 });

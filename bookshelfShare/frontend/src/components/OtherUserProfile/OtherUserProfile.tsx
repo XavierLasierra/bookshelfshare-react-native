@@ -1,18 +1,27 @@
 /* eslint-disable no-underscore-dangle */
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import {
-  SafeAreaView, View, Image, Text, TouchableOpacity, ScrollView, ActivityIndicator
+  SafeAreaView,
+  View,
+  Image,
+  Text,
+  TouchableOpacity,
+  ScrollView,
+  ActivityIndicator,
 } from 'react-native';
-import { useDispatch, useSelector } from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 
 import Header from '../Header/Header';
 import ProfileDetail from '../ProfileDetail/ProfileDetail';
 
-import { addUserFollowing, deleteUserFollowing } from '../../redux/actions/loggedUser.creator';
-import { getBooksData } from '../../redux/actions/books.creator';
-import { clearCurrentUser } from '../../redux/actions/currentUser.creator';
+import {
+  addUserFollowing,
+  deleteUserFollowing,
+} from '../../redux/actions/loggedUser.creator';
+import {getBooksData} from '../../redux/actions/books.creator';
+import {clearCurrentUser} from '../../redux/actions/currentUser.creator';
 import logoSelector from '../../utils/logoSelector';
-import { IOtherUserProfileProps, IStore, IUser } from '../../types/interfaces';
+import {IOtherUserProfileProps, IStore, IUser} from '../../types/interfaces';
 
 import RedProfileIcon from '../../assets/redProfileIcon.svg';
 import AddUserIcon from '../../assets/addUserIcon.svg';
@@ -22,34 +31,45 @@ import stylesConstants from '../../styles/styles.constants';
 
 export default function OtherUserProfile({
   navigation,
-  route: { params: { logo } }
+  route: {
+    params: {logo},
+  },
 }: IOtherUserProfileProps) {
   const dispatch = useDispatch();
-  const { userData: { _id: loggedUserId } } = useSelector((store: IStore) => store.loggedUser);
-  const { following } = useSelector((store: IStore) => store.userSocials);
-  const { token, refreshToken } = useSelector((store: IStore) => store.tokens);
-  const { user, results } = useSelector((store: IStore) => store.currentUser);
+  const {
+    userData: {_id: loggedUserId},
+  } = useSelector((store: IStore) => store.loggedUser);
+  const {following} = useSelector((store: IStore) => store.userSocials);
+  const {token, refreshToken} = useSelector((store: IStore) => store.tokens);
+  const {user, results} = useSelector((store: IStore) => store.currentUser);
   const [isDisabled, setIsDisabled] = useState(false);
 
-  const isFollowed = following.some((followedUser: IUser) => followedUser._id === user._id);
-  const isFollower = user?.following
-  && user.following.some(({ _id: followingId }: IUser) => followingId === loggedUserId);
+  const isFollowed = following.some(
+    (followedUser: IUser) => followedUser._id === user._id,
+  );
+  const isFollower =
+    user?.following &&
+    user.following.some(
+      ({_id: followingId}: IUser) => followingId === loggedUserId,
+    );
 
   useEffect(() => {
     setIsDisabled(false);
   }, [following]);
 
-  useEffect(() => () => {
-    dispatch(clearCurrentUser());
-  }, []);
+  useEffect(
+    () => () => {
+      dispatch(clearCurrentUser());
+    },
+    [],
+  );
 
   function handleBookResultsPage(listName: string, bookArray: string[]) {
     dispatch(getBooksData(bookArray, token, refreshToken));
-    navigation.push('BookResults',
-      {
-        listName: `${user.username}'s\n${listName}`,
-        logo
-      });
+    navigation.push('BookResults', {
+      listName: `${user.username}'s\n${listName}`,
+      logo,
+    });
   }
 
   function handleAddFollowing() {
@@ -65,10 +85,7 @@ export default function OtherUserProfile({
   const currentUserDetail = (
     <View style={globalStyles.profileContainer}>
       <View style={globalStyles.topContainer}>
-        <Image
-          source={{ uri: user?.photo }}
-          style={globalStyles.userPhoto}
-        />
+        <Image source={{uri: user?.photo}} style={globalStyles.userPhoto} />
         <View style={globalStyles.userInformationContainer}>
           <Text style={globalStyles.userUsername}>{user?.username}</Text>
           <Text style={globalStyles.userEmail}>{user?.email}</Text>
@@ -77,25 +94,21 @@ export default function OtherUserProfile({
       </View>
       <View>
         <View style={styles.socialContainer}>
-          {isFollowed
-            ? (
-              <TouchableOpacity
-                onPress={handleDeleteFollowing}
-                disabled={isDisabled}
-                testID="deleteFollowingButton"
-              >
-                <RedProfileIcon width={35} height={35} />
-              </TouchableOpacity>
-            )
-            : (
-              <TouchableOpacity
-                onPress={handleAddFollowing}
-                disabled={isDisabled}
-                testID="addFollowingButton"
-              >
-                <AddUserIcon width={35} height={35} />
-              </TouchableOpacity>
-            )}
+          {isFollowed ? (
+            <TouchableOpacity
+              onPress={handleDeleteFollowing}
+              disabled={isDisabled}
+              testID="deleteFollowingButton">
+              <RedProfileIcon width={35} height={35} />
+            </TouchableOpacity>
+          ) : (
+            <TouchableOpacity
+              onPress={handleAddFollowing}
+              disabled={isDisabled}
+              testID="addFollowingButton">
+              <AddUserIcon width={35} height={35} />
+            </TouchableOpacity>
+          )}
         </View>
         <ProfileDetail
           handleBookResultsPage={handleBookResultsPage}
@@ -110,9 +123,15 @@ export default function OtherUserProfile({
     <SafeAreaView style={globalStyles.mainContainer}>
       <Header Logo={logoSelector(logo)} BackButton navigation={navigation} />
       <ScrollView>
-        {results
-          ? currentUserDetail
-          : <ActivityIndicator size="large" color={stylesConstants.colors.dark} style={styles.activityIndicator} />}
+        {results ? (
+          currentUserDetail
+        ) : (
+          <ActivityIndicator
+            size="large"
+            color={stylesConstants.colors.dark}
+            style={styles.activityIndicator}
+          />
+        )}
       </ScrollView>
     </SafeAreaView>
   );

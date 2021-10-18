@@ -1,6 +1,6 @@
 import React from 'react';
-import { View, Text } from 'react-native';
-import { IAddBookToUserProps } from '../../types/interfaces';
+import {View, Text} from 'react-native';
+import {IAddBookToUserProps} from '../../types/interfaces';
 
 import ListMenu from '../ListMenu/ListMenu';
 import ShelfMenu from '../ShelfMenu/ShelfMenu';
@@ -8,7 +8,12 @@ import ShelfMenu from '../ShelfMenu/ShelfMenu';
 import styles from './addBookToUser.styles';
 
 export default function AddBookToUser({
-  bookIsbn, token, refreshToken, userId, navigation, logo
+  bookIsbn,
+  token,
+  refreshToken,
+  userId,
+  navigation,
+  logo,
 }: IAddBookToUserProps) {
   const menus = (
     <>
@@ -30,9 +35,13 @@ export default function AddBookToUser({
 
   return (
     <View style={styles.addBookToUserContainer}>
-      {bookIsbn !== 'Not found'
-        ? menus
-        : <Text style={styles.canNotSaveText}>Cannot save a book without isbn</Text>}
+      {bookIsbn !== 'Not found' ? (
+        menus
+      ) : (
+        <Text style={styles.canNotSaveText}>
+          Cannot save a book without isbn
+        </Text>
+      )}
     </View>
   );
 }

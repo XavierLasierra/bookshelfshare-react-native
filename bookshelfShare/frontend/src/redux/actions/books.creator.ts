@@ -1,4 +1,4 @@
-import { BOOKSS_API } from '@env';
+import {BOOKSS_API} from '@env';
 import axios from 'axios';
 import transformQuery from '../../utils/transformQuery';
 import booksActions from './books.actions';
@@ -6,30 +6,33 @@ import notificationsActions from './notifications.actions';
 import refreshUserToken from './tokens.creator';
 
 interface Dispatch {
-    // eslint-disable-next-line no-unused-vars
-    (action: any): void
+  // eslint-disable-next-line no-unused-vars
+  (action: any): void;
 }
 
 interface Query {
-    isbn?: string,
-    inauthor?: string,
-    intitle?: string,
-    inpublisher?: string
+  isbn?: string;
+  inauthor?: string;
+  intitle?: string;
+  inpublisher?: string;
 }
 
 export function searchBooks(query: Query, token: string, refreshToken: string) {
   return async (dispatch: Dispatch) => {
     try {
       const transformedQuery = transformQuery(query);
-      const { data } = await axios.get(BOOKSS_API.concat(`/books/search?${transformedQuery}`), {
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      });
+      const {data} = await axios.get(
+        BOOKSS_API.concat(`/books/search?${transformedQuery}`),
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        },
+      );
 
       dispatch({
         type: booksActions.LOAD_BOOKS,
-        data
+        data,
       });
     } catch (error: any) {
       if (error?.response?.status === 401) {
@@ -40,16 +43,16 @@ export function searchBooks(query: Query, token: string, refreshToken: string) {
           dispatch(searchBooks(query, newToken, refreshToken));
         } catch {
           dispatch({
-            type: notificationsActions.SERVER_ERROR
+            type: notificationsActions.SERVER_ERROR,
           });
         }
       } else if (error?.response?.status === 500) {
         dispatch({
-          type: notificationsActions.ISBN_ERROR
+          type: notificationsActions.ISBN_ERROR,
         });
       } else {
         dispatch({
-          type: notificationsActions.SERVER_ERROR
+          type: notificationsActions.SERVER_ERROR,
         });
       }
     }
@@ -58,22 +61,25 @@ export function searchBooks(query: Query, token: string, refreshToken: string) {
 
 export function clearBooks() {
   return {
-    type: booksActions.CLEAR_BOOKS
+    type: booksActions.CLEAR_BOOKS,
   };
 }
 
 export function getRatings(isbn: string, token: string, refreshToken: string) {
   return async (dispatch: Dispatch) => {
     try {
-      const { data } = await axios.get(BOOKSS_API.concat(`/books/rating/${isbn}`), {
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      });
+      const {data} = await axios.get(
+        BOOKSS_API.concat(`/books/rating/${isbn}`),
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        },
+      );
 
       dispatch({
         type: booksActions.LOAD_RATINGS,
-        data
+        data,
       });
     } catch (error: any) {
       if (error?.response?.status === 401) {
@@ -84,16 +90,16 @@ export function getRatings(isbn: string, token: string, refreshToken: string) {
           dispatch(getRatings(isbn, newToken, refreshToken));
         } catch {
           dispatch({
-            type: notificationsActions.SERVER_ERROR
+            type: notificationsActions.SERVER_ERROR,
           });
         }
       } else if (error?.response?.status === 500) {
         dispatch({
-          type: notificationsActions.LOAD_RATINGS_ERROR
+          type: notificationsActions.LOAD_RATINGS_ERROR,
         });
       } else {
         dispatch({
-          type: notificationsActions.SERVER_ERROR
+          type: notificationsActions.SERVER_ERROR,
         });
       }
     }
@@ -102,28 +108,37 @@ export function getRatings(isbn: string, token: string, refreshToken: string) {
 
 export function clearBook() {
   return {
-    type: booksActions.CLEAR_BOOK
+    type: booksActions.CLEAR_BOOK,
   };
 }
 
-export function saveRating(isbn: string, ratingInfo: any, token: string, refreshToken: string) {
+export function saveRating(
+  isbn: string,
+  ratingInfo: any,
+  token: string,
+  refreshToken: string,
+) {
   return async (dispatch: Dispatch) => {
     try {
       if (isbn === 'Not found') {
         return dispatch({
-          type: notificationsActions.REVIEW_ISBN_NOT_FOUND
+          type: notificationsActions.REVIEW_ISBN_NOT_FOUND,
         });
       }
 
-      const { data } = await axios.post(BOOKSS_API.concat(`/books/rating/${isbn}`), ratingInfo, {
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      });
+      const {data} = await axios.post(
+        BOOKSS_API.concat(`/books/rating/${isbn}`),
+        ratingInfo,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        },
+      );
 
       return dispatch({
         type: booksActions.UPDATE_RATINGS,
-        data
+        data,
       });
     } catch (error: any) {
       if (error?.response?.status === 401) {
@@ -134,34 +149,42 @@ export function saveRating(isbn: string, ratingInfo: any, token: string, refresh
           return dispatch(saveRating(isbn, ratingInfo, newToken, refreshToken));
         } catch {
           return dispatch({
-            type: notificationsActions.SERVER_ERROR
+            type: notificationsActions.SERVER_ERROR,
           });
         }
       } else if (error?.response?.status === 500) {
         return dispatch({
-          type: notificationsActions.SAVE_RATING_ERROR
+          type: notificationsActions.SAVE_RATING_ERROR,
         });
       } else {
         return dispatch({
-          type: notificationsActions.SERVER_ERROR
+          type: notificationsActions.SERVER_ERROR,
         });
       }
     }
   };
 }
 
-export function getBooksData(bookIsbnArray: string[], token: string, refreshToken: string) {
+export function getBooksData(
+  bookIsbnArray: string[],
+  token: string,
+  refreshToken: string,
+) {
   return async (dispatch: Dispatch) => {
     try {
-      const { data } = await axios.post(BOOKSS_API.concat('/books/getData'), bookIsbnArray, {
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      });
+      const {data} = await axios.post(
+        BOOKSS_API.concat('/books/getData'),
+        bookIsbnArray,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        },
+      );
 
       dispatch({
         type: booksActions.LOAD_BOOKS,
-        data
+        data,
       });
     } catch (error: any) {
       if (error?.response?.status === 401) {
@@ -172,16 +195,16 @@ export function getBooksData(bookIsbnArray: string[], token: string, refreshToke
           dispatch(getBooksData(bookIsbnArray, newToken, refreshToken));
         } catch {
           dispatch({
-            type: notificationsActions.SERVER_ERROR
+            type: notificationsActions.SERVER_ERROR,
           });
         }
       } else if (error?.response?.status === 500) {
         dispatch({
-          type: notificationsActions.LOAD_BOOKS_ERROR
+          type: notificationsActions.LOAD_BOOKS_ERROR,
         });
       } else {
         dispatch({
-          type: notificationsActions.SERVER_ERROR
+          type: notificationsActions.SERVER_ERROR,
         });
       }
     }

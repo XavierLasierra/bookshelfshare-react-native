@@ -33,6 +33,6 @@ jest.mock('react-native-gesture-handler', () => {
     /* Other */
     FlatList: View,
     gestureHandlerRootHOC: jest.fn(),
-    Directions: {}
+    Directions: {},
   };
 });

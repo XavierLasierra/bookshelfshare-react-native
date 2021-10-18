@@ -1,20 +1,21 @@
 /* eslint-disable no-underscore-dangle */
 import React from 'react';
-import { View, Text } from 'react-native';
-import { AirbnbRating } from 'react-native-ratings';
-import { IRatingElementProps } from '../../types/interfaces';
+import {View, Text} from 'react-native';
+import {AirbnbRating} from 'react-native-ratings';
+import {IRatingElementProps} from '../../types/interfaces';
 
 import globalStyles from '../../styles/global.styles';
 import styles from './ratingElement.styles';
 
-export default function RatingElement({ rating, yours }: IRatingElementProps) {
+export default function RatingElement({rating, yours}: IRatingElementProps) {
   return (
-    <View testID="ratingElement" style={styles.ratingContainer} key={`userRating-${rating.user._id}`}>
+    <View
+      testID="ratingElement"
+      style={styles.ratingContainer}
+      key={`userRating-${rating.user._id}`}>
       <View style={styles.nameRatingContainer}>
         <Text style={globalStyles.titleText}>
-          {rating.user.username}
-          {' '}
-          {yours && '(you)'}
+          {rating.user.username} {yours && '(you)'}
         </Text>
         <AirbnbRating
           showRating={false}

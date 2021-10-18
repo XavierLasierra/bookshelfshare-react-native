@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 import stylesConstants from '../../styles/styles.constants';
 
 export default StyleSheet.create({
@@ -6,7 +6,7 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: stylesConstants.colors.shelfOutline,
-    height: '100%'
+    height: '100%',
   },
   shelfInside: {
     width: '90%',
@@ -16,14 +16,14 @@ export default StyleSheet.create({
     borderBottomWidth: 5,
     borderRightWidth: 5,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   activeShelf: {
-    backgroundColor: stylesConstants.colors.activeShelf
+    backgroundColor: stylesConstants.colors.activeShelf,
   },
   numberOfBooksText: {
     color: stylesConstants.colors.white,
     fontWeight: 'bold',
-    fontSize: stylesConstants.fontSize.mid
-  }
+    fontSize: stylesConstants.fontSize.mid,
+  },
 });

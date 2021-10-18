@@ -1,15 +1,18 @@
 import React from 'react';
 import UserElement from './UserElement';
-import { render, fireEvent } from '../../utils/test.utils';
+import {render, fireEvent} from '../../utils/test.utils';
 import userSocialsMock from '../../mocks/userSocials.mock';
-import { addUserFollowing, deleteUserFollowing } from '../../redux/actions/loggedUser.creator';
-import { loadCurrentUser } from '../../redux/actions/currentUser.creator';
+import {
+  addUserFollowing,
+  deleteUserFollowing,
+} from '../../redux/actions/loggedUser.creator';
+import {loadCurrentUser} from '../../redux/actions/currentUser.creator';
 
 jest.mock('../../redux/actions/loggedUser.creator');
 jest.mock('../../redux/actions/currentUser.creator');
 
 const navigation = {
-  push: jest.fn()
+  push: jest.fn(),
 };
 
 describe('Given a UserElement component', () => {
@@ -17,13 +20,15 @@ describe('Given a UserElement component', () => {
     describe('And the current user is in following', () => {
       let screen: any;
       beforeEach(() => {
-        (deleteUserFollowing as jest.Mock).mockReturnValue({ type: '' });
-        (loadCurrentUser as jest.Mock).mockReturnValue({ type: '' });
-        screen = render(<UserElement
-          navigation={navigation}
-          following={userSocialsMock.following}
-          user={userSocialsMock.following[0]}
-        />);
+        (deleteUserFollowing as jest.Mock).mockReturnValue({type: ''});
+        (loadCurrentUser as jest.Mock).mockReturnValue({type: ''});
+        screen = render(
+          <UserElement
+            navigation={navigation}
+            following={userSocialsMock.following}
+            user={userSocialsMock.following[0]}
+          />,
+        );
       });
       test('Then should match the snapshot', () => {
         expect(screen).toMatchSnapshot();
@@ -31,7 +36,9 @@ describe('Given a UserElement component', () => {
 
       describe('And deleteFollowingButton is clicked', () => {
         test('Then deleteUserFollowing should be called', () => {
-          const deleteFollowingButton = screen.getByTestId('deleteFollowingButton');
+          const deleteFollowingButton = screen.getByTestId(
+            'deleteFollowingButton',
+          );
           fireEvent.press(deleteFollowingButton);
           expect(deleteUserFollowing).toHaveBeenCalled();
         });
@@ -54,12 +61,14 @@ describe('Given a UserElement component', () => {
     describe('And the current user is not in following', () => {
       let screen: any;
       beforeEach(() => {
-        (addUserFollowing as jest.Mock).mockReturnValue({ type: '' });
-        screen = render(<UserElement
-          navigation={navigation}
-          following={[]}
-          user={userSocialsMock.following[0]}
-        />);
+        (addUserFollowing as jest.Mock).mockReturnValue({type: ''});
+        screen = render(
+          <UserElement
+            navigation={navigation}
+            following={[]}
+            user={userSocialsMock.following[0]}
+          />,
+        );
       });
       test('Then should match the snapshot', () => {
         expect(screen).toMatchSnapshot();

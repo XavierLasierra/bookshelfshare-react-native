@@ -1,7 +1,7 @@
 import React from 'react';
 import loggedUserMock from '../../mocks/loggedUser.mock';
 import ratingsMock from '../../mocks/ratings.mock';
-import { render, fireEvent } from '../../utils/test.utils';
+import {render, fireEvent} from '../../utils/test.utils';
 import UsersRatings from './UsersRatings';
 
 describe('Given a UsersRatings component', () => {
@@ -9,8 +9,11 @@ describe('Given a UsersRatings component', () => {
     let screen: any;
     beforeEach(() => {
       screen = render(
-        // eslint-disable-next-line no-underscore-dangle
-        <UsersRatings ratings={ratingsMock.ratings} userId={loggedUserMock.user._id} />
+        <UsersRatings
+          ratings={ratingsMock.ratings}
+          // eslint-disable-next-line no-underscore-dangle
+          userId={loggedUserMock.user._id}
+        />,
       );
     });
     test('Then should match the snapshot', () => {
@@ -31,7 +34,9 @@ describe('Given a UsersRatings component', () => {
           const seeAllReviewsButton = screen.getByTestId('seeAllReviewsButton');
           fireEvent.press(seeAllReviewsButton);
 
-          expect(screen.queryAllByTestId('ratingElement').length).toBe(ratingsMock.ratings.length);
+          expect(screen.queryAllByTestId('ratingElement').length).toBe(
+            ratingsMock.ratings.length,
+          );
         });
       });
     });

@@ -1,15 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import {
-  View, SafeAreaView, Text, TouchableOpacity, ActivityIndicator
+  View,
+  SafeAreaView,
+  Text,
+  TouchableOpacity,
+  ActivityIndicator,
 } from 'react-native';
-import { useDispatch, useSelector } from 'react-redux';
-import { IAddToShelfProps, IStore } from '../../types/interfaces';
+import {useDispatch, useSelector} from 'react-redux';
+import {IAddToShelfProps, IStore} from '../../types/interfaces';
 
 import Header from '../Header/Header';
 import ShelfSimulation from '../ShelfSimulation/ShelfSimulation';
 
 import logoSelector from '../../utils/logoSelector';
-import { addToShelf } from '../../redux/actions/userShelves.creator';
+import {addToShelf} from '../../redux/actions/userShelves.creator';
 import sortShelfData from '../../utils/sortShelfData';
 
 import styles from './addToShelf.styles';
@@ -19,16 +23,11 @@ import stylesConstants from '../../styles/styles.constants';
 export default function AddToShelf({
   navigation,
   route: {
-    params: {
-      shelf,
-      logo,
-      deleteFromShelf,
-      bookIsbn
-    }
-  }
+    params: {shelf, logo, deleteFromShelf, bookIsbn},
+  },
 }: IAddToShelfProps) {
   const dispatch = useDispatch();
-  const { token, refreshToken } = useSelector((store: IStore) => store.tokens);
+  const {token, refreshToken} = useSelector((store: IStore) => store.tokens);
   const shelves = useSelector((store: IStore) => store.userShelves);
   const [isLoading, setIsLoading] = useState(false);
   const [location, setLocation] = useState([NaN, NaN]);
@@ -51,16 +50,19 @@ export default function AddToShelf({
       setInvalidShelf(true);
     } else {
       setIsLoading(true);
-      dispatch(addToShelf(
-        deleteFromShelf,
-        // eslint-disable-next-line no-underscore-dangle
-        shelf._id,
-        bookIsbn, {
-          location
-        },
-        token,
-        refreshToken
-      ));
+      dispatch(
+        addToShelf(
+          deleteFromShelf,
+          // eslint-disable-next-line no-underscore-dangle
+          shelf._id,
+          bookIsbn,
+          {
+            location,
+          },
+          token,
+          refreshToken,
+        ),
+      );
     }
   }
 
@@ -77,26 +79,30 @@ export default function AddToShelf({
             shelfData={sortShelfData(shelf)}
           />
         </View>
-        {!isLoading
-          ? (
-            <TouchableOpacity
-              style={[globalStyles.button, styles.addToShelfButton]}
-              testID="addButton"
-              onPress={handleAddToShelf}
-            >
-              <Text style={globalStyles.buttonText}>Add to shelf</Text>
-            </TouchableOpacity>
-          )
-          : (
-            <TouchableOpacity
-              style={[globalStyles.button, styles.addToShelfButton]}
-              testID="addButton"
-              disabled
-            >
-              <ActivityIndicator testID="loadingIndicator" size="large" color={stylesConstants.colors.white} />
-            </TouchableOpacity>
-          )}
-        {invalidShelf && <Text testID="invalidShelf" style={globalStyles.invalid}>Select a shelf to add it</Text>}
+        {!isLoading ? (
+          <TouchableOpacity
+            style={[globalStyles.button, styles.addToShelfButton]}
+            testID="addButton"
+            onPress={handleAddToShelf}>
+            <Text style={globalStyles.buttonText}>Add to shelf</Text>
+          </TouchableOpacity>
+        ) : (
+          <TouchableOpacity
+            style={[globalStyles.button, styles.addToShelfButton]}
+            testID="addButton"
+            disabled>
+            <ActivityIndicator
+              testID="loadingIndicator"
+              size="large"
+              color={stylesConstants.colors.white}
+            />
+          </TouchableOpacity>
+        )}
+        {invalidShelf && (
+          <Text testID="invalidShelf" style={globalStyles.invalid}>
+            Select a shelf to add it
+          </Text>
+        )}
       </View>
     </SafeAreaView>
   );

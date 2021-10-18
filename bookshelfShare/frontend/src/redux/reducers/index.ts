@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux';
+import {combineReducers} from 'redux';
 import loggedUser from './loggedUser.reducer';
 import tokens from './tokens.reducer';
 import notifications from './notifications.reducer';
@@ -22,5 +22,5 @@ export default combineReducers({
   userShelves,
   usersList,
   currentUser,
-  currentShelf
+  currentShelf,
 });

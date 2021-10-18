@@ -1,10 +1,8 @@
 import React from 'react';
 
-import {
-  View, SafeAreaView, Text, TouchableOpacity
-} from 'react-native';
-import { RNCamera } from 'react-native-camera';
-import { IBarCode, IBarCodeScannerProps } from '../../types/interfaces';
+import {View, SafeAreaView, Text, TouchableOpacity} from 'react-native';
+import {RNCamera} from 'react-native-camera';
+import {IBarCode, IBarCodeScannerProps} from '../../types/interfaces';
 
 import Header from '../Header/Header';
 
@@ -13,12 +11,12 @@ import SearchIcon from '../../assets/searchIcon.svg';
 import globalStyles from '../../styles/global.styles';
 import styles from './barCodeScanner.styles';
 
-export default function BarCodeScanner({ navigation }: IBarCodeScannerProps) {
+export default function BarCodeScanner({navigation}: IBarCodeScannerProps) {
   function onBarCodeRead(scanResult: IBarCode) {
     navigation.navigate({
       name: 'BookSearchNavigator',
       merge: true,
-      params: { isbn: scanResult.data }
+      params: {isbn: scanResult.data},
     });
   }
 
@@ -32,7 +30,7 @@ export default function BarCodeScanner({ navigation }: IBarCodeScannerProps) {
           title: 'Permission to use camera',
           message: 'We need your permission to use your camera',
           buttonPositive: 'Ok',
-          buttonNegative: 'Cancel'
+          buttonNegative: 'Cancel',
         }}
         type={RNCamera.Constants.Type.back}
         style={styles.camera}
@@ -46,16 +44,9 @@ export default function BarCodeScanner({ navigation }: IBarCodeScannerProps) {
           <View style={styles.overlaySide} />
         </View>
         <View style={styles.overlayBottom}>
-          <Text style={styles.overlayText}>
-            Scan book barcode
-          </Text>
-          <TouchableOpacity
-            style={globalStyles.button}
-          >
-            <Text style={globalStyles.buttonText}>
-              Add ISBN manually
-
-            </Text>
+          <Text style={styles.overlayText}>Scan book barcode</Text>
+          <TouchableOpacity style={globalStyles.button}>
+            <Text style={globalStyles.buttonText}>Add ISBN manually</Text>
           </TouchableOpacity>
         </View>
       </View>

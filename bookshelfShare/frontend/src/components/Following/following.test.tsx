@@ -1,6 +1,6 @@
 import React from 'react';
 import Following from './Following';
-import { render, fireEvent } from '../../utils/test.utils';
+import {render, fireEvent} from '../../utils/test.utils';
 import navigationMock from '../../mocks/navigation.mock';
 
 describe('Given a Following component', () => {
@@ -10,7 +10,7 @@ describe('Given a Following component', () => {
     beforeEach(() => {
       navigation = {
         ...navigationMock,
-        push: jest.fn()
+        push: jest.fn(),
       };
       screen = render(<Following navigation={navigation} />);
     });
@@ -21,10 +21,15 @@ describe('Given a Following component', () => {
 
     describe('And you click followingUsersPageButton', () => {
       test('Then should call navigation.push with UsersList and parameters', () => {
-        const followingUsersPageButton = screen.getByTestId('followingUsersPageButton');
+        const followingUsersPageButton = screen.getByTestId(
+          'followingUsersPageButton',
+        );
         fireEvent.press(followingUsersPageButton);
 
-        expect(navigation.push).toHaveBeenCalledWith('UsersList', { logo: 'FollowingIcon', followingPage: true });
+        expect(navigation.push).toHaveBeenCalledWith('UsersList', {
+          logo: 'FollowingIcon',
+          followingPage: true,
+        });
       });
     });
   });

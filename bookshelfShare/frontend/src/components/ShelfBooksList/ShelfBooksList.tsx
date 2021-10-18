@@ -1,17 +1,20 @@
 import React from 'react';
-import { FlatList, View } from 'react-native';
-import { IShelfBooksList, IShelfBooksListElement } from '../../types/interfaces';
+import {FlatList, View} from 'react-native';
+import {IShelfBooksList, IShelfBooksListElement} from '../../types/interfaces';
 
 import ShelfBookElement from '../ShelfBookElement/ShelfBookElement';
 
 export default function ShelfBooksList({
-  shelfData, logo, navigation, shelfName
+  shelfData,
+  logo,
+  navigation,
+  shelfName,
 }: IShelfBooksList) {
   function renderListElement({
     item: {
-      customInformation: { location },
-      bookData
-    }
+      customInformation: {location},
+      bookData,
+    },
   }: IShelfBooksListElement) {
     return (
       <ShelfBookElement
@@ -19,7 +22,7 @@ export default function ShelfBooksList({
         logo={logo}
         bookData={bookData}
         location={location}
-            // eslint-disable-next-line no-underscore-dangle
+        // eslint-disable-next-line no-underscore-dangle
         key={bookData._id}
         shelfName={shelfName}
       />
@@ -34,7 +37,7 @@ export default function ShelfBooksList({
         renderItem={renderListElement}
         keyExtractor={(item, index) => `shelf-${index}`}
       />
-      <View style={{ height: 620 }} />
+      <View style={{height: 620}} />
     </>
   );
 }

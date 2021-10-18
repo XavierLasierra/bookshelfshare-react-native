@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 import stylesConstants from '../../styles/styles.constants';
 
 export default StyleSheet.create({
@@ -7,20 +7,20 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-around',
     backgroundColor: stylesConstants.colors.white,
-    height: 60
+    height: 60,
   },
   tabOption: {
     alignItems: 'center',
     justifyContent: 'center',
     height: 57,
-    width: 57
+    width: 57,
   },
   tabOptionFocused: {
     backgroundColor: stylesConstants.colors.light,
-    borderRadius: 50
+    borderRadius: 50,
   },
   tabText: {
     fontSize: 12,
-    color: stylesConstants.colors.mainText
-  }
+    color: stylesConstants.colors.mainText,
+  },
 });

@@ -11,15 +11,15 @@ describe('Given a refreshUserToken function', () => {
       let dispatch: any;
       let result: any;
       beforeEach(async () => {
-        resolvedData = { token: 'token' };
+        resolvedData = {token: 'token'};
         dispatch = jest.fn();
-        (axios.post as jest.Mock).mockResolvedValue({ data: resolvedData });
+        (axios.post as jest.Mock).mockResolvedValue({data: resolvedData});
         result = await refreshUserToken('refreshToken', dispatch);
       });
       test('Then dispatch should have been called with type REFRESH_TOKEN and the data axios is resolved with', () => {
         expect(dispatch).toHaveBeenCalledWith({
           type: tokenActions.REFRESH_TOKEN,
-          data: resolvedData
+          data: resolvedData,
         });
       });
       test('Then should return the token axios is resolved with', () => {

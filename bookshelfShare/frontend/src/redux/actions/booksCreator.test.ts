@@ -1,7 +1,10 @@
 import axios from 'axios';
 import notificationsActions from './notifications.actions';
 import {
-  searchBooks, getRatings, saveRating, getBooksData
+  searchBooks,
+  getRatings,
+  saveRating,
+  getBooksData,
 } from './books.creator';
 import refreshUserToken from './tokens.creator';
 import booksActions from './books.actions';
@@ -14,12 +17,16 @@ describe('Given a searchBooks function', () => {
     describe('And axios.get is resolved', () => {
       test('Then dispatch should have been called with type LOAD_BOOKS and the data axios is resolved with', async () => {
         const dispatch = jest.fn();
-        (axios.get as jest.Mock).mockResolvedValue({ data: {} });
-        await searchBooks({ isbn: '', inauthor: 'author' }, 'token', 'refreshToken')(dispatch);
+        (axios.get as jest.Mock).mockResolvedValue({data: {}});
+        await searchBooks(
+          {isbn: '', inauthor: 'author'},
+          'token',
+          'refreshToken',
+        )(dispatch);
 
         expect(dispatch).toHaveBeenCalledWith({
           type: booksActions.LOAD_BOOKS,
-          data: {}
+          data: {},
         });
       });
     });
@@ -28,7 +35,7 @@ describe('Given a searchBooks function', () => {
         let dispatch: any;
         beforeEach(() => {
           dispatch = jest.fn();
-          (axios.get as jest.Mock).mockRejectedValue({ response: { status: 401 } });
+          (axios.get as jest.Mock).mockRejectedValue({response: {status: 401}});
         });
         describe('And refreshUserToken is resolved', () => {
           describe('And newToken is false', () => {
@@ -38,7 +45,7 @@ describe('Given a searchBooks function', () => {
               await searchBooks({}, 'token', 'refreshToken')(dispatch);
 
               expect(dispatch).toHaveBeenCalledWith({
-                type: notificationsActions.SERVER_ERROR
+                type: notificationsActions.SERVER_ERROR,
               });
             });
           });
@@ -60,7 +67,7 @@ describe('Given a searchBooks function', () => {
             await searchBooks({}, 'token', 'refreshToken')(dispatch);
 
             expect(dispatch).toHaveBeenCalledWith({
-              type: notificationsActions.SERVER_ERROR
+              type: notificationsActions.SERVER_ERROR,
             });
           });
         });
@@ -68,21 +75,23 @@ describe('Given a searchBooks function', () => {
       describe('And the error status is 500', () => {
         test('Then dispatch should have been called with type ISBN_ERROR', async () => {
           const dispatch = jest.fn();
-          (axios.get as jest.Mock).mockRejectedValue({ response: { status: 500 } });
+          (axios.get as jest.Mock).mockRejectedValue({response: {status: 500}});
           await searchBooks({}, 'token', 'refreshToken')(dispatch);
 
           expect(dispatch).toHaveBeenCalledWith({
-            type: notificationsActions.ISBN_ERROR
+            type: notificationsActions.ISBN_ERROR,
           });
         });
       });
       describe('And the error status is not 401 or 500', () => {
         test('Then dispatch should have been called with type SERVER_ERROR', async () => {
           const dispatch = jest.fn();
-          (axios.get as jest.Mock).mockRejectedValue({ response: {} });
+          (axios.get as jest.Mock).mockRejectedValue({response: {}});
           await searchBooks({}, 'token', 'refreshToken')(dispatch);
 
-          expect(dispatch).toHaveBeenCalledWith({ type: notificationsActions.SERVER_ERROR });
+          expect(dispatch).toHaveBeenCalledWith({
+            type: notificationsActions.SERVER_ERROR,
+          });
         });
       });
     });
@@ -94,12 +103,12 @@ describe('Given a getRatings function', () => {
     describe('And axios.get is resolved', () => {
       test('Then dispatch should have been called with type LOAD_RATINGS and the data axios is resolved with', async () => {
         const dispatch = jest.fn();
-        (axios.get as jest.Mock).mockResolvedValue({ data: {} });
+        (axios.get as jest.Mock).mockResolvedValue({data: {}});
         await getRatings('isbn', 'token', 'refreshToken')(dispatch);
 
         expect(dispatch).toHaveBeenCalledWith({
           type: booksActions.LOAD_RATINGS,
-          data: {}
+          data: {},
         });
       });
     });
@@ -108,7 +117,7 @@ describe('Given a getRatings function', () => {
         let dispatch: any;
         beforeEach(() => {
           dispatch = jest.fn();
-          (axios.get as jest.Mock).mockRejectedValue({ response: { status: 401 } });
+          (axios.get as jest.Mock).mockRejectedValue({response: {status: 401}});
         });
         describe('And refreshUserToken is resolved', () => {
           describe('And newToken is false', () => {
@@ -118,7 +127,7 @@ describe('Given a getRatings function', () => {
               await getRatings('isbn', 'token', 'refreshToken')(dispatch);
 
               expect(dispatch).toHaveBeenCalledWith({
-                type: notificationsActions.SERVER_ERROR
+                type: notificationsActions.SERVER_ERROR,
               });
             });
           });
@@ -140,7 +149,7 @@ describe('Given a getRatings function', () => {
             await getRatings('isbn', 'token', 'refreshToken')(dispatch);
 
             expect(dispatch).toHaveBeenCalledWith({
-              type: notificationsActions.SERVER_ERROR
+              type: notificationsActions.SERVER_ERROR,
             });
           });
         });
@@ -148,21 +157,23 @@ describe('Given a getRatings function', () => {
       describe('And the error status is 500', () => {
         test('Then dispatch should have been called with type LOAD_RATINGS_ERROR', async () => {
           const dispatch = jest.fn();
-          (axios.get as jest.Mock).mockRejectedValue({ response: { status: 500 } });
+          (axios.get as jest.Mock).mockRejectedValue({response: {status: 500}});
           await getRatings('isbn', 'token', 'refreshToken')(dispatch);
 
           expect(dispatch).toHaveBeenCalledWith({
-            type: notificationsActions.LOAD_RATINGS_ERROR
+            type: notificationsActions.LOAD_RATINGS_ERROR,
           });
         });
       });
       describe('And the error status is not 401 or 500', () => {
         test('Then dispatch should have been called with type SERVER_ERROR', async () => {
           const dispatch = jest.fn();
-          (axios.get as jest.Mock).mockRejectedValue({ response: {} });
+          (axios.get as jest.Mock).mockRejectedValue({response: {}});
           await getRatings('isbn', 'token', 'refreshToken')(dispatch);
 
-          expect(dispatch).toHaveBeenCalledWith({ type: notificationsActions.SERVER_ERROR });
+          expect(dispatch).toHaveBeenCalledWith({
+            type: notificationsActions.SERVER_ERROR,
+          });
         });
       });
     });
@@ -174,11 +185,11 @@ describe('Given a saveRating function', () => {
     describe('And isbn is Not found', () => {
       test('Then dispatch should have been called with type REVIEW_ISBN_NOT_FOUND', async () => {
         const dispatch = jest.fn();
-        (axios.post as jest.Mock).mockResolvedValue({ data: {} });
+        (axios.post as jest.Mock).mockResolvedValue({data: {}});
         await saveRating('Not found', {}, 'token', 'refreshToken')(dispatch);
 
         expect(dispatch).toHaveBeenCalledWith({
-          type: notificationsActions.REVIEW_ISBN_NOT_FOUND
+          type: notificationsActions.REVIEW_ISBN_NOT_FOUND,
         });
       });
     });
@@ -186,12 +197,12 @@ describe('Given a saveRating function', () => {
       describe('And axios.post is resolved', () => {
         test('Then dispatch should have been called with type UPDATE_RATINGS and the data axios is resolved with', async () => {
           const dispatch = jest.fn();
-          (axios.post as jest.Mock).mockResolvedValue({ data: {} });
+          (axios.post as jest.Mock).mockResolvedValue({data: {}});
           await saveRating('isbn', {}, 'token', 'refreshToken')(dispatch);
 
           expect(dispatch).toHaveBeenCalledWith({
             type: booksActions.UPDATE_RATINGS,
-            data: {}
+            data: {},
           });
         });
       });
@@ -200,7 +211,9 @@ describe('Given a saveRating function', () => {
           let dispatch: any;
           beforeEach(() => {
             dispatch = jest.fn();
-            (axios.post as jest.Mock).mockRejectedValue({ response: { status: 401 } });
+            (axios.post as jest.Mock).mockRejectedValue({
+              response: {status: 401},
+            });
           });
           describe('And refreshUserToken is resolved', () => {
             describe('And newToken is false', () => {
@@ -210,7 +223,7 @@ describe('Given a saveRating function', () => {
                 await saveRating('isbn', {}, 'token', 'refreshToken')(dispatch);
 
                 expect(dispatch).toHaveBeenCalledWith({
-                  type: notificationsActions.SERVER_ERROR
+                  type: notificationsActions.SERVER_ERROR,
                 });
               });
             });
@@ -232,7 +245,7 @@ describe('Given a saveRating function', () => {
               await saveRating('isbn', {}, 'token', 'refreshToken')(dispatch);
 
               expect(dispatch).toHaveBeenCalledWith({
-                type: notificationsActions.SERVER_ERROR
+                type: notificationsActions.SERVER_ERROR,
               });
             });
           });
@@ -240,21 +253,25 @@ describe('Given a saveRating function', () => {
         describe('And the error status is 500', () => {
           test('Then dispatch should have been called with type SAVE_RATING_ERROR', async () => {
             const dispatch = jest.fn();
-            (axios.post as jest.Mock).mockRejectedValue({ response: { status: 500 } });
+            (axios.post as jest.Mock).mockRejectedValue({
+              response: {status: 500},
+            });
             await saveRating('isbn', {}, 'token', 'refreshToken')(dispatch);
 
             expect(dispatch).toHaveBeenCalledWith({
-              type: notificationsActions.SAVE_RATING_ERROR
+              type: notificationsActions.SAVE_RATING_ERROR,
             });
           });
         });
         describe('And the error status is not 401 or 500', () => {
           test('Then dispatch should have been called with type SERVER_ERROR', async () => {
             const dispatch = jest.fn();
-            (axios.post as jest.Mock).mockRejectedValue({ response: {} });
+            (axios.post as jest.Mock).mockRejectedValue({response: {}});
             await saveRating('isbn', {}, 'token', 'refreshToken')(dispatch);
 
-            expect(dispatch).toHaveBeenCalledWith({ type: notificationsActions.SERVER_ERROR });
+            expect(dispatch).toHaveBeenCalledWith({
+              type: notificationsActions.SERVER_ERROR,
+            });
           });
         });
       });
@@ -267,12 +284,12 @@ describe('Given a getBooksData function', () => {
     describe('And axios.post is resolved', () => {
       test('Then dispatch should have been called with type LOAD_BOOKS and the data axios is resolved with', async () => {
         const dispatch = jest.fn();
-        (axios.post as jest.Mock).mockResolvedValue({ data: {} });
+        (axios.post as jest.Mock).mockResolvedValue({data: {}});
         await getBooksData(['isbn'], 'token', 'refreshToken')(dispatch);
 
         expect(dispatch).toHaveBeenCalledWith({
           type: booksActions.LOAD_BOOKS,
-          data: {}
+          data: {},
         });
       });
     });
@@ -281,7 +298,9 @@ describe('Given a getBooksData function', () => {
         let dispatch: any;
         beforeEach(() => {
           dispatch = jest.fn();
-          (axios.post as jest.Mock).mockRejectedValue({ response: { status: 401 } });
+          (axios.post as jest.Mock).mockRejectedValue({
+            response: {status: 401},
+          });
         });
         describe('And refreshUserToken is resolved', () => {
           describe('And newToken is false', () => {
@@ -291,7 +310,7 @@ describe('Given a getBooksData function', () => {
               await getBooksData(['isbn'], 'token', 'refreshToken')(dispatch);
 
               expect(dispatch).toHaveBeenCalledWith({
-                type: notificationsActions.SERVER_ERROR
+                type: notificationsActions.SERVER_ERROR,
               });
             });
           });
@@ -313,7 +332,7 @@ describe('Given a getBooksData function', () => {
             await getBooksData(['isbn'], 'token', 'refreshToken')(dispatch);
 
             expect(dispatch).toHaveBeenCalledWith({
-              type: notificationsActions.SERVER_ERROR
+              type: notificationsActions.SERVER_ERROR,
             });
           });
         });
@@ -321,21 +340,25 @@ describe('Given a getBooksData function', () => {
       describe('And the error status is 500', () => {
         test('Then dispatch should have been called with type LOAD_BOOKS_ERROR', async () => {
           const dispatch = jest.fn();
-          (axios.post as jest.Mock).mockRejectedValue({ response: { status: 500 } });
+          (axios.post as jest.Mock).mockRejectedValue({
+            response: {status: 500},
+          });
           await getBooksData(['isbn'], 'token', 'refreshToken')(dispatch);
 
           expect(dispatch).toHaveBeenCalledWith({
-            type: notificationsActions.LOAD_BOOKS_ERROR
+            type: notificationsActions.LOAD_BOOKS_ERROR,
           });
         });
       });
       describe('And the error status is not 401 or 500', () => {
         test('Then dispatch should have been called with type SERVER_ERROR', async () => {
           const dispatch = jest.fn();
-          (axios.post as jest.Mock).mockRejectedValue({ response: {} });
+          (axios.post as jest.Mock).mockRejectedValue({response: {}});
           await getBooksData(['isbn'], 'token', 'refreshToken')(dispatch);
 
-          expect(dispatch).toHaveBeenCalledWith({ type: notificationsActions.SERVER_ERROR });
+          expect(dispatch).toHaveBeenCalledWith({
+            type: notificationsActions.SERVER_ERROR,
+          });
         });
       });
     });

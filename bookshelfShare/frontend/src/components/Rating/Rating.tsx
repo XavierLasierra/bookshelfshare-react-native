@@ -1,15 +1,19 @@
 /* eslint-disable no-underscore-dangle */
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import {
-  View, Text, TextInput, TouchableOpacity, ActivityIndicator
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  ActivityIndicator,
 } from 'react-native';
-import { useDispatch } from 'react-redux';
-import { AirbnbRating } from 'react-native-ratings';
-import { IRatingProps, IUserRating } from '../../types/interfaces';
+import {useDispatch} from 'react-redux';
+import {AirbnbRating} from 'react-native-ratings';
+import {IRatingProps, IUserRating} from '../../types/interfaces';
 
 import UsersRatings from '../UsersRatings/UsersRatings';
 
-import { saveRating } from '../../redux/actions/books.creator';
+import {saveRating} from '../../redux/actions/books.creator';
 
 import EditIcon from '../../assets/editIcon.svg';
 import SaveIcon from '../../assets/saveIcon.svg';
@@ -18,7 +22,11 @@ import globalStyles from '../../styles/global.styles';
 import stylesConstants from '../../styles/styles.constants';
 
 export default function Rating({
-  ratings, isbn, token, refreshToken, userId
+  ratings,
+  isbn,
+  token,
+  refreshToken,
+  userId,
 }: IRatingProps) {
   const dispatch = useDispatch();
   const [userRating, setUserRating] = useState(0);
@@ -28,7 +36,9 @@ export default function Rating({
   const [isSaving, setIsSaving] = useState(false);
 
   useEffect(() => {
-    const existingUserRating = ratings.find(({ user }: IUserRating) => user?._id === userId);
+    const existingUserRating = ratings.find(
+      ({user}: IUserRating) => user?._id === userId,
+    );
     if (existingUserRating) {
       setUserRating(existingUserRating.rating);
       setUserReview(existingUserRating.review);
@@ -49,11 +59,18 @@ export default function Rating({
   function handleSaveButton() {
     if (userRating > 0) {
       setIsSaving(true);
-      return dispatch(saveRating(isbn, {
-        user: userId,
-        rating: userRating,
-        review: userReview
-      }, token, refreshToken));
+      return dispatch(
+        saveRating(
+          isbn,
+          {
+            user: userId,
+            rating: userRating,
+            review: userReview,
+          },
+          token,
+          refreshToken,
+        ),
+      );
     }
     return setCanSave(false);
   }
@@ -67,17 +84,20 @@ export default function Rating({
     setUserReview(text);
   }
 
-  const saveButton = isSaving
-    ? (
-      <TouchableOpacity disabled>
-        <ActivityIndicator testID="savingIndicator" style={styles.activityIndicator} size="small" color={stylesConstants.colors.mainText} />
-      </TouchableOpacity>
-    )
-    : (
-      <TouchableOpacity onPress={handleSaveButton} testID="saveButton">
-        <SaveIcon width={30} height={30} />
-      </TouchableOpacity>
-    );
+  const saveButton = isSaving ? (
+    <TouchableOpacity disabled>
+      <ActivityIndicator
+        testID="savingIndicator"
+        style={styles.activityIndicator}
+        size="small"
+        color={stylesConstants.colors.mainText}
+      />
+    </TouchableOpacity>
+  ) : (
+    <TouchableOpacity onPress={handleSaveButton} testID="saveButton">
+      <SaveIcon width={30} height={30} />
+    </TouchableOpacity>
+  );
 
   return (
     <View>
@@ -92,16 +112,13 @@ export default function Rating({
             isDisabled={!canEdit}
             onFinishRating={handleRatingFocus}
           />
-          {!canEdit
-            ? (
-              <TouchableOpacity
-                onPress={handleEditButton}
-                testID="editButton"
-              >
-                <EditIcon width={30} height={30} />
-              </TouchableOpacity>
-            )
-            : saveButton}
+          {!canEdit ? (
+            <TouchableOpacity onPress={handleEditButton} testID="editButton">
+              <EditIcon width={30} height={30} />
+            </TouchableOpacity>
+          ) : (
+            saveButton
+          )}
         </View>
         <TextInput
           style={styles.ratingInput}
@@ -112,7 +129,11 @@ export default function Rating({
           onChangeText={handleInputChange}
           testID="ratingInput"
         />
-        {!canSave && <Text style={globalStyles.invalid} testID="canNotSave">Minimum 1 star to rate</Text>}
+        {!canSave && (
+          <Text style={globalStyles.invalid} testID="canNotSave">
+            Minimum 1 star to rate
+          </Text>
+        )}
       </View>
       <UsersRatings ratings={ratings} userId={userId} />
     </View>

@@ -1,17 +1,17 @@
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 import stylesConstants from '../../styles/styles.constants';
 
 export default StyleSheet.create({
   searchContainer: {
     padding: stylesConstants.padding.normal,
-    alignItems: 'center'
+    alignItems: 'center',
   },
   formContainer: {
     width: '100%',
     height: 400,
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
   },
   searchButton: {
-    marginTop: 20
-  }
+    marginTop: 20,
+  },
 });

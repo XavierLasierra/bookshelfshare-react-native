@@ -3,13 +3,13 @@ import loggedUserActions from '../actions/loggedUser.actions';
 import initialState from '../../constants/tokensInitialState.constant';
 
 interface Action {
-    type: string,
-    data: any
+  type: string;
+  data: any;
 }
 
 interface Tokens {
-  token?: string,
-  refreshToken?: string
+  token?: string;
+  refreshToken?: string;
 }
 
 function tokensReducer(tokens = initialState, action: Action): Tokens {
@@ -18,19 +18,19 @@ function tokensReducer(tokens = initialState, action: Action): Tokens {
     case loggedUserActions.LOG_USER:
       newTokens = {
         token: action.data.token,
-        refreshToken: action.data.refreshToken
+        refreshToken: action.data.refreshToken,
       };
       break;
     case tokenActions.REFRESH_TOKEN:
       newTokens = {
         ...newTokens,
-        token: action.data.token
+        token: action.data.token,
       };
       break;
     case tokenActions.SAVE_REFRESH_TOKEN:
       newTokens = {
         ...newTokens,
-        refreshToken: action.data
+        refreshToken: action.data,
       };
       break;
     default:

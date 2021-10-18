@@ -9,17 +9,17 @@ describe('Given a currentUserReducer function', () => {
       test('Then should return an object with results true and user data', () => {
         const result = currentUserReducer(initialState, {
           type: currentUserActions.LOAD_OTHER_USER,
-          data: 'data'
+          data: 'data',
         });
-        expect(result).toEqual({ results: true, user: 'data' });
+        expect(result).toEqual({results: true, user: 'data'});
       });
     });
     describe('And its called with an action with a type LOAD_CURRENT_SHELF_ERROR', () => {
       test('Then should return an object with results true and books []', () => {
         const result = currentUserReducer(initialState, {
-          type: notificationsActions.LOAD_USER_ERROR
+          type: notificationsActions.LOAD_USER_ERROR,
         });
-        expect(result).toEqual({ results: true, user: {} });
+        expect(result).toEqual({results: true, user: {}});
       });
     });
   });

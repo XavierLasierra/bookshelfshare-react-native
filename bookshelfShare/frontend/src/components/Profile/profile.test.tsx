@@ -1,11 +1,11 @@
 import React from 'react';
 import Profile from './Profile';
-import { render, fireEvent } from '../../utils/test.utils';
+import {render, fireEvent} from '../../utils/test.utils';
 import loggedUserMock from '../../mocks/loggedUser.mock';
 import userBooksMock from '../../mocks/userBooks.mock';
 import userSocialsMock from '../../mocks/userSocials.mock';
-import { logoutUser } from '../../redux/actions/loggedUser.creator';
-import { getBooksData } from '../../redux/actions/books.creator';
+import {logoutUser} from '../../redux/actions/loggedUser.creator';
+import {getBooksData} from '../../redux/actions/books.creator';
 import navigationMock from '../../mocks/navigation.mock';
 
 jest.mock('../../redux/actions/loggedUser.creator');
@@ -16,12 +16,12 @@ describe('Given a Profile component', () => {
     describe('And the user has no followers', () => {
       test('Then should match the snapshot', () => {
         const initialState = {
-          loggedUser: { userData: loggedUserMock.user },
-          userBooks: userBooksMock
+          loggedUser: {userData: loggedUserMock.user},
+          userBooks: userBooksMock,
         };
         const screen = render(
           <Profile navigation={navigationMock} />,
-          initialState
+          initialState,
         );
         expect(screen).toMatchSnapshot();
       });
@@ -31,22 +31,19 @@ describe('Given a Profile component', () => {
       let screen: any;
       let navigation: any;
       beforeEach(() => {
-        (logoutUser as jest.Mock).mockReturnValue({ type: '' });
-        (getBooksData as jest.Mock).mockReturnValue({ type: '' });
+        (logoutUser as jest.Mock).mockReturnValue({type: ''});
+        (getBooksData as jest.Mock).mockReturnValue({type: ''});
 
         const initialState = {
-          loggedUser: { userData: loggedUserMock.user },
+          loggedUser: {userData: loggedUserMock.user},
           userBooks: userBooksMock,
-          userSocials: userSocialsMock
+          userSocials: userSocialsMock,
         };
         navigation = {
           ...navigationMock,
-          push: jest.fn()
+          push: jest.fn(),
         };
-        screen = render(
-          <Profile navigation={navigation} />,
-          initialState
-        );
+        screen = render(<Profile navigation={navigation} />, initialState);
       });
       test('Then should match the snapshot', () => {
         expect(screen).toMatchSnapshot();

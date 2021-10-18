@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 import stylesConstants from '../../styles/styles.constants';
 
 export default StyleSheet.create({
@@ -7,7 +7,7 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     height: 100,
-    paddingHorizontal: 30
+    paddingHorizontal: 30,
   },
   registerContainer: {
     backgroundColor: stylesConstants.colors.light,
@@ -17,12 +17,12 @@ export default StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'space-between',
-    height: 600
+    height: 600,
   },
   registerButton: {
-    marginTop: 20
+    marginTop: 20,
   },
   invalidPasswordText: {
-    paddingHorizontal: 5
-  }
+    paddingHorizontal: 5,
+  },
 });

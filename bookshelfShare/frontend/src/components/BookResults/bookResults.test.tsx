@@ -1,6 +1,6 @@
 import React from 'react';
 import BookResults from './BookResults';
-import { render } from '../../utils/test.utils';
+import {render} from '../../utils/test.utils';
 import bookDetailsMock from '../../mocks/bookDetails.mock';
 import navigationMock from '../../mocks/navigation.mock';
 
@@ -13,13 +13,15 @@ describe('Given a BookResults component', () => {
             isbn: '1',
             inauthor: '',
             intitle: '',
-            inpublisher: ''
+            inpublisher: '',
           },
-          logo: 'logo'
-        }
+          logo: 'logo',
+        },
       };
       test('Then should match the snapshot', () => {
-        const screen = render(<BookResults navigation={navigationMock} route={route} />);
+        const screen = render(
+          <BookResults navigation={navigationMock} route={route} />,
+        );
         expect(screen).toMatchSnapshot();
       });
     });
@@ -30,22 +32,22 @@ describe('Given a BookResults component', () => {
             isbn: '',
             inauthor: 'author',
             intitle: '',
-            inpublisher: 'publisher'
+            inpublisher: 'publisher',
           },
-          logo: 'logo'
-        }
+          logo: 'logo',
+        },
       };
       test('Then should match the snapshot', () => {
         const initialState = {
           books: {
             books: [],
-            results: true
-          }
+            results: true,
+          },
         };
-        const screen = render(<BookResults
-          navigation={navigationMock}
-          route={route}
-        />, initialState);
+        const screen = render(
+          <BookResults navigation={navigationMock} route={route} />,
+          initialState,
+        );
         expect(screen).toMatchSnapshot();
       });
     });
@@ -57,22 +59,22 @@ describe('Given a BookResults component', () => {
             isbn: '',
             inauthor: 'author',
             intitle: 'title',
-            inpublisher: 'publisher'
+            inpublisher: 'publisher',
           },
-          logo: 'logo'
-        }
+          logo: 'logo',
+        },
       };
       test('Then should match the snapshot', () => {
         const initialState = {
           books: {
             books: bookDetailsMock,
-            results: true
-          }
+            results: true,
+          },
         };
-        const screen = render(<BookResults
-          navigation={navigationMock}
-          route={route}
-        />, initialState);
+        const screen = render(
+          <BookResults navigation={navigationMock} route={route} />,
+          initialState,
+        );
         expect(screen).toMatchSnapshot();
       });
     });
@@ -84,23 +86,23 @@ describe('Given a BookResults component', () => {
             isbn: '',
             inauthor: 'author',
             intitle: 'title',
-            inpublisher: 'publisher'
+            inpublisher: 'publisher',
           },
           logo: 'logo',
-          listName: 'my list'
-        }
+          listName: 'my list',
+        },
       };
       test('Then should match the snapshot', () => {
         const initialState = {
           books: {
             books: bookDetailsMock,
-            results: true
-          }
+            results: true,
+          },
         };
-        const screen = render(<BookResults
-          navigation={navigationMock}
-          route={route}
-        />, initialState);
+        const screen = render(
+          <BookResults navigation={navigationMock} route={route} />,
+          initialState,
+        );
         expect(screen).toMatchSnapshot();
       });
     });

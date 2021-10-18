@@ -9,13 +9,13 @@ function userSocialsReducer(socials = initialState, action: any): any {
     case loggedUserActions.LOAD_CURRENT_USER:
       newSocials = {
         following: action.data.user.following,
-        followers: action.data.user.followers
+        followers: action.data.user.followers,
       };
       break;
     case loggedUserActions.UPDATE_USER_FOLLOWING:
       newSocials = {
         ...newSocials,
-        following: action.data
+        following: action.data,
       };
       break;
     default:

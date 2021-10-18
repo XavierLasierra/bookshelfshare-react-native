@@ -12,9 +12,9 @@ export default [
         read: [],
         reading: [],
         toRead: [],
-        wishlist: []
-      }
-    }
+        wishlist: [],
+      },
+    },
   },
   {
     results: true,
@@ -23,18 +23,22 @@ export default [
       username: 'User2',
       email: 'user2@gmail.com',
       photo: 'photo',
-      followers: [{
-        _id: '1'
-      }],
-      following: [{
-        _id: '1'
-      }],
+      followers: [
+        {
+          _id: '1',
+        },
+      ],
+      following: [
+        {
+          _id: '1',
+        },
+      ],
       books: {
         read: [],
         reading: [],
         toRead: [],
-        wishlist: []
-      }
-    }
-  }
+        wishlist: [],
+      },
+    },
+  },
 ];

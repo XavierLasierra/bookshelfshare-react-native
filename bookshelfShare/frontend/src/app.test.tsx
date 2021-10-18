@@ -1,10 +1,10 @@
 import React from 'react';
 import SplashScreen from 'react-native-splash-screen';
 import App from './App';
-import { render } from './utils/test.utils';
+import {render} from './utils/test.utils';
 
 jest.mock('react-native-splash-screen', () => ({
-  hide: jest.fn()
+  hide: jest.fn(),
 }));
 
 jest.useFakeTimers();

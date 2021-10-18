@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 import stylesConstants from '../../styles/styles.constants';
 
 export default StyleSheet.create({
@@ -6,7 +6,7 @@ export default StyleSheet.create({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    height: 100
+    height: 100,
   },
   loginContainer: {
     backgroundColor: stylesConstants.colors.light,
@@ -16,21 +16,21 @@ export default StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'space-between',
-    height: 600
+    height: 600,
   },
   signUpTextContainer: {
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   loginButton: {
-    marginTop: 20
+    marginTop: 20,
   },
   signUpText: {
-    fontSize: stylesConstants.fontSize.big
+    fontSize: stylesConstants.fontSize.big,
   },
   signUpButton: {
     fontSize: stylesConstants.fontSize.big,
-    fontWeight: 'bold'
-  }
+    fontWeight: 'bold',
+  },
 });

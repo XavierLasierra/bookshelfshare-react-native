@@ -1,12 +1,12 @@
 import React from 'react';
 import Login from './Login';
-import { render, fireEvent } from '../../utils/test.utils';
-import { loginUser } from '../../redux/actions/loggedUser.creator';
+import {render, fireEvent} from '../../utils/test.utils';
+import {loginUser} from '../../redux/actions/loggedUser.creator';
 import notificationsActions from '../../redux/actions/notifications.actions';
 import navigationMock from '../../mocks/navigation.mock';
 
 jest.mock('../../redux/actions/loggedUser.creator', () => ({
-  loginUser: jest.fn()
+  loginUser: jest.fn(),
 }));
 
 describe('Given a Login component', () => {
@@ -16,7 +16,7 @@ describe('Given a Login component', () => {
     beforeEach(() => {
       navigation = {
         ...navigationMock,
-        push: jest.fn()
+        push: jest.fn(),
       };
       screen = render(<Login navigation={navigation} />);
     });
@@ -86,7 +86,7 @@ describe('Given a Login component', () => {
         describe('And the request isLoading', () => {
           beforeEach(() => {
             (loginUser as jest.Mock).mockReturnValue({
-              type: ''
+              type: '',
             });
 
             const emailInput = screen.getByTestId('emailInput');
@@ -98,7 +98,7 @@ describe('Given a Login component', () => {
           });
 
           test('Then loginUser function should have been called', () => {
-            expect((loginUser as jest.Mock)).toHaveBeenCalled();
+            expect(loginUser as jest.Mock).toHaveBeenCalled();
           });
 
           test('Then loadingIndicator should be rendered', () => {
@@ -109,7 +109,7 @@ describe('Given a Login component', () => {
         describe('And the request is resolved (notification is sent)', () => {
           test('Then loadingIndicator should not be rendered', () => {
             (loginUser as jest.Mock).mockReturnValue({
-              type: notificationsActions.LOGIN_ERROR
+              type: notificationsActions.LOGIN_ERROR,
             });
 
             const emailInput = screen.getByTestId('emailInput');

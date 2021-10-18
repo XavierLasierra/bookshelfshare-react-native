@@ -1,11 +1,14 @@
 import React from 'react';
-import { View } from 'react-native';
+import {View} from 'react-native';
 import ShelfBox from '../ShelfBox/ShelfBox';
 
 import styles from './shelfSimulation.styles';
 
 export default function ShelfSimulation({
-  shelfSize, clickCallback, activeShelf, shelfData
+  shelfSize,
+  clickCallback,
+  activeShelf,
+  shelfData,
 }: any) {
   function calculateHeight() {
     const maxColumns: number = Math.max(...shelfSize);
@@ -16,8 +19,10 @@ export default function ShelfSimulation({
   }
 
   function calculateBoooks(shelfLocation: number[]) {
-    const foundShelf = shelfData.find(({ location }: any) => JSON.stringify(location)
-    === JSON.stringify(shelfLocation));
+    const foundShelf = shelfData.find(
+      ({location}: any) =>
+        JSON.stringify(location) === JSON.stringify(shelfLocation),
+    );
 
     if (foundShelf) {
       return foundShelf.books.length;
@@ -28,15 +33,17 @@ export default function ShelfSimulation({
   function renderColumns(columns: number, index: number) {
     const renderedColumns = [];
     for (let i = 0; i < columns; i += 1) {
-      renderedColumns.push(<ShelfBox
-        key={`${index}-column-${i}`}
-        width={`${100 / columns}%`}
-        clickCallback={clickCallback}
-        row={index}
-        column={i}
-        activeShelf={activeShelf}
-        numberOfBooks={calculateBoooks([index, i])}
-      />);
+      renderedColumns.push(
+        <ShelfBox
+          key={`${index}-column-${i}`}
+          width={`${100 / columns}%`}
+          clickCallback={clickCallback}
+          row={index}
+          column={i}
+          activeShelf={activeShelf}
+          numberOfBooks={calculateBoooks([index, i])}
+        />,
+      );
     }
     return renderedColumns;
   }
@@ -44,13 +51,15 @@ export default function ShelfSimulation({
   return (
     <View style={styles.shelfFlexContainer}>
       <View style={styles.shadowTop}>
-        <View style={[styles.shelfOutsideOutline, { height: calculateHeight() }]}>
+        <View style={[styles.shelfOutsideOutline, {height: calculateHeight()}]}>
           {shelfSize.map((columns: number, index: number) => (
             <View
-              style={[styles.rowContainer, { height: `${100 / shelfSize.length}%`, width: '100%' }]}
-            // eslint-disable-next-line react/no-array-index-key
-              key={`row-${index}`}
-            >
+              style={[
+                styles.rowContainer,
+                {height: `${100 / shelfSize.length}%`, width: '100%'},
+              ]}
+              // eslint-disable-next-line react/no-array-index-key
+              key={`row-${index}`}>
               {renderColumns(columns, index)}
             </View>
           ))}

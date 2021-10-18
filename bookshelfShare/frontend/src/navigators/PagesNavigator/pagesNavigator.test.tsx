@@ -1,8 +1,8 @@
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { MenuProvider } from 'react-native-popup-menu';
+import {NavigationContainer} from '@react-navigation/native';
+import {MenuProvider} from 'react-native-popup-menu';
 import PagesNavigator from './PagesNavigator';
-import { render } from '../../utils/test.utils';
+import {render} from '../../utils/test.utils';
 
 jest.useFakeTimers();
 
@@ -14,7 +14,7 @@ describe('Given a PagesNavigator component', () => {
           <MenuProvider>
             <PagesNavigator />
           </MenuProvider>
-        </NavigationContainer>
+        </NavigationContainer>,
       );
       expect(screen).toMatchSnapshot();
     });

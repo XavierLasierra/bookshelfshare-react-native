@@ -1,22 +1,23 @@
-import React, { useState, useEffect } from 'react';
-import {
-  Text, TouchableOpacity, View, TextInput
-} from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { useDispatch, useSelector } from 'react-redux';
-import { IBookSearchProps, IStore } from '../../types/interfaces';
+import React, {useState, useEffect} from 'react';
+import {Text, TouchableOpacity, View, TextInput} from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
+import {useDispatch, useSelector} from 'react-redux';
+import {IBookSearchProps, IStore} from '../../types/interfaces';
 
 import Header from '../Header/Header';
 
-import { searchBooks } from '../../redux/actions/books.creator';
+import {searchBooks} from '../../redux/actions/books.creator';
 
 import SearchIcon from '../../assets/searchIcon.svg';
 import styles from './bookSearch.styles';
 import globalStyles from '../../styles/global.styles';
 
-export default function BookSearch({ navigation, isbnFromCamera }: IBookSearchProps) {
+export default function BookSearch({
+  navigation,
+  isbnFromCamera,
+}: IBookSearchProps) {
   const dispatch = useDispatch();
-  const { token, refreshToken } = useSelector((store: IStore) => store.tokens);
+  const {token, refreshToken} = useSelector((store: IStore) => store.tokens);
   const [isISBN, setIsIsbn] = useState(true);
   const [isbn, setIsbn] = useState(isbnFromCamera);
   const [inauthor, setInauthor] = useState('');
@@ -24,18 +25,20 @@ export default function BookSearch({ navigation, isbnFromCamera }: IBookSearchPr
   const [inpublisher, setInpublisher] = useState('');
 
   function handleBookResultPage() {
-    navigation.push('BookResults',
-      {
-        searchInformation: {
-          isbn, inauthor, intitle, inpublisher
-        },
-        logo: 'SearchIcon'
-      });
+    navigation.push('BookResults', {
+      searchInformation: {
+        isbn,
+        inauthor,
+        intitle,
+        inpublisher,
+      },
+      logo: 'SearchIcon',
+    });
   }
 
   useEffect(() => {
     if (isbnFromCamera) {
-      dispatch(searchBooks({ isbn: isbnFromCamera }, token, refreshToken));
+      dispatch(searchBooks({isbn: isbnFromCamera}, token, refreshToken));
       handleBookResultPage();
     }
   }, [isbnFromCamera]);
@@ -73,13 +76,24 @@ export default function BookSearch({ navigation, isbnFromCamera }: IBookSearchPr
   }
 
   function handleSearch() {
-    if (isbn.trim() || inauthor.trim() || intitle.trim() || inpublisher.trim()) {
-      dispatch(searchBooks({
-        isbn: isbn.trim(),
-        inauthor: inauthor.trim(),
-        intitle: intitle.trim(),
-        inpublisher: inpublisher.trim()
-      }, token, refreshToken));
+    if (
+      isbn.trim() ||
+      inauthor.trim() ||
+      intitle.trim() ||
+      inpublisher.trim()
+    ) {
+      dispatch(
+        searchBooks(
+          {
+            isbn: isbn.trim(),
+            inauthor: inauthor.trim(),
+            intitle: intitle.trim(),
+            inpublisher: inpublisher.trim(),
+          },
+          token,
+          refreshToken,
+        ),
+      );
       handleBookResultPage();
     }
   }
@@ -88,79 +102,72 @@ export default function BookSearch({ navigation, isbnFromCamera }: IBookSearchPr
     <SafeAreaView style={globalStyles.mainContainer}>
       <Header Logo={SearchIcon} />
       <View style={styles.searchContainer}>
-        <Text style={globalStyles.title}>
-          Book Search
-        </Text>
+        <Text style={globalStyles.title}>Book Search</Text>
         <View style={globalStyles.toggleContainer}>
           <TouchableOpacity
             style={[globalStyles.toggle, isISBN && globalStyles.toggleActive]}
             onPress={handleISBNPage}
-            testID="isbnPageButton"
-          >
+            testID="isbnPageButton">
             <Text style={globalStyles.toggleText}>ISBN</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={[globalStyles.toggle, !isISBN && globalStyles.toggleActive]}
             onPress={handleOtherPage}
-            testID="otherPageButton"
-          >
+            testID="otherPageButton">
             <Text style={globalStyles.toggleText}>Other</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.formContainer}>
-          {isISBN
-            ? (
+          {isISBN ? (
+            <View style={globalStyles.inputContainer}>
+              <Text style={globalStyles.inputLabel}>ISBN</Text>
+              <TextInput
+                style={globalStyles.input}
+                onChangeText={handleIsbnChange}
+                value={isbn}
+                testID="isbnInput"
+                keyboardType="number-pad"
+                maxLength={13}
+              />
+            </View>
+          ) : (
+            <>
               <View style={globalStyles.inputContainer}>
-                <Text style={globalStyles.inputLabel}>ISBN</Text>
+                <Text style={globalStyles.inputLabel}>author</Text>
                 <TextInput
                   style={globalStyles.input}
-                  onChangeText={handleIsbnChange}
-                  value={isbn}
-                  testID="isbnInput"
-                  keyboardType="number-pad"
-                  maxLength={13}
+                  onChangeText={handleInauthorChange}
+                  value={inauthor}
+                  testID="authorInput"
+                  maxLength={25}
                 />
               </View>
-            )
-            : (
-              <>
-                <View style={globalStyles.inputContainer}>
-                  <Text style={globalStyles.inputLabel}>author</Text>
-                  <TextInput
-                    style={globalStyles.input}
-                    onChangeText={handleInauthorChange}
-                    value={inauthor}
-                    testID="authorInput"
-                    maxLength={25}
-                  />
-                </View>
-                <View style={globalStyles.inputContainer}>
-                  <Text style={globalStyles.inputLabel}>title</Text>
-                  <TextInput
-                    style={globalStyles.input}
-                    onChangeText={handleIntitleChange}
-                    value={intitle}
-                    testID="titleInput"
-                    maxLength={25}
-                  />
-                </View>
-                <View style={globalStyles.inputContainer}>
-                  <Text style={globalStyles.inputLabel}>publisher</Text>
-                  <TextInput
-                    style={globalStyles.input}
-                    onChangeText={handleInpublisherChange}
-                    value={inpublisher}
-                    testID="publisherInput"
-                    maxLength={25}
-                  />
-                </View>
-              </>
-            )}
+              <View style={globalStyles.inputContainer}>
+                <Text style={globalStyles.inputLabel}>title</Text>
+                <TextInput
+                  style={globalStyles.input}
+                  onChangeText={handleIntitleChange}
+                  value={intitle}
+                  testID="titleInput"
+                  maxLength={25}
+                />
+              </View>
+              <View style={globalStyles.inputContainer}>
+                <Text style={globalStyles.inputLabel}>publisher</Text>
+                <TextInput
+                  style={globalStyles.input}
+                  onChangeText={handleInpublisherChange}
+                  value={inpublisher}
+                  testID="publisherInput"
+                  maxLength={25}
+                />
+              </View>
+            </>
+          )}
           <TouchableOpacity
             style={[globalStyles.button, styles.searchButton]}
             onPress={handleSearch}
-            testID="searchButton"
-          >
+            testID="searchButton">
             <Text style={globalStyles.buttonText}>Search</Text>
           </TouchableOpacity>
         </View>

@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 import stylesConstants from '../../styles/styles.constants';
 
 export default StyleSheet.create({
@@ -6,19 +6,19 @@ export default StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'center',
-    paddingVertical: 10
+    paddingVertical: 10,
   },
   parameter: {
     fontSize: stylesConstants.fontSize.small,
     color: stylesConstants.colors.mainText,
-    paddingHorizontal: 5
+    paddingHorizontal: 5,
   },
   resultsContainer: {
     alignItems: 'center',
-    height: '100%'
+    height: '100%',
   },
   marginBottom: {
     width: '100%',
-    height: 130
-  }
+    height: 130,
+  },
 });

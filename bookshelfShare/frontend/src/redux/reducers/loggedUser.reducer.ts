@@ -2,24 +2,27 @@ import initialState from '../../constants/userLoggedInitialState.constant';
 import loggedUserActions from '../actions/loggedUser.actions';
 
 interface Action {
-    type: string,
-    data: any
+  type: string;
+  data: any;
 }
 
 interface LoggedUser {
-  isAuthenticated?: boolean,
-  needsLogin?:boolean,
-  userData?: any
+  isAuthenticated?: boolean;
+  needsLogin?: boolean;
+  userData?: any;
 }
 
-function loggedUserReducer(loggedUser = initialState, action: Action): LoggedUser {
+function loggedUserReducer(
+  loggedUser = initialState,
+  action: Action,
+): LoggedUser {
   let newLoggedUser: LoggedUser = loggedUser;
   switch (action.type) {
     case loggedUserActions.LOG_USER:
     case loggedUserActions.LOAD_CURRENT_USER:
       newLoggedUser = {
         userData: action.data.user,
-        isAuthenticated: true
+        isAuthenticated: true,
       };
       delete newLoggedUser.userData.books;
       delete newLoggedUser.userData.following;
@@ -28,7 +31,7 @@ function loggedUserReducer(loggedUser = initialState, action: Action): LoggedUse
     case loggedUserActions.USER_NOT_LOGGED:
       newLoggedUser = {
         isAuthenticated: false,
-        needsLogin: true
+        needsLogin: true,
       };
       break;
     default:

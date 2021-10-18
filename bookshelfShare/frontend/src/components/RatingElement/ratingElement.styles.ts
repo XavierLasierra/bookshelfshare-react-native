@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 import stylesConstants from '../../styles/styles.constants';
 
 export default StyleSheet.create({
@@ -6,19 +6,19 @@ export default StyleSheet.create({
     backgroundColor: stylesConstants.colors.white,
     borderRadius: 5,
     marginVertical: 5,
-    padding: stylesConstants.padding.small
+    padding: stylesConstants.padding.small,
   },
   nameRatingContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     borderBottomWidth: 1,
-    borderColor: stylesConstants.colors.secondary
+    borderColor: stylesConstants.colors.secondary,
   },
   reviewContainer: {
-    paddingVertical: stylesConstants.padding.small
+    paddingVertical: stylesConstants.padding.small,
   },
   rating: {
     color: stylesConstants.colors.mainText,
-    fontSize: stylesConstants.fontSize.mid
-  }
+    fontSize: stylesConstants.fontSize.mid,
+  },
 });

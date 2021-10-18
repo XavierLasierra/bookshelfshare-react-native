@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 import stylesConstants from '../../styles/styles.constants';
 
 export default StyleSheet.create({
@@ -7,15 +7,15 @@ export default StyleSheet.create({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    height: '100%'
+    height: '100%',
   },
   titleContainer: {
     height: 30,
-    alignItems: 'center'
+    alignItems: 'center',
   },
   title: {
     fontSize: 40,
     fontWeight: 'bold',
-    color: stylesConstants.colors.mainText
-  }
+    color: stylesConstants.colors.mainText,
+  },
 });

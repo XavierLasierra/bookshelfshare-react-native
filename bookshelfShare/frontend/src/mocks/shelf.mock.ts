@@ -5,17 +5,20 @@ export default {
   users: [
     {
       _id: '1',
-      photo: 'photo'
-    }, {
+      photo: 'photo',
+    },
+    {
       _id: '2',
-      photo: 'photo'
-    }, {
+      photo: 'photo',
+    },
+    {
       _id: '3',
-      photo: 'photo'
-    }, {
+      photo: 'photo',
+    },
+    {
       _id: '4',
-      photo: 'photo'
-    }
+      photo: 'photo',
+    },
   ],
   name: 'Shelf',
   shelf: [2, 2],
@@ -24,15 +27,15 @@ export default {
       bookIsbn: '1',
       bookData: bookDetailsMock[0],
       customInformation: {
-        location: [0, 0]
-      }
+        location: [0, 0],
+      },
     },
     {
       bookIsbn: '2',
       bookData: bookDetailsMock[1],
       customInformation: {
-        location: [0, 0]
-      }
-    }
-  ]
+        location: [0, 0],
+      },
+    },
+  ],
 };

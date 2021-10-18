@@ -1,4 +1,4 @@
 export default {
   isAuthenticated: false,
-  needsLogin: false
+  needsLogin: false,
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 import BookListFilter from './BookListFilter';
-import { render, fireEvent } from '../../utils/test.utils';
+import {render, fireEvent} from '../../utils/test.utils';
 
 describe('Given a BookListFilter component', () => {
   describe('When it is rendered', () => {
@@ -8,7 +8,13 @@ describe('Given a BookListFilter component', () => {
     let screen: any;
     beforeEach(() => {
       setFilteredBooks = jest.fn();
-      screen = render(<BookListFilter listName="to read" books={[]} setFilteredBooks={setFilteredBooks} />);
+      screen = render(
+        <BookListFilter
+          listName="to read"
+          books={[]}
+          setFilteredBooks={setFilteredBooks}
+        />,
+      );
     });
 
     test('Then should match the snapshot', () => {

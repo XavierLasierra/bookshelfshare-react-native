@@ -1,7 +1,7 @@
 import axios from 'axios';
 import notificationsActions from './notifications.actions';
 import usersListActions from './usersList.actions';
-import { getUsers } from './usersList.creator';
+import {getUsers} from './usersList.creator';
 import refreshUserToken from './tokens.creator';
 
 jest.mock('axios');
@@ -12,12 +12,12 @@ describe('Given a getUsers function', () => {
     describe('And axios.get is resolved', () => {
       test('Then dispatch should have been called with type LOAD_USERS_LIST and the data axios is resolved with', async () => {
         const dispatch = jest.fn();
-        (axios.get as jest.Mock).mockResolvedValue({ data: {} });
+        (axios.get as jest.Mock).mockResolvedValue({data: {}});
         await getUsers('a', 'token', 'refreshToken')(dispatch);
 
         expect(dispatch).toHaveBeenCalledWith({
           type: usersListActions.LOAD_USERS_LIST,
-          data: {}
+          data: {},
         });
       });
     });
@@ -26,7 +26,7 @@ describe('Given a getUsers function', () => {
         let dispatch: any;
         beforeEach(() => {
           dispatch = jest.fn();
-          (axios.get as jest.Mock).mockRejectedValue({ response: { status: 401 } });
+          (axios.get as jest.Mock).mockRejectedValue({response: {status: 401}});
         });
         describe('And refreshUserToken is resolved', () => {
           describe('And newToken is false', () => {
@@ -36,7 +36,7 @@ describe('Given a getUsers function', () => {
               await getUsers('a', 'token', 'refreshToken')(dispatch);
 
               expect(dispatch).toHaveBeenCalledWith({
-                type: notificationsActions.SERVER_ERROR
+                type: notificationsActions.SERVER_ERROR,
               });
             });
           });
@@ -58,7 +58,7 @@ describe('Given a getUsers function', () => {
             await getUsers('a', 'token', 'refreshToken')(dispatch);
 
             expect(dispatch).toHaveBeenCalledWith({
-              type: notificationsActions.SERVER_ERROR
+              type: notificationsActions.SERVER_ERROR,
             });
           });
         });
@@ -66,21 +66,23 @@ describe('Given a getUsers function', () => {
       describe('And the error status is 500', () => {
         test('Then dispatch should have been called with type LOAD_USER_LIST_ERROR', async () => {
           const dispatch = jest.fn();
-          (axios.get as jest.Mock).mockRejectedValue({ response: { status: 500 } });
+          (axios.get as jest.Mock).mockRejectedValue({response: {status: 500}});
           await getUsers('a', 'token', 'refreshToken')(dispatch);
 
           expect(dispatch).toHaveBeenCalledWith({
-            type: notificationsActions.LOAD_USER_LIST_ERROR
+            type: notificationsActions.LOAD_USER_LIST_ERROR,
           });
         });
       });
       describe('And the error status is not 401 or 500', () => {
         test('Then dispatch should have been called with type SERVER_ERROR', async () => {
           const dispatch = jest.fn();
-          (axios.get as jest.Mock).mockRejectedValue({ response: {} });
+          (axios.get as jest.Mock).mockRejectedValue({response: {}});
           await getUsers('a', 'token', 'refreshToken')(dispatch);
 
-          expect(dispatch).toHaveBeenCalledWith({ type: notificationsActions.SERVER_ERROR });
+          expect(dispatch).toHaveBeenCalledWith({
+            type: notificationsActions.SERVER_ERROR,
+          });
         });
       });
     });

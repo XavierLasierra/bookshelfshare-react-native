@@ -1,22 +1,24 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import {
-  View, Text, TextInput, TouchableOpacity, SafeAreaView
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  SafeAreaView,
 } from 'react-native';
-import {
-  SharedElement
-} from 'react-navigation-shared-element';
-import { useDispatch } from 'react-redux';
-import { IRegisterProps } from '../../types/interfaces';
+import {SharedElement} from 'react-navigation-shared-element';
+import {useDispatch} from 'react-redux';
+import {IRegisterProps} from '../../types/interfaces';
 
-import { validateEmail, validatePassword } from '../../utils/validation.utils';
-import { registerUser } from '../../redux/actions/loggedUser.creator';
+import {validateEmail, validatePassword} from '../../utils/validation.utils';
+import {registerUser} from '../../redux/actions/loggedUser.creator';
 
 import BookIcon from '../../assets/bookIcon.svg';
 import ArrowIcon from '../../assets/arrowIcon.svg';
 import globalStyles from '../../styles/global.styles';
 import styles from './register.styles';
 
-export default function Register({ navigation: { pop } }: IRegisterProps) {
+export default function Register({navigation: {pop}}: IRegisterProps) {
   const dispatch = useDispatch();
   const [username, setUsername] = useState('');
   const [isValidUsername, setValidUsername] = useState(true);
@@ -84,7 +86,7 @@ export default function Register({ navigation: { pop } }: IRegisterProps) {
     if (passwordRepeat !== password) {
       return setValidPasswordRepeat(false);
     }
-    dispatch(registerUser({ username, email, password }));
+    dispatch(registerUser({username, email, password}));
     return pop();
   }
 
@@ -93,16 +95,12 @@ export default function Register({ navigation: { pop } }: IRegisterProps) {
       <TouchableOpacity
         style={globalStyles.backButton}
         onPress={handleLoginNavigation}
-        testID="loginPageButton"
-      >
+        testID="loginPageButton">
         <ArrowIcon width={30} height={30} style={globalStyles.backButtonIcon} />
       </TouchableOpacity>
       <View style={styles.topContainer}>
         <SharedElement id="mainIcon">
-          <BookIcon
-            width={50}
-            height={50}
-          />
+          <BookIcon width={50} height={50} />
         </SharedElement>
       </View>
       <View style={styles.registerContainer}>
@@ -117,7 +115,11 @@ export default function Register({ navigation: { pop } }: IRegisterProps) {
             testID="usernameInput"
             maxLength={25}
           />
-          {!isValidUsername && <Text testID="invalidUsername" style={globalStyles.invalid}>Type your username</Text>}
+          {!isValidUsername && (
+            <Text testID="invalidUsername" style={globalStyles.invalid}>
+              Type your username
+            </Text>
+          )}
         </View>
         <View style={globalStyles.inputContainer}>
           <Text style={globalStyles.inputLabel}>email</Text>
@@ -129,7 +131,11 @@ export default function Register({ navigation: { pop } }: IRegisterProps) {
             testID="emailInput"
             maxLength={25}
           />
-          {!isValidEmail && <Text testID="invalidEmail" style={globalStyles.invalid}>Invalid email</Text>}
+          {!isValidEmail && (
+            <Text testID="invalidEmail" style={globalStyles.invalid}>
+              Invalid email
+            </Text>
+          )}
         </View>
         <View style={globalStyles.inputContainer}>
           <Text style={globalStyles.inputLabel}>password</Text>
@@ -143,10 +149,11 @@ export default function Register({ navigation: { pop } }: IRegisterProps) {
             maxLength={25}
           />
           {!isValidPassword && (
-          <Text testID="invalidPassword" style={[globalStyles.invalid, styles.invalidPasswordText]}>
-            Minimum: 8 characters, 1 uppercase,
-            1 lowercase and 1 number
-          </Text>
+            <Text
+              testID="invalidPassword"
+              style={[globalStyles.invalid, styles.invalidPasswordText]}>
+              Minimum: 8 characters, 1 uppercase, 1 lowercase and 1 number
+            </Text>
           )}
         </View>
         <View style={globalStyles.inputContainer}>
@@ -160,14 +167,16 @@ export default function Register({ navigation: { pop } }: IRegisterProps) {
             testID="passwordRepeatInput"
             maxLength={25}
           />
-          {!isValidPasswordRepeat
-          && <Text testID="invalidPasswordRepeat" style={globalStyles.invalid}>Passwords don&quot;t match</Text>}
+          {!isValidPasswordRepeat && (
+            <Text testID="invalidPasswordRepeat" style={globalStyles.invalid}>
+              Passwords don&quot;t match
+            </Text>
+          )}
         </View>
         <TouchableOpacity
           style={[globalStyles.button, styles.registerButton]}
           onPress={handleRegister}
-          testID="registerButton"
-        >
+          testID="registerButton">
           <Text style={globalStyles.buttonText}>Sign up</Text>
         </TouchableOpacity>
       </View>

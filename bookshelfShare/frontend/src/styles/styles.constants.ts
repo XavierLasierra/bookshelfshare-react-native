@@ -14,17 +14,17 @@ export default {
     shelfOutline: '#958472',
     shelfBackground: '#4D3C2A',
     shelfShadow: '#2F2406',
-    activeShelf: '#BF7B54'
+    activeShelf: '#BF7B54',
   },
   padding: {
     normal: 30,
     mid: 20,
-    small: 10
+    small: 10,
   },
   fontSize: {
     title: 35,
     big: 20,
     mid: 16,
-    small: 12
-  }
+    small: 12,
+  },
 };

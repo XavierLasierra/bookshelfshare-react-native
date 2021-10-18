@@ -1,11 +1,11 @@
 import booksActions from '../actions/books.actions';
 import initialState from '../../constants/booksInitialState.constant';
 import notificationsActions from '../actions/notifications.actions';
-import { IBooksState } from '../../types/interfaces';
+import {IBooksState} from '../../types/interfaces';
 
 interface Action {
-    type: string,
-    data?: any
+  type: string;
+  data?: any;
 }
 
 function booksReducer(books = initialState, action: Action): IBooksState {
@@ -14,7 +14,7 @@ function booksReducer(books = initialState, action: Action): IBooksState {
     case booksActions.LOAD_BOOKS:
       newBooks = {
         results: true,
-        books: action.data
+        books: action.data,
       };
       break;
     case booksActions.CLEAR_BOOKS:
@@ -24,7 +24,7 @@ function booksReducer(books = initialState, action: Action): IBooksState {
     case notificationsActions.LOAD_BOOKS_ERROR:
       newBooks = {
         results: true,
-        books: []
+        books: [],
       };
       break;
     default:

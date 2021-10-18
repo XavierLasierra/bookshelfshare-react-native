@@ -1,19 +1,16 @@
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 import stylesConstants from './styles.constants';
 
 export default StyleSheet.create({
   inputContainer: {
     width: '100%',
-    height: 70
+    height: 70,
   },
   inputLabel: {
-    transform: [
-      { translateX: 5 },
-      { translateY: 20 }
-    ],
+    transform: [{translateX: 5}, {translateY: 20}],
     zIndex: 1,
     fontWeight: 'bold',
-    fontSize: stylesConstants.fontSize.small
+    fontSize: stylesConstants.fontSize.small,
   },
   input: {
     height: '100%',
@@ -23,12 +20,12 @@ export default StyleSheet.create({
     backgroundColor: stylesConstants.colors.white,
     borderRadius: 10,
     borderWidth: 1,
-    borderColor: stylesConstants.colors.secondary
+    borderColor: stylesConstants.colors.secondary,
   },
   title: {
     color: stylesConstants.colors.mainText,
     fontSize: stylesConstants.fontSize.title,
-    fontWeight: '500'
+    fontWeight: '500',
   },
   button: {
     backgroundColor: stylesConstants.colors.dark,
@@ -37,47 +34,47 @@ export default StyleSheet.create({
     justifyContent: 'center',
     borderRadius: 10,
     height: 70,
-    width: '100%'
+    width: '100%',
   },
   buttonText: {
     color: stylesConstants.colors.white,
     fontSize: stylesConstants.fontSize.big,
-    fontWeight: '500'
+    fontWeight: '500',
   },
   invalid: {
     color: stylesConstants.colors.error,
     fontSize: stylesConstants.fontSize.small,
-    paddingHorizontal: 10
+    paddingHorizontal: 10,
   },
   backButton: {
     position: 'absolute',
     top: 35,
     left: 20,
-    zIndex: 1
+    zIndex: 1,
   },
   backButtonTop: {
     position: 'absolute',
     top: 20,
     left: 20,
-    zIndex: 1
+    zIndex: 1,
   },
   backButtonIcon: {
-    transform: [{ rotateZ: '180deg' }]
+    transform: [{rotateZ: '180deg'}],
   },
   text: {
-    fontSize: stylesConstants.fontSize.mid
+    fontSize: stylesConstants.fontSize.mid,
   },
   titleText: {
     fontSize: stylesConstants.fontSize.mid,
     fontWeight: 'bold',
-    marginTop: 5
+    marginTop: 5,
   },
   mainContainer: {
     backgroundColor: stylesConstants.colors.light,
-    minHeight: '100%'
+    minHeight: '100%',
   },
   authenticationContainer: {
-    backgroundColor: stylesConstants.colors.main
+    backgroundColor: stylesConstants.colors.main,
   },
   circularButton: {
     backgroundColor: stylesConstants.colors.white,
@@ -86,39 +83,39 @@ export default StyleSheet.create({
     borderRadius: 100,
     alignItems: 'center',
     justifyContent: 'center',
-    elevation: 5
+    elevation: 5,
   },
   profileContainer: {
-    paddingHorizontal: stylesConstants.padding.normal
+    paddingHorizontal: stylesConstants.padding.normal,
   },
   topContainer: {
     paddingVertical: stylesConstants.padding.small,
     flexDirection: 'row',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   userPhoto: {
     width: 125,
     height: 125,
     borderRadius: 100,
-    marginRight: 30
+    marginRight: 30,
   },
   userInformationContainer: {
-    maxWidth: 200
+    maxWidth: 200,
   },
   userUsername: {
     fontSize: stylesConstants.fontSize.big,
     fontWeight: 'bold',
-    marginBottom: 15
+    marginBottom: 15,
   },
   userEmail: {
-    fontSize: stylesConstants.fontSize.mid
+    fontSize: stylesConstants.fontSize.mid,
   },
   thinInputContainer: {
     flexDirection: 'row',
     width: '100%',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingVertical: 10
+    paddingVertical: 10,
   },
   thinInput: {
     height: '100%',
@@ -128,23 +125,23 @@ export default StyleSheet.create({
     backgroundColor: stylesConstants.colors.white,
     borderRadius: 10,
     borderWidth: 1,
-    borderColor: stylesConstants.colors.secondary
+    borderColor: stylesConstants.colors.secondary,
   },
   toggleContainer: {
     flexDirection: 'row',
-    marginTop: 10
+    marginTop: 10,
   },
   toggle: {
     alignItems: 'center',
     paddingVertical: 10,
     width: 150,
-    backgroundColor: stylesConstants.colors.white
+    backgroundColor: stylesConstants.colors.white,
   },
   toggleActive: {
-    backgroundColor: stylesConstants.colors.secondary
+    backgroundColor: stylesConstants.colors.secondary,
   },
   toggleText: {
-    fontSize: stylesConstants.fontSize.big
+    fontSize: stylesConstants.fontSize.big,
   },
   markButton: {
     height: 40,
@@ -154,10 +151,10 @@ export default StyleSheet.create({
     borderWidth: 1,
     borderColor: stylesConstants.colors.secondary,
     textAlign: 'center',
-    lineHeight: 40
+    lineHeight: 40,
   },
   menuOption: {
     minHeight: 40,
-    justifyContent: 'center'
-  }
+    justifyContent: 'center',
+  },
 });
